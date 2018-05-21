@@ -3,8 +3,12 @@
  */
 package nii.bigclout.ecaadapter.ide;
 
+import com.google.inject.Guice;
 import com.google.inject.Injector;
+import nii.bigclout.ecaadapter.DslRuntimeModule;
 import nii.bigclout.ecaadapter.DslStandaloneSetup;
+import nii.bigclout.ecaadapter.ide.DslIdeModule;
+import org.eclipse.xtext.util.Modules2;
 
 /**
  * Initialization support for running Xtext languages as language servers.
@@ -13,8 +17,8 @@ import nii.bigclout.ecaadapter.DslStandaloneSetup;
 public class DslIdeSetup extends DslStandaloneSetup {
   @Override
   public Injector createInjector() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from DslRuntimeModule to Module"
-      + "\nType mismatch: cannot convert from DslIdeModule to Module");
+    DslRuntimeModule _dslRuntimeModule = new DslRuntimeModule();
+    DslIdeModule _dslIdeModule = new DslIdeModule();
+    return Guice.createInjector(Modules2.mixin(_dslRuntimeModule, _dslIdeModule));
   }
 }

@@ -6,7 +6,6 @@ package nii.bigclout.ecaadapter.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
@@ -149,137 +148,20 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ConceptElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.Concept");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cReferenceNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cReferenceNameIDTerminalRuleCall_0_0 = (RuleCall)cReferenceNameAssignment_0.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueValueParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final Assignment cReferenceNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cReferenceNameIDTerminalRuleCall_0 = (RuleCall)cReferenceNameAssignment.eContents().get(0);
 		
 		//Concept:
 		//	referenceName=ID
-		//	value=Value;
+		//	//value = Value	
+		//;
 		@Override public ParserRule getRule() { return rule; }
-		
-		//referenceName=ID value=Value
-		public Group getGroup() { return cGroup; }
 		
 		//referenceName=ID
-		public Assignment getReferenceNameAssignment_0() { return cReferenceNameAssignment_0; }
+		public Assignment getReferenceNameAssignment() { return cReferenceNameAssignment; }
 		
 		//ID
-		public RuleCall getReferenceNameIDTerminalRuleCall_0_0() { return cReferenceNameIDTerminalRuleCall_0_0; }
-		
-		//value=Value
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
-		
-		//Value
-		public RuleCall getValueValueParserRuleCall_1_0() { return cValueValueParserRuleCall_1_0; }
-	}
-	public class ValueElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.Value");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cBOOLEANTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cIDTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cEXTENDED_IDParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		
-		///**
-		// ServiceMetaData:
-		//	{ServiceMetaData}
-		//	serviceID = ID
-		//	
-		//;
-		//
-		//EnvironmentMetaData:
-		//	{EnvironmentMetaData}
-		//	(envAttribute=EnvironmentAttribute)
-		//;
-		//
-		//EnvironmentAttribute:
-		//	envAttributeID=ID
-		//;
-		//
-		//Transition:
-		//	attributeID=ID
-		//	from = Value
-		//	to = Value
-		//;
-		//*/ Value:
-		//	BOOLEAN | INT | ID | EXTENDED_ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//BOOLEAN | INT | ID | EXTENDED_ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//BOOLEAN
-		public RuleCall getBOOLEANTerminalRuleCall_0() { return cBOOLEANTerminalRuleCall_0; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
-		
-		//ID
-		public RuleCall getIDTerminalRuleCall_2() { return cIDTerminalRuleCall_2; }
-		
-		//EXTENDED_ID
-		public RuleCall getEXTENDED_IDParserRuleCall_3() { return cEXTENDED_IDParserRuleCall_3; }
-	}
-	public class NUMBERElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.NUMBER");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
-		
-		//NUMBER ecore::EBigDecimal:
-		//	INT | INT '.' INT;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//INT | INT '.' INT
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
-		
-		//INT '.' INT
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_1_0() { return cINTTerminalRuleCall_1_0; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_1_2() { return cINTTerminalRuleCall_1_2; }
-	}
-	public class EXTENDED_IDElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.EXTENDED_ID");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		
-		//EXTENDED_ID:
-		//	ID ('.' ID)*;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//ID ('.' ID)*
-		public Group getGroup() { return cGroup; }
-		
-		//ID
-		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
-		
-		//('.' ID)*
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
-		
-		//ID
-		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+		public RuleCall getReferenceNameIDTerminalRuleCall_0() { return cReferenceNameIDTerminalRuleCall_0; }
 	}
 	
 	
@@ -288,12 +170,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final AppSpecificationElements pAppSpecification;
 	private final ElementElements pElement;
 	private final ConceptElements pConcept;
-	private final ValueElements pValue;
-	private final TerminalRule tBOOLEAN;
-	private final TerminalRule tINT;
-	private final NUMBERElements pNUMBER;
-	private final TerminalRule tID;
-	private final EXTENDED_IDElements pEXTENDED_ID;
 	
 	private final Grammar grammar;
 	
@@ -309,12 +185,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAppSpecification = new AppSpecificationElements();
 		this.pElement = new ElementElements();
 		this.pConcept = new ConceptElements();
-		this.pValue = new ValueElements();
-		this.tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.BOOLEAN");
-		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.INT");
-		this.pNUMBER = new NUMBERElements();
-		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.ID");
-		this.pEXTENDED_ID = new EXTENDED_IDElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -394,7 +264,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Concept:
 	//	referenceName=ID
-	//	value=Value;
+	//	//value = Value	
+	//;
 	public ConceptElements getConceptAccess() {
 		return pConcept;
 	}
@@ -403,73 +274,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getConceptAccess().getRule();
 	}
 	
-	///**
-	// ServiceMetaData:
-	//	{ServiceMetaData}
-	//	serviceID = ID
-	//	
-	//;
-	//
-	//EnvironmentMetaData:
-	//	{EnvironmentMetaData}
-	//	(envAttribute=EnvironmentAttribute)
-	//;
-	//
-	//EnvironmentAttribute:
-	//	envAttributeID=ID
-	//;
-	//
-	//Transition:
-	//	attributeID=ID
-	//	from = Value
-	//	to = Value
-	//;
-	//*/ Value:
-	//	BOOLEAN | INT | ID | EXTENDED_ID;
-	public ValueElements getValueAccess() {
-		return pValue;
-	}
-	
-	public ParserRule getValueRule() {
-		return getValueAccess().getRule();
-	}
-	
-	//terminal BOOLEAN returns ecore::EBoolean:
-	//	'true' | 'false';
-	public TerminalRule getBOOLEANRule() {
-		return tBOOLEAN;
+	//terminal ID:
+	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
+	public TerminalRule getIDRule() {
+		return gaTerminals.getIDRule();
 	}
 	
 	//terminal INT returns ecore::EInt:
 	//	'0'..'9'+;
 	public TerminalRule getINTRule() {
-		return tINT;
-	}
-	
-	//NUMBER ecore::EBigDecimal:
-	//	INT | INT '.' INT;
-	public NUMBERElements getNUMBERAccess() {
-		return pNUMBER;
-	}
-	
-	public ParserRule getNUMBERRule() {
-		return getNUMBERAccess().getRule();
-	}
-	
-	//terminal ID:
-	//	'a'..'z' | 'A'..'Z' | '_' | '0'..'9' | ':' | '-'+;
-	public TerminalRule getIDRule() {
-		return tID;
-	}
-	
-	//EXTENDED_ID:
-	//	ID ('.' ID)*;
-	public EXTENDED_IDElements getEXTENDED_IDAccess() {
-		return pEXTENDED_ID;
-	}
-	
-	public ParserRule getEXTENDED_IDRule() {
-		return getEXTENDED_IDAccess().getRule();
+		return gaTerminals.getINTRule();
 	}
 	
 	//terminal STRING:

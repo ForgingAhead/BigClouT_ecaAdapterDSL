@@ -269,16 +269,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getConcept_Value()
-  {
-    return (EAttribute)conceptEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public DslFactory getDslFactory()
   {
     return (DslFactory)getEFactoryInstance();
@@ -322,7 +312,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     conceptEClass = createEClass(CONCEPT);
     createEAttribute(conceptEClass, CONCEPT__REFERENCE_NAME);
-    createEAttribute(conceptEClass, CONCEPT__VALUE);
   }
 
   /**
@@ -374,7 +363,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     initEClass(conceptEClass, Concept.class, "Concept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConcept_ReferenceName(), ecorePackage.getEString(), "referenceName", null, 0, 1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConcept_Value(), ecorePackage.getEString(), "value", null, 0, 1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

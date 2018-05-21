@@ -85,18 +85,15 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Concept returns Concept
 	 *
 	 * Constraint:
-	 *     (referenceName=ID value=Value)
+	 *     referenceName=ID
 	 */
 	protected void sequence_Concept(ISerializationContext context, Concept semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.CONCEPT__REFERENCE_NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.CONCEPT__REFERENCE_NAME));
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.CONCEPT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.CONCEPT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConceptAccess().getReferenceNameIDTerminalRuleCall_0_0(), semanticObject.getReferenceName());
-		feeder.accept(grammarAccess.getConceptAccess().getValueValueParserRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getConceptAccess().getReferenceNameIDTerminalRuleCall_0(), semanticObject.getReferenceName());
 		feeder.finish();
 	}
 	

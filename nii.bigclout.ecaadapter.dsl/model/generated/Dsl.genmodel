@@ -24,7 +24,6 @@
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Concept">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Concept/referenceName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Concept/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

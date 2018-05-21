@@ -126,7 +126,7 @@ ruleAppMetaData returns [EObject current=null]
 						$current,
 						"appID",
 						lv_appID_0_0,
-						"nii.bigclout.ecaadapter.Dsl.ID");
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -270,7 +270,7 @@ ruleElement returns [EObject current=null]
 						$current,
 						"meaning",
 						lv_meaning_0_0,
-						"nii.bigclout.ecaadapter.Dsl.ID");
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -313,143 +313,27 @@ ruleConcept returns [EObject current=null]
 }:
 	(
 		(
-			(
-				lv_referenceName_0_0=RULE_ID
-				{
-					newLeafNode(lv_referenceName_0_0, grammarAccess.getConceptAccess().getReferenceNameIDTerminalRuleCall_0_0());
+			lv_referenceName_0_0=RULE_ID
+			{
+				newLeafNode(lv_referenceName_0_0, grammarAccess.getConceptAccess().getReferenceNameIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getConceptRule());
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getConceptRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"referenceName",
-						lv_referenceName_0_0,
-						"nii.bigclout.ecaadapter.Dsl.ID");
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getConceptAccess().getValueValueParserRuleCall_1_0());
-				}
-				lv_value_1_0=ruleValue
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getConceptRule());
-					}
-					set(
-						$current,
-						"value",
-						lv_value_1_0,
-						"nii.bigclout.ecaadapter.Dsl.Value");
-					afterParserOrEnumRuleCall();
-				}
-			)
+				setWithLastConsumed(
+					$current,
+					"referenceName",
+					lv_referenceName_0_0,
+					"org.eclipse.xtext.common.Terminals.ID");
+			}
 		)
 	)
 ;
 
-// Entry rule entryRuleValue
-entryRuleValue returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getValueRule()); }
-	iv_ruleValue=ruleValue
-	{ $current=$iv_ruleValue.current.getText(); }
-	EOF;
-
-// Rule Value
-ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_BOOLEAN_0=RULE_BOOLEAN
-		{
-			$current.merge(this_BOOLEAN_0);
-		}
-		{
-			newLeafNode(this_BOOLEAN_0, grammarAccess.getValueAccess().getBOOLEANTerminalRuleCall_0());
-		}
-		    |
-		this_INT_1=RULE_INT
-		{
-			$current.merge(this_INT_1);
-		}
-		{
-			newLeafNode(this_INT_1, grammarAccess.getValueAccess().getINTTerminalRuleCall_1());
-		}
-		    |
-		this_ID_2=RULE_ID
-		{
-			$current.merge(this_ID_2);
-		}
-		{
-			newLeafNode(this_ID_2, grammarAccess.getValueAccess().getIDTerminalRuleCall_2());
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getValueAccess().getEXTENDED_IDParserRuleCall_3());
-		}
-		this_EXTENDED_ID_3=ruleEXTENDED_ID
-		{
-			$current.merge(this_EXTENDED_ID_3);
-		}
-		{
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleEXTENDED_ID
-entryRuleEXTENDED_ID returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getEXTENDED_IDRule()); }
-	iv_ruleEXTENDED_ID=ruleEXTENDED_ID
-	{ $current=$iv_ruleEXTENDED_ID.current.getText(); }
-	EOF;
-
-// Rule EXTENDED_ID
-ruleEXTENDED_ID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_ID_0=RULE_ID
-		{
-			$current.merge(this_ID_0);
-		}
-		{
-			newLeafNode(this_ID_0, grammarAccess.getEXTENDED_IDAccess().getIDTerminalRuleCall_0());
-		}
-		(
-			kw='.'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getEXTENDED_IDAccess().getFullStopKeyword_1_0());
-			}
-			this_ID_2=RULE_ID
-			{
-				$current.merge(this_ID_2);
-			}
-			{
-				newLeafNode(this_ID_2, grammarAccess.getEXTENDED_IDAccess().getIDTerminalRuleCall_1_1());
-			}
-		)*
-	)
-;
-
-RULE_BOOLEAN : ('true'|'false');
+RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 RULE_INT : ('0'..'9')+;
-
-RULE_ID : ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|':'|'-')+;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 

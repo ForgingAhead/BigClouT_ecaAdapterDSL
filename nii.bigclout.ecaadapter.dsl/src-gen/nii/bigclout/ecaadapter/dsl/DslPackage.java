@@ -225,22 +225,13 @@ public interface DslPackage extends EPackage
   int CONCEPT__REFERENCE_NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONCEPT__VALUE = 1;
-
-  /**
    * The number of structural features of the '<em>Concept</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONCEPT_FEATURE_COUNT = 2;
+  int CONCEPT_FEATURE_COUNT = 1;
 
 
   /**
@@ -393,17 +384,6 @@ public interface DslPackage extends EPackage
   EAttribute getConcept_ReferenceName();
 
   /**
-   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Concept#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Concept#getValue()
-   * @see #getConcept()
-   * @generated
-   */
-  EAttribute getConcept_Value();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -547,14 +527,6 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EAttribute CONCEPT__REFERENCE_NAME = eINSTANCE.getConcept_ReferenceName();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONCEPT__VALUE = eINSTANCE.getConcept_Value();
 
   }
 

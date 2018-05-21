@@ -3,6 +3,8 @@
  */
 package nii.bigclout.ecaadapter.ui;
 
+import nii.bigclout.ecaadapter.ui.AbstractDslUiModule;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 
 /**
@@ -10,5 +12,8 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
  */
 @FinalFieldsConstructor
 @SuppressWarnings("all")
-public class DslUiModule /* implements AbstractDslUiModule  */{
+public class DslUiModule extends AbstractDslUiModule {
+  public DslUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
+  }
 }

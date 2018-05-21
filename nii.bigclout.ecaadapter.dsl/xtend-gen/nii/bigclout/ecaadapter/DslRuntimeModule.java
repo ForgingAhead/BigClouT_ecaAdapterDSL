@@ -3,9 +3,11 @@
  */
 package nii.bigclout.ecaadapter;
 
+import nii.bigclout.ecaadapter.AbstractDslRuntimeModule;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class DslRuntimeModule /* implements AbstractDslRuntimeModule  */{
+public class DslRuntimeModule extends AbstractDslRuntimeModule {
 }

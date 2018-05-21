@@ -3,9 +3,11 @@
  */
 package nii.bigclout.ecaadapter.ide;
 
+import nii.bigclout.ecaadapter.ide.AbstractDslIdeModule;
+
 /**
  * Use this class to register ide components.
  */
 @SuppressWarnings("all")
-public class DslIdeModule /* implements AbstractDslIdeModule  */{
+public class DslIdeModule extends AbstractDslIdeModule {
 }
