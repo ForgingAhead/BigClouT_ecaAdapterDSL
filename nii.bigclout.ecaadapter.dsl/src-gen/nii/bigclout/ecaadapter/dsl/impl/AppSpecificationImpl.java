@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -59,7 +60,7 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
   protected EList<Element> condition;
 
   /**
-   * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
+   * The cached value of the '{@link #getAction() <em>Action</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getAction()
@@ -126,7 +127,7 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
   {
     if (action == null)
     {
-      action = new EObjectContainmentEList<Element>(Element.class, this, DslPackage.APP_SPECIFICATION__ACTION);
+      action = new EObjectResolvingEList<Element>(Element.class, this, DslPackage.APP_SPECIFICATION__ACTION);
     }
     return action;
   }
@@ -145,8 +146,6 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
         return ((InternalEList<?>)getTrigger()).basicRemove(otherEnd, msgs);
       case DslPackage.APP_SPECIFICATION__CONDITION:
         return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
-      case DslPackage.APP_SPECIFICATION__ACTION:
-        return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }

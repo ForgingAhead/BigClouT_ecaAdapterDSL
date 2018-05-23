@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.Element#getMeaning <em>Meaning</em>}</li>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.Element#getConcept <em>Concept</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.Element#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @see nii.bigclout.ecaadapter.dsl.DslPackage#getElement()
@@ -25,55 +25,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface Element extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Meaning</b></em>' attribute.
+   * Returns the value of the '<em><b>Concept</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Meaning</em>' attribute isn't clear,
+   * If the meaning of the '<em>Concept</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Meaning</em>' attribute.
-   * @see #setMeaning(String)
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getElement_Meaning()
+   * @return the value of the '<em>Concept</em>' attribute.
+   * @see #setConcept(String)
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getElement_Concept()
    * @model
    * @generated
    */
-  String getMeaning();
+  String getConcept();
 
   /**
-   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Element#getMeaning <em>Meaning</em>}' attribute.
+   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Element#getConcept <em>Concept</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Meaning</em>' attribute.
-   * @see #getMeaning()
-   * @generated
-   */
-  void setMeaning(String value);
-
-  /**
-   * Returns the value of the '<em><b>Concept</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Concept</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Concept</em>' containment reference.
-   * @see #setConcept(Concept)
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getElement_Concept()
-   * @model containment="true"
-   * @generated
-   */
-  Concept getConcept();
-
-  /**
-   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Element#getConcept <em>Concept</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Concept</em>' containment reference.
+   * @param value the new value of the '<em>Concept</em>' attribute.
    * @see #getConcept()
    * @generated
    */
-  void setConcept(Concept value);
+  void setConcept(String value);
+
+  /**
+   * Returns the value of the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Code</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Code</em>' attribute.
+   * @see #setCode(String)
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getElement_Code()
+   * @model
+   * @generated
+   */
+  String getCode();
+
+  /**
+   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Element#getCode <em>Code</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Code</em>' attribute.
+   * @see #getCode()
+   * @generated
+   */
+  void setCode(String value);
 
 } // Element

@@ -60,13 +60,166 @@ public interface DslFactory extends EFactory
   Element createElement();
 
   /**
-   * Returns a new object of class '<em>Concept</em>'.
+   * Returns a new object of class '<em>Trigger</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Concept</em>'.
+   * @return a new object of class '<em>Trigger</em>'.
    * @generated
    */
-  Concept createConcept();
+  Trigger createTrigger();
+
+  /**
+   * Returns a new object of class '<em>Or Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Or Element</em>'.
+   * @generated
+   */
+  OrElement createOrElement();
+
+  /**
+   * Returns a new object of class '<em>And Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>And Element</em>'.
+   * @generated
+   */
+  AndElement createAndElement();
+
+  /**
+   * Returns a new object of class '<em>Diff Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Diff Element</em>'.
+   * @generated
+   */
+  DiffElement createDiffElement();
+
+  /**
+   * Returns a new object of class '<em>Equal Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Equal Element</em>'.
+   * @generated
+   */
+  EqualElement createEqualElement();
+
+  /**
+   * Returns a new object of class '<em>Larger Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Larger Element</em>'.
+   * @generated
+   */
+  LargerElement createLargerElement();
+
+  /**
+   * Returns a new object of class '<em>Larger Equal Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Larger Equal Element</em>'.
+   * @generated
+   */
+  LargerEqualElement createLargerEqualElement();
+
+  /**
+   * Returns a new object of class '<em>Smaller Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Smaller Element</em>'.
+   * @generated
+   */
+  SmallerElement createSmallerElement();
+
+  /**
+   * Returns a new object of class '<em>Smaller Equal Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Smaller Equal Element</em>'.
+   * @generated
+   */
+  SmallerEqualElement createSmallerEqualElement();
+
+  /**
+   * Returns a new object of class '<em>Plus Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Plus Element</em>'.
+   * @generated
+   */
+  PlusElement createPlusElement();
+
+  /**
+   * Returns a new object of class '<em>Minus Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Minus Element</em>'.
+   * @generated
+   */
+  MinusElement createMinusElement();
+
+  /**
+   * Returns a new object of class '<em>Multiplication Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Multiplication Element</em>'.
+   * @generated
+   */
+  MultiplicationElement createMultiplicationElement();
+
+  /**
+   * Returns a new object of class '<em>Division Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Division Element</em>'.
+   * @generated
+   */
+  DivisionElement createDivisionElement();
+
+  /**
+   * Returns a new object of class '<em>Modulo Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Modulo Element</em>'.
+   * @generated
+   */
+  ModuloElement createModuloElement();
+
+  /**
+   * Returns a new object of class '<em>Number Object</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Number Object</em>'.
+   * @generated
+   */
+  Number_Object createNumber_Object();
+
+  /**
+   * Returns a new object of class '<em>String Object</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Object</em>'.
+   * @generated
+   */
+  String_Object createString_Object();
+
+  /**
+   * Returns a new object of class '<em>Boolean Object</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Object</em>'.
+   * @generated
+   */
+  Boolean_Object createBoolean_Object();
+
+  /**
+   * Returns a new object of class '<em>Negate Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Negate Element</em>'.
+   * @generated
+   */
+  NegateElement createNegateElement();
 
   /**
    * Returns the package supported by this factory.

@@ -60,17 +60,17 @@ public interface AppSpecification extends EObject
   EList<Element> getCondition();
 
   /**
-   * Returns the value of the '<em><b>Action</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Action</b></em>' reference list.
    * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.Element}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Action</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Action</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Action</em>' containment reference list.
+   * @return the value of the '<em>Action</em>' reference list.
    * @see nii.bigclout.ecaadapter.dsl.DslPackage#getAppSpecification_Action()
-   * @model containment="true"
+   * @model
    * @generated
    */
   EList<Element> getAction();

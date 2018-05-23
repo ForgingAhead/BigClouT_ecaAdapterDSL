@@ -96,9 +96,94 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createElementAdapter();
       }
       @Override
-      public Adapter caseConcept(Concept object)
+      public Adapter caseTrigger(Trigger object)
       {
-        return createConceptAdapter();
+        return createTriggerAdapter();
+      }
+      @Override
+      public Adapter caseOrElement(OrElement object)
+      {
+        return createOrElementAdapter();
+      }
+      @Override
+      public Adapter caseAndElement(AndElement object)
+      {
+        return createAndElementAdapter();
+      }
+      @Override
+      public Adapter caseDiffElement(DiffElement object)
+      {
+        return createDiffElementAdapter();
+      }
+      @Override
+      public Adapter caseEqualElement(EqualElement object)
+      {
+        return createEqualElementAdapter();
+      }
+      @Override
+      public Adapter caseLargerElement(LargerElement object)
+      {
+        return createLargerElementAdapter();
+      }
+      @Override
+      public Adapter caseLargerEqualElement(LargerEqualElement object)
+      {
+        return createLargerEqualElementAdapter();
+      }
+      @Override
+      public Adapter caseSmallerElement(SmallerElement object)
+      {
+        return createSmallerElementAdapter();
+      }
+      @Override
+      public Adapter caseSmallerEqualElement(SmallerEqualElement object)
+      {
+        return createSmallerEqualElementAdapter();
+      }
+      @Override
+      public Adapter casePlusElement(PlusElement object)
+      {
+        return createPlusElementAdapter();
+      }
+      @Override
+      public Adapter caseMinusElement(MinusElement object)
+      {
+        return createMinusElementAdapter();
+      }
+      @Override
+      public Adapter caseMultiplicationElement(MultiplicationElement object)
+      {
+        return createMultiplicationElementAdapter();
+      }
+      @Override
+      public Adapter caseDivisionElement(DivisionElement object)
+      {
+        return createDivisionElementAdapter();
+      }
+      @Override
+      public Adapter caseModuloElement(ModuloElement object)
+      {
+        return createModuloElementAdapter();
+      }
+      @Override
+      public Adapter caseNumber_Object(Number_Object object)
+      {
+        return createNumber_ObjectAdapter();
+      }
+      @Override
+      public Adapter caseString_Object(String_Object object)
+      {
+        return createString_ObjectAdapter();
+      }
+      @Override
+      public Adapter caseBoolean_Object(Boolean_Object object)
+      {
+        return createBoolean_ObjectAdapter();
+      }
+      @Override
+      public Adapter caseNegateElement(NegateElement object)
+      {
+        return createNegateElementAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -183,16 +268,271 @@ public class DslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Concept <em>Concept</em>}'.
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Trigger <em>Trigger</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nii.bigclout.ecaadapter.dsl.Concept
+   * @see nii.bigclout.ecaadapter.dsl.Trigger
    * @generated
    */
-  public Adapter createConceptAdapter()
+  public Adapter createTriggerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.OrElement <em>Or Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.OrElement
+   * @generated
+   */
+  public Adapter createOrElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.AndElement <em>And Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.AndElement
+   * @generated
+   */
+  public Adapter createAndElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.DiffElement <em>Diff Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.DiffElement
+   * @generated
+   */
+  public Adapter createDiffElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.EqualElement <em>Equal Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.EqualElement
+   * @generated
+   */
+  public Adapter createEqualElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.LargerElement <em>Larger Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.LargerElement
+   * @generated
+   */
+  public Adapter createLargerElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.LargerEqualElement <em>Larger Equal Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.LargerEqualElement
+   * @generated
+   */
+  public Adapter createLargerEqualElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.SmallerElement <em>Smaller Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.SmallerElement
+   * @generated
+   */
+  public Adapter createSmallerElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.SmallerEqualElement <em>Smaller Equal Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.SmallerEqualElement
+   * @generated
+   */
+  public Adapter createSmallerEqualElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.PlusElement <em>Plus Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.PlusElement
+   * @generated
+   */
+  public Adapter createPlusElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.MinusElement <em>Minus Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.MinusElement
+   * @generated
+   */
+  public Adapter createMinusElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.MultiplicationElement <em>Multiplication Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.MultiplicationElement
+   * @generated
+   */
+  public Adapter createMultiplicationElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.DivisionElement <em>Division Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.DivisionElement
+   * @generated
+   */
+  public Adapter createDivisionElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.ModuloElement <em>Modulo Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.ModuloElement
+   * @generated
+   */
+  public Adapter createModuloElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Number_Object <em>Number Object</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.Number_Object
+   * @generated
+   */
+  public Adapter createNumber_ObjectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.String_Object <em>String Object</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.String_Object
+   * @generated
+   */
+  public Adapter createString_ObjectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Boolean_Object <em>Boolean Object</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.Boolean_Object
+   * @generated
+   */
+  public Adapter createBoolean_ObjectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.NegateElement <em>Negate Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.NegateElement
+   * @generated
+   */
+  public Adapter createNegateElementAdapter()
   {
     return null;
   }

@@ -3,57 +3,58 @@
  */
 package nii.bigclout.ecaadapter.dsl.impl;
 
-import nii.bigclout.ecaadapter.dsl.Concept;
+import java.math.BigDecimal;
+
 import nii.bigclout.ecaadapter.dsl.DslPackage;
+import nii.bigclout.ecaadapter.dsl.Number_Object;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Concept</b></em>'.
+ * An implementation of the model object '<em><b>Number Object</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.ConceptImpl#getReferenceName <em>Reference Name</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.Number_ObjectImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
+public class Number_ObjectImpl extends ElementImpl implements Number_Object
 {
   /**
-   * The default value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReferenceName()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String REFERENCE_NAME_EDEFAULT = null;
+  protected static final BigDecimal VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReferenceName()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String referenceName = REFERENCE_NAME_EDEFAULT;
+  protected BigDecimal value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ConceptImpl()
+  protected Number_ObjectImpl()
   {
     super();
   }
@@ -66,7 +67,7 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   @Override
   protected EClass eStaticClass()
   {
-    return DslPackage.Literals.CONCEPT;
+    return DslPackage.Literals.NUMBER_OBJECT;
   }
 
   /**
@@ -74,9 +75,9 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getReferenceName()
+  public BigDecimal getValue()
   {
-    return referenceName;
+    return value;
   }
 
   /**
@@ -84,12 +85,12 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setReferenceName(String newReferenceName)
+  public void setValue(BigDecimal newValue)
   {
-    String oldReferenceName = referenceName;
-    referenceName = newReferenceName;
+    BigDecimal oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.CONCEPT__REFERENCE_NAME, oldReferenceName, referenceName));
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.NUMBER_OBJECT__VALUE, oldValue, value));
   }
 
   /**
@@ -102,8 +103,8 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   {
     switch (featureID)
     {
-      case DslPackage.CONCEPT__REFERENCE_NAME:
-        return getReferenceName();
+      case DslPackage.NUMBER_OBJECT__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +119,8 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   {
     switch (featureID)
     {
-      case DslPackage.CONCEPT__REFERENCE_NAME:
-        setReferenceName((String)newValue);
+      case DslPackage.NUMBER_OBJECT__VALUE:
+        setValue((BigDecimal)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +136,8 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   {
     switch (featureID)
     {
-      case DslPackage.CONCEPT__REFERENCE_NAME:
-        setReferenceName(REFERENCE_NAME_EDEFAULT);
+      case DslPackage.NUMBER_OBJECT__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +153,8 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   {
     switch (featureID)
     {
-      case DslPackage.CONCEPT__REFERENCE_NAME:
-        return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
+      case DslPackage.NUMBER_OBJECT__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -169,10 +170,10 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (referenceName: ");
-    result.append(referenceName);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }
 
-} //ConceptImpl
+} //Number_ObjectImpl

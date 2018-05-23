@@ -15,15 +15,106 @@
         eType="#//Element" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" upperBound="-1"
         eType="#//Element" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="action" upperBound="-1"
-        eType="#//Element" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" unique="false"
+        upperBound="-1" eType="#//Element"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="meaning" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="concept" eType="#//Concept"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="concept" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Concept">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AndElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DiffElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EqualElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LargerElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LargerEqualElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SmallerElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SmallerEqualElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlusElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MinusElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiplicationElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DivisionElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuloElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Number_Object" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="String_Object" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Boolean_Object" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NegateElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Element"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

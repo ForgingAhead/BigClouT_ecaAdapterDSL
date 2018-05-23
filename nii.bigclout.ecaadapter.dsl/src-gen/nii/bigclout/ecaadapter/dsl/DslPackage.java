@@ -151,7 +151,7 @@ public interface DslPackage extends EPackage
   int APP_SPECIFICATION__CONDITION = 1;
 
   /**
-   * The feature id for the '<em><b>Action</b></em>' containment reference list.
+   * The feature id for the '<em><b>Action</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -179,22 +179,22 @@ public interface DslPackage extends EPackage
   int ELEMENT = 3;
 
   /**
-   * The feature id for the '<em><b>Meaning</b></em>' attribute.
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ELEMENT__MEANING = 0;
+  int ELEMENT__CONCEPT = 0;
 
   /**
-   * The feature id for the '<em><b>Concept</b></em>' containment reference.
+   * The feature id for the '<em><b>Code</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ELEMENT__CONCEPT = 1;
+  int ELEMENT__CODE = 1;
 
   /**
    * The number of structural features of the '<em>Element</em>' class.
@@ -206,32 +206,940 @@ public interface DslPackage extends EPackage
   int ELEMENT_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.ConceptImpl <em>Concept</em>}' class.
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.TriggerImpl <em>Trigger</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nii.bigclout.ecaadapter.dsl.impl.ConceptImpl
-   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getConcept()
+   * @see nii.bigclout.ecaadapter.dsl.impl.TriggerImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getTrigger()
    * @generated
    */
-  int CONCEPT = 4;
+  int TRIGGER = 4;
 
   /**
-   * The feature id for the '<em><b>Reference Name</b></em>' attribute.
+   * The feature id for the '<em><b>Event Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONCEPT__REFERENCE_NAME = 0;
+  int TRIGGER__EVENT_NAME = 0;
 
   /**
-   * The number of structural features of the '<em>Concept</em>' class.
+   * The feature id for the '<em><b>Code</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONCEPT_FEATURE_COUNT = 1;
+  int TRIGGER__CODE = 1;
+
+  /**
+   * The number of structural features of the '<em>Trigger</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRIGGER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.OrElementImpl <em>Or Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.OrElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getOrElement()
+   * @generated
+   */
+  int OR_ELEMENT = 5;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Or Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.AndElementImpl <em>And Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.AndElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getAndElement()
+   * @generated
+   */
+  int AND_ELEMENT = 6;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>And Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.DiffElementImpl <em>Diff Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.DiffElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getDiffElement()
+   * @generated
+   */
+  int DIFF_ELEMENT = 7;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIFF_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIFF_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIFF_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIFF_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Diff Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIFF_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.EqualElementImpl <em>Equal Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.EqualElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getEqualElement()
+   * @generated
+   */
+  int EQUAL_ELEMENT = 8;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Equal Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUAL_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.LargerElementImpl <em>Larger Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.LargerElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getLargerElement()
+   * @generated
+   */
+  int LARGER_ELEMENT = 9;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LARGER_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LARGER_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LARGER_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LARGER_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Larger Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LARGER_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.LargerEqualElementImpl <em>Larger Equal Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.LargerEqualElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getLargerEqualElement()
+   * @generated
+   */
+  int LARGER_EQUAL_ELEMENT = 10;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LARGER_EQUAL_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LARGER_EQUAL_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LARGER_EQUAL_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LARGER_EQUAL_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Larger Equal Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LARGER_EQUAL_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.SmallerElementImpl <em>Smaller Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.SmallerElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSmallerElement()
+   * @generated
+   */
+  int SMALLER_ELEMENT = 11;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SMALLER_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SMALLER_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SMALLER_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SMALLER_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Smaller Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SMALLER_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.SmallerEqualElementImpl <em>Smaller Equal Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.SmallerEqualElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSmallerEqualElement()
+   * @generated
+   */
+  int SMALLER_EQUAL_ELEMENT = 12;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SMALLER_EQUAL_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SMALLER_EQUAL_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SMALLER_EQUAL_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SMALLER_EQUAL_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Smaller Equal Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SMALLER_EQUAL_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.PlusElementImpl <em>Plus Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.PlusElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getPlusElement()
+   * @generated
+   */
+  int PLUS_ELEMENT = 13;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Plus Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.MinusElementImpl <em>Minus Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.MinusElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMinusElement()
+   * @generated
+   */
+  int MINUS_ELEMENT = 14;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Minus Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.MultiplicationElementImpl <em>Multiplication Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.MultiplicationElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMultiplicationElement()
+   * @generated
+   */
+  int MULTIPLICATION_ELEMENT = 15;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATION_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATION_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATION_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATION_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Multiplication Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATION_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.DivisionElementImpl <em>Division Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.DivisionElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getDivisionElement()
+   * @generated
+   */
+  int DIVISION_ELEMENT = 16;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIVISION_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIVISION_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIVISION_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIVISION_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Division Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIVISION_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.ModuloElementImpl <em>Modulo Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.ModuloElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getModuloElement()
+   * @generated
+   */
+  int MODULO_ELEMENT = 17;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULO_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULO_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULO_ELEMENT__LEFT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULO_ELEMENT__RIGHT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Modulo Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULO_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.Number_ObjectImpl <em>Number Object</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.Number_ObjectImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getNumber_Object()
+   * @generated
+   */
+  int NUMBER_OBJECT = 18;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_OBJECT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_OBJECT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_OBJECT__VALUE = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Number Object</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_OBJECT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.String_ObjectImpl <em>String Object</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.String_ObjectImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getString_Object()
+   * @generated
+   */
+  int STRING_OBJECT = 19;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_OBJECT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_OBJECT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_OBJECT__VALUE = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Object</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_OBJECT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.Boolean_ObjectImpl <em>Boolean Object</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.Boolean_ObjectImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getBoolean_Object()
+   * @generated
+   */
+  int BOOLEAN_OBJECT = 20;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_OBJECT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_OBJECT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_OBJECT__VALUE = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Boolean Object</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_OBJECT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.NegateElementImpl <em>Negate Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.NegateElementImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getNegateElement()
+   * @generated
+   */
+  int NEGATE_ELEMENT = 21;
+
+  /**
+   * The feature id for the '<em><b>Concept</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEGATE_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEGATE_ELEMENT__CODE = ELEMENT__CODE;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEGATE_ELEMENT__EXP = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Negate Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEGATE_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
 
 
   /**
@@ -320,10 +1228,10 @@ public interface DslPackage extends EPackage
   EReference getAppSpecification_Condition();
 
   /**
-   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getAction <em>Action</em>}'.
+   * Returns the meta object for the reference list '{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getAction <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Action</em>'.
+   * @return the meta object for the reference list '<em>Action</em>'.
    * @see nii.bigclout.ecaadapter.dsl.AppSpecification#getAction()
    * @see #getAppSpecification()
    * @generated
@@ -341,47 +1249,558 @@ public interface DslPackage extends EPackage
   EClass getElement();
 
   /**
-   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Element#getMeaning <em>Meaning</em>}'.
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Element#getConcept <em>Concept</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Meaning</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Element#getMeaning()
-   * @see #getElement()
-   * @generated
-   */
-  EAttribute getElement_Meaning();
-
-  /**
-   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.Element#getConcept <em>Concept</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Concept</em>'.
+   * @return the meta object for the attribute '<em>Concept</em>'.
    * @see nii.bigclout.ecaadapter.dsl.Element#getConcept()
    * @see #getElement()
    * @generated
    */
-  EReference getElement_Concept();
+  EAttribute getElement_Concept();
 
   /**
-   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.Concept <em>Concept</em>}'.
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Element#getCode <em>Code</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Concept</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Concept
+   * @return the meta object for the attribute '<em>Code</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Element#getCode()
+   * @see #getElement()
    * @generated
    */
-  EClass getConcept();
+  EAttribute getElement_Code();
 
   /**
-   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Concept#getReferenceName <em>Reference Name</em>}'.
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.Trigger <em>Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Reference Name</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Concept#getReferenceName()
-   * @see #getConcept()
+   * @return the meta object for class '<em>Trigger</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Trigger
    * @generated
    */
-  EAttribute getConcept_ReferenceName();
+  EClass getTrigger();
+
+  /**
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Trigger#getEventName <em>Event Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Event Name</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Trigger#getEventName()
+   * @see #getTrigger()
+   * @generated
+   */
+  EAttribute getTrigger_EventName();
+
+  /**
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Trigger#getCode <em>Code</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Code</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Trigger#getCode()
+   * @see #getTrigger()
+   * @generated
+   */
+  EAttribute getTrigger_Code();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.OrElement <em>Or Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Or Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.OrElement
+   * @generated
+   */
+  EClass getOrElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.OrElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.OrElement#getLeft()
+   * @see #getOrElement()
+   * @generated
+   */
+  EReference getOrElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.OrElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.OrElement#getRight()
+   * @see #getOrElement()
+   * @generated
+   */
+  EReference getOrElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.AndElement <em>And Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>And Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.AndElement
+   * @generated
+   */
+  EClass getAndElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.AndElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.AndElement#getLeft()
+   * @see #getAndElement()
+   * @generated
+   */
+  EReference getAndElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.AndElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.AndElement#getRight()
+   * @see #getAndElement()
+   * @generated
+   */
+  EReference getAndElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.DiffElement <em>Diff Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Diff Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.DiffElement
+   * @generated
+   */
+  EClass getDiffElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.DiffElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.DiffElement#getLeft()
+   * @see #getDiffElement()
+   * @generated
+   */
+  EReference getDiffElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.DiffElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.DiffElement#getRight()
+   * @see #getDiffElement()
+   * @generated
+   */
+  EReference getDiffElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.EqualElement <em>Equal Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Equal Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.EqualElement
+   * @generated
+   */
+  EClass getEqualElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.EqualElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.EqualElement#getLeft()
+   * @see #getEqualElement()
+   * @generated
+   */
+  EReference getEqualElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.EqualElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.EqualElement#getRight()
+   * @see #getEqualElement()
+   * @generated
+   */
+  EReference getEqualElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.LargerElement <em>Larger Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Larger Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.LargerElement
+   * @generated
+   */
+  EClass getLargerElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.LargerElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.LargerElement#getLeft()
+   * @see #getLargerElement()
+   * @generated
+   */
+  EReference getLargerElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.LargerElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.LargerElement#getRight()
+   * @see #getLargerElement()
+   * @generated
+   */
+  EReference getLargerElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.LargerEqualElement <em>Larger Equal Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Larger Equal Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.LargerEqualElement
+   * @generated
+   */
+  EClass getLargerEqualElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.LargerEqualElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.LargerEqualElement#getLeft()
+   * @see #getLargerEqualElement()
+   * @generated
+   */
+  EReference getLargerEqualElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.LargerEqualElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.LargerEqualElement#getRight()
+   * @see #getLargerEqualElement()
+   * @generated
+   */
+  EReference getLargerEqualElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.SmallerElement <em>Smaller Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Smaller Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.SmallerElement
+   * @generated
+   */
+  EClass getSmallerElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.SmallerElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.SmallerElement#getLeft()
+   * @see #getSmallerElement()
+   * @generated
+   */
+  EReference getSmallerElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.SmallerElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.SmallerElement#getRight()
+   * @see #getSmallerElement()
+   * @generated
+   */
+  EReference getSmallerElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.SmallerEqualElement <em>Smaller Equal Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Smaller Equal Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.SmallerEqualElement
+   * @generated
+   */
+  EClass getSmallerEqualElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.SmallerEqualElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.SmallerEqualElement#getLeft()
+   * @see #getSmallerEqualElement()
+   * @generated
+   */
+  EReference getSmallerEqualElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.SmallerEqualElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.SmallerEqualElement#getRight()
+   * @see #getSmallerEqualElement()
+   * @generated
+   */
+  EReference getSmallerEqualElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.PlusElement <em>Plus Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Plus Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.PlusElement
+   * @generated
+   */
+  EClass getPlusElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.PlusElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.PlusElement#getLeft()
+   * @see #getPlusElement()
+   * @generated
+   */
+  EReference getPlusElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.PlusElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.PlusElement#getRight()
+   * @see #getPlusElement()
+   * @generated
+   */
+  EReference getPlusElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.MinusElement <em>Minus Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Minus Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.MinusElement
+   * @generated
+   */
+  EClass getMinusElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.MinusElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.MinusElement#getLeft()
+   * @see #getMinusElement()
+   * @generated
+   */
+  EReference getMinusElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.MinusElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.MinusElement#getRight()
+   * @see #getMinusElement()
+   * @generated
+   */
+  EReference getMinusElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.MultiplicationElement <em>Multiplication Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Multiplication Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.MultiplicationElement
+   * @generated
+   */
+  EClass getMultiplicationElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.MultiplicationElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.MultiplicationElement#getLeft()
+   * @see #getMultiplicationElement()
+   * @generated
+   */
+  EReference getMultiplicationElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.MultiplicationElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.MultiplicationElement#getRight()
+   * @see #getMultiplicationElement()
+   * @generated
+   */
+  EReference getMultiplicationElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.DivisionElement <em>Division Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Division Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.DivisionElement
+   * @generated
+   */
+  EClass getDivisionElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.DivisionElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.DivisionElement#getLeft()
+   * @see #getDivisionElement()
+   * @generated
+   */
+  EReference getDivisionElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.DivisionElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.DivisionElement#getRight()
+   * @see #getDivisionElement()
+   * @generated
+   */
+  EReference getDivisionElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.ModuloElement <em>Modulo Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Modulo Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.ModuloElement
+   * @generated
+   */
+  EClass getModuloElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.ModuloElement#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.ModuloElement#getLeft()
+   * @see #getModuloElement()
+   * @generated
+   */
+  EReference getModuloElement_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.ModuloElement#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.ModuloElement#getRight()
+   * @see #getModuloElement()
+   * @generated
+   */
+  EReference getModuloElement_Right();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.Number_Object <em>Number Object</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Number Object</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Number_Object
+   * @generated
+   */
+  EClass getNumber_Object();
+
+  /**
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Number_Object#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Number_Object#getValue()
+   * @see #getNumber_Object()
+   * @generated
+   */
+  EAttribute getNumber_Object_Value();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.String_Object <em>String Object</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Object</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.String_Object
+   * @generated
+   */
+  EClass getString_Object();
+
+  /**
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.String_Object#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.String_Object#getValue()
+   * @see #getString_Object()
+   * @generated
+   */
+  EAttribute getString_Object_Value();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.Boolean_Object <em>Boolean Object</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Boolean Object</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Boolean_Object
+   * @generated
+   */
+  EClass getBoolean_Object();
+
+  /**
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Boolean_Object#isValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Boolean_Object#isValue()
+   * @see #getBoolean_Object()
+   * @generated
+   */
+  EAttribute getBoolean_Object_Value();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.NegateElement <em>Negate Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Negate Element</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.NegateElement
+   * @generated
+   */
+  EClass getNegateElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.NegateElement#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.NegateElement#getExp()
+   * @see #getNegateElement()
+   * @generated
+   */
+  EReference getNegateElement_Exp();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -477,7 +1896,7 @@ public interface DslPackage extends EPackage
     EReference APP_SPECIFICATION__CONDITION = eINSTANCE.getAppSpecification_Condition();
 
     /**
-     * The meta object literal for the '<em><b>Action</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Action</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -495,38 +1914,456 @@ public interface DslPackage extends EPackage
     EClass ELEMENT = eINSTANCE.getElement();
 
     /**
-     * The meta object literal for the '<em><b>Meaning</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Concept</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ELEMENT__MEANING = eINSTANCE.getElement_Meaning();
+    EAttribute ELEMENT__CONCEPT = eINSTANCE.getElement_Concept();
 
     /**
-     * The meta object literal for the '<em><b>Concept</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ELEMENT__CONCEPT = eINSTANCE.getElement_Concept();
+    EAttribute ELEMENT__CODE = eINSTANCE.getElement_Code();
 
     /**
-     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.ConceptImpl <em>Concept</em>}' class.
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.TriggerImpl <em>Trigger</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nii.bigclout.ecaadapter.dsl.impl.ConceptImpl
-     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getConcept()
+     * @see nii.bigclout.ecaadapter.dsl.impl.TriggerImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getTrigger()
      * @generated
      */
-    EClass CONCEPT = eINSTANCE.getConcept();
+    EClass TRIGGER = eINSTANCE.getTrigger();
 
     /**
-     * The meta object literal for the '<em><b>Reference Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Event Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONCEPT__REFERENCE_NAME = eINSTANCE.getConcept_ReferenceName();
+    EAttribute TRIGGER__EVENT_NAME = eINSTANCE.getTrigger_EventName();
+
+    /**
+     * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TRIGGER__CODE = eINSTANCE.getTrigger_Code();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.OrElementImpl <em>Or Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.OrElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getOrElement()
+     * @generated
+     */
+    EClass OR_ELEMENT = eINSTANCE.getOrElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OR_ELEMENT__LEFT = eINSTANCE.getOrElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OR_ELEMENT__RIGHT = eINSTANCE.getOrElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.AndElementImpl <em>And Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.AndElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getAndElement()
+     * @generated
+     */
+    EClass AND_ELEMENT = eINSTANCE.getAndElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference AND_ELEMENT__LEFT = eINSTANCE.getAndElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference AND_ELEMENT__RIGHT = eINSTANCE.getAndElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.DiffElementImpl <em>Diff Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.DiffElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getDiffElement()
+     * @generated
+     */
+    EClass DIFF_ELEMENT = eINSTANCE.getDiffElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIFF_ELEMENT__LEFT = eINSTANCE.getDiffElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIFF_ELEMENT__RIGHT = eINSTANCE.getDiffElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.EqualElementImpl <em>Equal Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.EqualElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getEqualElement()
+     * @generated
+     */
+    EClass EQUAL_ELEMENT = eINSTANCE.getEqualElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EQUAL_ELEMENT__LEFT = eINSTANCE.getEqualElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EQUAL_ELEMENT__RIGHT = eINSTANCE.getEqualElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.LargerElementImpl <em>Larger Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.LargerElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getLargerElement()
+     * @generated
+     */
+    EClass LARGER_ELEMENT = eINSTANCE.getLargerElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LARGER_ELEMENT__LEFT = eINSTANCE.getLargerElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LARGER_ELEMENT__RIGHT = eINSTANCE.getLargerElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.LargerEqualElementImpl <em>Larger Equal Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.LargerEqualElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getLargerEqualElement()
+     * @generated
+     */
+    EClass LARGER_EQUAL_ELEMENT = eINSTANCE.getLargerEqualElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LARGER_EQUAL_ELEMENT__LEFT = eINSTANCE.getLargerEqualElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LARGER_EQUAL_ELEMENT__RIGHT = eINSTANCE.getLargerEqualElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.SmallerElementImpl <em>Smaller Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.SmallerElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSmallerElement()
+     * @generated
+     */
+    EClass SMALLER_ELEMENT = eINSTANCE.getSmallerElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SMALLER_ELEMENT__LEFT = eINSTANCE.getSmallerElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SMALLER_ELEMENT__RIGHT = eINSTANCE.getSmallerElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.SmallerEqualElementImpl <em>Smaller Equal Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.SmallerEqualElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSmallerEqualElement()
+     * @generated
+     */
+    EClass SMALLER_EQUAL_ELEMENT = eINSTANCE.getSmallerEqualElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SMALLER_EQUAL_ELEMENT__LEFT = eINSTANCE.getSmallerEqualElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SMALLER_EQUAL_ELEMENT__RIGHT = eINSTANCE.getSmallerEqualElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.PlusElementImpl <em>Plus Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.PlusElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getPlusElement()
+     * @generated
+     */
+    EClass PLUS_ELEMENT = eINSTANCE.getPlusElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLUS_ELEMENT__LEFT = eINSTANCE.getPlusElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLUS_ELEMENT__RIGHT = eINSTANCE.getPlusElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.MinusElementImpl <em>Minus Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.MinusElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMinusElement()
+     * @generated
+     */
+    EClass MINUS_ELEMENT = eINSTANCE.getMinusElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MINUS_ELEMENT__LEFT = eINSTANCE.getMinusElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MINUS_ELEMENT__RIGHT = eINSTANCE.getMinusElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.MultiplicationElementImpl <em>Multiplication Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.MultiplicationElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMultiplicationElement()
+     * @generated
+     */
+    EClass MULTIPLICATION_ELEMENT = eINSTANCE.getMultiplicationElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MULTIPLICATION_ELEMENT__LEFT = eINSTANCE.getMultiplicationElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MULTIPLICATION_ELEMENT__RIGHT = eINSTANCE.getMultiplicationElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.DivisionElementImpl <em>Division Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.DivisionElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getDivisionElement()
+     * @generated
+     */
+    EClass DIVISION_ELEMENT = eINSTANCE.getDivisionElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIVISION_ELEMENT__LEFT = eINSTANCE.getDivisionElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIVISION_ELEMENT__RIGHT = eINSTANCE.getDivisionElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.ModuloElementImpl <em>Modulo Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.ModuloElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getModuloElement()
+     * @generated
+     */
+    EClass MODULO_ELEMENT = eINSTANCE.getModuloElement();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODULO_ELEMENT__LEFT = eINSTANCE.getModuloElement_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODULO_ELEMENT__RIGHT = eINSTANCE.getModuloElement_Right();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.Number_ObjectImpl <em>Number Object</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.Number_ObjectImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getNumber_Object()
+     * @generated
+     */
+    EClass NUMBER_OBJECT = eINSTANCE.getNumber_Object();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUMBER_OBJECT__VALUE = eINSTANCE.getNumber_Object_Value();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.String_ObjectImpl <em>String Object</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.String_ObjectImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getString_Object()
+     * @generated
+     */
+    EClass STRING_OBJECT = eINSTANCE.getString_Object();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_OBJECT__VALUE = eINSTANCE.getString_Object_Value();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.Boolean_ObjectImpl <em>Boolean Object</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.Boolean_ObjectImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getBoolean_Object()
+     * @generated
+     */
+    EClass BOOLEAN_OBJECT = eINSTANCE.getBoolean_Object();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOLEAN_OBJECT__VALUE = eINSTANCE.getBoolean_Object_Value();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.NegateElementImpl <em>Negate Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.NegateElementImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getNegateElement()
+     * @generated
+     */
+    EClass NEGATE_ELEMENT = eINSTANCE.getNegateElement();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NEGATE_ELEMENT__EXP = eINSTANCE.getNegateElement_Exp();
 
   }
 

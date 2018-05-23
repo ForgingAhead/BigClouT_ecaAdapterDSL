@@ -11,6 +11,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,17 +20,42 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_UnaryElement_LeftParenthesisKeyword_3_0_a;
+	protected AbstractElementAlias match_UnaryElement_LeftParenthesisKeyword_3_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DslGrammarAccess) access;
+		match_UnaryElement_LeftParenthesisKeyword_3_0_a = new TokenAlias(true, true, grammarAccess.getUnaryElementAccess().getLeftParenthesisKeyword_3_0());
+		match_UnaryElement_LeftParenthesisKeyword_3_0_p = new TokenAlias(true, false, grammarAccess.getUnaryElementAccess().getLeftParenthesisKeyword_3_0());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getLBRACERule())
+			return getLBRACEToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getRBRACERule())
+			return getRBRACEToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * LBRACE: "{";
+	 */
+	protected String getLBRACEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "{";
+	}
+	
+	/**
+	 * RBRACE: "}";
+	 */
+	protected String getRBRACEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "}";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -36,8 +63,62 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_UnaryElement_LeftParenthesisKeyword_3_0_a.equals(syntax))
+				emit_UnaryElement_LeftParenthesisKeyword_3_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_UnaryElement_LeftParenthesisKeyword_3_0_p.equals(syntax))
+				emit_UnaryElement_LeftParenthesisKeyword_3_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     '('*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'not' exp=UnaryElement
+	 *     (rule start) (ambiguity) value=BOOLEAN
+	 *     (rule start) (ambiguity) value=NUMBER
+	 *     (rule start) (ambiguity) value=STRING
+	 *     (rule start) (ambiguity) {AndElement.left=}
+	 *     (rule start) (ambiguity) {DiffElement.left=}
+	 *     (rule start) (ambiguity) {DivisionElement.left=}
+	 *     (rule start) (ambiguity) {EqualElement.left=}
+	 *     (rule start) (ambiguity) {LargerElement.left=}
+	 *     (rule start) (ambiguity) {LargerEqualElement.left=}
+	 *     (rule start) (ambiguity) {MinusElement.left=}
+	 *     (rule start) (ambiguity) {ModuloElement.left=}
+	 *     (rule start) (ambiguity) {MultiplicationElement.left=}
+	 *     (rule start) (ambiguity) {OrElement.left=}
+	 *     (rule start) (ambiguity) {PlusElement.left=}
+	 *     (rule start) (ambiguity) {SmallerElement.left=}
+	 *     (rule start) (ambiguity) {SmallerEqualElement.left=}
+	 */
+	protected void emit_UnaryElement_LeftParenthesisKeyword_3_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '('+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) {AndElement.left=}
+	 *     (rule start) (ambiguity) {DiffElement.left=}
+	 *     (rule start) (ambiguity) {DivisionElement.left=}
+	 *     (rule start) (ambiguity) {EqualElement.left=}
+	 *     (rule start) (ambiguity) {LargerElement.left=}
+	 *     (rule start) (ambiguity) {LargerEqualElement.left=}
+	 *     (rule start) (ambiguity) {MinusElement.left=}
+	 *     (rule start) (ambiguity) {ModuloElement.left=}
+	 *     (rule start) (ambiguity) {MultiplicationElement.left=}
+	 *     (rule start) (ambiguity) {OrElement.left=}
+	 *     (rule start) (ambiguity) {PlusElement.left=}
+	 *     (rule start) (ambiguity) {SmallerElement.left=}
+	 *     (rule start) (ambiguity) {SmallerEqualElement.left=}
+	 */
+	protected void emit_UnaryElement_LeftParenthesisKeyword_3_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

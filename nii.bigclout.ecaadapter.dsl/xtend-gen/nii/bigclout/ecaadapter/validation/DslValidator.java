@@ -12,4 +12,5 @@ import nii.bigclout.ecaadapter.validation.AbstractDslValidator;
  */
 @SuppressWarnings("all")
 public class DslValidator extends AbstractDslValidator {
+  public final static String DUPLICATE_NAME = "duplicateName";
 }

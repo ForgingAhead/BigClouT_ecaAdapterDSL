@@ -69,7 +69,24 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.APP_META_DATA: return createAppMetaData();
       case DslPackage.APP_SPECIFICATION: return createAppSpecification();
       case DslPackage.ELEMENT: return createElement();
-      case DslPackage.CONCEPT: return createConcept();
+      case DslPackage.TRIGGER: return createTrigger();
+      case DslPackage.OR_ELEMENT: return createOrElement();
+      case DslPackage.AND_ELEMENT: return createAndElement();
+      case DslPackage.DIFF_ELEMENT: return createDiffElement();
+      case DslPackage.EQUAL_ELEMENT: return createEqualElement();
+      case DslPackage.LARGER_ELEMENT: return createLargerElement();
+      case DslPackage.LARGER_EQUAL_ELEMENT: return createLargerEqualElement();
+      case DslPackage.SMALLER_ELEMENT: return createSmallerElement();
+      case DslPackage.SMALLER_EQUAL_ELEMENT: return createSmallerEqualElement();
+      case DslPackage.PLUS_ELEMENT: return createPlusElement();
+      case DslPackage.MINUS_ELEMENT: return createMinusElement();
+      case DslPackage.MULTIPLICATION_ELEMENT: return createMultiplicationElement();
+      case DslPackage.DIVISION_ELEMENT: return createDivisionElement();
+      case DslPackage.MODULO_ELEMENT: return createModuloElement();
+      case DslPackage.NUMBER_OBJECT: return createNumber_Object();
+      case DslPackage.STRING_OBJECT: return createString_Object();
+      case DslPackage.BOOLEAN_OBJECT: return createBoolean_Object();
+      case DslPackage.NEGATE_ELEMENT: return createNegateElement();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -124,10 +141,197 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Concept createConcept()
+  public Trigger createTrigger()
   {
-    ConceptImpl concept = new ConceptImpl();
-    return concept;
+    TriggerImpl trigger = new TriggerImpl();
+    return trigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OrElement createOrElement()
+  {
+    OrElementImpl orElement = new OrElementImpl();
+    return orElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AndElement createAndElement()
+  {
+    AndElementImpl andElement = new AndElementImpl();
+    return andElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DiffElement createDiffElement()
+  {
+    DiffElementImpl diffElement = new DiffElementImpl();
+    return diffElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EqualElement createEqualElement()
+  {
+    EqualElementImpl equalElement = new EqualElementImpl();
+    return equalElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LargerElement createLargerElement()
+  {
+    LargerElementImpl largerElement = new LargerElementImpl();
+    return largerElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LargerEqualElement createLargerEqualElement()
+  {
+    LargerEqualElementImpl largerEqualElement = new LargerEqualElementImpl();
+    return largerEqualElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SmallerElement createSmallerElement()
+  {
+    SmallerElementImpl smallerElement = new SmallerElementImpl();
+    return smallerElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SmallerEqualElement createSmallerEqualElement()
+  {
+    SmallerEqualElementImpl smallerEqualElement = new SmallerEqualElementImpl();
+    return smallerEqualElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PlusElement createPlusElement()
+  {
+    PlusElementImpl plusElement = new PlusElementImpl();
+    return plusElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MinusElement createMinusElement()
+  {
+    MinusElementImpl minusElement = new MinusElementImpl();
+    return minusElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MultiplicationElement createMultiplicationElement()
+  {
+    MultiplicationElementImpl multiplicationElement = new MultiplicationElementImpl();
+    return multiplicationElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DivisionElement createDivisionElement()
+  {
+    DivisionElementImpl divisionElement = new DivisionElementImpl();
+    return divisionElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ModuloElement createModuloElement()
+  {
+    ModuloElementImpl moduloElement = new ModuloElementImpl();
+    return moduloElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Number_Object createNumber_Object()
+  {
+    Number_ObjectImpl number_Object = new Number_ObjectImpl();
+    return number_Object;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String_Object createString_Object()
+  {
+    String_ObjectImpl string_Object = new String_ObjectImpl();
+    return string_Object;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Boolean_Object createBoolean_Object()
+  {
+    Boolean_ObjectImpl boolean_Object = new Boolean_ObjectImpl();
+    return boolean_Object;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NegateElement createNegateElement()
+  {
+    NegateElementImpl negateElement = new NegateElementImpl();
+    return negateElement;
   }
 
   /**

@@ -3,13 +3,30 @@
  */
 package nii.bigclout.ecaadapter.dsl.impl;
 
+import nii.bigclout.ecaadapter.dsl.AndElement;
 import nii.bigclout.ecaadapter.dsl.AppMetaData;
 import nii.bigclout.ecaadapter.dsl.AppSpecification;
-import nii.bigclout.ecaadapter.dsl.Concept;
+import nii.bigclout.ecaadapter.dsl.Boolean_Object;
+import nii.bigclout.ecaadapter.dsl.DiffElement;
+import nii.bigclout.ecaadapter.dsl.DivisionElement;
 import nii.bigclout.ecaadapter.dsl.DslFactory;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.Element;
+import nii.bigclout.ecaadapter.dsl.EqualElement;
+import nii.bigclout.ecaadapter.dsl.LargerElement;
+import nii.bigclout.ecaadapter.dsl.LargerEqualElement;
+import nii.bigclout.ecaadapter.dsl.MinusElement;
+import nii.bigclout.ecaadapter.dsl.ModuloElement;
+import nii.bigclout.ecaadapter.dsl.MultiplicationElement;
+import nii.bigclout.ecaadapter.dsl.NegateElement;
+import nii.bigclout.ecaadapter.dsl.Number_Object;
+import nii.bigclout.ecaadapter.dsl.OrElement;
+import nii.bigclout.ecaadapter.dsl.PlusElement;
 import nii.bigclout.ecaadapter.dsl.RunTimeModel;
+import nii.bigclout.ecaadapter.dsl.SmallerElement;
+import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
+import nii.bigclout.ecaadapter.dsl.String_Object;
+import nii.bigclout.ecaadapter.dsl.Trigger;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -59,7 +76,126 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass conceptEClass = null;
+  private EClass triggerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass orElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass andElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass diffElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass equalElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass largerElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass largerEqualElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass smallerElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass smallerEqualElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass plusElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass minusElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass multiplicationElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass divisionElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass moduloElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass number_ObjectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass string_ObjectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass boolean_ObjectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass negateElementEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -229,7 +365,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getElement_Meaning()
+  public EAttribute getElement_Concept()
   {
     return (EAttribute)elementEClass.getEStructuralFeatures().get(0);
   }
@@ -239,9 +375,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getElement_Concept()
+  public EAttribute getElement_Code()
   {
-    return (EReference)elementEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)elementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -249,9 +385,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getConcept()
+  public EClass getTrigger()
   {
-    return conceptEClass;
+    return triggerEClass;
   }
 
   /**
@@ -259,9 +395,489 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getConcept_ReferenceName()
+  public EAttribute getTrigger_EventName()
   {
-    return (EAttribute)conceptEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)triggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTrigger_Code()
+  {
+    return (EAttribute)triggerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOrElement()
+  {
+    return orElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOrElement_Left()
+  {
+    return (EReference)orElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOrElement_Right()
+  {
+    return (EReference)orElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAndElement()
+  {
+    return andElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAndElement_Left()
+  {
+    return (EReference)andElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAndElement_Right()
+  {
+    return (EReference)andElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDiffElement()
+  {
+    return diffElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDiffElement_Left()
+  {
+    return (EReference)diffElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDiffElement_Right()
+  {
+    return (EReference)diffElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEqualElement()
+  {
+    return equalElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEqualElement_Left()
+  {
+    return (EReference)equalElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEqualElement_Right()
+  {
+    return (EReference)equalElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLargerElement()
+  {
+    return largerElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLargerElement_Left()
+  {
+    return (EReference)largerElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLargerElement_Right()
+  {
+    return (EReference)largerElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLargerEqualElement()
+  {
+    return largerEqualElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLargerEqualElement_Left()
+  {
+    return (EReference)largerEqualElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLargerEqualElement_Right()
+  {
+    return (EReference)largerEqualElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSmallerElement()
+  {
+    return smallerElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSmallerElement_Left()
+  {
+    return (EReference)smallerElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSmallerElement_Right()
+  {
+    return (EReference)smallerElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSmallerEqualElement()
+  {
+    return smallerEqualElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSmallerEqualElement_Left()
+  {
+    return (EReference)smallerEqualElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSmallerEqualElement_Right()
+  {
+    return (EReference)smallerEqualElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPlusElement()
+  {
+    return plusElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPlusElement_Left()
+  {
+    return (EReference)plusElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPlusElement_Right()
+  {
+    return (EReference)plusElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMinusElement()
+  {
+    return minusElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMinusElement_Left()
+  {
+    return (EReference)minusElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMinusElement_Right()
+  {
+    return (EReference)minusElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMultiplicationElement()
+  {
+    return multiplicationElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMultiplicationElement_Left()
+  {
+    return (EReference)multiplicationElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMultiplicationElement_Right()
+  {
+    return (EReference)multiplicationElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDivisionElement()
+  {
+    return divisionElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDivisionElement_Left()
+  {
+    return (EReference)divisionElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDivisionElement_Right()
+  {
+    return (EReference)divisionElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getModuloElement()
+  {
+    return moduloElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModuloElement_Left()
+  {
+    return (EReference)moduloElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModuloElement_Right()
+  {
+    return (EReference)moduloElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNumber_Object()
+  {
+    return number_ObjectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNumber_Object_Value()
+  {
+    return (EAttribute)number_ObjectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getString_Object()
+  {
+    return string_ObjectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getString_Object_Value()
+  {
+    return (EAttribute)string_ObjectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBoolean_Object()
+  {
+    return boolean_ObjectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBoolean_Object_Value()
+  {
+    return (EAttribute)boolean_ObjectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNegateElement()
+  {
+    return negateElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNegateElement_Exp()
+  {
+    return (EReference)negateElementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -307,11 +923,76 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEReference(appSpecificationEClass, APP_SPECIFICATION__ACTION);
 
     elementEClass = createEClass(ELEMENT);
-    createEAttribute(elementEClass, ELEMENT__MEANING);
-    createEReference(elementEClass, ELEMENT__CONCEPT);
+    createEAttribute(elementEClass, ELEMENT__CONCEPT);
+    createEAttribute(elementEClass, ELEMENT__CODE);
 
-    conceptEClass = createEClass(CONCEPT);
-    createEAttribute(conceptEClass, CONCEPT__REFERENCE_NAME);
+    triggerEClass = createEClass(TRIGGER);
+    createEAttribute(triggerEClass, TRIGGER__EVENT_NAME);
+    createEAttribute(triggerEClass, TRIGGER__CODE);
+
+    orElementEClass = createEClass(OR_ELEMENT);
+    createEReference(orElementEClass, OR_ELEMENT__LEFT);
+    createEReference(orElementEClass, OR_ELEMENT__RIGHT);
+
+    andElementEClass = createEClass(AND_ELEMENT);
+    createEReference(andElementEClass, AND_ELEMENT__LEFT);
+    createEReference(andElementEClass, AND_ELEMENT__RIGHT);
+
+    diffElementEClass = createEClass(DIFF_ELEMENT);
+    createEReference(diffElementEClass, DIFF_ELEMENT__LEFT);
+    createEReference(diffElementEClass, DIFF_ELEMENT__RIGHT);
+
+    equalElementEClass = createEClass(EQUAL_ELEMENT);
+    createEReference(equalElementEClass, EQUAL_ELEMENT__LEFT);
+    createEReference(equalElementEClass, EQUAL_ELEMENT__RIGHT);
+
+    largerElementEClass = createEClass(LARGER_ELEMENT);
+    createEReference(largerElementEClass, LARGER_ELEMENT__LEFT);
+    createEReference(largerElementEClass, LARGER_ELEMENT__RIGHT);
+
+    largerEqualElementEClass = createEClass(LARGER_EQUAL_ELEMENT);
+    createEReference(largerEqualElementEClass, LARGER_EQUAL_ELEMENT__LEFT);
+    createEReference(largerEqualElementEClass, LARGER_EQUAL_ELEMENT__RIGHT);
+
+    smallerElementEClass = createEClass(SMALLER_ELEMENT);
+    createEReference(smallerElementEClass, SMALLER_ELEMENT__LEFT);
+    createEReference(smallerElementEClass, SMALLER_ELEMENT__RIGHT);
+
+    smallerEqualElementEClass = createEClass(SMALLER_EQUAL_ELEMENT);
+    createEReference(smallerEqualElementEClass, SMALLER_EQUAL_ELEMENT__LEFT);
+    createEReference(smallerEqualElementEClass, SMALLER_EQUAL_ELEMENT__RIGHT);
+
+    plusElementEClass = createEClass(PLUS_ELEMENT);
+    createEReference(plusElementEClass, PLUS_ELEMENT__LEFT);
+    createEReference(plusElementEClass, PLUS_ELEMENT__RIGHT);
+
+    minusElementEClass = createEClass(MINUS_ELEMENT);
+    createEReference(minusElementEClass, MINUS_ELEMENT__LEFT);
+    createEReference(minusElementEClass, MINUS_ELEMENT__RIGHT);
+
+    multiplicationElementEClass = createEClass(MULTIPLICATION_ELEMENT);
+    createEReference(multiplicationElementEClass, MULTIPLICATION_ELEMENT__LEFT);
+    createEReference(multiplicationElementEClass, MULTIPLICATION_ELEMENT__RIGHT);
+
+    divisionElementEClass = createEClass(DIVISION_ELEMENT);
+    createEReference(divisionElementEClass, DIVISION_ELEMENT__LEFT);
+    createEReference(divisionElementEClass, DIVISION_ELEMENT__RIGHT);
+
+    moduloElementEClass = createEClass(MODULO_ELEMENT);
+    createEReference(moduloElementEClass, MODULO_ELEMENT__LEFT);
+    createEReference(moduloElementEClass, MODULO_ELEMENT__RIGHT);
+
+    number_ObjectEClass = createEClass(NUMBER_OBJECT);
+    createEAttribute(number_ObjectEClass, NUMBER_OBJECT__VALUE);
+
+    string_ObjectEClass = createEClass(STRING_OBJECT);
+    createEAttribute(string_ObjectEClass, STRING_OBJECT__VALUE);
+
+    boolean_ObjectEClass = createEClass(BOOLEAN_OBJECT);
+    createEAttribute(boolean_ObjectEClass, BOOLEAN_OBJECT__VALUE);
+
+    negateElementEClass = createEClass(NEGATE_ELEMENT);
+    createEReference(negateElementEClass, NEGATE_ELEMENT__EXP);
   }
 
   /**
@@ -343,6 +1024,23 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    orElementEClass.getESuperTypes().add(this.getElement());
+    andElementEClass.getESuperTypes().add(this.getElement());
+    diffElementEClass.getESuperTypes().add(this.getElement());
+    equalElementEClass.getESuperTypes().add(this.getElement());
+    largerElementEClass.getESuperTypes().add(this.getElement());
+    largerEqualElementEClass.getESuperTypes().add(this.getElement());
+    smallerElementEClass.getESuperTypes().add(this.getElement());
+    smallerEqualElementEClass.getESuperTypes().add(this.getElement());
+    plusElementEClass.getESuperTypes().add(this.getElement());
+    minusElementEClass.getESuperTypes().add(this.getElement());
+    multiplicationElementEClass.getESuperTypes().add(this.getElement());
+    divisionElementEClass.getESuperTypes().add(this.getElement());
+    moduloElementEClass.getESuperTypes().add(this.getElement());
+    number_ObjectEClass.getESuperTypes().add(this.getElement());
+    string_ObjectEClass.getESuperTypes().add(this.getElement());
+    boolean_ObjectEClass.getESuperTypes().add(this.getElement());
+    negateElementEClass.getESuperTypes().add(this.getElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(runTimeModelEClass, RunTimeModel.class, "RunTimeModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -355,14 +1053,79 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEClass(appSpecificationEClass, AppSpecification.class, "AppSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAppSpecification_Trigger(), this.getElement(), null, "trigger", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAppSpecification_Condition(), this.getElement(), null, "condition", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAppSpecification_Action(), this.getElement(), null, "action", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAppSpecification_Action(), this.getElement(), null, "action", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getElement_Meaning(), ecorePackage.getEString(), "meaning", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getElement_Concept(), this.getConcept(), null, "concept", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getElement_Concept(), ecorePackage.getEString(), "concept", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getElement_Code(), ecorePackage.getEString(), "code", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(conceptEClass, Concept.class, "Concept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getConcept_ReferenceName(), ecorePackage.getEString(), "referenceName", null, 0, 1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTrigger_EventName(), ecorePackage.getEString(), "eventName", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTrigger_Code(), ecorePackage.getEString(), "code", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(orElementEClass, OrElement.class, "OrElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOrElement_Left(), this.getElement(), null, "left", null, 0, 1, OrElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrElement_Right(), this.getElement(), null, "right", null, 0, 1, OrElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(andElementEClass, AndElement.class, "AndElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAndElement_Left(), this.getElement(), null, "left", null, 0, 1, AndElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAndElement_Right(), this.getElement(), null, "right", null, 0, 1, AndElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(diffElementEClass, DiffElement.class, "DiffElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDiffElement_Left(), this.getElement(), null, "left", null, 0, 1, DiffElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDiffElement_Right(), this.getElement(), null, "right", null, 0, 1, DiffElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(equalElementEClass, EqualElement.class, "EqualElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEqualElement_Left(), this.getElement(), null, "left", null, 0, 1, EqualElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEqualElement_Right(), this.getElement(), null, "right", null, 0, 1, EqualElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(largerElementEClass, LargerElement.class, "LargerElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLargerElement_Left(), this.getElement(), null, "left", null, 0, 1, LargerElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLargerElement_Right(), this.getElement(), null, "right", null, 0, 1, LargerElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(largerEqualElementEClass, LargerEqualElement.class, "LargerEqualElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLargerEqualElement_Left(), this.getElement(), null, "left", null, 0, 1, LargerEqualElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLargerEqualElement_Right(), this.getElement(), null, "right", null, 0, 1, LargerEqualElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(smallerElementEClass, SmallerElement.class, "SmallerElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSmallerElement_Left(), this.getElement(), null, "left", null, 0, 1, SmallerElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSmallerElement_Right(), this.getElement(), null, "right", null, 0, 1, SmallerElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(smallerEqualElementEClass, SmallerEqualElement.class, "SmallerEqualElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSmallerEqualElement_Left(), this.getElement(), null, "left", null, 0, 1, SmallerEqualElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSmallerEqualElement_Right(), this.getElement(), null, "right", null, 0, 1, SmallerEqualElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(plusElementEClass, PlusElement.class, "PlusElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPlusElement_Left(), this.getElement(), null, "left", null, 0, 1, PlusElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPlusElement_Right(), this.getElement(), null, "right", null, 0, 1, PlusElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(minusElementEClass, MinusElement.class, "MinusElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMinusElement_Left(), this.getElement(), null, "left", null, 0, 1, MinusElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMinusElement_Right(), this.getElement(), null, "right", null, 0, 1, MinusElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(multiplicationElementEClass, MultiplicationElement.class, "MultiplicationElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMultiplicationElement_Left(), this.getElement(), null, "left", null, 0, 1, MultiplicationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMultiplicationElement_Right(), this.getElement(), null, "right", null, 0, 1, MultiplicationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(divisionElementEClass, DivisionElement.class, "DivisionElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDivisionElement_Left(), this.getElement(), null, "left", null, 0, 1, DivisionElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDivisionElement_Right(), this.getElement(), null, "right", null, 0, 1, DivisionElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(moduloElementEClass, ModuloElement.class, "ModuloElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModuloElement_Left(), this.getElement(), null, "left", null, 0, 1, ModuloElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModuloElement_Right(), this.getElement(), null, "right", null, 0, 1, ModuloElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(number_ObjectEClass, Number_Object.class, "Number_Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNumber_Object_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1, Number_Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(string_ObjectEClass, String_Object.class, "String_Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getString_Object_Value(), ecorePackage.getEString(), "value", null, 0, 1, String_Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(boolean_ObjectEClass, Boolean_Object.class, "Boolean_Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBoolean_Object_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, Boolean_Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(negateElementEClass, NegateElement.class, "NegateElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNegateElement_Exp(), this.getElement(), null, "exp", null, 0, 1, NegateElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

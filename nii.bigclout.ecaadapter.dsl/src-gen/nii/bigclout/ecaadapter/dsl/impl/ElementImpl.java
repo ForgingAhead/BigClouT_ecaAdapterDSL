@@ -3,15 +3,12 @@
  */
 package nii.bigclout.ecaadapter.dsl.impl;
 
-import nii.bigclout.ecaadapter.dsl.Concept;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.Element;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -24,8 +21,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.ElementImpl#getMeaning <em>Meaning</em>}</li>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.ElementImpl#getConcept <em>Concept</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.ElementImpl#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,34 +30,44 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 {
   /**
-   * The default value of the '{@link #getMeaning() <em>Meaning</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMeaning()
-   * @generated
-   * @ordered
-   */
-  protected static final String MEANING_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMeaning() <em>Meaning</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMeaning()
-   * @generated
-   * @ordered
-   */
-  protected String meaning = MEANING_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getConcept() <em>Concept</em>}' containment reference.
+   * The default value of the '{@link #getConcept() <em>Concept</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getConcept()
    * @generated
    * @ordered
    */
-  protected Concept concept;
+  protected static final String CONCEPT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getConcept() <em>Concept</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConcept()
+   * @generated
+   * @ordered
+   */
+  protected String concept = CONCEPT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCode()
+   * @generated
+   * @ordered
+   */
+  protected static final String CODE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCode()
+   * @generated
+   * @ordered
+   */
+  protected String code = CODE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -88,30 +95,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMeaning()
-  {
-    return meaning;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMeaning(String newMeaning)
-  {
-    String oldMeaning = meaning;
-    meaning = newMeaning;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ELEMENT__MEANING, oldMeaning, meaning));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Concept getConcept()
+  public String getConcept()
   {
     return concept;
   }
@@ -121,16 +105,12 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetConcept(Concept newConcept, NotificationChain msgs)
+  public void setConcept(String newConcept)
   {
-    Concept oldConcept = concept;
+    String oldConcept = concept;
     concept = newConcept;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.ELEMENT__CONCEPT, oldConcept, newConcept);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ELEMENT__CONCEPT, oldConcept, concept));
   }
 
   /**
@@ -138,20 +118,9 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setConcept(Concept newConcept)
+  public String getCode()
   {
-    if (newConcept != concept)
-    {
-      NotificationChain msgs = null;
-      if (concept != null)
-        msgs = ((InternalEObject)concept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.ELEMENT__CONCEPT, null, msgs);
-      if (newConcept != null)
-        msgs = ((InternalEObject)newConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.ELEMENT__CONCEPT, null, msgs);
-      msgs = basicSetConcept(newConcept, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ELEMENT__CONCEPT, newConcept, newConcept));
+    return code;
   }
 
   /**
@@ -159,15 +128,12 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public void setCode(String newCode)
   {
-    switch (featureID)
-    {
-      case DslPackage.ELEMENT__CONCEPT:
-        return basicSetConcept(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    String oldCode = code;
+    code = newCode;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ELEMENT__CODE, oldCode, code));
   }
 
   /**
@@ -180,10 +146,10 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
   {
     switch (featureID)
     {
-      case DslPackage.ELEMENT__MEANING:
-        return getMeaning();
       case DslPackage.ELEMENT__CONCEPT:
         return getConcept();
+      case DslPackage.ELEMENT__CODE:
+        return getCode();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -198,11 +164,11 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
   {
     switch (featureID)
     {
-      case DslPackage.ELEMENT__MEANING:
-        setMeaning((String)newValue);
-        return;
       case DslPackage.ELEMENT__CONCEPT:
-        setConcept((Concept)newValue);
+        setConcept((String)newValue);
+        return;
+      case DslPackage.ELEMENT__CODE:
+        setCode((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -218,11 +184,11 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
   {
     switch (featureID)
     {
-      case DslPackage.ELEMENT__MEANING:
-        setMeaning(MEANING_EDEFAULT);
-        return;
       case DslPackage.ELEMENT__CONCEPT:
-        setConcept((Concept)null);
+        setConcept(CONCEPT_EDEFAULT);
+        return;
+      case DslPackage.ELEMENT__CODE:
+        setCode(CODE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -238,10 +204,10 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
   {
     switch (featureID)
     {
-      case DslPackage.ELEMENT__MEANING:
-        return MEANING_EDEFAULT == null ? meaning != null : !MEANING_EDEFAULT.equals(meaning);
       case DslPackage.ELEMENT__CONCEPT:
-        return concept != null;
+        return CONCEPT_EDEFAULT == null ? concept != null : !CONCEPT_EDEFAULT.equals(concept);
+      case DslPackage.ELEMENT__CODE:
+        return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
     }
     return super.eIsSet(featureID);
   }
@@ -257,8 +223,10 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (meaning: ");
-    result.append(meaning);
+    result.append(" (concept: ");
+    result.append(concept);
+    result.append(", code: ");
+    result.append(code);
     result.append(')');
     return result.toString();
   }

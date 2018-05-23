@@ -5,12 +5,29 @@ package nii.bigclout.ecaadapter.serializer;
 
 import com.google.inject.Inject;
 import java.util.Set;
+import nii.bigclout.ecaadapter.dsl.AndElement;
 import nii.bigclout.ecaadapter.dsl.AppMetaData;
 import nii.bigclout.ecaadapter.dsl.AppSpecification;
-import nii.bigclout.ecaadapter.dsl.Concept;
+import nii.bigclout.ecaadapter.dsl.Boolean_Object;
+import nii.bigclout.ecaadapter.dsl.DiffElement;
+import nii.bigclout.ecaadapter.dsl.DivisionElement;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.Element;
+import nii.bigclout.ecaadapter.dsl.EqualElement;
+import nii.bigclout.ecaadapter.dsl.LargerElement;
+import nii.bigclout.ecaadapter.dsl.LargerEqualElement;
+import nii.bigclout.ecaadapter.dsl.MinusElement;
+import nii.bigclout.ecaadapter.dsl.ModuloElement;
+import nii.bigclout.ecaadapter.dsl.MultiplicationElement;
+import nii.bigclout.ecaadapter.dsl.NegateElement;
+import nii.bigclout.ecaadapter.dsl.Number_Object;
+import nii.bigclout.ecaadapter.dsl.OrElement;
+import nii.bigclout.ecaadapter.dsl.PlusElement;
 import nii.bigclout.ecaadapter.dsl.RunTimeModel;
+import nii.bigclout.ecaadapter.dsl.SmallerElement;
+import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
+import nii.bigclout.ecaadapter.dsl.String_Object;
+import nii.bigclout.ecaadapter.dsl.Trigger;
 import nii.bigclout.ecaadapter.services.DslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -36,25 +53,116 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == DslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case DslPackage.AND_ELEMENT:
+				sequence_AndElement(context, (AndElement) semanticObject); 
+				return; 
 			case DslPackage.APP_META_DATA:
 				sequence_AppMetaData(context, (AppMetaData) semanticObject); 
 				return; 
 			case DslPackage.APP_SPECIFICATION:
 				sequence_AppSpecification(context, (AppSpecification) semanticObject); 
 				return; 
-			case DslPackage.CONCEPT:
-				sequence_Concept(context, (Concept) semanticObject); 
+			case DslPackage.BOOLEAN_OBJECT:
+				sequence_UnaryElement(context, (Boolean_Object) semanticObject); 
+				return; 
+			case DslPackage.DIFF_ELEMENT:
+				sequence_DiffEqualElement(context, (DiffElement) semanticObject); 
+				return; 
+			case DslPackage.DIVISION_ELEMENT:
+				sequence_MultiplicationDivisionElement(context, (DivisionElement) semanticObject); 
 				return; 
 			case DslPackage.ELEMENT:
 				sequence_Element(context, (Element) semanticObject); 
 				return; 
+			case DslPackage.EQUAL_ELEMENT:
+				sequence_DiffEqualElement(context, (EqualElement) semanticObject); 
+				return; 
+			case DslPackage.LARGER_ELEMENT:
+				sequence_CompareElement(context, (LargerElement) semanticObject); 
+				return; 
+			case DslPackage.LARGER_EQUAL_ELEMENT:
+				sequence_CompareElement(context, (LargerEqualElement) semanticObject); 
+				return; 
+			case DslPackage.MINUS_ELEMENT:
+				sequence_PlusMinusElement(context, (MinusElement) semanticObject); 
+				return; 
+			case DslPackage.MODULO_ELEMENT:
+				sequence_MultiplicationDivisionElement(context, (ModuloElement) semanticObject); 
+				return; 
+			case DslPackage.MULTIPLICATION_ELEMENT:
+				sequence_MultiplicationDivisionElement(context, (MultiplicationElement) semanticObject); 
+				return; 
+			case DslPackage.NEGATE_ELEMENT:
+				sequence_UnaryElement(context, (NegateElement) semanticObject); 
+				return; 
+			case DslPackage.NUMBER_OBJECT:
+				sequence_UnaryElement(context, (Number_Object) semanticObject); 
+				return; 
+			case DslPackage.OR_ELEMENT:
+				sequence_OrElement(context, (OrElement) semanticObject); 
+				return; 
+			case DslPackage.PLUS_ELEMENT:
+				sequence_PlusMinusElement(context, (PlusElement) semanticObject); 
+				return; 
 			case DslPackage.RUN_TIME_MODEL:
 				sequence_RunTimeModel(context, (RunTimeModel) semanticObject); 
+				return; 
+			case DslPackage.SMALLER_ELEMENT:
+				sequence_CompareElement(context, (SmallerElement) semanticObject); 
+				return; 
+			case DslPackage.SMALLER_EQUAL_ELEMENT:
+				sequence_CompareElement(context, (SmallerEqualElement) semanticObject); 
+				return; 
+			case DslPackage.STRING_OBJECT:
+				sequence_UnaryElement(context, (String_Object) semanticObject); 
+				return; 
+			case DslPackage.TRIGGER:
+				sequence_Trigger(context, (Trigger) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns AndElement
+	 *     OrElement.OrElement_1_1 returns AndElement
+	 *     AndElement returns AndElement
+	 *     AndElement.AndElement_1_1 returns AndElement
+	 *     DiffEqualElement returns AndElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns AndElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns AndElement
+	 *     CompareElement returns AndElement
+	 *     CompareElement.LargerElement_1_0_1 returns AndElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns AndElement
+	 *     CompareElement.SmallerElement_1_2_1 returns AndElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns AndElement
+	 *     PlusMinusElement returns AndElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns AndElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns AndElement
+	 *     MultiplicationDivisionElement returns AndElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns AndElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns AndElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns AndElement
+	 *     UnaryElement returns AndElement
+	 *
+	 * Constraint:
+	 *     (left=AndElement_AndElement_1_1 right=DiffEqualElement)
+	 */
+	protected void sequence_AndElement(ISerializationContext context, AndElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.AND_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.AND_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.AND_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.AND_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAndElementAccess().getAndElementLeftAction_1_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAndElementAccess().getRightDiffEqualElementParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -73,7 +181,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AppSpecification returns AppSpecification
 	 *
 	 * Constraint:
-	 *     (trigger+=Element* condition+=Element* action+=Element)
+	 *     (trigger+=OrElement* condition+=OrElement* action+=[Element|ID]+)
 	 */
 	protected void sequence_AppSpecification(ISerializationContext context, AppSpecification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -82,18 +190,240 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Concept returns Concept
+	 *     OrElement returns LargerElement
+	 *     OrElement.OrElement_1_1 returns LargerElement
+	 *     AndElement returns LargerElement
+	 *     AndElement.AndElement_1_1 returns LargerElement
+	 *     DiffEqualElement returns LargerElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns LargerElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns LargerElement
+	 *     CompareElement returns LargerElement
+	 *     CompareElement.LargerElement_1_0_1 returns LargerElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns LargerElement
+	 *     CompareElement.SmallerElement_1_2_1 returns LargerElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns LargerElement
+	 *     PlusMinusElement returns LargerElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns LargerElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns LargerElement
+	 *     MultiplicationDivisionElement returns LargerElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns LargerElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns LargerElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns LargerElement
+	 *     UnaryElement returns LargerElement
 	 *
 	 * Constraint:
-	 *     referenceName=ID
+	 *     (left=CompareElement_LargerElement_1_0_1 right=PlusMinusElement)
 	 */
-	protected void sequence_Concept(ISerializationContext context, Concept semanticObject) {
+	protected void sequence_CompareElement(ISerializationContext context, LargerElement semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.CONCEPT__REFERENCE_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.CONCEPT__REFERENCE_NAME));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.LARGER_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.LARGER_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.LARGER_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.LARGER_ELEMENT__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConceptAccess().getReferenceNameIDTerminalRuleCall_0(), semanticObject.getReferenceName());
+		feeder.accept(grammarAccess.getCompareElementAccess().getLargerElementLeftAction_1_0_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getCompareElementAccess().getRightPlusMinusElementParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns LargerEqualElement
+	 *     OrElement.OrElement_1_1 returns LargerEqualElement
+	 *     AndElement returns LargerEqualElement
+	 *     AndElement.AndElement_1_1 returns LargerEqualElement
+	 *     DiffEqualElement returns LargerEqualElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns LargerEqualElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns LargerEqualElement
+	 *     CompareElement returns LargerEqualElement
+	 *     CompareElement.LargerElement_1_0_1 returns LargerEqualElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns LargerEqualElement
+	 *     CompareElement.SmallerElement_1_2_1 returns LargerEqualElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns LargerEqualElement
+	 *     PlusMinusElement returns LargerEqualElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns LargerEqualElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns LargerEqualElement
+	 *     MultiplicationDivisionElement returns LargerEqualElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns LargerEqualElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns LargerEqualElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns LargerEqualElement
+	 *     UnaryElement returns LargerEqualElement
+	 *
+	 * Constraint:
+	 *     (left=CompareElement_LargerEqualElement_1_1_1 right=PlusMinusElement)
+	 */
+	protected void sequence_CompareElement(ISerializationContext context, LargerEqualElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.LARGER_EQUAL_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.LARGER_EQUAL_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.LARGER_EQUAL_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.LARGER_EQUAL_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCompareElementAccess().getLargerEqualElementLeftAction_1_1_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getCompareElementAccess().getRightPlusMinusElementParserRuleCall_1_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns SmallerElement
+	 *     OrElement.OrElement_1_1 returns SmallerElement
+	 *     AndElement returns SmallerElement
+	 *     AndElement.AndElement_1_1 returns SmallerElement
+	 *     DiffEqualElement returns SmallerElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns SmallerElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns SmallerElement
+	 *     CompareElement returns SmallerElement
+	 *     CompareElement.LargerElement_1_0_1 returns SmallerElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns SmallerElement
+	 *     CompareElement.SmallerElement_1_2_1 returns SmallerElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns SmallerElement
+	 *     PlusMinusElement returns SmallerElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns SmallerElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns SmallerElement
+	 *     MultiplicationDivisionElement returns SmallerElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns SmallerElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns SmallerElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns SmallerElement
+	 *     UnaryElement returns SmallerElement
+	 *
+	 * Constraint:
+	 *     (left=CompareElement_SmallerElement_1_2_1 right=PlusMinusElement)
+	 */
+	protected void sequence_CompareElement(ISerializationContext context, SmallerElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SMALLER_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SMALLER_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SMALLER_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SMALLER_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCompareElementAccess().getSmallerElementLeftAction_1_2_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getCompareElementAccess().getRightPlusMinusElementParserRuleCall_1_2_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns SmallerEqualElement
+	 *     OrElement.OrElement_1_1 returns SmallerEqualElement
+	 *     AndElement returns SmallerEqualElement
+	 *     AndElement.AndElement_1_1 returns SmallerEqualElement
+	 *     DiffEqualElement returns SmallerEqualElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns SmallerEqualElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns SmallerEqualElement
+	 *     CompareElement returns SmallerEqualElement
+	 *     CompareElement.LargerElement_1_0_1 returns SmallerEqualElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns SmallerEqualElement
+	 *     CompareElement.SmallerElement_1_2_1 returns SmallerEqualElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns SmallerEqualElement
+	 *     PlusMinusElement returns SmallerEqualElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns SmallerEqualElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns SmallerEqualElement
+	 *     MultiplicationDivisionElement returns SmallerEqualElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns SmallerEqualElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns SmallerEqualElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns SmallerEqualElement
+	 *     UnaryElement returns SmallerEqualElement
+	 *
+	 * Constraint:
+	 *     (left=CompareElement_SmallerEqualElement_1_3_1 right=PlusMinusElement)
+	 */
+	protected void sequence_CompareElement(ISerializationContext context, SmallerEqualElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SMALLER_EQUAL_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SMALLER_EQUAL_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SMALLER_EQUAL_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SMALLER_EQUAL_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCompareElementAccess().getSmallerEqualElementLeftAction_1_3_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getCompareElementAccess().getRightPlusMinusElementParserRuleCall_1_3_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns DiffElement
+	 *     OrElement.OrElement_1_1 returns DiffElement
+	 *     AndElement returns DiffElement
+	 *     AndElement.AndElement_1_1 returns DiffElement
+	 *     DiffEqualElement returns DiffElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns DiffElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns DiffElement
+	 *     CompareElement returns DiffElement
+	 *     CompareElement.LargerElement_1_0_1 returns DiffElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns DiffElement
+	 *     CompareElement.SmallerElement_1_2_1 returns DiffElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns DiffElement
+	 *     PlusMinusElement returns DiffElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns DiffElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns DiffElement
+	 *     MultiplicationDivisionElement returns DiffElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns DiffElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns DiffElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns DiffElement
+	 *     UnaryElement returns DiffElement
+	 *
+	 * Constraint:
+	 *     (left=DiffEqualElement_DiffElement_1_0_1 right=CompareElement)
+	 */
+	protected void sequence_DiffEqualElement(ISerializationContext context, DiffElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.DIFF_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.DIFF_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.DIFF_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.DIFF_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDiffEqualElementAccess().getDiffElementLeftAction_1_0_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getDiffEqualElementAccess().getRightCompareElementParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns EqualElement
+	 *     OrElement.OrElement_1_1 returns EqualElement
+	 *     AndElement returns EqualElement
+	 *     AndElement.AndElement_1_1 returns EqualElement
+	 *     DiffEqualElement returns EqualElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns EqualElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns EqualElement
+	 *     CompareElement returns EqualElement
+	 *     CompareElement.LargerElement_1_0_1 returns EqualElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns EqualElement
+	 *     CompareElement.SmallerElement_1_2_1 returns EqualElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns EqualElement
+	 *     PlusMinusElement returns EqualElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns EqualElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns EqualElement
+	 *     MultiplicationDivisionElement returns EqualElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns EqualElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns EqualElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns EqualElement
+	 *     UnaryElement returns EqualElement
+	 *
+	 * Constraint:
+	 *     (left=DiffEqualElement_EqualElement_1_1_1 right=CompareElement)
+	 */
+	protected void sequence_DiffEqualElement(ISerializationContext context, EqualElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.EQUAL_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.EQUAL_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.EQUAL_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.EQUAL_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDiffEqualElementAccess().getEqualElementLeftAction_1_1_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getDiffEqualElementAccess().getRightCompareElementParserRuleCall_1_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -103,18 +433,258 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Element returns Element
 	 *
 	 * Constraint:
-	 *     (meaning=ID concept=Concept)
+	 *     (concept=STRING code=STRING)
 	 */
 	protected void sequence_Element(ISerializationContext context, Element semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.ELEMENT__MEANING) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.ELEMENT__MEANING));
 			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.ELEMENT__CONCEPT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.ELEMENT__CONCEPT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.ELEMENT__CODE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.ELEMENT__CODE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getElementAccess().getMeaningIDTerminalRuleCall_0_0(), semanticObject.getMeaning());
-		feeder.accept(grammarAccess.getElementAccess().getConceptConceptParserRuleCall_1_0(), semanticObject.getConcept());
+		feeder.accept(grammarAccess.getElementAccess().getConceptSTRINGTerminalRuleCall_0_0(), semanticObject.getConcept());
+		feeder.accept(grammarAccess.getElementAccess().getCodeSTRINGTerminalRuleCall_1_0(), semanticObject.getCode());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns DivisionElement
+	 *     OrElement.OrElement_1_1 returns DivisionElement
+	 *     AndElement returns DivisionElement
+	 *     AndElement.AndElement_1_1 returns DivisionElement
+	 *     DiffEqualElement returns DivisionElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns DivisionElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns DivisionElement
+	 *     CompareElement returns DivisionElement
+	 *     CompareElement.LargerElement_1_0_1 returns DivisionElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns DivisionElement
+	 *     CompareElement.SmallerElement_1_2_1 returns DivisionElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns DivisionElement
+	 *     PlusMinusElement returns DivisionElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns DivisionElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns DivisionElement
+	 *     MultiplicationDivisionElement returns DivisionElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns DivisionElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns DivisionElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns DivisionElement
+	 *     UnaryElement returns DivisionElement
+	 *
+	 * Constraint:
+	 *     (left=MultiplicationDivisionElement_DivisionElement_1_1_1 right=UnaryElement)
+	 */
+	protected void sequence_MultiplicationDivisionElement(ISerializationContext context, DivisionElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.DIVISION_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.DIVISION_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.DIVISION_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.DIVISION_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMultiplicationDivisionElementAccess().getDivisionElementLeftAction_1_1_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getMultiplicationDivisionElementAccess().getRightUnaryElementParserRuleCall_1_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns ModuloElement
+	 *     OrElement.OrElement_1_1 returns ModuloElement
+	 *     AndElement returns ModuloElement
+	 *     AndElement.AndElement_1_1 returns ModuloElement
+	 *     DiffEqualElement returns ModuloElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns ModuloElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns ModuloElement
+	 *     CompareElement returns ModuloElement
+	 *     CompareElement.LargerElement_1_0_1 returns ModuloElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns ModuloElement
+	 *     CompareElement.SmallerElement_1_2_1 returns ModuloElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns ModuloElement
+	 *     PlusMinusElement returns ModuloElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns ModuloElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns ModuloElement
+	 *     MultiplicationDivisionElement returns ModuloElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns ModuloElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns ModuloElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns ModuloElement
+	 *     UnaryElement returns ModuloElement
+	 *
+	 * Constraint:
+	 *     (left=MultiplicationDivisionElement_ModuloElement_1_2_1 right=UnaryElement)
+	 */
+	protected void sequence_MultiplicationDivisionElement(ISerializationContext context, ModuloElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.MODULO_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.MODULO_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.MODULO_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.MODULO_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMultiplicationDivisionElementAccess().getModuloElementLeftAction_1_2_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getMultiplicationDivisionElementAccess().getRightUnaryElementParserRuleCall_1_2_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns MultiplicationElement
+	 *     OrElement.OrElement_1_1 returns MultiplicationElement
+	 *     AndElement returns MultiplicationElement
+	 *     AndElement.AndElement_1_1 returns MultiplicationElement
+	 *     DiffEqualElement returns MultiplicationElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns MultiplicationElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns MultiplicationElement
+	 *     CompareElement returns MultiplicationElement
+	 *     CompareElement.LargerElement_1_0_1 returns MultiplicationElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns MultiplicationElement
+	 *     CompareElement.SmallerElement_1_2_1 returns MultiplicationElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns MultiplicationElement
+	 *     PlusMinusElement returns MultiplicationElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns MultiplicationElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns MultiplicationElement
+	 *     MultiplicationDivisionElement returns MultiplicationElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns MultiplicationElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns MultiplicationElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns MultiplicationElement
+	 *     UnaryElement returns MultiplicationElement
+	 *
+	 * Constraint:
+	 *     (left=MultiplicationDivisionElement_MultiplicationElement_1_0_1 right=UnaryElement)
+	 */
+	protected void sequence_MultiplicationDivisionElement(ISerializationContext context, MultiplicationElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.MULTIPLICATION_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.MULTIPLICATION_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.MULTIPLICATION_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.MULTIPLICATION_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMultiplicationDivisionElementAccess().getMultiplicationElementLeftAction_1_0_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getMultiplicationDivisionElementAccess().getRightUnaryElementParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns OrElement
+	 *     OrElement.OrElement_1_1 returns OrElement
+	 *     AndElement returns OrElement
+	 *     AndElement.AndElement_1_1 returns OrElement
+	 *     DiffEqualElement returns OrElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns OrElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns OrElement
+	 *     CompareElement returns OrElement
+	 *     CompareElement.LargerElement_1_0_1 returns OrElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns OrElement
+	 *     CompareElement.SmallerElement_1_2_1 returns OrElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns OrElement
+	 *     PlusMinusElement returns OrElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns OrElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns OrElement
+	 *     MultiplicationDivisionElement returns OrElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns OrElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns OrElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns OrElement
+	 *     UnaryElement returns OrElement
+	 *
+	 * Constraint:
+	 *     (left=OrElement_OrElement_1_1 right=AndElement)
+	 */
+	protected void sequence_OrElement(ISerializationContext context, OrElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.OR_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.OR_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.OR_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.OR_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getOrElementAccess().getOrElementLeftAction_1_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getOrElementAccess().getRightAndElementParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns MinusElement
+	 *     OrElement.OrElement_1_1 returns MinusElement
+	 *     AndElement returns MinusElement
+	 *     AndElement.AndElement_1_1 returns MinusElement
+	 *     DiffEqualElement returns MinusElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns MinusElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns MinusElement
+	 *     CompareElement returns MinusElement
+	 *     CompareElement.LargerElement_1_0_1 returns MinusElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns MinusElement
+	 *     CompareElement.SmallerElement_1_2_1 returns MinusElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns MinusElement
+	 *     PlusMinusElement returns MinusElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns MinusElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns MinusElement
+	 *     MultiplicationDivisionElement returns MinusElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns MinusElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns MinusElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns MinusElement
+	 *     UnaryElement returns MinusElement
+	 *
+	 * Constraint:
+	 *     (left=PlusMinusElement_MinusElement_1_1_1 right=MultiplicationDivisionElement)
+	 */
+	protected void sequence_PlusMinusElement(ISerializationContext context, MinusElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.MINUS_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.MINUS_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.MINUS_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.MINUS_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPlusMinusElementAccess().getMinusElementLeftAction_1_1_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getPlusMinusElementAccess().getRightMultiplicationDivisionElementParserRuleCall_1_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns PlusElement
+	 *     OrElement.OrElement_1_1 returns PlusElement
+	 *     AndElement returns PlusElement
+	 *     AndElement.AndElement_1_1 returns PlusElement
+	 *     DiffEqualElement returns PlusElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns PlusElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns PlusElement
+	 *     CompareElement returns PlusElement
+	 *     CompareElement.LargerElement_1_0_1 returns PlusElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns PlusElement
+	 *     CompareElement.SmallerElement_1_2_1 returns PlusElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns PlusElement
+	 *     PlusMinusElement returns PlusElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns PlusElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns PlusElement
+	 *     MultiplicationDivisionElement returns PlusElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns PlusElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns PlusElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns PlusElement
+	 *     UnaryElement returns PlusElement
+	 *
+	 * Constraint:
+	 *     (left=PlusMinusElement_PlusElement_1_0_1 right=MultiplicationDivisionElement)
+	 */
+	protected void sequence_PlusMinusElement(ISerializationContext context, PlusElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.PLUS_ELEMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.PLUS_ELEMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.PLUS_ELEMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.PLUS_ELEMENT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPlusMinusElementAccess().getPlusElementLeftAction_1_0_1(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getPlusMinusElementAccess().getRightMultiplicationDivisionElementParserRuleCall_1_0_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -128,6 +698,175 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_RunTimeModel(ISerializationContext context, RunTimeModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Trigger returns Trigger
+	 *
+	 * Constraint:
+	 *     (eventName=ID code=ID)
+	 */
+	protected void sequence_Trigger(ISerializationContext context, Trigger semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.TRIGGER__EVENT_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.TRIGGER__EVENT_NAME));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.TRIGGER__CODE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.TRIGGER__CODE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTriggerAccess().getEventNameIDTerminalRuleCall_0_0(), semanticObject.getEventName());
+		feeder.accept(grammarAccess.getTriggerAccess().getCodeIDTerminalRuleCall_1_0(), semanticObject.getCode());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns Boolean_Object
+	 *     OrElement.OrElement_1_1 returns Boolean_Object
+	 *     AndElement returns Boolean_Object
+	 *     AndElement.AndElement_1_1 returns Boolean_Object
+	 *     DiffEqualElement returns Boolean_Object
+	 *     DiffEqualElement.DiffElement_1_0_1 returns Boolean_Object
+	 *     DiffEqualElement.EqualElement_1_1_1 returns Boolean_Object
+	 *     CompareElement returns Boolean_Object
+	 *     CompareElement.LargerElement_1_0_1 returns Boolean_Object
+	 *     CompareElement.LargerEqualElement_1_1_1 returns Boolean_Object
+	 *     CompareElement.SmallerElement_1_2_1 returns Boolean_Object
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns Boolean_Object
+	 *     PlusMinusElement returns Boolean_Object
+	 *     PlusMinusElement.PlusElement_1_0_1 returns Boolean_Object
+	 *     PlusMinusElement.MinusElement_1_1_1 returns Boolean_Object
+	 *     MultiplicationDivisionElement returns Boolean_Object
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns Boolean_Object
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns Boolean_Object
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns Boolean_Object
+	 *     UnaryElement returns Boolean_Object
+	 *
+	 * Constraint:
+	 *     value=BOOLEAN
+	 */
+	protected void sequence_UnaryElement(ISerializationContext context, Boolean_Object semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.BOOLEAN_OBJECT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.BOOLEAN_OBJECT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getUnaryElementAccess().getValueBOOLEANTerminalRuleCall_2_1_0(), semanticObject.isValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns NegateElement
+	 *     OrElement.OrElement_1_1 returns NegateElement
+	 *     AndElement returns NegateElement
+	 *     AndElement.AndElement_1_1 returns NegateElement
+	 *     DiffEqualElement returns NegateElement
+	 *     DiffEqualElement.DiffElement_1_0_1 returns NegateElement
+	 *     DiffEqualElement.EqualElement_1_1_1 returns NegateElement
+	 *     CompareElement returns NegateElement
+	 *     CompareElement.LargerElement_1_0_1 returns NegateElement
+	 *     CompareElement.LargerEqualElement_1_1_1 returns NegateElement
+	 *     CompareElement.SmallerElement_1_2_1 returns NegateElement
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns NegateElement
+	 *     PlusMinusElement returns NegateElement
+	 *     PlusMinusElement.PlusElement_1_0_1 returns NegateElement
+	 *     PlusMinusElement.MinusElement_1_1_1 returns NegateElement
+	 *     MultiplicationDivisionElement returns NegateElement
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns NegateElement
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns NegateElement
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns NegateElement
+	 *     UnaryElement returns NegateElement
+	 *
+	 * Constraint:
+	 *     exp=UnaryElement
+	 */
+	protected void sequence_UnaryElement(ISerializationContext context, NegateElement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.NEGATE_ELEMENT__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.NEGATE_ELEMENT__EXP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getUnaryElementAccess().getExpUnaryElementParserRuleCall_4_2_0(), semanticObject.getExp());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns Number_Object
+	 *     OrElement.OrElement_1_1 returns Number_Object
+	 *     AndElement returns Number_Object
+	 *     AndElement.AndElement_1_1 returns Number_Object
+	 *     DiffEqualElement returns Number_Object
+	 *     DiffEqualElement.DiffElement_1_0_1 returns Number_Object
+	 *     DiffEqualElement.EqualElement_1_1_1 returns Number_Object
+	 *     CompareElement returns Number_Object
+	 *     CompareElement.LargerElement_1_0_1 returns Number_Object
+	 *     CompareElement.LargerEqualElement_1_1_1 returns Number_Object
+	 *     CompareElement.SmallerElement_1_2_1 returns Number_Object
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns Number_Object
+	 *     PlusMinusElement returns Number_Object
+	 *     PlusMinusElement.PlusElement_1_0_1 returns Number_Object
+	 *     PlusMinusElement.MinusElement_1_1_1 returns Number_Object
+	 *     MultiplicationDivisionElement returns Number_Object
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns Number_Object
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns Number_Object
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns Number_Object
+	 *     UnaryElement returns Number_Object
+	 *
+	 * Constraint:
+	 *     value=NUMBER
+	 */
+	protected void sequence_UnaryElement(ISerializationContext context, Number_Object semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.NUMBER_OBJECT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.NUMBER_OBJECT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getUnaryElementAccess().getValueNUMBERParserRuleCall_0_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns String_Object
+	 *     OrElement.OrElement_1_1 returns String_Object
+	 *     AndElement returns String_Object
+	 *     AndElement.AndElement_1_1 returns String_Object
+	 *     DiffEqualElement returns String_Object
+	 *     DiffEqualElement.DiffElement_1_0_1 returns String_Object
+	 *     DiffEqualElement.EqualElement_1_1_1 returns String_Object
+	 *     CompareElement returns String_Object
+	 *     CompareElement.LargerElement_1_0_1 returns String_Object
+	 *     CompareElement.LargerEqualElement_1_1_1 returns String_Object
+	 *     CompareElement.SmallerElement_1_2_1 returns String_Object
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns String_Object
+	 *     PlusMinusElement returns String_Object
+	 *     PlusMinusElement.PlusElement_1_0_1 returns String_Object
+	 *     PlusMinusElement.MinusElement_1_1_1 returns String_Object
+	 *     MultiplicationDivisionElement returns String_Object
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns String_Object
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns String_Object
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns String_Object
+	 *     UnaryElement returns String_Object
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_UnaryElement(ISerializationContext context, String_Object semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.STRING_OBJECT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.STRING_OBJECT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getUnaryElementAccess().getValueSTRINGTerminalRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	

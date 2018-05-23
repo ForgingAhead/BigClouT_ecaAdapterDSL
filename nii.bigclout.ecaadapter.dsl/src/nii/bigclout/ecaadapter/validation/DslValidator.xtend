@@ -3,6 +3,8 @@
  */
 package nii.bigclout.ecaadapter.validation
 
+import nii.bigclout.ecaadapter.dsl.RunTimeModel
+import org.eclipse.xtext.validation.Check
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +13,16 @@ package nii.bigclout.ecaadapter.validation
  */
 class DslValidator extends AbstractDslValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					DslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	public static val DUPLICATE_NAME = 'duplicateName'
+/*
+	@Check
+	def checkGreetingStartsWithCapital(RunTimeModel model) {
+		if (!Character.isUpperCase(greeting.name.charAt(0))) {
+			warning('Name should start with a capital', 
+					DslPackage.Literals.GREETING__NAME,
+					INVALID_NAME)
+		}
+	}
+*/
 	
 }
