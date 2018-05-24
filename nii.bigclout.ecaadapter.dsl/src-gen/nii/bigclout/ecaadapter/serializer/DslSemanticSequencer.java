@@ -12,7 +12,6 @@ import nii.bigclout.ecaadapter.dsl.Boolean_Object;
 import nii.bigclout.ecaadapter.dsl.DiffElement;
 import nii.bigclout.ecaadapter.dsl.DivisionElement;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
-import nii.bigclout.ecaadapter.dsl.Element;
 import nii.bigclout.ecaadapter.dsl.EqualElement;
 import nii.bigclout.ecaadapter.dsl.LargerElement;
 import nii.bigclout.ecaadapter.dsl.LargerEqualElement;
@@ -27,7 +26,6 @@ import nii.bigclout.ecaadapter.dsl.RunTimeModel;
 import nii.bigclout.ecaadapter.dsl.SmallerElement;
 import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
 import nii.bigclout.ecaadapter.dsl.String_Object;
-import nii.bigclout.ecaadapter.dsl.Trigger;
 import nii.bigclout.ecaadapter.services.DslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -71,9 +69,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DslPackage.DIVISION_ELEMENT:
 				sequence_MultiplicationDivisionElement(context, (DivisionElement) semanticObject); 
 				return; 
-			case DslPackage.ELEMENT:
-				sequence_Element(context, (Element) semanticObject); 
-				return; 
 			case DslPackage.EQUAL_ELEMENT:
 				sequence_DiffEqualElement(context, (EqualElement) semanticObject); 
 				return; 
@@ -115,9 +110,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DslPackage.STRING_OBJECT:
 				sequence_UnaryElement(context, (String_Object) semanticObject); 
-				return; 
-			case DslPackage.TRIGGER:
-				sequence_Trigger(context, (Trigger) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -181,7 +173,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AppSpecification returns AppSpecification
 	 *
 	 * Constraint:
-	 *     (trigger+=OrElement* condition+=OrElement* action+=[Element|ID]+)
+	 *     (specID=ID trigger+=OrElement* condition+=OrElement* action+=AndElement*)
 	 */
 	protected void sequence_AppSpecification(ISerializationContext context, AppSpecification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -424,27 +416,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDiffEqualElementAccess().getEqualElementLeftAction_1_1_1(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getDiffEqualElementAccess().getRightCompareElementParserRuleCall_1_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Element returns Element
-	 *
-	 * Constraint:
-	 *     (concept=STRING code=STRING)
-	 */
-	protected void sequence_Element(ISerializationContext context, Element semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.ELEMENT__CONCEPT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.ELEMENT__CONCEPT));
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.ELEMENT__CODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.ELEMENT__CODE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getElementAccess().getConceptSTRINGTerminalRuleCall_0_0(), semanticObject.getConcept());
-		feeder.accept(grammarAccess.getElementAccess().getCodeSTRINGTerminalRuleCall_1_0(), semanticObject.getCode());
 		feeder.finish();
 	}
 	
@@ -703,27 +674,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Trigger returns Trigger
-	 *
-	 * Constraint:
-	 *     (eventName=ID code=ID)
-	 */
-	protected void sequence_Trigger(ISerializationContext context, Trigger semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.TRIGGER__EVENT_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.TRIGGER__EVENT_NAME));
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.TRIGGER__CODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.TRIGGER__CODE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTriggerAccess().getEventNameIDTerminalRuleCall_0_0(), semanticObject.getEventName());
-		feeder.accept(grammarAccess.getTriggerAccess().getCodeIDTerminalRuleCall_1_0(), semanticObject.getCode());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     OrElement returns Boolean_Object
 	 *     OrElement.OrElement_1_1 returns Boolean_Object
 	 *     AndElement returns Boolean_Object
@@ -857,7 +807,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     UnaryElement returns String_Object
 	 *
 	 * Constraint:
-	 *     value=STRING
+	 *     value=EXTENDED_STRING
 	 */
 	protected void sequence_UnaryElement(ISerializationContext context, String_Object semanticObject) {
 		if (errorAcceptor != null) {
@@ -865,7 +815,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.STRING_OBJECT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUnaryElementAccess().getValueSTRINGTerminalRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getUnaryElementAccess().getValueEXTENDED_STRINGParserRuleCall_1_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

@@ -14,18 +14,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//AppMetaData/specifications"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//AppSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//AppSpecification/specID"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//AppSpecification/trigger"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//AppSpecification/condition"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//AppSpecification/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//AppSpecification/action"/>
     </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//Element">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Element/concept"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Element/code"/>
-    </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//Trigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Trigger/eventName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Trigger/code"/>
-    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Element"/>
     <genClasses ecoreClass="Dsl.ecore#//OrElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//OrElement/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//OrElement/right"/>

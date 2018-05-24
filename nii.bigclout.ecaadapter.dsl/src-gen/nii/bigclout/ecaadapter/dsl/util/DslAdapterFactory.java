@@ -96,11 +96,6 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createElementAdapter();
       }
       @Override
-      public Adapter caseTrigger(Trigger object)
-      {
-        return createTriggerAdapter();
-      }
-      @Override
       public Adapter caseOrElement(OrElement object)
       {
         return createOrElementAdapter();
@@ -263,21 +258,6 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createElementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Trigger <em>Trigger</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see nii.bigclout.ecaadapter.dsl.Trigger
-   * @generated
-   */
-  public Adapter createTriggerAdapter()
   {
     return null;
   }

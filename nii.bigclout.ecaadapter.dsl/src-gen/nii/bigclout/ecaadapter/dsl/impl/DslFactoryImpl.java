@@ -69,7 +69,6 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.APP_META_DATA: return createAppMetaData();
       case DslPackage.APP_SPECIFICATION: return createAppSpecification();
       case DslPackage.ELEMENT: return createElement();
-      case DslPackage.TRIGGER: return createTrigger();
       case DslPackage.OR_ELEMENT: return createOrElement();
       case DslPackage.AND_ELEMENT: return createAndElement();
       case DslPackage.DIFF_ELEMENT: return createDiffElement();
@@ -134,17 +133,6 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     ElementImpl element = new ElementImpl();
     return element;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Trigger createTrigger()
-  {
-    TriggerImpl trigger = new TriggerImpl();
-    return trigger;
   }
 
   /**

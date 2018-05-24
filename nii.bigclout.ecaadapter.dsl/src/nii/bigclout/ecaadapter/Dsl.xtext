@@ -11,23 +11,28 @@ RunTimeModel:
 ;
 	
 AppMetaData:
-	"AppMeta" appID=ID LBRACE
+	"AppMeta" appID=ID 
+	LBRACE
 	specifications += AppSpecification*
 	RBRACE
 ;
 
+/**
+ * Currently AppSpecification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
+ */
 AppSpecification:
-	specID=ID LBRACE
+	specID=ID 
 	'on' trigger += OrElement*
 	'if' condition += OrElement*
-	'do' action += [Element]+
-	RBRACE
+	'do' action += AndElement*
 ;
 
+/* 
 Element:
-	concept = STRING
-	code = STRING
+	concept = STRING //the design, e.g. Window, or Open
+	code = STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
 ;
+*/
 
 OrElement returns Element:
 	AndElement ("or" {OrElement.left=current} right=AndElement)*
@@ -71,30 +76,19 @@ MultiplicationDivisionElement returns Element:
 //TO-DO  more thinking here about the UnaryElement...
 UnaryElement returns Element:
 	{Number_Object} value=NUMBER |
-	{String_Object} value=STRING |
+	{String_Object} value=EXTENDED_STRING |
 	{Boolean_Object} value=BOOLEAN |
 	"(" OrElement ")" |
 	"not" {NegateElement} exp=UnaryElement
 ;
 
-Trigger:
-	eventName = ID
-	code = 	ID
-;
-
 LBRACE: "{";
 RBRACE: "}";
-/**
-Concept:
-	referenceName = ID
-	//value = Value	
-;
 
- /**
+/**
  ServiceMetaData:
 	{ServiceMetaData}
 	serviceID = ID
-	
 ;
 
 EnvironmentMetaData:
@@ -133,3 +127,4 @@ NUMBER returns ecore::EBigDecimal: INT | INT '.' INT;
 
 terminal ID : ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|':'|'-')+;
 EXTENDED_ID : ID ('.' ID)*;
+EXTENDED_STRING: ID ('.' ID)* ('('')')?;

@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -54,14 +53,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRBRACEParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//AppMetaData:
-		//	"AppMeta" appID=ID LBRACE
+		//	"AppMeta" appID=ID
+		//	LBRACE
 		//	specifications+=AppSpecification*
-		//	//globalSpecs += GlobalSpecification*
 		//	RBRACE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"AppMeta" appID=ID LBRACE specifications+=AppSpecification* //globalSpecs += GlobalSpecification*
-		//RBRACE
+		//"AppMeta" appID=ID LBRACE specifications+=AppSpecification* RBRACE
 		public Group getGroup() { return cGroup; }
 		
 		//"AppMeta"
@@ -82,90 +80,68 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//AppSpecification
 		public RuleCall getSpecificationsAppSpecificationParserRuleCall_3_0() { return cSpecificationsAppSpecificationParserRuleCall_3_0; }
 		
-		////globalSpecs += GlobalSpecification*
 		//RBRACE
 		public RuleCall getRBRACEParserRuleCall_4() { return cRBRACEParserRuleCall_4; }
 	}
 	public class AppSpecificationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.AppSpecification");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cOnKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTriggerAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTriggerOrElementParserRuleCall_1_0 = (RuleCall)cTriggerAssignment_1.eContents().get(0);
-		private final Keyword cIfKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cConditionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cConditionOrElementParserRuleCall_3_0 = (RuleCall)cConditionAssignment_3.eContents().get(0);
-		private final Keyword cDoKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cActionAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cActionElementCrossReference_5_0 = (CrossReference)cActionAssignment_5.eContents().get(0);
-		private final RuleCall cActionElementIDTerminalRuleCall_5_0_1 = (RuleCall)cActionElementCrossReference_5_0.eContents().get(1);
+		private final Assignment cSpecIDAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cSpecIDIDTerminalRuleCall_0_0 = (RuleCall)cSpecIDAssignment_0.eContents().get(0);
+		private final Keyword cOnKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cTriggerAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTriggerOrElementParserRuleCall_2_0 = (RuleCall)cTriggerAssignment_2.eContents().get(0);
+		private final Keyword cIfKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cConditionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cConditionOrElementParserRuleCall_4_0 = (RuleCall)cConditionAssignment_4.eContents().get(0);
+		private final Keyword cDoKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cActionAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cActionAndElementParserRuleCall_6_0 = (RuleCall)cActionAssignment_6.eContents().get(0);
 		
-		//AppSpecification:
+		///**
+		// * Currently AppSpecification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
+		// */ AppSpecification:
+		//	specID=ID
 		//	'on' trigger+=OrElement*
 		//	'if' condition+=OrElement*
-		//	'do' action+=[Element]+;
+		//	'do' action+=AndElement*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'on' trigger+=OrElement* 'if' condition+=OrElement* 'do' action+=[Element]+
+		//specID=ID 'on' trigger+=OrElement* 'if' condition+=OrElement* 'do' action+=AndElement*
 		public Group getGroup() { return cGroup; }
 		
-		//'on'
-		public Keyword getOnKeyword_0() { return cOnKeyword_0; }
-		
-		//trigger+=OrElement*
-		public Assignment getTriggerAssignment_1() { return cTriggerAssignment_1; }
-		
-		//OrElement
-		public RuleCall getTriggerOrElementParserRuleCall_1_0() { return cTriggerOrElementParserRuleCall_1_0; }
-		
-		//'if'
-		public Keyword getIfKeyword_2() { return cIfKeyword_2; }
-		
-		//condition+=OrElement*
-		public Assignment getConditionAssignment_3() { return cConditionAssignment_3; }
-		
-		//OrElement
-		public RuleCall getConditionOrElementParserRuleCall_3_0() { return cConditionOrElementParserRuleCall_3_0; }
-		
-		//'do'
-		public Keyword getDoKeyword_4() { return cDoKeyword_4; }
-		
-		//action+=[Element]+
-		public Assignment getActionAssignment_5() { return cActionAssignment_5; }
-		
-		//[Element]
-		public CrossReference getActionElementCrossReference_5_0() { return cActionElementCrossReference_5_0; }
+		//specID=ID
+		public Assignment getSpecIDAssignment_0() { return cSpecIDAssignment_0; }
 		
 		//ID
-		public RuleCall getActionElementIDTerminalRuleCall_5_0_1() { return cActionElementIDTerminalRuleCall_5_0_1; }
-	}
-	public class ElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.Element");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cConceptAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cConceptSTRINGTerminalRuleCall_0_0 = (RuleCall)cConceptAssignment_0.eContents().get(0);
-		private final Assignment cCodeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cCodeSTRINGTerminalRuleCall_1_0 = (RuleCall)cCodeAssignment_1.eContents().get(0);
+		public RuleCall getSpecIDIDTerminalRuleCall_0_0() { return cSpecIDIDTerminalRuleCall_0_0; }
 		
-		//Element:
-		//	concept=STRING
-		//	code=STRING;
-		@Override public ParserRule getRule() { return rule; }
+		//'on'
+		public Keyword getOnKeyword_1() { return cOnKeyword_1; }
 		
-		//concept=STRING code=STRING
-		public Group getGroup() { return cGroup; }
+		//trigger+=OrElement*
+		public Assignment getTriggerAssignment_2() { return cTriggerAssignment_2; }
 		
-		//concept=STRING
-		public Assignment getConceptAssignment_0() { return cConceptAssignment_0; }
+		//OrElement
+		public RuleCall getTriggerOrElementParserRuleCall_2_0() { return cTriggerOrElementParserRuleCall_2_0; }
 		
-		//STRING
-		public RuleCall getConceptSTRINGTerminalRuleCall_0_0() { return cConceptSTRINGTerminalRuleCall_0_0; }
+		//'if'
+		public Keyword getIfKeyword_3() { return cIfKeyword_3; }
 		
-		//code=STRING
-		public Assignment getCodeAssignment_1() { return cCodeAssignment_1; }
+		//condition+=OrElement*
+		public Assignment getConditionAssignment_4() { return cConditionAssignment_4; }
 		
-		//STRING
-		public RuleCall getCodeSTRINGTerminalRuleCall_1_0() { return cCodeSTRINGTerminalRuleCall_1_0; }
+		//OrElement
+		public RuleCall getConditionOrElementParserRuleCall_4_0() { return cConditionOrElementParserRuleCall_4_0; }
+		
+		//'do'
+		public Keyword getDoKeyword_5() { return cDoKeyword_5; }
+		
+		//action+=AndElement*
+		public Assignment getActionAssignment_6() { return cActionAssignment_6; }
+		
+		//AndElement
+		public RuleCall getActionAndElementParserRuleCall_6_0() { return cActionAndElementParserRuleCall_6_0; }
 	}
 	public class OrElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.OrElement");
@@ -177,7 +153,12 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightAndElementParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//OrElement Element:
+		///* 
+		//Element:
+		//	concept = STRING //the design, e.g. Window, or Open
+		//	code = STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+		//;
+		//*/ OrElement Element:
 		//	AndElement ("or" {OrElement.left=current} right=AndElement)*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -557,7 +538,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Action cString_ObjectAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_1_1_0 = (RuleCall)cValueAssignment_1_1.eContents().get(0);
+		private final RuleCall cValueEXTENDED_STRINGParserRuleCall_1_1_0 = (RuleCall)cValueAssignment_1_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Action cBoolean_ObjectAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Assignment cValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -574,13 +555,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		////TO-DO  more thinking here about the UnaryElement...
 		//UnaryElement Element:
-		//	{Number_Object} value=NUMBER | {String_Object} value=STRING | {Boolean_Object} value=BOOLEAN |
+		//	{Number_Object} value=NUMBER | {String_Object} value=EXTENDED_STRING | {Boolean_Object} value=BOOLEAN |
 		//	"(" OrElement ")" |
 		//	"not" {NegateElement} exp=UnaryElement;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Number_Object} value=NUMBER | {String_Object} value=STRING | {Boolean_Object} value=BOOLEAN | "(" OrElement ")" | "not"
-		//{NegateElement} exp=UnaryElement
+		//{Number_Object} value=NUMBER | {String_Object} value=EXTENDED_STRING | {Boolean_Object} value=BOOLEAN | "(" OrElement
+		//")" | "not" {NegateElement} exp=UnaryElement
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{Number_Object} value=NUMBER
@@ -595,17 +576,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//NUMBER
 		public RuleCall getValueNUMBERParserRuleCall_0_1_0() { return cValueNUMBERParserRuleCall_0_1_0; }
 		
-		//{String_Object} value=STRING
+		//{String_Object} value=EXTENDED_STRING
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{String_Object}
 		public Action getString_ObjectAction_1_0() { return cString_ObjectAction_1_0; }
 		
-		//value=STRING
+		//value=EXTENDED_STRING
 		public Assignment getValueAssignment_1_1() { return cValueAssignment_1_1; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_1_1_0() { return cValueSTRINGTerminalRuleCall_1_1_0; }
+		//EXTENDED_STRING
+		public RuleCall getValueEXTENDED_STRINGParserRuleCall_1_1_0() { return cValueEXTENDED_STRINGParserRuleCall_1_1_0; }
 		
 		//{Boolean_Object} value=BOOLEAN
 		public Group getGroup_2() { return cGroup_2; }
@@ -645,34 +626,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//UnaryElement
 		public RuleCall getExpUnaryElementParserRuleCall_4_2_0() { return cExpUnaryElementParserRuleCall_4_2_0; }
-	}
-	public class TriggerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.Trigger");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cEventNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cEventNameIDTerminalRuleCall_0_0 = (RuleCall)cEventNameAssignment_0.eContents().get(0);
-		private final Assignment cCodeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cCodeIDTerminalRuleCall_1_0 = (RuleCall)cCodeAssignment_1.eContents().get(0);
-		
-		//Trigger:
-		//	eventName=ID
-		//	code=ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//eventName=ID code=ID
-		public Group getGroup() { return cGroup; }
-		
-		//eventName=ID
-		public Assignment getEventNameAssignment_0() { return cEventNameAssignment_0; }
-		
-		//ID
-		public RuleCall getEventNameIDTerminalRuleCall_0_0() { return cEventNameIDTerminalRuleCall_0_0; }
-		
-		//code=ID
-		public Assignment getCodeAssignment_1() { return cCodeAssignment_1; }
-		
-		//ID
-		public RuleCall getCodeIDTerminalRuleCall_1_0() { return cCodeIDTerminalRuleCall_1_0; }
 	}
 	public class LBRACEElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.LBRACE");
@@ -754,12 +707,50 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
+	public class EXTENDED_STRINGElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.EXTENDED_STRING");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		
+		//EXTENDED_STRING:
+		//	ID ('.' ID)* ('(' ')')?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID ('.' ID)* ('(' ')')?
+		public Group getGroup() { return cGroup; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//('.' ID)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+		
+		//('(' ')')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_1() { return cRightParenthesisKeyword_2_1; }
+	}
 	
 	
 	private final RunTimeModelElements pRunTimeModel;
 	private final AppMetaDataElements pAppMetaData;
 	private final AppSpecificationElements pAppSpecification;
-	private final ElementElements pElement;
 	private final OrElementElements pOrElement;
 	private final AndElementElements pAndElement;
 	private final DiffEqualElementElements pDiffEqualElement;
@@ -767,7 +758,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final PlusMinusElementElements pPlusMinusElement;
 	private final MultiplicationDivisionElementElements pMultiplicationDivisionElement;
 	private final UnaryElementElements pUnaryElement;
-	private final TriggerElements pTrigger;
 	private final LBRACEElements pLBRACE;
 	private final RBRACEElements pRBRACE;
 	private final TerminalRule tBOOLEAN;
@@ -775,6 +765,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final NUMBERElements pNUMBER;
 	private final TerminalRule tID;
 	private final EXTENDED_IDElements pEXTENDED_ID;
+	private final EXTENDED_STRINGElements pEXTENDED_STRING;
 	
 	private final Grammar grammar;
 	
@@ -788,7 +779,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pRunTimeModel = new RunTimeModelElements();
 		this.pAppMetaData = new AppMetaDataElements();
 		this.pAppSpecification = new AppSpecificationElements();
-		this.pElement = new ElementElements();
 		this.pOrElement = new OrElementElements();
 		this.pAndElement = new AndElementElements();
 		this.pDiffEqualElement = new DiffEqualElementElements();
@@ -796,7 +786,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPlusMinusElement = new PlusMinusElementElements();
 		this.pMultiplicationDivisionElement = new MultiplicationDivisionElementElements();
 		this.pUnaryElement = new UnaryElementElements();
-		this.pTrigger = new TriggerElements();
 		this.pLBRACE = new LBRACEElements();
 		this.pRBRACE = new RBRACEElements();
 		this.tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.BOOLEAN");
@@ -804,6 +793,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pNUMBER = new NUMBERElements();
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.ID");
 		this.pEXTENDED_ID = new EXTENDED_IDElements();
+		this.pEXTENDED_STRING = new EXTENDED_STRINGElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -847,9 +837,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AppMetaData:
-	//	"AppMeta" appID=ID LBRACE
+	//	"AppMeta" appID=ID
+	//	LBRACE
 	//	specifications+=AppSpecification*
-	//	//globalSpecs += GlobalSpecification*
 	//	RBRACE;
 	public AppMetaDataElements getAppMetaDataAccess() {
 		return pAppMetaData;
@@ -859,10 +849,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getAppMetaDataAccess().getRule();
 	}
 	
-	//AppSpecification:
+	///**
+	// * Currently AppSpecification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
+	// */ AppSpecification:
+	//	specID=ID
 	//	'on' trigger+=OrElement*
 	//	'if' condition+=OrElement*
-	//	'do' action+=[Element]+;
+	//	'do' action+=AndElement*;
 	public AppSpecificationElements getAppSpecificationAccess() {
 		return pAppSpecification;
 	}
@@ -871,18 +864,12 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getAppSpecificationAccess().getRule();
 	}
 	
+	///* 
 	//Element:
-	//	concept=STRING
-	//	code=STRING;
-	public ElementElements getElementAccess() {
-		return pElement;
-	}
-	
-	public ParserRule getElementRule() {
-		return getElementAccess().getRule();
-	}
-	
-	//OrElement Element:
+	//	concept = STRING //the design, e.g. Window, or Open
+	//	code = STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+	//;
+	//*/ OrElement Element:
 	//	AndElement ("or" {OrElement.left=current} right=AndElement)*;
 	public OrElementElements getOrElementAccess() {
 		return pOrElement;
@@ -949,7 +936,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////TO-DO  more thinking here about the UnaryElement...
 	//UnaryElement Element:
-	//	{Number_Object} value=NUMBER | {String_Object} value=STRING | {Boolean_Object} value=BOOLEAN |
+	//	{Number_Object} value=NUMBER | {String_Object} value=EXTENDED_STRING | {Boolean_Object} value=BOOLEAN |
 	//	"(" OrElement ")" |
 	//	"not" {NegateElement} exp=UnaryElement;
 	public UnaryElementElements getUnaryElementAccess() {
@@ -958,17 +945,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getUnaryElementRule() {
 		return getUnaryElementAccess().getRule();
-	}
-	
-	//Trigger:
-	//	eventName=ID
-	//	code=ID;
-	public TriggerElements getTriggerAccess() {
-		return pTrigger;
-	}
-	
-	public ParserRule getTriggerRule() {
-		return getTriggerAccess().getRule();
 	}
 	
 	//LBRACE:
@@ -1027,6 +1003,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEXTENDED_IDRule() {
 		return getEXTENDED_IDAccess().getRule();
+	}
+	
+	//EXTENDED_STRING:
+	//	ID ('.' ID)* ('(' ')')?;
+	public EXTENDED_STRINGElements getEXTENDED_STRINGAccess() {
+		return pEXTENDED_STRING;
+	}
+	
+	public ParserRule getEXTENDED_STRINGRule() {
+		return getEXTENDED_STRINGAccess().getRule();
 	}
 	
 	//terminal STRING:

@@ -39,7 +39,6 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNUMBERAccess().getAlternatives(), "rule__NUMBER__Alternatives");
 					put(grammarAccess.getAppMetaDataAccess().getGroup(), "rule__AppMetaData__Group__0");
 					put(grammarAccess.getAppSpecificationAccess().getGroup(), "rule__AppSpecification__Group__0");
-					put(grammarAccess.getElementAccess().getGroup(), "rule__Element__Group__0");
 					put(grammarAccess.getOrElementAccess().getGroup(), "rule__OrElement__Group__0");
 					put(grammarAccess.getOrElementAccess().getGroup_1(), "rule__OrElement__Group_1__0");
 					put(grammarAccess.getAndElementAccess().getGroup(), "rule__AndElement__Group__0");
@@ -64,18 +63,19 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnaryElementAccess().getGroup_2(), "rule__UnaryElement__Group_2__0");
 					put(grammarAccess.getUnaryElementAccess().getGroup_3(), "rule__UnaryElement__Group_3__0");
 					put(grammarAccess.getUnaryElementAccess().getGroup_4(), "rule__UnaryElement__Group_4__0");
-					put(grammarAccess.getTriggerAccess().getGroup(), "rule__Trigger__Group__0");
 					put(grammarAccess.getNUMBERAccess().getGroup_1(), "rule__NUMBER__Group_1__0");
 					put(grammarAccess.getEXTENDED_IDAccess().getGroup(), "rule__EXTENDED_ID__Group__0");
 					put(grammarAccess.getEXTENDED_IDAccess().getGroup_1(), "rule__EXTENDED_ID__Group_1__0");
+					put(grammarAccess.getEXTENDED_STRINGAccess().getGroup(), "rule__EXTENDED_STRING__Group__0");
+					put(grammarAccess.getEXTENDED_STRINGAccess().getGroup_1(), "rule__EXTENDED_STRING__Group_1__0");
+					put(grammarAccess.getEXTENDED_STRINGAccess().getGroup_2(), "rule__EXTENDED_STRING__Group_2__0");
 					put(grammarAccess.getRunTimeModelAccess().getAppDataAssignment(), "rule__RunTimeModel__AppDataAssignment");
 					put(grammarAccess.getAppMetaDataAccess().getAppIDAssignment_1(), "rule__AppMetaData__AppIDAssignment_1");
 					put(grammarAccess.getAppMetaDataAccess().getSpecificationsAssignment_3(), "rule__AppMetaData__SpecificationsAssignment_3");
-					put(grammarAccess.getAppSpecificationAccess().getTriggerAssignment_1(), "rule__AppSpecification__TriggerAssignment_1");
-					put(grammarAccess.getAppSpecificationAccess().getConditionAssignment_3(), "rule__AppSpecification__ConditionAssignment_3");
-					put(grammarAccess.getAppSpecificationAccess().getActionAssignment_5(), "rule__AppSpecification__ActionAssignment_5");
-					put(grammarAccess.getElementAccess().getConceptAssignment_0(), "rule__Element__ConceptAssignment_0");
-					put(grammarAccess.getElementAccess().getCodeAssignment_1(), "rule__Element__CodeAssignment_1");
+					put(grammarAccess.getAppSpecificationAccess().getSpecIDAssignment_0(), "rule__AppSpecification__SpecIDAssignment_0");
+					put(grammarAccess.getAppSpecificationAccess().getTriggerAssignment_2(), "rule__AppSpecification__TriggerAssignment_2");
+					put(grammarAccess.getAppSpecificationAccess().getConditionAssignment_4(), "rule__AppSpecification__ConditionAssignment_4");
+					put(grammarAccess.getAppSpecificationAccess().getActionAssignment_6(), "rule__AppSpecification__ActionAssignment_6");
 					put(grammarAccess.getOrElementAccess().getRightAssignment_1_2(), "rule__OrElement__RightAssignment_1_2");
 					put(grammarAccess.getAndElementAccess().getRightAssignment_1_2(), "rule__AndElement__RightAssignment_1_2");
 					put(grammarAccess.getDiffEqualElementAccess().getRightAssignment_1_0_2(), "rule__DiffEqualElement__RightAssignment_1_0_2");
@@ -93,8 +93,6 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnaryElementAccess().getValueAssignment_1_1(), "rule__UnaryElement__ValueAssignment_1_1");
 					put(grammarAccess.getUnaryElementAccess().getValueAssignment_2_1(), "rule__UnaryElement__ValueAssignment_2_1");
 					put(grammarAccess.getUnaryElementAccess().getExpAssignment_4_2(), "rule__UnaryElement__ExpAssignment_4_2");
-					put(grammarAccess.getTriggerAccess().getEventNameAssignment_0(), "rule__Trigger__EventNameAssignment_0");
-					put(grammarAccess.getTriggerAccess().getCodeAssignment_1(), "rule__Trigger__CodeAssignment_1");
 				}
 			};
 		}

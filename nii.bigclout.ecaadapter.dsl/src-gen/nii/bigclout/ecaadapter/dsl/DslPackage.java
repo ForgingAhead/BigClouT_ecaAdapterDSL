@@ -133,13 +133,22 @@ public interface DslPackage extends EPackage
   int APP_SPECIFICATION = 2;
 
   /**
+   * The feature id for the '<em><b>Spec ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APP_SPECIFICATION__SPEC_ID = 0;
+
+  /**
    * The feature id for the '<em><b>Trigger</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APP_SPECIFICATION__TRIGGER = 0;
+  int APP_SPECIFICATION__TRIGGER = 1;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference list.
@@ -148,16 +157,16 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APP_SPECIFICATION__CONDITION = 1;
+  int APP_SPECIFICATION__CONDITION = 2;
 
   /**
-   * The feature id for the '<em><b>Action</b></em>' reference list.
+   * The feature id for the '<em><b>Action</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APP_SPECIFICATION__ACTION = 2;
+  int APP_SPECIFICATION__ACTION = 3;
 
   /**
    * The number of structural features of the '<em>App Specification</em>' class.
@@ -166,7 +175,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APP_SPECIFICATION_FEATURE_COUNT = 3;
+  int APP_SPECIFICATION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.ElementImpl <em>Element</em>}' class.
@@ -179,68 +188,13 @@ public interface DslPackage extends EPackage
   int ELEMENT = 3;
 
   /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT__CONCEPT = 0;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT__CODE = 1;
-
-  /**
    * The number of structural features of the '<em>Element</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ELEMENT_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.TriggerImpl <em>Trigger</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see nii.bigclout.ecaadapter.dsl.impl.TriggerImpl
-   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getTrigger()
-   * @generated
-   */
-  int TRIGGER = 4;
-
-  /**
-   * The feature id for the '<em><b>Event Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__EVENT_NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER__CODE = 1;
-
-  /**
-   * The number of structural features of the '<em>Trigger</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRIGGER_FEATURE_COUNT = 2;
+  int ELEMENT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.OrElementImpl <em>Or Element</em>}' class.
@@ -250,25 +204,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getOrElement()
    * @generated
    */
-  int OR_ELEMENT = 5;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OR_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OR_ELEMENT__CODE = ELEMENT__CODE;
+  int OR_ELEMENT = 4;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -305,25 +241,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getAndElement()
    * @generated
    */
-  int AND_ELEMENT = 6;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND_ELEMENT__CODE = ELEMENT__CODE;
+  int AND_ELEMENT = 5;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -360,25 +278,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getDiffElement()
    * @generated
    */
-  int DIFF_ELEMENT = 7;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIFF_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIFF_ELEMENT__CODE = ELEMENT__CODE;
+  int DIFF_ELEMENT = 6;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -415,25 +315,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getEqualElement()
    * @generated
    */
-  int EQUAL_ELEMENT = 8;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EQUAL_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EQUAL_ELEMENT__CODE = ELEMENT__CODE;
+  int EQUAL_ELEMENT = 7;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -470,25 +352,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getLargerElement()
    * @generated
    */
-  int LARGER_ELEMENT = 9;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LARGER_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LARGER_ELEMENT__CODE = ELEMENT__CODE;
+  int LARGER_ELEMENT = 8;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -525,25 +389,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getLargerEqualElement()
    * @generated
    */
-  int LARGER_EQUAL_ELEMENT = 10;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LARGER_EQUAL_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LARGER_EQUAL_ELEMENT__CODE = ELEMENT__CODE;
+  int LARGER_EQUAL_ELEMENT = 9;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -580,25 +426,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSmallerElement()
    * @generated
    */
-  int SMALLER_ELEMENT = 11;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SMALLER_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SMALLER_ELEMENT__CODE = ELEMENT__CODE;
+  int SMALLER_ELEMENT = 10;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -635,25 +463,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSmallerEqualElement()
    * @generated
    */
-  int SMALLER_EQUAL_ELEMENT = 12;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SMALLER_EQUAL_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SMALLER_EQUAL_ELEMENT__CODE = ELEMENT__CODE;
+  int SMALLER_EQUAL_ELEMENT = 11;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -690,25 +500,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getPlusElement()
    * @generated
    */
-  int PLUS_ELEMENT = 13;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS_ELEMENT__CODE = ELEMENT__CODE;
+  int PLUS_ELEMENT = 12;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -745,25 +537,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMinusElement()
    * @generated
    */
-  int MINUS_ELEMENT = 14;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MINUS_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MINUS_ELEMENT__CODE = ELEMENT__CODE;
+  int MINUS_ELEMENT = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -800,25 +574,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMultiplicationElement()
    * @generated
    */
-  int MULTIPLICATION_ELEMENT = 15;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULTIPLICATION_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULTIPLICATION_ELEMENT__CODE = ELEMENT__CODE;
+  int MULTIPLICATION_ELEMENT = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -855,25 +611,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getDivisionElement()
    * @generated
    */
-  int DIVISION_ELEMENT = 16;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIVISION_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIVISION_ELEMENT__CODE = ELEMENT__CODE;
+  int DIVISION_ELEMENT = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -910,25 +648,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getModuloElement()
    * @generated
    */
-  int MODULO_ELEMENT = 17;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODULO_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODULO_ELEMENT__CODE = ELEMENT__CODE;
+  int MODULO_ELEMENT = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -965,25 +685,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getNumber_Object()
    * @generated
    */
-  int NUMBER_OBJECT = 18;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NUMBER_OBJECT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NUMBER_OBJECT__CODE = ELEMENT__CODE;
+  int NUMBER_OBJECT = 17;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1011,25 +713,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getString_Object()
    * @generated
    */
-  int STRING_OBJECT = 19;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRING_OBJECT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRING_OBJECT__CODE = ELEMENT__CODE;
+  int STRING_OBJECT = 18;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1057,25 +741,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getBoolean_Object()
    * @generated
    */
-  int BOOLEAN_OBJECT = 20;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOLEAN_OBJECT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOLEAN_OBJECT__CODE = ELEMENT__CODE;
+  int BOOLEAN_OBJECT = 19;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1103,25 +769,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getNegateElement()
    * @generated
    */
-  int NEGATE_ELEMENT = 21;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NEGATE_ELEMENT__CONCEPT = ELEMENT__CONCEPT;
-
-  /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NEGATE_ELEMENT__CODE = ELEMENT__CODE;
+  int NEGATE_ELEMENT = 20;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -1206,6 +854,17 @@ public interface DslPackage extends EPackage
   EClass getAppSpecification();
 
   /**
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getSpecID <em>Spec ID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Spec ID</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.AppSpecification#getSpecID()
+   * @see #getAppSpecification()
+   * @generated
+   */
+  EAttribute getAppSpecification_SpecID();
+
+  /**
    * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getTrigger <em>Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1228,10 +887,10 @@ public interface DslPackage extends EPackage
   EReference getAppSpecification_Condition();
 
   /**
-   * Returns the meta object for the reference list '{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getAction <em>Action</em>}'.
+   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getAction <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Action</em>'.
+   * @return the meta object for the containment reference list '<em>Action</em>'.
    * @see nii.bigclout.ecaadapter.dsl.AppSpecification#getAction()
    * @see #getAppSpecification()
    * @generated
@@ -1247,60 +906,6 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EClass getElement();
-
-  /**
-   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Element#getConcept <em>Concept</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Concept</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Element#getConcept()
-   * @see #getElement()
-   * @generated
-   */
-  EAttribute getElement_Concept();
-
-  /**
-   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Element#getCode <em>Code</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Code</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Element#getCode()
-   * @see #getElement()
-   * @generated
-   */
-  EAttribute getElement_Code();
-
-  /**
-   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.Trigger <em>Trigger</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Trigger</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Trigger
-   * @generated
-   */
-  EClass getTrigger();
-
-  /**
-   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Trigger#getEventName <em>Event Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Event Name</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Trigger#getEventName()
-   * @see #getTrigger()
-   * @generated
-   */
-  EAttribute getTrigger_EventName();
-
-  /**
-   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Trigger#getCode <em>Code</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Code</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Trigger#getCode()
-   * @see #getTrigger()
-   * @generated
-   */
-  EAttribute getTrigger_Code();
 
   /**
    * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.OrElement <em>Or Element</em>}'.
@@ -1880,6 +1485,14 @@ public interface DslPackage extends EPackage
     EClass APP_SPECIFICATION = eINSTANCE.getAppSpecification();
 
     /**
+     * The meta object literal for the '<em><b>Spec ID</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APP_SPECIFICATION__SPEC_ID = eINSTANCE.getAppSpecification_SpecID();
+
+    /**
      * The meta object literal for the '<em><b>Trigger</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1896,7 +1509,7 @@ public interface DslPackage extends EPackage
     EReference APP_SPECIFICATION__CONDITION = eINSTANCE.getAppSpecification_Condition();
 
     /**
-     * The meta object literal for the '<em><b>Action</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Action</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1912,48 +1525,6 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EClass ELEMENT = eINSTANCE.getElement();
-
-    /**
-     * The meta object literal for the '<em><b>Concept</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ELEMENT__CONCEPT = eINSTANCE.getElement_Concept();
-
-    /**
-     * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ELEMENT__CODE = eINSTANCE.getElement_Code();
-
-    /**
-     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.TriggerImpl <em>Trigger</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see nii.bigclout.ecaadapter.dsl.impl.TriggerImpl
-     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getTrigger()
-     * @generated
-     */
-    EClass TRIGGER = eINSTANCE.getTrigger();
-
-    /**
-     * The meta object literal for the '<em><b>Event Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TRIGGER__EVENT_NAME = eINSTANCE.getTrigger_EventName();
-
-    /**
-     * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TRIGGER__CODE = eINSTANCE.getTrigger_Code();
 
     /**
      * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.OrElementImpl <em>Or Element</em>}' class.

@@ -10,13 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Element</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.Element#getConcept <em>Concept</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.Element#getCode <em>Code</em>}</li>
- * </ul>
  *
  * @see nii.bigclout.ecaadapter.dsl.DslPackage#getElement()
  * @model
@@ -24,56 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Element extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Concept</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Concept</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Concept</em>' attribute.
-   * @see #setConcept(String)
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getElement_Concept()
-   * @model
-   * @generated
-   */
-  String getConcept();
-
-  /**
-   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Element#getConcept <em>Concept</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Concept</em>' attribute.
-   * @see #getConcept()
-   * @generated
-   */
-  void setConcept(String value);
-
-  /**
-   * Returns the value of the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Code</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Code</em>' attribute.
-   * @see #setCode(String)
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getElement_Code()
-   * @model
-   * @generated
-   */
-  String getCode();
-
-  /**
-   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Element#getCode <em>Code</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Code</em>' attribute.
-   * @see #getCode()
-   * @generated
-   */
-  void setCode(String value);
-
 } // Element

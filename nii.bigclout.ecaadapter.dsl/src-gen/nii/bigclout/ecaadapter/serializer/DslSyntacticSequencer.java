@@ -78,8 +78,8 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) 'not' exp=UnaryElement
 	 *     (rule start) (ambiguity) value=BOOLEAN
+	 *     (rule start) (ambiguity) value=EXTENDED_STRING
 	 *     (rule start) (ambiguity) value=NUMBER
-	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) {AndElement.left=}
 	 *     (rule start) (ambiguity) {DiffElement.left=}
 	 *     (rule start) (ambiguity) {DivisionElement.left=}

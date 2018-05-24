@@ -186,16 +186,34 @@ ruleAppSpecification returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='on'
+		(
+			(
+				lv_specID_0_0=RULE_ID
+				{
+					newLeafNode(lv_specID_0_0, grammarAccess.getAppSpecificationAccess().getSpecIDIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAppSpecificationRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"specID",
+						lv_specID_0_0,
+						"nii.bigclout.ecaadapter.Dsl.ID");
+				}
+			)
+		)
+		otherlv_1='on'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getAppSpecificationAccess().getOnKeyword_0());
+			newLeafNode(otherlv_1, grammarAccess.getAppSpecificationAccess().getOnKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAppSpecificationAccess().getTriggerOrElementParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getAppSpecificationAccess().getTriggerOrElementParserRuleCall_2_0());
 				}
-				lv_trigger_1_0=ruleOrElement
+				lv_trigger_2_0=ruleOrElement
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAppSpecificationRule());
@@ -203,22 +221,22 @@ ruleAppSpecification returns [EObject current=null]
 					add(
 						$current,
 						"trigger",
-						lv_trigger_1_0,
+						lv_trigger_2_0,
 						"nii.bigclout.ecaadapter.Dsl.OrElement");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_2='if'
+		otherlv_3='if'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getAppSpecificationAccess().getIfKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getAppSpecificationAccess().getIfKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAppSpecificationAccess().getConditionOrElementParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getAppSpecificationAccess().getConditionOrElementParserRuleCall_4_0());
 				}
-				lv_condition_3_0=ruleOrElement
+				lv_condition_4_0=ruleOrElement
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAppSpecificationRule());
@@ -226,29 +244,35 @@ ruleAppSpecification returns [EObject current=null]
 					add(
 						$current,
 						"condition",
-						lv_condition_3_0,
+						lv_condition_4_0,
 						"nii.bigclout.ecaadapter.Dsl.OrElement");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_4='do'
+		otherlv_5='do'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getAppSpecificationAccess().getDoKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getAppSpecificationAccess().getDoKeyword_5());
 		}
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAppSpecificationRule());
-					}
+					newCompositeNode(grammarAccess.getAppSpecificationAccess().getActionAndElementParserRuleCall_6_0());
 				}
-				otherlv_5=RULE_ID
+				lv_action_6_0=ruleAndElement
 				{
-					newLeafNode(otherlv_5, grammarAccess.getAppSpecificationAccess().getActionElementCrossReference_5_0());
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAppSpecificationRule());
+					}
+					add(
+						$current,
+						"action",
+						lv_action_6_0,
+						"nii.bigclout.ecaadapter.Dsl.AndElement");
+					afterParserOrEnumRuleCall();
 				}
 			)
-		)+
+		)*
 	)
 ;
 
@@ -900,19 +924,20 @@ ruleUnaryElement returns [EObject current=null]
 			)
 			(
 				(
-					lv_value_3_0=RULE_STRING
 					{
-						newLeafNode(lv_value_3_0, grammarAccess.getUnaryElementAccess().getValueSTRINGTerminalRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getUnaryElementAccess().getValueEXTENDED_STRINGParserRuleCall_1_1_0());
 					}
+					lv_value_3_0=ruleEXTENDED_STRING
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getUnaryElementRule());
+							$current = createModelElementForParent(grammarAccess.getUnaryElementRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"value",
 							lv_value_3_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
+							"nii.bigclout.ecaadapter.Dsl.EXTENDED_STRING");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -1089,6 +1114,58 @@ ruleNUMBER returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 				newLeafNode(this_INT_3, grammarAccess.getNUMBERAccess().getINTTerminalRuleCall_1_2());
 			}
 		)
+	)
+;
+
+// Entry rule entryRuleEXTENDED_STRING
+entryRuleEXTENDED_STRING returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getEXTENDED_STRINGRule()); }
+	iv_ruleEXTENDED_STRING=ruleEXTENDED_STRING
+	{ $current=$iv_ruleEXTENDED_STRING.current.getText(); }
+	EOF;
+
+// Rule EXTENDED_STRING
+ruleEXTENDED_STRING returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_ID_0=RULE_ID
+		{
+			$current.merge(this_ID_0);
+		}
+		{
+			newLeafNode(this_ID_0, grammarAccess.getEXTENDED_STRINGAccess().getIDTerminalRuleCall_0());
+		}
+		(
+			kw='.'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getEXTENDED_STRINGAccess().getFullStopKeyword_1_0());
+			}
+			this_ID_2=RULE_ID
+			{
+				$current.merge(this_ID_2);
+			}
+			{
+				newLeafNode(this_ID_2, grammarAccess.getEXTENDED_STRINGAccess().getIDTerminalRuleCall_1_1());
+			}
+		)*
+		(
+			kw='('
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getEXTENDED_STRINGAccess().getLeftParenthesisKeyword_2_0());
+			}
+			kw=')'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getEXTENDED_STRINGAccess().getRightParenthesisKeyword_2_1());
+			}
+		)?
 	)
 ;
 

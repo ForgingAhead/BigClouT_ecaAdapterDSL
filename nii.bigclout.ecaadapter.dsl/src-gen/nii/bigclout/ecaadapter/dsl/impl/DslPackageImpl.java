@@ -26,7 +26,6 @@ import nii.bigclout.ecaadapter.dsl.RunTimeModel;
 import nii.bigclout.ecaadapter.dsl.SmallerElement;
 import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
 import nii.bigclout.ecaadapter.dsl.String_Object;
-import nii.bigclout.ecaadapter.dsl.Trigger;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -70,13 +69,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass elementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass triggerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -325,9 +317,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAppSpecification_Trigger()
+  public EAttribute getAppSpecification_SpecID()
   {
-    return (EReference)appSpecificationEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)appSpecificationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -335,7 +327,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAppSpecification_Condition()
+  public EReference getAppSpecification_Trigger()
   {
     return (EReference)appSpecificationEClass.getEStructuralFeatures().get(1);
   }
@@ -345,9 +337,19 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAppSpecification_Action()
+  public EReference getAppSpecification_Condition()
   {
     return (EReference)appSpecificationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAppSpecification_Action()
+  {
+    return (EReference)appSpecificationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -358,56 +360,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
   public EClass getElement()
   {
     return elementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getElement_Concept()
-  {
-    return (EAttribute)elementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getElement_Code()
-  {
-    return (EAttribute)elementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getTrigger()
-  {
-    return triggerEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTrigger_EventName()
-  {
-    return (EAttribute)triggerEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTrigger_Code()
-  {
-    return (EAttribute)triggerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -918,17 +870,12 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEReference(appMetaDataEClass, APP_META_DATA__SPECIFICATIONS);
 
     appSpecificationEClass = createEClass(APP_SPECIFICATION);
+    createEAttribute(appSpecificationEClass, APP_SPECIFICATION__SPEC_ID);
     createEReference(appSpecificationEClass, APP_SPECIFICATION__TRIGGER);
     createEReference(appSpecificationEClass, APP_SPECIFICATION__CONDITION);
     createEReference(appSpecificationEClass, APP_SPECIFICATION__ACTION);
 
     elementEClass = createEClass(ELEMENT);
-    createEAttribute(elementEClass, ELEMENT__CONCEPT);
-    createEAttribute(elementEClass, ELEMENT__CODE);
-
-    triggerEClass = createEClass(TRIGGER);
-    createEAttribute(triggerEClass, TRIGGER__EVENT_NAME);
-    createEAttribute(triggerEClass, TRIGGER__CODE);
 
     orElementEClass = createEClass(OR_ELEMENT);
     createEReference(orElementEClass, OR_ELEMENT__LEFT);
@@ -1051,17 +998,12 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEReference(getAppMetaData_Specifications(), this.getAppSpecification(), null, "specifications", null, 0, -1, AppMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(appSpecificationEClass, AppSpecification.class, "AppSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAppSpecification_SpecID(), ecorePackage.getEString(), "specID", null, 0, 1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAppSpecification_Trigger(), this.getElement(), null, "trigger", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAppSpecification_Condition(), this.getElement(), null, "condition", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAppSpecification_Action(), this.getElement(), null, "action", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAppSpecification_Action(), this.getElement(), null, "action", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getElement_Concept(), ecorePackage.getEString(), "concept", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getElement_Code(), ecorePackage.getEString(), "code", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTrigger_EventName(), ecorePackage.getEString(), "eventName", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTrigger_Code(), ecorePackage.getEString(), "code", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(orElementEClass, OrElement.class, "OrElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOrElement_Left(), this.getElement(), null, "left", null, 0, 1, OrElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
