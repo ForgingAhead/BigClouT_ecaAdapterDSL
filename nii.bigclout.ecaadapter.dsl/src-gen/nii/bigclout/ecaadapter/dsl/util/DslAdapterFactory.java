@@ -91,6 +91,26 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createAppSpecificationAdapter();
       }
       @Override
+      public Adapter caseEnvironmentMetaData(EnvironmentMetaData object)
+      {
+        return createEnvironmentMetaDataAdapter();
+      }
+      @Override
+      public Adapter caseResource(Resource object)
+      {
+        return createResourceAdapter();
+      }
+      @Override
+      public Adapter caseAction(Action object)
+      {
+        return createActionAdapter();
+      }
+      @Override
+      public Adapter caseMappingPair(MappingPair object)
+      {
+        return createMappingPairAdapter();
+      }
+      @Override
       public Adapter caseElement(Element object)
       {
         return createElementAdapter();
@@ -243,6 +263,66 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAppSpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.EnvironmentMetaData <em>Environment Meta Data</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.EnvironmentMetaData
+   * @generated
+   */
+  public Adapter createEnvironmentMetaDataAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Resource <em>Resource</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.Resource
+   * @generated
+   */
+  public Adapter createResourceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Action <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.Action
+   * @generated
+   */
+  public Adapter createActionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.MappingPair <em>Mapping Pair</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.MappingPair
+   * @generated
+   */
+  public Adapter createMappingPairAdapter()
   {
     return null;
   }

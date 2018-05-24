@@ -4,10 +4,15 @@ generate dsl "http://www.bigclout.nii/ecaadapter/Dsl"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-RunTimeModel:	
+RunTimeModel:
+	{RunTimeModel}	
+	envData += EnvironmentMetaData*
 	appData += AppMetaData*  
-	//envData += EnvironmentMetaData*
-	//servicesData += ServiceMetaData*  	
+	//servicesData += ServiceMetaData*  
+	"ConceptToCodeMappings" 
+	LBRACE
+	mappingPairs += MappingPair*	
+	RBRACE
 ;
 	
 AppMetaData:
@@ -24,15 +29,46 @@ AppSpecification:
 	specID=ID 
 	'on' trigger += OrElement*
 	'if' condition += OrElement*
-	'do' action += AndElement*
+	'do' action += Action ("and" action+=Action)*
 ;
 
-/* 
-Element:
-	concept = STRING //the design, e.g. Window, or Open
-	code = STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+EnvironmentMetaData:
+	{EnvironmentMetaData}
+	"EnvironmentMetaData"
+	LBRACE
+	resources+=Resource*
+	RBRACE
 ;
-*/
+
+Resource:
+	"name" name=ID
+	"code" code=EXTENDED_STRING
+	"possibleStates" states+=State*
+;
+
+State:
+	ID | INT
+;
+
+Action:
+	resource=[Resource] ":=" state=State	
+;
+/**
+MappingPair:
+	"(" concept = UnaryElement //UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
+	"," code = EXTENDED_STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+	")"
+;
+ */
+
+MappingPair:
+	"(" resource = [Resource] //UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
+	"," state = UnaryElement
+	"," actionCode = EXTENDED_STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+	")"
+;
+
+
 
 OrElement returns Element:
 	AndElement ("or" {OrElement.left=current} right=AndElement)*
@@ -91,10 +127,7 @@ RBRACE: "}";
 	serviceID = ID
 ;
 
-EnvironmentMetaData:
-	{EnvironmentMetaData}
-	(envAttribute=EnvironmentAttribute)
-;
+
 
 EnvironmentAttribute:
 	envAttributeID=ID

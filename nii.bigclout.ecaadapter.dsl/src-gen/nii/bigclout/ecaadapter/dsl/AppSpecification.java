@@ -88,7 +88,7 @@ public interface AppSpecification extends EObject
 
   /**
    * Returns the value of the '<em><b>Action</b></em>' containment reference list.
-   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.Element}.
+   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.Action}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Action</em>' containment reference list isn't clear,
@@ -100,6 +100,6 @@ public interface AppSpecification extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Element> getAction();
+  EList<Action> getAction();
 
 } // AppSpecification

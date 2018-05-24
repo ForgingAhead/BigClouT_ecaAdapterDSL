@@ -16,7 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.RunTimeModel#getEnvData <em>Env Data</em>}</li>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.RunTimeModel#getAppData <em>App Data</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.RunTimeModel#getMappingPairs <em>Mapping Pairs</em>}</li>
  * </ul>
  *
  * @see nii.bigclout.ecaadapter.dsl.DslPackage#getRunTimeModel()
@@ -25,6 +27,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface RunTimeModel extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Env Data</b></em>' containment reference list.
+   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.EnvironmentMetaData}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Env Data</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Env Data</em>' containment reference list.
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getRunTimeModel_EnvData()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EnvironmentMetaData> getEnvData();
+
   /**
    * Returns the value of the '<em><b>App Data</b></em>' containment reference list.
    * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.AppMetaData}.
@@ -40,5 +58,21 @@ public interface RunTimeModel extends EObject
    * @generated
    */
   EList<AppMetaData> getAppData();
+
+  /**
+   * Returns the value of the '<em><b>Mapping Pairs</b></em>' containment reference list.
+   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.MappingPair}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Mapping Pairs</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Mapping Pairs</em>' containment reference list.
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getRunTimeModel_MappingPairs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<MappingPair> getMappingPairs();
 
 } // RunTimeModel

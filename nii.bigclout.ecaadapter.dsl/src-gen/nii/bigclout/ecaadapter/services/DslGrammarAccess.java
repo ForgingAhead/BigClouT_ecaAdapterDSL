@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -25,21 +26,62 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class RunTimeModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.RunTimeModel");
-		private final Assignment cAppDataAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cAppDataAppMetaDataParserRuleCall_0 = (RuleCall)cAppDataAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cRunTimeModelAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cEnvDataAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cEnvDataEnvironmentMetaDataParserRuleCall_1_0 = (RuleCall)cEnvDataAssignment_1.eContents().get(0);
+		private final Assignment cAppDataAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAppDataAppMetaDataParserRuleCall_2_0 = (RuleCall)cAppDataAssignment_2.eContents().get(0);
+		private final Keyword cConceptToCodeMappingsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cLBRACEParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cMappingPairsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cMappingPairsMappingPairParserRuleCall_5_0 = (RuleCall)cMappingPairsAssignment_5.eContents().get(0);
+		private final RuleCall cRBRACEParserRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//RunTimeModel:
+		//	{RunTimeModel} envData+=EnvironmentMetaData*
 		//	appData+=AppMetaData*
-		//	//envData += EnvironmentMetaData*
-		//	//servicesData += ServiceMetaData*  	
-		//;
+		//	//servicesData += ServiceMetaData*  
+		//	"ConceptToCodeMappings"
+		//	LBRACE
+		//	mappingPairs+=MappingPair*
+		//	RBRACE;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//{RunTimeModel} envData+=EnvironmentMetaData* appData+=AppMetaData* //servicesData += ServiceMetaData*  
+		//"ConceptToCodeMappings" LBRACE mappingPairs+=MappingPair* RBRACE
+		public Group getGroup() { return cGroup; }
+		
+		//{RunTimeModel}
+		public Action getRunTimeModelAction_0() { return cRunTimeModelAction_0; }
+		
+		//envData+=EnvironmentMetaData*
+		public Assignment getEnvDataAssignment_1() { return cEnvDataAssignment_1; }
+		
+		//EnvironmentMetaData
+		public RuleCall getEnvDataEnvironmentMetaDataParserRuleCall_1_0() { return cEnvDataEnvironmentMetaDataParserRuleCall_1_0; }
+		
 		//appData+=AppMetaData*
-		public Assignment getAppDataAssignment() { return cAppDataAssignment; }
+		public Assignment getAppDataAssignment_2() { return cAppDataAssignment_2; }
 		
 		//AppMetaData
-		public RuleCall getAppDataAppMetaDataParserRuleCall_0() { return cAppDataAppMetaDataParserRuleCall_0; }
+		public RuleCall getAppDataAppMetaDataParserRuleCall_2_0() { return cAppDataAppMetaDataParserRuleCall_2_0; }
+		
+		////servicesData += ServiceMetaData*  
+		//"ConceptToCodeMappings"
+		public Keyword getConceptToCodeMappingsKeyword_3() { return cConceptToCodeMappingsKeyword_3; }
+		
+		//LBRACE
+		public RuleCall getLBRACEParserRuleCall_4() { return cLBRACEParserRuleCall_4; }
+		
+		//mappingPairs+=MappingPair*
+		public Assignment getMappingPairsAssignment_5() { return cMappingPairsAssignment_5; }
+		
+		//MappingPair
+		public RuleCall getMappingPairsMappingPairParserRuleCall_5_0() { return cMappingPairsMappingPairParserRuleCall_5_0; }
+		
+		//RBRACE
+		public RuleCall getRBRACEParserRuleCall_6() { return cRBRACEParserRuleCall_6; }
 	}
 	public class AppMetaDataElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.AppMetaData");
@@ -96,7 +138,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConditionOrElementParserRuleCall_4_0 = (RuleCall)cConditionAssignment_4.eContents().get(0);
 		private final Keyword cDoKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cActionAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cActionAndElementParserRuleCall_6_0 = (RuleCall)cActionAssignment_6.eContents().get(0);
+		private final RuleCall cActionActionParserRuleCall_6_0 = (RuleCall)cActionAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cAndKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cActionAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cActionActionParserRuleCall_7_1_0 = (RuleCall)cActionAssignment_7_1.eContents().get(0);
 		
 		///**
 		// * Currently AppSpecification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
@@ -104,10 +150,10 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//	specID=ID
 		//	'on' trigger+=OrElement*
 		//	'if' condition+=OrElement*
-		//	'do' action+=AndElement*;
+		//	'do' action+=Action ("and" action+=Action)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//specID=ID 'on' trigger+=OrElement* 'if' condition+=OrElement* 'do' action+=AndElement*
+		//specID=ID 'on' trigger+=OrElement* 'if' condition+=OrElement* 'do' action+=Action ("and" action+=Action)*
 		public Group getGroup() { return cGroup; }
 		
 		//specID=ID
@@ -137,11 +183,233 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'do'
 		public Keyword getDoKeyword_5() { return cDoKeyword_5; }
 		
-		//action+=AndElement*
+		//action+=Action
 		public Assignment getActionAssignment_6() { return cActionAssignment_6; }
 		
-		//AndElement
-		public RuleCall getActionAndElementParserRuleCall_6_0() { return cActionAndElementParserRuleCall_6_0; }
+		//Action
+		public RuleCall getActionActionParserRuleCall_6_0() { return cActionActionParserRuleCall_6_0; }
+		
+		//("and" action+=Action)*
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//"and"
+		public Keyword getAndKeyword_7_0() { return cAndKeyword_7_0; }
+		
+		//action+=Action
+		public Assignment getActionAssignment_7_1() { return cActionAssignment_7_1; }
+		
+		//Action
+		public RuleCall getActionActionParserRuleCall_7_1_0() { return cActionActionParserRuleCall_7_1_0; }
+	}
+	public class EnvironmentMetaDataElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.EnvironmentMetaData");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cEnvironmentMetaDataAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cEnvironmentMetaDataKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cLBRACEParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cResourcesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cResourcesResourceParserRuleCall_3_0 = (RuleCall)cResourcesAssignment_3.eContents().get(0);
+		private final RuleCall cRBRACEParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		
+		//EnvironmentMetaData:
+		//	{EnvironmentMetaData}
+		//	"EnvironmentMetaData"
+		//	LBRACE
+		//	resources+=Resource*
+		//	RBRACE;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{EnvironmentMetaData} "EnvironmentMetaData" LBRACE resources+=Resource* RBRACE
+		public Group getGroup() { return cGroup; }
+		
+		//{EnvironmentMetaData}
+		public Action getEnvironmentMetaDataAction_0() { return cEnvironmentMetaDataAction_0; }
+		
+		//"EnvironmentMetaData"
+		public Keyword getEnvironmentMetaDataKeyword_1() { return cEnvironmentMetaDataKeyword_1; }
+		
+		//LBRACE
+		public RuleCall getLBRACEParserRuleCall_2() { return cLBRACEParserRuleCall_2; }
+		
+		//resources+=Resource*
+		public Assignment getResourcesAssignment_3() { return cResourcesAssignment_3; }
+		
+		//Resource
+		public RuleCall getResourcesResourceParserRuleCall_3_0() { return cResourcesResourceParserRuleCall_3_0; }
+		
+		//RBRACE
+		public RuleCall getRBRACEParserRuleCall_4() { return cRBRACEParserRuleCall_4; }
+	}
+	public class ResourceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.Resource");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNameKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cCodeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cCodeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCodeEXTENDED_STRINGParserRuleCall_3_0 = (RuleCall)cCodeAssignment_3.eContents().get(0);
+		private final Keyword cPossibleStatesKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cStatesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cStatesStateParserRuleCall_5_0 = (RuleCall)cStatesAssignment_5.eContents().get(0);
+		
+		//Resource:
+		//	"name" name=ID
+		//	"code" code=EXTENDED_STRING
+		//	"possibleStates" states+=State*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"name" name=ID "code" code=EXTENDED_STRING "possibleStates" states+=State*
+		public Group getGroup() { return cGroup; }
+		
+		//"name"
+		public Keyword getNameKeyword_0() { return cNameKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//"code"
+		public Keyword getCodeKeyword_2() { return cCodeKeyword_2; }
+		
+		//code=EXTENDED_STRING
+		public Assignment getCodeAssignment_3() { return cCodeAssignment_3; }
+		
+		//EXTENDED_STRING
+		public RuleCall getCodeEXTENDED_STRINGParserRuleCall_3_0() { return cCodeEXTENDED_STRINGParserRuleCall_3_0; }
+		
+		//"possibleStates"
+		public Keyword getPossibleStatesKeyword_4() { return cPossibleStatesKeyword_4; }
+		
+		//states+=State*
+		public Assignment getStatesAssignment_5() { return cStatesAssignment_5; }
+		
+		//State
+		public RuleCall getStatesStateParserRuleCall_5_0() { return cStatesStateParserRuleCall_5_0; }
+	}
+	public class StateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.State");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//State:
+		//	ID | INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID | INT
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
+	}
+	public class ActionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.Action");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cResourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cResourceResourceCrossReference_0_0 = (CrossReference)cResourceAssignment_0.eContents().get(0);
+		private final RuleCall cResourceResourceIDTerminalRuleCall_0_0_1 = (RuleCall)cResourceResourceCrossReference_0_0.eContents().get(1);
+		private final Keyword cColonEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cStateAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStateStateParserRuleCall_2_0 = (RuleCall)cStateAssignment_2.eContents().get(0);
+		
+		//Action:
+		//	resource=[Resource] ":=" state=State;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//resource=[Resource] ":=" state=State
+		public Group getGroup() { return cGroup; }
+		
+		//resource=[Resource]
+		public Assignment getResourceAssignment_0() { return cResourceAssignment_0; }
+		
+		//[Resource]
+		public CrossReference getResourceResourceCrossReference_0_0() { return cResourceResourceCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getResourceResourceIDTerminalRuleCall_0_0_1() { return cResourceResourceIDTerminalRuleCall_0_0_1; }
+		
+		//":="
+		public Keyword getColonEqualsSignKeyword_1() { return cColonEqualsSignKeyword_1; }
+		
+		//state=State
+		public Assignment getStateAssignment_2() { return cStateAssignment_2; }
+		
+		//State
+		public RuleCall getStateStateParserRuleCall_2_0() { return cStateStateParserRuleCall_2_0; }
+	}
+	public class MappingPairElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.MappingPair");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cResourceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cResourceResourceCrossReference_1_0 = (CrossReference)cResourceAssignment_1.eContents().get(0);
+		private final RuleCall cResourceResourceIDTerminalRuleCall_1_0_1 = (RuleCall)cResourceResourceCrossReference_1_0.eContents().get(1);
+		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cStateAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStateUnaryElementParserRuleCall_3_0 = (RuleCall)cStateAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cActionCodeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cActionCodeEXTENDED_STRINGParserRuleCall_5_0 = (RuleCall)cActionCodeAssignment_5.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		///**
+		//MappingPair:
+		//	"(" concept = UnaryElement //UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
+		//	"," code = EXTENDED_STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+		//	")"
+		//;
+		// */ MappingPair:
+		//	"(" resource=[Resource] //UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
+		//	"," state=UnaryElement
+		//	"," actionCode=EXTENDED_STRING //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+		//	")";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"(" resource=[Resource] //UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
+		//"," state=UnaryElement "," actionCode=EXTENDED_STRING //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+		//")"
+		public Group getGroup() { return cGroup; }
+		
+		//"("
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		
+		//resource=[Resource]
+		public Assignment getResourceAssignment_1() { return cResourceAssignment_1; }
+		
+		//[Resource]
+		public CrossReference getResourceResourceCrossReference_1_0() { return cResourceResourceCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getResourceResourceIDTerminalRuleCall_1_0_1() { return cResourceResourceIDTerminalRuleCall_1_0_1; }
+		
+		////UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
+		//","
+		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
+		
+		//state=UnaryElement
+		public Assignment getStateAssignment_3() { return cStateAssignment_3; }
+		
+		//UnaryElement
+		public RuleCall getStateUnaryElementParserRuleCall_3_0() { return cStateUnaryElementParserRuleCall_3_0; }
+		
+		//","
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		
+		//actionCode=EXTENDED_STRING
+		public Assignment getActionCodeAssignment_5() { return cActionCodeAssignment_5; }
+		
+		//EXTENDED_STRING
+		public RuleCall getActionCodeEXTENDED_STRINGParserRuleCall_5_0() { return cActionCodeEXTENDED_STRINGParserRuleCall_5_0; }
+		
+		////the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+		//")"
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 	}
 	public class OrElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.OrElement");
@@ -153,12 +421,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightAndElementParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		///* 
-		//Element:
-		//	concept = STRING //the design, e.g. Window, or Open
-		//	code = STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
-		//;
-		//*/ OrElement Element:
+		//OrElement Element:
 		//	AndElement ("or" {OrElement.left=current} right=AndElement)*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -751,6 +1014,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final RunTimeModelElements pRunTimeModel;
 	private final AppMetaDataElements pAppMetaData;
 	private final AppSpecificationElements pAppSpecification;
+	private final EnvironmentMetaDataElements pEnvironmentMetaData;
+	private final ResourceElements pResource;
+	private final StateElements pState;
+	private final ActionElements pAction;
+	private final MappingPairElements pMappingPair;
 	private final OrElementElements pOrElement;
 	private final AndElementElements pAndElement;
 	private final DiffEqualElementElements pDiffEqualElement;
@@ -779,6 +1047,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pRunTimeModel = new RunTimeModelElements();
 		this.pAppMetaData = new AppMetaDataElements();
 		this.pAppSpecification = new AppSpecificationElements();
+		this.pEnvironmentMetaData = new EnvironmentMetaDataElements();
+		this.pResource = new ResourceElements();
+		this.pState = new StateElements();
+		this.pAction = new ActionElements();
+		this.pMappingPair = new MappingPairElements();
 		this.pOrElement = new OrElementElements();
 		this.pAndElement = new AndElementElements();
 		this.pDiffEqualElement = new DiffEqualElementElements();
@@ -824,10 +1097,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//RunTimeModel:
+	//	{RunTimeModel} envData+=EnvironmentMetaData*
 	//	appData+=AppMetaData*
-	//	//envData += EnvironmentMetaData*
-	//	//servicesData += ServiceMetaData*  	
-	//;
+	//	//servicesData += ServiceMetaData*  
+	//	"ConceptToCodeMappings"
+	//	LBRACE
+	//	mappingPairs+=MappingPair*
+	//	RBRACE;
 	public RunTimeModelElements getRunTimeModelAccess() {
 		return pRunTimeModel;
 	}
@@ -855,7 +1131,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//	specID=ID
 	//	'on' trigger+=OrElement*
 	//	'if' condition+=OrElement*
-	//	'do' action+=AndElement*;
+	//	'do' action+=Action ("and" action+=Action)*;
 	public AppSpecificationElements getAppSpecificationAccess() {
 		return pAppSpecification;
 	}
@@ -864,12 +1140,72 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getAppSpecificationAccess().getRule();
 	}
 	
-	///* 
-	//Element:
-	//	concept = STRING //the design, e.g. Window, or Open
-	//	code = STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+	//EnvironmentMetaData:
+	//	{EnvironmentMetaData}
+	//	"EnvironmentMetaData"
+	//	LBRACE
+	//	resources+=Resource*
+	//	RBRACE;
+	public EnvironmentMetaDataElements getEnvironmentMetaDataAccess() {
+		return pEnvironmentMetaData;
+	}
+	
+	public ParserRule getEnvironmentMetaDataRule() {
+		return getEnvironmentMetaDataAccess().getRule();
+	}
+	
+	//Resource:
+	//	"name" name=ID
+	//	"code" code=EXTENDED_STRING
+	//	"possibleStates" states+=State*;
+	public ResourceElements getResourceAccess() {
+		return pResource;
+	}
+	
+	public ParserRule getResourceRule() {
+		return getResourceAccess().getRule();
+	}
+	
+	//State:
+	//	ID | INT;
+	public StateElements getStateAccess() {
+		return pState;
+	}
+	
+	public ParserRule getStateRule() {
+		return getStateAccess().getRule();
+	}
+	
+	//Action:
+	//	resource=[Resource] ":=" state=State;
+	public ActionElements getActionAccess() {
+		return pAction;
+	}
+	
+	public ParserRule getActionRule() {
+		return getActionAccess().getRule();
+	}
+	
+	///**
+	//MappingPair:
+	//	"(" concept = UnaryElement //UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
+	//	"," code = EXTENDED_STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+	//	")"
 	//;
-	//*/ OrElement Element:
+	// */ MappingPair:
+	//	"(" resource=[Resource] //UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
+	//	"," state=UnaryElement
+	//	"," actionCode=EXTENDED_STRING //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
+	//	")";
+	public MappingPairElements getMappingPairAccess() {
+		return pMappingPair;
+	}
+	
+	public ParserRule getMappingPairRule() {
+		return getMappingPairAccess().getRule();
+	}
+	
+	//OrElement Element:
 	//	AndElement ("or" {OrElement.left=current} right=AndElement)*;
 	public OrElementElements getOrElementAccess() {
 		return pOrElement;

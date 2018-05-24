@@ -5,6 +5,7 @@ package nii.bigclout.ecaadapter.dsl.impl;
 
 import java.util.Collection;
 
+import nii.bigclout.ecaadapter.dsl.Action;
 import nii.bigclout.ecaadapter.dsl.AppSpecification;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.Element;
@@ -89,7 +90,7 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
    * @generated
    * @ordered
    */
-  protected EList<Element> action;
+  protected EList<Action> action;
 
   /**
    * <!-- begin-user-doc -->
@@ -168,11 +169,11 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Element> getAction()
+  public EList<Action> getAction()
   {
     if (action == null)
     {
-      action = new EObjectContainmentEList<Element>(Element.class, this, DslPackage.APP_SPECIFICATION__ACTION);
+      action = new EObjectContainmentEList<Action>(Action.class, this, DslPackage.APP_SPECIFICATION__ACTION);
     }
     return action;
   }
@@ -243,7 +244,7 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
         return;
       case DslPackage.APP_SPECIFICATION__ACTION:
         getAction().clear();
-        getAction().addAll((Collection<? extends Element>)newValue);
+        getAction().addAll((Collection<? extends Action>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

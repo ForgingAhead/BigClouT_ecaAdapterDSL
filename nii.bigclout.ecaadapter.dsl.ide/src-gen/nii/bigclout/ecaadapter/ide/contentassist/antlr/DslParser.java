@@ -31,14 +31,21 @@ public class DslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getStateAccess().getAlternatives(), "rule__State__Alternatives");
 					put(grammarAccess.getDiffEqualElementAccess().getAlternatives_1(), "rule__DiffEqualElement__Alternatives_1");
 					put(grammarAccess.getCompareElementAccess().getAlternatives_1(), "rule__CompareElement__Alternatives_1");
 					put(grammarAccess.getPlusMinusElementAccess().getAlternatives_1(), "rule__PlusMinusElement__Alternatives_1");
 					put(grammarAccess.getMultiplicationDivisionElementAccess().getAlternatives_1(), "rule__MultiplicationDivisionElement__Alternatives_1");
 					put(grammarAccess.getUnaryElementAccess().getAlternatives(), "rule__UnaryElement__Alternatives");
 					put(grammarAccess.getNUMBERAccess().getAlternatives(), "rule__NUMBER__Alternatives");
+					put(grammarAccess.getRunTimeModelAccess().getGroup(), "rule__RunTimeModel__Group__0");
 					put(grammarAccess.getAppMetaDataAccess().getGroup(), "rule__AppMetaData__Group__0");
 					put(grammarAccess.getAppSpecificationAccess().getGroup(), "rule__AppSpecification__Group__0");
+					put(grammarAccess.getAppSpecificationAccess().getGroup_7(), "rule__AppSpecification__Group_7__0");
+					put(grammarAccess.getEnvironmentMetaDataAccess().getGroup(), "rule__EnvironmentMetaData__Group__0");
+					put(grammarAccess.getResourceAccess().getGroup(), "rule__Resource__Group__0");
+					put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
+					put(grammarAccess.getMappingPairAccess().getGroup(), "rule__MappingPair__Group__0");
 					put(grammarAccess.getOrElementAccess().getGroup(), "rule__OrElement__Group__0");
 					put(grammarAccess.getOrElementAccess().getGroup_1(), "rule__OrElement__Group_1__0");
 					put(grammarAccess.getAndElementAccess().getGroup(), "rule__AndElement__Group__0");
@@ -69,13 +76,25 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEXTENDED_STRINGAccess().getGroup(), "rule__EXTENDED_STRING__Group__0");
 					put(grammarAccess.getEXTENDED_STRINGAccess().getGroup_1(), "rule__EXTENDED_STRING__Group_1__0");
 					put(grammarAccess.getEXTENDED_STRINGAccess().getGroup_2(), "rule__EXTENDED_STRING__Group_2__0");
-					put(grammarAccess.getRunTimeModelAccess().getAppDataAssignment(), "rule__RunTimeModel__AppDataAssignment");
+					put(grammarAccess.getRunTimeModelAccess().getEnvDataAssignment_1(), "rule__RunTimeModel__EnvDataAssignment_1");
+					put(grammarAccess.getRunTimeModelAccess().getAppDataAssignment_2(), "rule__RunTimeModel__AppDataAssignment_2");
+					put(grammarAccess.getRunTimeModelAccess().getMappingPairsAssignment_5(), "rule__RunTimeModel__MappingPairsAssignment_5");
 					put(grammarAccess.getAppMetaDataAccess().getAppIDAssignment_1(), "rule__AppMetaData__AppIDAssignment_1");
 					put(grammarAccess.getAppMetaDataAccess().getSpecificationsAssignment_3(), "rule__AppMetaData__SpecificationsAssignment_3");
 					put(grammarAccess.getAppSpecificationAccess().getSpecIDAssignment_0(), "rule__AppSpecification__SpecIDAssignment_0");
 					put(grammarAccess.getAppSpecificationAccess().getTriggerAssignment_2(), "rule__AppSpecification__TriggerAssignment_2");
 					put(grammarAccess.getAppSpecificationAccess().getConditionAssignment_4(), "rule__AppSpecification__ConditionAssignment_4");
 					put(grammarAccess.getAppSpecificationAccess().getActionAssignment_6(), "rule__AppSpecification__ActionAssignment_6");
+					put(grammarAccess.getAppSpecificationAccess().getActionAssignment_7_1(), "rule__AppSpecification__ActionAssignment_7_1");
+					put(grammarAccess.getEnvironmentMetaDataAccess().getResourcesAssignment_3(), "rule__EnvironmentMetaData__ResourcesAssignment_3");
+					put(grammarAccess.getResourceAccess().getNameAssignment_1(), "rule__Resource__NameAssignment_1");
+					put(grammarAccess.getResourceAccess().getCodeAssignment_3(), "rule__Resource__CodeAssignment_3");
+					put(grammarAccess.getResourceAccess().getStatesAssignment_5(), "rule__Resource__StatesAssignment_5");
+					put(grammarAccess.getActionAccess().getResourceAssignment_0(), "rule__Action__ResourceAssignment_0");
+					put(grammarAccess.getActionAccess().getStateAssignment_2(), "rule__Action__StateAssignment_2");
+					put(grammarAccess.getMappingPairAccess().getResourceAssignment_1(), "rule__MappingPair__ResourceAssignment_1");
+					put(grammarAccess.getMappingPairAccess().getStateAssignment_3(), "rule__MappingPair__StateAssignment_3");
+					put(grammarAccess.getMappingPairAccess().getActionCodeAssignment_5(), "rule__MappingPair__ActionCodeAssignment_5");
 					put(grammarAccess.getOrElementAccess().getRightAssignment_1_2(), "rule__OrElement__RightAssignment_1_2");
 					put(grammarAccess.getAndElementAccess().getRightAssignment_1_2(), "rule__AndElement__RightAssignment_1_2");
 					put(grammarAccess.getDiffEqualElementAccess().getRightAssignment_1_0_2(), "rule__DiffEqualElement__RightAssignment_1_0_2");

@@ -94,6 +94,34 @@ public class DslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DslPackage.ENVIRONMENT_META_DATA:
+      {
+        EnvironmentMetaData environmentMetaData = (EnvironmentMetaData)theEObject;
+        T result = caseEnvironmentMetaData(environmentMetaData);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.RESOURCE:
+      {
+        Resource resource = (Resource)theEObject;
+        T result = caseResource(resource);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.ACTION:
+      {
+        Action action = (Action)theEObject;
+        T result = caseAction(action);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.MAPPING_PAIR:
+      {
+        MappingPair mappingPair = (MappingPair)theEObject;
+        T result = caseMappingPair(mappingPair);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DslPackage.ELEMENT:
       {
         Element element = (Element)theEObject;
@@ -285,6 +313,70 @@ public class DslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAppSpecification(AppSpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Environment Meta Data</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Environment Meta Data</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnvironmentMetaData(EnvironmentMetaData object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Resource</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseResource(Resource object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAction(Action object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mapping Pair</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mapping Pair</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMappingPair(MappingPair object)
   {
     return null;
   }

@@ -78,22 +78,87 @@ ruleRunTimeModel returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getRunTimeModelAccess().getAppDataAppMetaDataParserRuleCall_0());
-			}
-			lv_appData_0_0=ruleAppMetaData
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getRunTimeModelRule());
-				}
-				add(
-					$current,
-					"appData",
-					lv_appData_0_0,
-					"nii.bigclout.ecaadapter.Dsl.AppMetaData");
-				afterParserOrEnumRuleCall();
+				$current = forceCreateModelElement(
+					grammarAccess.getRunTimeModelAccess().getRunTimeModelAction_0(),
+					$current);
 			}
 		)
-	)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRunTimeModelAccess().getEnvDataEnvironmentMetaDataParserRuleCall_1_0());
+				}
+				lv_envData_1_0=ruleEnvironmentMetaData
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRunTimeModelRule());
+					}
+					add(
+						$current,
+						"envData",
+						lv_envData_1_0,
+						"nii.bigclout.ecaadapter.Dsl.EnvironmentMetaData");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRunTimeModelAccess().getAppDataAppMetaDataParserRuleCall_2_0());
+				}
+				lv_appData_2_0=ruleAppMetaData
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRunTimeModelRule());
+					}
+					add(
+						$current,
+						"appData",
+						lv_appData_2_0,
+						"nii.bigclout.ecaadapter.Dsl.AppMetaData");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_3='ConceptToCodeMappings'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getRunTimeModelAccess().getConceptToCodeMappingsKeyword_3());
+		}
+		{
+			newCompositeNode(grammarAccess.getRunTimeModelAccess().getLBRACEParserRuleCall_4());
+		}
+		ruleLBRACE
+		{
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRunTimeModelAccess().getMappingPairsMappingPairParserRuleCall_5_0());
+				}
+				lv_mappingPairs_5_0=ruleMappingPair
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRunTimeModelRule());
+					}
+					add(
+						$current,
+						"mappingPairs",
+						lv_mappingPairs_5_0,
+						"nii.bigclout.ecaadapter.Dsl.MappingPair");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		{
+			newCompositeNode(grammarAccess.getRunTimeModelAccess().getRBRACEParserRuleCall_6());
+		}
+		ruleRBRACE
+		{
+			afterParserOrEnumRuleCall();
+		}
+	)
 ;
 
 // Entry rule entryRuleAppMetaData
@@ -257,9 +322,9 @@ ruleAppSpecification returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAppSpecificationAccess().getActionAndElementParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getAppSpecificationAccess().getActionActionParserRuleCall_6_0());
 				}
-				lv_action_6_0=ruleAndElement
+				lv_action_6_0=ruleAction
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAppSpecificationRule());
@@ -268,11 +333,361 @@ ruleAppSpecification returns [EObject current=null]
 						$current,
 						"action",
 						lv_action_6_0,
-						"nii.bigclout.ecaadapter.Dsl.AndElement");
+						"nii.bigclout.ecaadapter.Dsl.Action");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_7='and'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getAppSpecificationAccess().getAndKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAppSpecificationAccess().getActionActionParserRuleCall_7_1_0());
+					}
+					lv_action_8_0=ruleAction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAppSpecificationRule());
+						}
+						add(
+							$current,
+							"action",
+							lv_action_8_0,
+							"nii.bigclout.ecaadapter.Dsl.Action");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleEnvironmentMetaData
+entryRuleEnvironmentMetaData returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEnvironmentMetaDataRule()); }
+	iv_ruleEnvironmentMetaData=ruleEnvironmentMetaData
+	{ $current=$iv_ruleEnvironmentMetaData.current; }
+	EOF;
+
+// Rule EnvironmentMetaData
+ruleEnvironmentMetaData returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getEnvironmentMetaDataAccess().getEnvironmentMetaDataAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='EnvironmentMetaData'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEnvironmentMetaDataAccess().getEnvironmentMetaDataKeyword_1());
+		}
+		{
+			newCompositeNode(grammarAccess.getEnvironmentMetaDataAccess().getLBRACEParserRuleCall_2());
+		}
+		ruleLBRACE
+		{
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEnvironmentMetaDataAccess().getResourcesResourceParserRuleCall_3_0());
+				}
+				lv_resources_3_0=ruleResource
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEnvironmentMetaDataRule());
+					}
+					add(
+						$current,
+						"resources",
+						lv_resources_3_0,
+						"nii.bigclout.ecaadapter.Dsl.Resource");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
+		{
+			newCompositeNode(grammarAccess.getEnvironmentMetaDataAccess().getRBRACEParserRuleCall_4());
+		}
+		ruleRBRACE
+		{
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleResource
+entryRuleResource returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getResourceRule()); }
+	iv_ruleResource=ruleResource
+	{ $current=$iv_ruleResource.current; }
+	EOF;
+
+// Rule Resource
+ruleResource returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='name'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getResourceAccess().getNameKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getResourceAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getResourceRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"nii.bigclout.ecaadapter.Dsl.ID");
+				}
+			)
+		)
+		otherlv_2='code'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getResourceAccess().getCodeKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getResourceAccess().getCodeEXTENDED_STRINGParserRuleCall_3_0());
+				}
+				lv_code_3_0=ruleEXTENDED_STRING
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getResourceRule());
+					}
+					set(
+						$current,
+						"code",
+						lv_code_3_0,
+						"nii.bigclout.ecaadapter.Dsl.EXTENDED_STRING");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4='possibleStates'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getResourceAccess().getPossibleStatesKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getResourceAccess().getStatesStateParserRuleCall_5_0());
+				}
+				lv_states_5_0=ruleState
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getResourceRule());
+					}
+					add(
+						$current,
+						"states",
+						lv_states_5_0,
+						"nii.bigclout.ecaadapter.Dsl.State");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleState
+entryRuleState returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getStateRule()); }
+	iv_ruleState=ruleState
+	{ $current=$iv_ruleState.current.getText(); }
+	EOF;
+
+// Rule State
+ruleState returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_ID_0=RULE_ID
+		{
+			$current.merge(this_ID_0);
+		}
+		{
+			newLeafNode(this_ID_0, grammarAccess.getStateAccess().getIDTerminalRuleCall_0());
+		}
+		    |
+		this_INT_1=RULE_INT
+		{
+			$current.merge(this_INT_1);
+		}
+		{
+			newLeafNode(this_INT_1, grammarAccess.getStateAccess().getINTTerminalRuleCall_1());
+		}
+	)
+;
+
+// Entry rule entryRuleAction
+entryRuleAction returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getActionRule()); }
+	iv_ruleAction=ruleAction
+	{ $current=$iv_ruleAction.current; }
+	EOF;
+
+// Rule Action
+ruleAction returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getActionRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getActionAccess().getResourceResourceCrossReference_0_0());
+				}
+			)
+		)
+		otherlv_1=':='
+		{
+			newLeafNode(otherlv_1, grammarAccess.getActionAccess().getColonEqualsSignKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getActionAccess().getStateStateParserRuleCall_2_0());
+				}
+				lv_state_2_0=ruleState
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getActionRule());
+					}
+					set(
+						$current,
+						"state",
+						lv_state_2_0,
+						"nii.bigclout.ecaadapter.Dsl.State");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleMappingPair
+entryRuleMappingPair returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMappingPairRule()); }
+	iv_ruleMappingPair=ruleMappingPair
+	{ $current=$iv_ruleMappingPair.current; }
+	EOF;
+
+// Rule MappingPair
+ruleMappingPair returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='('
+		{
+			newLeafNode(otherlv_0, grammarAccess.getMappingPairAccess().getLeftParenthesisKeyword_0());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getMappingPairRule());
+					}
+				}
+				otherlv_1=RULE_ID
+				{
+					newLeafNode(otherlv_1, grammarAccess.getMappingPairAccess().getResourceResourceCrossReference_1_0());
+				}
+			)
+		)
+		otherlv_2=','
+		{
+			newLeafNode(otherlv_2, grammarAccess.getMappingPairAccess().getCommaKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMappingPairAccess().getStateUnaryElementParserRuleCall_3_0());
+				}
+				lv_state_3_0=ruleUnaryElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMappingPairRule());
+					}
+					set(
+						$current,
+						"state",
+						lv_state_3_0,
+						"nii.bigclout.ecaadapter.Dsl.UnaryElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4=','
+		{
+			newLeafNode(otherlv_4, grammarAccess.getMappingPairAccess().getCommaKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMappingPairAccess().getActionCodeEXTENDED_STRINGParserRuleCall_5_0());
+				}
+				lv_actionCode_5_0=ruleEXTENDED_STRING
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMappingPairRule());
+					}
+					set(
+						$current,
+						"actionCode",
+						lv_actionCode_5_0,
+						"nii.bigclout.ecaadapter.Dsl.EXTENDED_STRING");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_6=')'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getMappingPairAccess().getRightParenthesisKeyword_6());
+		}
 	)
 ;
 

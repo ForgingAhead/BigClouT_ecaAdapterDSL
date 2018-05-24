@@ -68,13 +68,31 @@ public interface DslPackage extends EPackage
   int RUN_TIME_MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Env Data</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RUN_TIME_MODEL__ENV_DATA = 0;
+
+  /**
    * The feature id for the '<em><b>App Data</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RUN_TIME_MODEL__APP_DATA = 0;
+  int RUN_TIME_MODEL__APP_DATA = 1;
+
+  /**
+   * The feature id for the '<em><b>Mapping Pairs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RUN_TIME_MODEL__MAPPING_PAIRS = 2;
 
   /**
    * The number of structural features of the '<em>Run Time Model</em>' class.
@@ -83,7 +101,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RUN_TIME_MODEL_FEATURE_COUNT = 1;
+  int RUN_TIME_MODEL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.AppMetaDataImpl <em>App Meta Data</em>}' class.
@@ -178,6 +196,163 @@ public interface DslPackage extends EPackage
   int APP_SPECIFICATION_FEATURE_COUNT = 4;
 
   /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.EnvironmentMetaDataImpl <em>Environment Meta Data</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.EnvironmentMetaDataImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getEnvironmentMetaData()
+   * @generated
+   */
+  int ENVIRONMENT_META_DATA = 3;
+
+  /**
+   * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENVIRONMENT_META_DATA__RESOURCES = 0;
+
+  /**
+   * The number of structural features of the '<em>Environment Meta Data</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENVIRONMENT_META_DATA_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.ResourceImpl <em>Resource</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.ResourceImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getResource()
+   * @generated
+   */
+  int RESOURCE = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE__CODE = 1;
+
+  /**
+   * The feature id for the '<em><b>States</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE__STATES = 2;
+
+  /**
+   * The number of structural features of the '<em>Resource</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.ActionImpl <em>Action</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.ActionImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getAction()
+   * @generated
+   */
+  int ACTION = 5;
+
+  /**
+   * The feature id for the '<em><b>Resource</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__RESOURCE = 0;
+
+  /**
+   * The feature id for the '<em><b>State</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__STATE = 1;
+
+  /**
+   * The number of structural features of the '<em>Action</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.MappingPairImpl <em>Mapping Pair</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.MappingPairImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMappingPair()
+   * @generated
+   */
+  int MAPPING_PAIR = 6;
+
+  /**
+   * The feature id for the '<em><b>Resource</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_PAIR__RESOURCE = 0;
+
+  /**
+   * The feature id for the '<em><b>State</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_PAIR__STATE = 1;
+
+  /**
+   * The feature id for the '<em><b>Action Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_PAIR__ACTION_CODE = 2;
+
+  /**
+   * The number of structural features of the '<em>Mapping Pair</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_PAIR_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.ElementImpl <em>Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -185,7 +360,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getElement()
    * @generated
    */
-  int ELEMENT = 3;
+  int ELEMENT = 7;
 
   /**
    * The number of structural features of the '<em>Element</em>' class.
@@ -204,7 +379,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getOrElement()
    * @generated
    */
-  int OR_ELEMENT = 4;
+  int OR_ELEMENT = 8;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -241,7 +416,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getAndElement()
    * @generated
    */
-  int AND_ELEMENT = 5;
+  int AND_ELEMENT = 9;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -278,7 +453,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getDiffElement()
    * @generated
    */
-  int DIFF_ELEMENT = 6;
+  int DIFF_ELEMENT = 10;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -315,7 +490,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getEqualElement()
    * @generated
    */
-  int EQUAL_ELEMENT = 7;
+  int EQUAL_ELEMENT = 11;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -352,7 +527,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getLargerElement()
    * @generated
    */
-  int LARGER_ELEMENT = 8;
+  int LARGER_ELEMENT = 12;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -389,7 +564,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getLargerEqualElement()
    * @generated
    */
-  int LARGER_EQUAL_ELEMENT = 9;
+  int LARGER_EQUAL_ELEMENT = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -426,7 +601,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSmallerElement()
    * @generated
    */
-  int SMALLER_ELEMENT = 10;
+  int SMALLER_ELEMENT = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -463,7 +638,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSmallerEqualElement()
    * @generated
    */
-  int SMALLER_EQUAL_ELEMENT = 11;
+  int SMALLER_EQUAL_ELEMENT = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -500,7 +675,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getPlusElement()
    * @generated
    */
-  int PLUS_ELEMENT = 12;
+  int PLUS_ELEMENT = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -537,7 +712,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMinusElement()
    * @generated
    */
-  int MINUS_ELEMENT = 13;
+  int MINUS_ELEMENT = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -574,7 +749,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMultiplicationElement()
    * @generated
    */
-  int MULTIPLICATION_ELEMENT = 14;
+  int MULTIPLICATION_ELEMENT = 18;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -611,7 +786,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getDivisionElement()
    * @generated
    */
-  int DIVISION_ELEMENT = 15;
+  int DIVISION_ELEMENT = 19;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -648,7 +823,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getModuloElement()
    * @generated
    */
-  int MODULO_ELEMENT = 16;
+  int MODULO_ELEMENT = 20;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -685,7 +860,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getNumber_Object()
    * @generated
    */
-  int NUMBER_OBJECT = 17;
+  int NUMBER_OBJECT = 21;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -713,7 +888,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getString_Object()
    * @generated
    */
-  int STRING_OBJECT = 18;
+  int STRING_OBJECT = 22;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -741,7 +916,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getBoolean_Object()
    * @generated
    */
-  int BOOLEAN_OBJECT = 19;
+  int BOOLEAN_OBJECT = 23;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -769,7 +944,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getNegateElement()
    * @generated
    */
-  int NEGATE_ELEMENT = 20;
+  int NEGATE_ELEMENT = 24;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -801,6 +976,17 @@ public interface DslPackage extends EPackage
   EClass getRunTimeModel();
 
   /**
+   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.RunTimeModel#getEnvData <em>Env Data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Env Data</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.RunTimeModel#getEnvData()
+   * @see #getRunTimeModel()
+   * @generated
+   */
+  EReference getRunTimeModel_EnvData();
+
+  /**
    * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.RunTimeModel#getAppData <em>App Data</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -810,6 +996,17 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EReference getRunTimeModel_AppData();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.RunTimeModel#getMappingPairs <em>Mapping Pairs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mapping Pairs</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.RunTimeModel#getMappingPairs()
+   * @see #getRunTimeModel()
+   * @generated
+   */
+  EReference getRunTimeModel_MappingPairs();
 
   /**
    * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.AppMetaData <em>App Meta Data</em>}'.
@@ -896,6 +1093,145 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EReference getAppSpecification_Action();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.EnvironmentMetaData <em>Environment Meta Data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Environment Meta Data</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.EnvironmentMetaData
+   * @generated
+   */
+  EClass getEnvironmentMetaData();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.EnvironmentMetaData#getResources <em>Resources</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Resources</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.EnvironmentMetaData#getResources()
+   * @see #getEnvironmentMetaData()
+   * @generated
+   */
+  EReference getEnvironmentMetaData_Resources();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.Resource <em>Resource</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Resource</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Resource
+   * @generated
+   */
+  EClass getResource();
+
+  /**
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Resource#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Resource#getName()
+   * @see #getResource()
+   * @generated
+   */
+  EAttribute getResource_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Resource#getCode <em>Code</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Code</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Resource#getCode()
+   * @see #getResource()
+   * @generated
+   */
+  EAttribute getResource_Code();
+
+  /**
+   * Returns the meta object for the attribute list '{@link nii.bigclout.ecaadapter.dsl.Resource#getStates <em>States</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>States</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Resource#getStates()
+   * @see #getResource()
+   * @generated
+   */
+  EAttribute getResource_States();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.Action <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Action</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Action
+   * @generated
+   */
+  EClass getAction();
+
+  /**
+   * Returns the meta object for the reference '{@link nii.bigclout.ecaadapter.dsl.Action#getResource <em>Resource</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Resource</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Action#getResource()
+   * @see #getAction()
+   * @generated
+   */
+  EReference getAction_Resource();
+
+  /**
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Action#getState <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>State</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Action#getState()
+   * @see #getAction()
+   * @generated
+   */
+  EAttribute getAction_State();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.MappingPair <em>Mapping Pair</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mapping Pair</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.MappingPair
+   * @generated
+   */
+  EClass getMappingPair();
+
+  /**
+   * Returns the meta object for the reference '{@link nii.bigclout.ecaadapter.dsl.MappingPair#getResource <em>Resource</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Resource</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.MappingPair#getResource()
+   * @see #getMappingPair()
+   * @generated
+   */
+  EReference getMappingPair_Resource();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.MappingPair#getState <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>State</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.MappingPair#getState()
+   * @see #getMappingPair()
+   * @generated
+   */
+  EReference getMappingPair_State();
+
+  /**
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.MappingPair#getActionCode <em>Action Code</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Action Code</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.MappingPair#getActionCode()
+   * @see #getMappingPair()
+   * @generated
+   */
+  EAttribute getMappingPair_ActionCode();
 
   /**
    * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.Element <em>Element</em>}'.
@@ -1441,12 +1777,28 @@ public interface DslPackage extends EPackage
     EClass RUN_TIME_MODEL = eINSTANCE.getRunTimeModel();
 
     /**
+     * The meta object literal for the '<em><b>Env Data</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RUN_TIME_MODEL__ENV_DATA = eINSTANCE.getRunTimeModel_EnvData();
+
+    /**
      * The meta object literal for the '<em><b>App Data</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference RUN_TIME_MODEL__APP_DATA = eINSTANCE.getRunTimeModel_AppData();
+
+    /**
+     * The meta object literal for the '<em><b>Mapping Pairs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RUN_TIME_MODEL__MAPPING_PAIRS = eINSTANCE.getRunTimeModel_MappingPairs();
 
     /**
      * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.AppMetaDataImpl <em>App Meta Data</em>}' class.
@@ -1515,6 +1867,118 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EReference APP_SPECIFICATION__ACTION = eINSTANCE.getAppSpecification_Action();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.EnvironmentMetaDataImpl <em>Environment Meta Data</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.EnvironmentMetaDataImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getEnvironmentMetaData()
+     * @generated
+     */
+    EClass ENVIRONMENT_META_DATA = eINSTANCE.getEnvironmentMetaData();
+
+    /**
+     * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENVIRONMENT_META_DATA__RESOURCES = eINSTANCE.getEnvironmentMetaData_Resources();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.ResourceImpl <em>Resource</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.ResourceImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getResource()
+     * @generated
+     */
+    EClass RESOURCE = eINSTANCE.getResource();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESOURCE__NAME = eINSTANCE.getResource_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESOURCE__CODE = eINSTANCE.getResource_Code();
+
+    /**
+     * The meta object literal for the '<em><b>States</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESOURCE__STATES = eINSTANCE.getResource_States();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.ActionImpl <em>Action</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.ActionImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getAction()
+     * @generated
+     */
+    EClass ACTION = eINSTANCE.getAction();
+
+    /**
+     * The meta object literal for the '<em><b>Resource</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION__RESOURCE = eINSTANCE.getAction_Resource();
+
+    /**
+     * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTION__STATE = eINSTANCE.getAction_State();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.MappingPairImpl <em>Mapping Pair</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.MappingPairImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMappingPair()
+     * @generated
+     */
+    EClass MAPPING_PAIR = eINSTANCE.getMappingPair();
+
+    /**
+     * The meta object literal for the '<em><b>Resource</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING_PAIR__RESOURCE = eINSTANCE.getMappingPair_Resource();
+
+    /**
+     * The meta object literal for the '<em><b>State</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING_PAIR__STATE = eINSTANCE.getMappingPair_State();
+
+    /**
+     * The meta object literal for the '<em><b>Action Code</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING_PAIR__ACTION_CODE = eINSTANCE.getMappingPair_ActionCode();
 
     /**
      * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.ElementImpl <em>Element</em>}' class.

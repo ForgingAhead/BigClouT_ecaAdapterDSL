@@ -68,6 +68,10 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.RUN_TIME_MODEL: return createRunTimeModel();
       case DslPackage.APP_META_DATA: return createAppMetaData();
       case DslPackage.APP_SPECIFICATION: return createAppSpecification();
+      case DslPackage.ENVIRONMENT_META_DATA: return createEnvironmentMetaData();
+      case DslPackage.RESOURCE: return createResource();
+      case DslPackage.ACTION: return createAction();
+      case DslPackage.MAPPING_PAIR: return createMappingPair();
       case DslPackage.ELEMENT: return createElement();
       case DslPackage.OR_ELEMENT: return createOrElement();
       case DslPackage.AND_ELEMENT: return createAndElement();
@@ -122,6 +126,50 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     AppSpecificationImpl appSpecification = new AppSpecificationImpl();
     return appSpecification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EnvironmentMetaData createEnvironmentMetaData()
+  {
+    EnvironmentMetaDataImpl environmentMetaData = new EnvironmentMetaDataImpl();
+    return environmentMetaData;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Resource createResource()
+  {
+    ResourceImpl resource = new ResourceImpl();
+    return resource;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Action createAction()
+  {
+    ActionImpl action = new ActionImpl();
+    return action;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MappingPair createMappingPair()
+  {
+    MappingPairImpl mappingPair = new MappingPairImpl();
+    return mappingPair;
   }
 
   /**

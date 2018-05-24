@@ -3,6 +3,7 @@
  */
 package nii.bigclout.ecaadapter.dsl.impl;
 
+import nii.bigclout.ecaadapter.dsl.Action;
 import nii.bigclout.ecaadapter.dsl.AndElement;
 import nii.bigclout.ecaadapter.dsl.AppMetaData;
 import nii.bigclout.ecaadapter.dsl.AppSpecification;
@@ -12,9 +13,11 @@ import nii.bigclout.ecaadapter.dsl.DivisionElement;
 import nii.bigclout.ecaadapter.dsl.DslFactory;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.Element;
+import nii.bigclout.ecaadapter.dsl.EnvironmentMetaData;
 import nii.bigclout.ecaadapter.dsl.EqualElement;
 import nii.bigclout.ecaadapter.dsl.LargerElement;
 import nii.bigclout.ecaadapter.dsl.LargerEqualElement;
+import nii.bigclout.ecaadapter.dsl.MappingPair;
 import nii.bigclout.ecaadapter.dsl.MinusElement;
 import nii.bigclout.ecaadapter.dsl.ModuloElement;
 import nii.bigclout.ecaadapter.dsl.MultiplicationElement;
@@ -22,6 +25,7 @@ import nii.bigclout.ecaadapter.dsl.NegateElement;
 import nii.bigclout.ecaadapter.dsl.Number_Object;
 import nii.bigclout.ecaadapter.dsl.OrElement;
 import nii.bigclout.ecaadapter.dsl.PlusElement;
+import nii.bigclout.ecaadapter.dsl.Resource;
 import nii.bigclout.ecaadapter.dsl.RunTimeModel;
 import nii.bigclout.ecaadapter.dsl.SmallerElement;
 import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
@@ -62,6 +66,34 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass appSpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass environmentMetaDataEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass resourceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass actionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mappingPairEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -267,9 +299,29 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRunTimeModel_AppData()
+  public EReference getRunTimeModel_EnvData()
   {
     return (EReference)runTimeModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRunTimeModel_AppData()
+  {
+    return (EReference)runTimeModelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRunTimeModel_MappingPairs()
+  {
+    return (EReference)runTimeModelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -350,6 +402,136 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
   public EReference getAppSpecification_Action()
   {
     return (EReference)appSpecificationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEnvironmentMetaData()
+  {
+    return environmentMetaDataEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEnvironmentMetaData_Resources()
+  {
+    return (EReference)environmentMetaDataEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getResource()
+  {
+    return resourceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResource_Name()
+  {
+    return (EAttribute)resourceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResource_Code()
+  {
+    return (EAttribute)resourceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResource_States()
+  {
+    return (EAttribute)resourceEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAction()
+  {
+    return actionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAction_Resource()
+  {
+    return (EReference)actionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAction_State()
+  {
+    return (EAttribute)actionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMappingPair()
+  {
+    return mappingPairEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMappingPair_Resource()
+  {
+    return (EReference)mappingPairEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMappingPair_State()
+  {
+    return (EReference)mappingPairEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMappingPair_ActionCode()
+  {
+    return (EAttribute)mappingPairEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -863,7 +1045,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     // Create classes and their features
     runTimeModelEClass = createEClass(RUN_TIME_MODEL);
+    createEReference(runTimeModelEClass, RUN_TIME_MODEL__ENV_DATA);
     createEReference(runTimeModelEClass, RUN_TIME_MODEL__APP_DATA);
+    createEReference(runTimeModelEClass, RUN_TIME_MODEL__MAPPING_PAIRS);
 
     appMetaDataEClass = createEClass(APP_META_DATA);
     createEAttribute(appMetaDataEClass, APP_META_DATA__APP_ID);
@@ -874,6 +1058,23 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEReference(appSpecificationEClass, APP_SPECIFICATION__TRIGGER);
     createEReference(appSpecificationEClass, APP_SPECIFICATION__CONDITION);
     createEReference(appSpecificationEClass, APP_SPECIFICATION__ACTION);
+
+    environmentMetaDataEClass = createEClass(ENVIRONMENT_META_DATA);
+    createEReference(environmentMetaDataEClass, ENVIRONMENT_META_DATA__RESOURCES);
+
+    resourceEClass = createEClass(RESOURCE);
+    createEAttribute(resourceEClass, RESOURCE__NAME);
+    createEAttribute(resourceEClass, RESOURCE__CODE);
+    createEAttribute(resourceEClass, RESOURCE__STATES);
+
+    actionEClass = createEClass(ACTION);
+    createEReference(actionEClass, ACTION__RESOURCE);
+    createEAttribute(actionEClass, ACTION__STATE);
+
+    mappingPairEClass = createEClass(MAPPING_PAIR);
+    createEReference(mappingPairEClass, MAPPING_PAIR__RESOURCE);
+    createEReference(mappingPairEClass, MAPPING_PAIR__STATE);
+    createEAttribute(mappingPairEClass, MAPPING_PAIR__ACTION_CODE);
 
     elementEClass = createEClass(ELEMENT);
 
@@ -991,7 +1192,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(runTimeModelEClass, RunTimeModel.class, "RunTimeModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRunTimeModel_EnvData(), this.getEnvironmentMetaData(), null, "envData", null, 0, -1, RunTimeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRunTimeModel_AppData(), this.getAppMetaData(), null, "appData", null, 0, -1, RunTimeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRunTimeModel_MappingPairs(), this.getMappingPair(), null, "mappingPairs", null, 0, -1, RunTimeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(appMetaDataEClass, AppMetaData.class, "AppMetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAppMetaData_AppID(), ecorePackage.getEString(), "appID", null, 0, 1, AppMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1001,7 +1204,24 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEAttribute(getAppSpecification_SpecID(), ecorePackage.getEString(), "specID", null, 0, 1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAppSpecification_Trigger(), this.getElement(), null, "trigger", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAppSpecification_Condition(), this.getElement(), null, "condition", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAppSpecification_Action(), this.getElement(), null, "action", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAppSpecification_Action(), this.getAction(), null, "action", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(environmentMetaDataEClass, EnvironmentMetaData.class, "EnvironmentMetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnvironmentMetaData_Resources(), this.getResource(), null, "resources", null, 0, -1, EnvironmentMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResource_Code(), ecorePackage.getEString(), "code", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResource_States(), ecorePackage.getEString(), "states", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAction_Resource(), this.getResource(), null, "resource", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAction_State(), ecorePackage.getEString(), "state", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mappingPairEClass, MappingPair.class, "MappingPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMappingPair_Resource(), this.getResource(), null, "resource", null, 0, 1, MappingPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMappingPair_State(), this.getElement(), null, "state", null, 0, 1, MappingPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMappingPair_ActionCode(), ecorePackage.getEString(), "actionCode", null, 0, 1, MappingPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
