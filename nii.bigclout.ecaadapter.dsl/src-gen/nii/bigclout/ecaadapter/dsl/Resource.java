@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.Resource#getName <em>Name</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.Resource#getCode <em>Code</em>}</li>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.Resource#getStates <em>States</em>}</li>
  * </ul>
  *
@@ -52,32 +51,6 @@ public interface Resource extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Code</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Code</em>' attribute.
-   * @see #setCode(String)
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getResource_Code()
-   * @model
-   * @generated
-   */
-  String getCode();
-
-  /**
-   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Resource#getCode <em>Code</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Code</em>' attribute.
-   * @see #getCode()
-   * @generated
-   */
-  void setCode(String value);
 
   /**
    * Returns the value of the '<em><b>States</b></em>' attribute list.

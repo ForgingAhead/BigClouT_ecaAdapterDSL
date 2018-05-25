@@ -44,6 +44,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAppSpecificationAccess().getGroup_7(), "rule__AppSpecification__Group_7__0");
 					put(grammarAccess.getEnvironmentMetaDataAccess().getGroup(), "rule__EnvironmentMetaData__Group__0");
 					put(grammarAccess.getResourceAccess().getGroup(), "rule__Resource__Group__0");
+					put(grammarAccess.getResourceAccess().getGroup_5(), "rule__Resource__Group_5__0");
 					put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
 					put(grammarAccess.getMappingPairAccess().getGroup(), "rule__MappingPair__Group__0");
 					put(grammarAccess.getOrElementAccess().getGroup(), "rule__OrElement__Group__0");
@@ -86,10 +87,10 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAppSpecificationAccess().getConditionAssignment_4(), "rule__AppSpecification__ConditionAssignment_4");
 					put(grammarAccess.getAppSpecificationAccess().getActionAssignment_6(), "rule__AppSpecification__ActionAssignment_6");
 					put(grammarAccess.getAppSpecificationAccess().getActionAssignment_7_1(), "rule__AppSpecification__ActionAssignment_7_1");
-					put(grammarAccess.getEnvironmentMetaDataAccess().getResourcesAssignment_3(), "rule__EnvironmentMetaData__ResourcesAssignment_3");
+					put(grammarAccess.getEnvironmentMetaDataAccess().getResourcesAssignment_2(), "rule__EnvironmentMetaData__ResourcesAssignment_2");
 					put(grammarAccess.getResourceAccess().getNameAssignment_1(), "rule__Resource__NameAssignment_1");
-					put(grammarAccess.getResourceAccess().getCodeAssignment_3(), "rule__Resource__CodeAssignment_3");
-					put(grammarAccess.getResourceAccess().getStatesAssignment_5(), "rule__Resource__StatesAssignment_5");
+					put(grammarAccess.getResourceAccess().getStatesAssignment_4(), "rule__Resource__StatesAssignment_4");
+					put(grammarAccess.getResourceAccess().getStatesAssignment_5_1(), "rule__Resource__StatesAssignment_5_1");
 					put(grammarAccess.getActionAccess().getResourceAssignment_0(), "rule__Action__ResourceAssignment_0");
 					put(grammarAccess.getActionAccess().getStateAssignment_2(), "rule__Action__StateAssignment_2");
 					put(grammarAccess.getMappingPairAccess().getResourceAssignment_1(), "rule__MappingPair__ResourceAssignment_1");

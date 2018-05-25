@@ -243,22 +243,13 @@ public interface DslPackage extends EPackage
   int RESOURCE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RESOURCE__CODE = 1;
-
-  /**
    * The feature id for the '<em><b>States</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RESOURCE__STATES = 2;
+  int RESOURCE__STATES = 1;
 
   /**
    * The number of structural features of the '<em>Resource</em>' class.
@@ -267,7 +258,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RESOURCE_FEATURE_COUNT = 3;
+  int RESOURCE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.ActionImpl <em>Action</em>}' class.
@@ -1137,17 +1128,6 @@ public interface DslPackage extends EPackage
   EAttribute getResource_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Resource#getCode <em>Code</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Code</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Resource#getCode()
-   * @see #getResource()
-   * @generated
-   */
-  EAttribute getResource_Code();
-
-  /**
    * Returns the meta object for the attribute list '{@link nii.bigclout.ecaadapter.dsl.Resource#getStates <em>States</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1903,14 +1883,6 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EAttribute RESOURCE__NAME = eINSTANCE.getResource_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute RESOURCE__CODE = eINSTANCE.getResource_Code();
 
     /**
      * The meta object literal for the '<em><b>States</b></em>' attribute list feature.

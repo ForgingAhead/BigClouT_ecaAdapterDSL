@@ -449,19 +449,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getResource_Code()
-  {
-    return (EAttribute)resourceEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getResource_States()
   {
-    return (EAttribute)resourceEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)resourceEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1064,7 +1054,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     resourceEClass = createEClass(RESOURCE);
     createEAttribute(resourceEClass, RESOURCE__NAME);
-    createEAttribute(resourceEClass, RESOURCE__CODE);
     createEAttribute(resourceEClass, RESOURCE__STATES);
 
     actionEClass = createEClass(ACTION);
@@ -1211,7 +1200,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getResource_Code(), ecorePackage.getEString(), "code", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getResource_States(), ecorePackage.getEString(), "states", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

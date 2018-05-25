@@ -393,19 +393,12 @@ ruleEnvironmentMetaData returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getEnvironmentMetaDataAccess().getEnvironmentMetaDataKeyword_1());
 		}
-		{
-			newCompositeNode(grammarAccess.getEnvironmentMetaDataAccess().getLBRACEParserRuleCall_2());
-		}
-		ruleLBRACE
-		{
-			afterParserOrEnumRuleCall();
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEnvironmentMetaDataAccess().getResourcesResourceParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getEnvironmentMetaDataAccess().getResourcesResourceParserRuleCall_2_0());
 				}
-				lv_resources_3_0=ruleResource
+				lv_resources_2_0=ruleResource
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEnvironmentMetaDataRule());
@@ -413,19 +406,12 @@ ruleEnvironmentMetaData returns [EObject current=null]
 					add(
 						$current,
 						"resources",
-						lv_resources_3_0,
+						lv_resources_2_0,
 						"nii.bigclout.ecaadapter.Dsl.Resource");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		{
-			newCompositeNode(grammarAccess.getEnvironmentMetaDataAccess().getRBRACEParserRuleCall_4());
-		}
-		ruleRBRACE
-		{
-			afterParserOrEnumRuleCall();
-		}
 	)
 ;
 
@@ -445,9 +431,9 @@ ruleResource returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='name'
+		otherlv_0='resource'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getResourceAccess().getNameKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getResourceAccess().getResourceKeyword_0());
 		}
 		(
 			(
@@ -467,39 +453,20 @@ ruleResource returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='code'
+		otherlv_2='can'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getResourceAccess().getCodeKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getResourceAccess().getCanKeyword_2());
+		}
+		otherlv_3='be'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getResourceAccess().getBeKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getResourceAccess().getCodeEXTENDED_STRINGParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getResourceAccess().getStatesStateParserRuleCall_4_0());
 				}
-				lv_code_3_0=ruleEXTENDED_STRING
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getResourceRule());
-					}
-					set(
-						$current,
-						"code",
-						lv_code_3_0,
-						"nii.bigclout.ecaadapter.Dsl.EXTENDED_STRING");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4='possibleStates'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getResourceAccess().getPossibleStatesKeyword_4());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getResourceAccess().getStatesStateParserRuleCall_5_0());
-				}
-				lv_states_5_0=ruleState
+				lv_states_4_0=ruleState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getResourceRule());
@@ -507,10 +474,35 @@ ruleResource returns [EObject current=null]
 					add(
 						$current,
 						"states",
-						lv_states_5_0,
+						lv_states_4_0,
 						"nii.bigclout.ecaadapter.Dsl.State");
 					afterParserOrEnumRuleCall();
 				}
+			)
+		)
+		(
+			otherlv_5=','
+			{
+				newLeafNode(otherlv_5, grammarAccess.getResourceAccess().getCommaKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getResourceAccess().getStatesStateParserRuleCall_5_1_0());
+					}
+					lv_states_6_0=ruleState
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getResourceRule());
+						}
+						add(
+							$current,
+							"states",
+							lv_states_6_0,
+							"nii.bigclout.ecaadapter.Dsl.State");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)*
 	)

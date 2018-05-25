@@ -26,7 +26,6 @@
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Resource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Resource/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Resource/code"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Resource/states"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Action">

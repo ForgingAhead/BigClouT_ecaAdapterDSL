@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * </p>
  * <ul>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.ResourceImpl#getName <em>Name</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.ResourceImpl#getCode <em>Code</em>}</li>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.ResourceImpl#getStates <em>States</em>}</li>
  * </ul>
  *
@@ -55,26 +54,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCode()
-   * @generated
-   * @ordered
-   */
-  protected static final String CODE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCode()
-   * @generated
-   * @ordered
-   */
-  protected String code = CODE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getStates() <em>States</em>}' attribute list.
@@ -135,29 +114,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCode()
-  {
-    return code;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCode(String newCode)
-  {
-    String oldCode = code;
-    code = newCode;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.RESOURCE__CODE, oldCode, code));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<String> getStates()
   {
     if (states == null)
@@ -179,8 +135,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     {
       case DslPackage.RESOURCE__NAME:
         return getName();
-      case DslPackage.RESOURCE__CODE:
-        return getCode();
       case DslPackage.RESOURCE__STATES:
         return getStates();
     }
@@ -200,9 +154,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     {
       case DslPackage.RESOURCE__NAME:
         setName((String)newValue);
-        return;
-      case DslPackage.RESOURCE__CODE:
-        setCode((String)newValue);
         return;
       case DslPackage.RESOURCE__STATES:
         getStates().clear();
@@ -225,9 +176,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
       case DslPackage.RESOURCE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DslPackage.RESOURCE__CODE:
-        setCode(CODE_EDEFAULT);
-        return;
       case DslPackage.RESOURCE__STATES:
         getStates().clear();
         return;
@@ -247,8 +195,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     {
       case DslPackage.RESOURCE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DslPackage.RESOURCE__CODE:
-        return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
       case DslPackage.RESOURCE__STATES:
         return states != null && !states.isEmpty();
     }
@@ -268,8 +214,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", code: ");
-    result.append(code);
     result.append(", states: ");
     result.append(states);
     result.append(')');

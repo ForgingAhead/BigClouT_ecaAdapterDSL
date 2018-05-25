@@ -35,15 +35,15 @@ AppSpecification:
 EnvironmentMetaData:
 	{EnvironmentMetaData}
 	"EnvironmentMetaData"
-	LBRACE
+	
 	resources+=Resource*
-	RBRACE
+	
 ;
 
 Resource:
-	"name" name=ID
-	"code" code=EXTENDED_STRING
-	"possibleStates" states+=State*
+	"resource" name=ID
+	//"code" code=EXTENDED_STRING
+	"can" "be" states+= State ("," states+=State)*
 ;
 
 State:

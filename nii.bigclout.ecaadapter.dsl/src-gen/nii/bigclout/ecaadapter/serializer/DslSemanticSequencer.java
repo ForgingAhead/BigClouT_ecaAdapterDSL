@@ -737,7 +737,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Resource returns Resource
 	 *
 	 * Constraint:
-	 *     (name=ID code=EXTENDED_STRING states+=State*)
+	 *     (name=ID states+=State states+=State*)
 	 */
 	protected void sequence_Resource(ISerializationContext context, Resource semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -11,6 +11,7 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.eclipse.xtext.util.EmfFormatter
 
 @RunWith(XtextRunner)
 @InjectWith(DslInjectorProvider)
@@ -21,8 +22,53 @@ class DslParsingTest {
 	@Test
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+		
+			EnvironmentMetaData {
+				name window
+				code window123
+				possibleStates open close
+				
+				name co2_density
+				code co2sensor
+				possibleStates high low medium
+				
+				name airPollution_alert
+				code airPollution121
+				possibleStates ON OFF
+				
+				name AC_room1
+				code ac123
+				possibleStates ON OFF
+			}
+			
+			AppMeta SafetyAppMeta {
+				spec1
+				on event1 and (event2 or event3)
+				if time >= 22
+				do window := close
+				
+				spec2
+				on airPollution_alert == ON
+				if 
+				do window := close and AC_room1 := ON
+			}
+			
+			AppMeta EnvironmentAppMeta {
+				spec1
+				on 
+				if co2_density >= 40
+				do window := open
+			}
+			
+			ConceptToCodeMappings {
+				//(Element, code)  //For translation...........
+				//or, should it be (resource, state, code)
+				(window, close, window.Close.act())
+				(window, open, window.Open.act())
+			}
+			
 		''')
+		println(EmfFormatter.objToStr(result));
 		Assert.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assert.assertTrue('''Unexpected errors: Å·errors.join(", ")Å‚''', errors.isEmpty)
