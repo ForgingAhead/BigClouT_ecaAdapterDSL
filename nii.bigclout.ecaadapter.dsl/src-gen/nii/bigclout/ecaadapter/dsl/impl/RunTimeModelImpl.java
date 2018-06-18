@@ -10,6 +10,7 @@ import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.EnvironmentMetaData;
 import nii.bigclout.ecaadapter.dsl.MappingPair;
 import nii.bigclout.ecaadapter.dsl.RunTimeModel;
+import nii.bigclout.ecaadapter.dsl.ServiceMetaData;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.RunTimeModelImpl#getEnvData <em>Env Data</em>}</li>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.RunTimeModelImpl#getAppData <em>App Data</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.RunTimeModelImpl#getServicesData <em>Services Data</em>}</li>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.RunTimeModelImpl#getMappingPairs <em>Mapping Pairs</em>}</li>
  * </ul>
  *
@@ -59,6 +61,16 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
    * @ordered
    */
   protected EList<AppMetaData> appData;
+
+  /**
+   * The cached value of the '{@link #getServicesData() <em>Services Data</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getServicesData()
+   * @generated
+   * @ordered
+   */
+  protected EList<ServiceMetaData> servicesData;
 
   /**
    * The cached value of the '{@link #getMappingPairs() <em>Mapping Pairs</em>}' containment reference list.
@@ -124,6 +136,20 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<ServiceMetaData> getServicesData()
+  {
+    if (servicesData == null)
+    {
+      servicesData = new EObjectContainmentEList<ServiceMetaData>(ServiceMetaData.class, this, DslPackage.RUN_TIME_MODEL__SERVICES_DATA);
+    }
+    return servicesData;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<MappingPair> getMappingPairs()
   {
     if (mappingPairs == null)
@@ -147,6 +173,8 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
         return ((InternalEList<?>)getEnvData()).basicRemove(otherEnd, msgs);
       case DslPackage.RUN_TIME_MODEL__APP_DATA:
         return ((InternalEList<?>)getAppData()).basicRemove(otherEnd, msgs);
+      case DslPackage.RUN_TIME_MODEL__SERVICES_DATA:
+        return ((InternalEList<?>)getServicesData()).basicRemove(otherEnd, msgs);
       case DslPackage.RUN_TIME_MODEL__MAPPING_PAIRS:
         return ((InternalEList<?>)getMappingPairs()).basicRemove(otherEnd, msgs);
     }
@@ -167,6 +195,8 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
         return getEnvData();
       case DslPackage.RUN_TIME_MODEL__APP_DATA:
         return getAppData();
+      case DslPackage.RUN_TIME_MODEL__SERVICES_DATA:
+        return getServicesData();
       case DslPackage.RUN_TIME_MODEL__MAPPING_PAIRS:
         return getMappingPairs();
     }
@@ -192,6 +222,10 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
         getAppData().clear();
         getAppData().addAll((Collection<? extends AppMetaData>)newValue);
         return;
+      case DslPackage.RUN_TIME_MODEL__SERVICES_DATA:
+        getServicesData().clear();
+        getServicesData().addAll((Collection<? extends ServiceMetaData>)newValue);
+        return;
       case DslPackage.RUN_TIME_MODEL__MAPPING_PAIRS:
         getMappingPairs().clear();
         getMappingPairs().addAll((Collection<? extends MappingPair>)newValue);
@@ -216,6 +250,9 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
       case DslPackage.RUN_TIME_MODEL__APP_DATA:
         getAppData().clear();
         return;
+      case DslPackage.RUN_TIME_MODEL__SERVICES_DATA:
+        getServicesData().clear();
+        return;
       case DslPackage.RUN_TIME_MODEL__MAPPING_PAIRS:
         getMappingPairs().clear();
         return;
@@ -237,6 +274,8 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
         return envData != null && !envData.isEmpty();
       case DslPackage.RUN_TIME_MODEL__APP_DATA:
         return appData != null && !appData.isEmpty();
+      case DslPackage.RUN_TIME_MODEL__SERVICES_DATA:
+        return servicesData != null && !servicesData.isEmpty();
       case DslPackage.RUN_TIME_MODEL__MAPPING_PAIRS:
         return mappingPairs != null && !mappingPairs.isEmpty();
     }

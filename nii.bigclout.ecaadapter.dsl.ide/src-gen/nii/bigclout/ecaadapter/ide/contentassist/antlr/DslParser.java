@@ -31,6 +31,7 @@ public class DslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getMetadataAccess().getAlternatives(), "rule__Metadata__Alternatives");
 					put(grammarAccess.getStateAccess().getAlternatives(), "rule__State__Alternatives");
 					put(grammarAccess.getDiffEqualElementAccess().getAlternatives_1(), "rule__DiffEqualElement__Alternatives_1");
 					put(grammarAccess.getCompareElementAccess().getAlternatives_1(), "rule__CompareElement__Alternatives_1");
@@ -43,6 +44,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAppSpecificationAccess().getGroup(), "rule__AppSpecification__Group__0");
 					put(grammarAccess.getAppSpecificationAccess().getGroup_7(), "rule__AppSpecification__Group_7__0");
 					put(grammarAccess.getEnvironmentMetaDataAccess().getGroup(), "rule__EnvironmentMetaData__Group__0");
+					put(grammarAccess.getServiceMetaDataAccess().getGroup(), "rule__ServiceMetaData__Group__0");
 					put(grammarAccess.getResourceAccess().getGroup(), "rule__Resource__Group__0");
 					put(grammarAccess.getResourceAccess().getGroup_5(), "rule__Resource__Group_5__0");
 					put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
@@ -79,7 +81,8 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEXTENDED_STRINGAccess().getGroup_2(), "rule__EXTENDED_STRING__Group_2__0");
 					put(grammarAccess.getRunTimeModelAccess().getEnvDataAssignment_1(), "rule__RunTimeModel__EnvDataAssignment_1");
 					put(grammarAccess.getRunTimeModelAccess().getAppDataAssignment_2(), "rule__RunTimeModel__AppDataAssignment_2");
-					put(grammarAccess.getRunTimeModelAccess().getMappingPairsAssignment_5(), "rule__RunTimeModel__MappingPairsAssignment_5");
+					put(grammarAccess.getRunTimeModelAccess().getServicesDataAssignment_3(), "rule__RunTimeModel__ServicesDataAssignment_3");
+					put(grammarAccess.getRunTimeModelAccess().getMappingPairsAssignment_6(), "rule__RunTimeModel__MappingPairsAssignment_6");
 					put(grammarAccess.getAppMetaDataAccess().getAppIDAssignment_1(), "rule__AppMetaData__AppIDAssignment_1");
 					put(grammarAccess.getAppMetaDataAccess().getSpecificationsAssignment_3(), "rule__AppMetaData__SpecificationsAssignment_3");
 					put(grammarAccess.getAppSpecificationAccess().getSpecIDAssignment_0(), "rule__AppSpecification__SpecIDAssignment_0");
@@ -88,6 +91,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAppSpecificationAccess().getActionAssignment_6(), "rule__AppSpecification__ActionAssignment_6");
 					put(grammarAccess.getAppSpecificationAccess().getActionAssignment_7_1(), "rule__AppSpecification__ActionAssignment_7_1");
 					put(grammarAccess.getEnvironmentMetaDataAccess().getResourcesAssignment_2(), "rule__EnvironmentMetaData__ResourcesAssignment_2");
+					put(grammarAccess.getServiceMetaDataAccess().getServiceIDAssignment_1(), "rule__ServiceMetaData__ServiceIDAssignment_1");
 					put(grammarAccess.getResourceAccess().getNameAssignment_1(), "rule__Resource__NameAssignment_1");
 					put(grammarAccess.getResourceAccess().getStatesAssignment_4(), "rule__Resource__StatesAssignment_4");
 					put(grammarAccess.getResourceAccess().getStatesAssignment_5_1(), "rule__Resource__StatesAssignment_5_1");

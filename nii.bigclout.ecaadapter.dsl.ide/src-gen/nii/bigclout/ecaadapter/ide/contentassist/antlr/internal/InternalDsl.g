@@ -149,6 +149,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleServiceMetaData
+entryRuleServiceMetaData
+:
+{ before(grammarAccess.getServiceMetaDataRule()); }
+	 ruleServiceMetaData
+{ after(grammarAccess.getServiceMetaDataRule()); } 
+	 EOF 
+;
+
+// Rule ServiceMetaData
+ruleServiceMetaData 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getServiceMetaDataAccess().getGroup()); }
+		(rule__ServiceMetaData__Group__0)
+		{ after(grammarAccess.getServiceMetaDataAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleResource
 entryRuleResource
 :
@@ -806,9 +831,9 @@ rule__RunTimeModel__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getRunTimeModelAccess().getConceptToCodeMappingsKeyword_3()); }
-	'ConceptToCodeMappings'
-	{ after(grammarAccess.getRunTimeModelAccess().getConceptToCodeMappingsKeyword_3()); }
+	{ before(grammarAccess.getRunTimeModelAccess().getServicesDataAssignment_3()); }
+	(rule__RunTimeModel__ServicesDataAssignment_3)*
+	{ after(grammarAccess.getRunTimeModelAccess().getServicesDataAssignment_3()); }
 )
 ;
 finally {
@@ -833,9 +858,9 @@ rule__RunTimeModel__Group__4__Impl
 	}
 :
 (
-	{ before(grammarAccess.getRunTimeModelAccess().getLBRACEParserRuleCall_4()); }
-	ruleLBRACE
-	{ after(grammarAccess.getRunTimeModelAccess().getLBRACEParserRuleCall_4()); }
+	{ before(grammarAccess.getRunTimeModelAccess().getConceptToCodeMappingsKeyword_4()); }
+	'ConceptToCodeMappings'
+	{ after(grammarAccess.getRunTimeModelAccess().getConceptToCodeMappingsKeyword_4()); }
 )
 ;
 finally {
@@ -860,9 +885,9 @@ rule__RunTimeModel__Group__5__Impl
 	}
 :
 (
-	{ before(grammarAccess.getRunTimeModelAccess().getMappingPairsAssignment_5()); }
-	(rule__RunTimeModel__MappingPairsAssignment_5)*
-	{ after(grammarAccess.getRunTimeModelAccess().getMappingPairsAssignment_5()); }
+	{ before(grammarAccess.getRunTimeModelAccess().getLBRACEParserRuleCall_5()); }
+	ruleLBRACE
+	{ after(grammarAccess.getRunTimeModelAccess().getLBRACEParserRuleCall_5()); }
 )
 ;
 finally {
@@ -875,6 +900,7 @@ rule__RunTimeModel__Group__6
 	}
 :
 	rule__RunTimeModel__Group__6__Impl
+	rule__RunTimeModel__Group__7
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -886,9 +912,35 @@ rule__RunTimeModel__Group__6__Impl
 	}
 :
 (
-	{ before(grammarAccess.getRunTimeModelAccess().getRBRACEParserRuleCall_6()); }
+	{ before(grammarAccess.getRunTimeModelAccess().getMappingPairsAssignment_6()); }
+	(rule__RunTimeModel__MappingPairsAssignment_6)*
+	{ after(grammarAccess.getRunTimeModelAccess().getMappingPairsAssignment_6()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RunTimeModel__Group__7
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RunTimeModel__Group__7__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RunTimeModel__Group__7__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRunTimeModelAccess().getRBRACEParserRuleCall_7()); }
 	ruleRBRACE
-	{ after(grammarAccess.getRunTimeModelAccess().getRBRACEParserRuleCall_6()); }
+	{ after(grammarAccess.getRunTimeModelAccess().getRBRACEParserRuleCall_7()); }
 )
 ;
 finally {
@@ -1375,6 +1427,60 @@ rule__EnvironmentMetaData__Group__2__Impl
 	{ before(grammarAccess.getEnvironmentMetaDataAccess().getResourcesAssignment_2()); }
 	(rule__EnvironmentMetaData__ResourcesAssignment_2)*
 	{ after(grammarAccess.getEnvironmentMetaDataAccess().getResourcesAssignment_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ServiceMetaData__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ServiceMetaData__Group__0__Impl
+	rule__ServiceMetaData__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ServiceMetaData__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getServiceMetaDataAccess().getServiceKeyword_0()); }
+	'service'
+	{ after(grammarAccess.getServiceMetaDataAccess().getServiceKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ServiceMetaData__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ServiceMetaData__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ServiceMetaData__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getServiceMetaDataAccess().getServiceIDAssignment_1()); }
+	(rule__ServiceMetaData__ServiceIDAssignment_1)
+	{ after(grammarAccess.getServiceMetaDataAccess().getServiceIDAssignment_1()); }
 )
 ;
 finally {
@@ -3869,15 +3975,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__RunTimeModel__MappingPairsAssignment_5
+rule__RunTimeModel__ServicesDataAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getRunTimeModelAccess().getMappingPairsMappingPairParserRuleCall_5_0()); }
+		{ before(grammarAccess.getRunTimeModelAccess().getServicesDataServiceMetaDataParserRuleCall_3_0()); }
+		ruleServiceMetaData
+		{ after(grammarAccess.getRunTimeModelAccess().getServicesDataServiceMetaDataParserRuleCall_3_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RunTimeModel__MappingPairsAssignment_6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getRunTimeModelAccess().getMappingPairsMappingPairParserRuleCall_6_0()); }
 		ruleMappingPair
-		{ after(grammarAccess.getRunTimeModelAccess().getMappingPairsMappingPairParserRuleCall_5_0()); }
+		{ after(grammarAccess.getRunTimeModelAccess().getMappingPairsMappingPairParserRuleCall_6_0()); }
 	)
 ;
 finally {
@@ -3998,6 +4119,21 @@ rule__EnvironmentMetaData__ResourcesAssignment_2
 		{ before(grammarAccess.getEnvironmentMetaDataAccess().getResourcesResourceParserRuleCall_2_0()); }
 		ruleResource
 		{ after(grammarAccess.getEnvironmentMetaDataAccess().getResourcesResourceParserRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ServiceMetaData__ServiceIDAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getServiceMetaDataAccess().getServiceIDIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getServiceMetaDataAccess().getServiceIDIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

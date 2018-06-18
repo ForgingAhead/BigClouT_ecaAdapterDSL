@@ -6,10 +6,13 @@
         eType="#//EnvironmentMetaData" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="appData" upperBound="-1"
         eType="#//AppMetaData" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="servicesData" upperBound="-1"
+        eType="#//ServiceMetaData" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappingPairs" upperBound="-1"
         eType="#//MappingPair" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AppMetaData">
+  <eClassifiers xsi:type="ecore:EClass" name="Metadata"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AppMetaData" eSuperTypes="#//Metadata">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="appID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specifications" upperBound="-1"
         eType="#//AppSpecification" containment="true"/>
@@ -23,9 +26,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" upperBound="-1"
         eType="#//Action" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnvironmentMetaData">
+  <eClassifiers xsi:type="ecore:EClass" name="EnvironmentMetaData" eSuperTypes="#//Metadata">
     <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
         eType="#//Resource" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceMetaData" eSuperTypes="#//Metadata">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -66,9 +66,11 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
     switch (eClass.getClassifierID())
     {
       case DslPackage.RUN_TIME_MODEL: return createRunTimeModel();
+      case DslPackage.METADATA: return createMetadata();
       case DslPackage.APP_META_DATA: return createAppMetaData();
       case DslPackage.APP_SPECIFICATION: return createAppSpecification();
       case DslPackage.ENVIRONMENT_META_DATA: return createEnvironmentMetaData();
+      case DslPackage.SERVICE_META_DATA: return createServiceMetaData();
       case DslPackage.RESOURCE: return createResource();
       case DslPackage.ACTION: return createAction();
       case DslPackage.MAPPING_PAIR: return createMappingPair();
@@ -111,6 +113,17 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Metadata createMetadata()
+  {
+    MetadataImpl metadata = new MetadataImpl();
+    return metadata;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public AppMetaData createAppMetaData()
   {
     AppMetaDataImpl appMetaData = new AppMetaDataImpl();
@@ -137,6 +150,17 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     EnvironmentMetaDataImpl environmentMetaData = new EnvironmentMetaDataImpl();
     return environmentMetaData;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ServiceMetaData createServiceMetaData()
+  {
+    ServiceMetaDataImpl serviceMetaData = new ServiceMetaDataImpl();
+    return serviceMetaData;
   }
 
   /**

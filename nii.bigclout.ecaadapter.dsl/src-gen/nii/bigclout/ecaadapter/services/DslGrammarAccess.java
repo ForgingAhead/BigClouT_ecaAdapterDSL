@@ -32,23 +32,25 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEnvDataEnvironmentMetaDataParserRuleCall_1_0 = (RuleCall)cEnvDataAssignment_1.eContents().get(0);
 		private final Assignment cAppDataAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cAppDataAppMetaDataParserRuleCall_2_0 = (RuleCall)cAppDataAssignment_2.eContents().get(0);
-		private final Keyword cConceptToCodeMappingsKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cLBRACEParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cMappingPairsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cMappingPairsMappingPairParserRuleCall_5_0 = (RuleCall)cMappingPairsAssignment_5.eContents().get(0);
-		private final RuleCall cRBRACEParserRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Assignment cServicesDataAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cServicesDataServiceMetaDataParserRuleCall_3_0 = (RuleCall)cServicesDataAssignment_3.eContents().get(0);
+		private final Keyword cConceptToCodeMappingsKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cLBRACEParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cMappingPairsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cMappingPairsMappingPairParserRuleCall_6_0 = (RuleCall)cMappingPairsAssignment_6.eContents().get(0);
+		private final RuleCall cRBRACEParserRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		
 		//RunTimeModel:
 		//	{RunTimeModel} envData+=EnvironmentMetaData*
 		//	appData+=AppMetaData*
-		//	//servicesData += ServiceMetaData*  
+		//	servicesData+=ServiceMetaData*
 		//	"ConceptToCodeMappings"
 		//	LBRACE
 		//	mappingPairs+=MappingPair*
 		//	RBRACE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{RunTimeModel} envData+=EnvironmentMetaData* appData+=AppMetaData* //servicesData += ServiceMetaData*  
+		//{RunTimeModel} envData+=EnvironmentMetaData* appData+=AppMetaData* servicesData+=ServiceMetaData*
 		//"ConceptToCodeMappings" LBRACE mappingPairs+=MappingPair* RBRACE
 		public Group getGroup() { return cGroup; }
 		
@@ -67,21 +69,49 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//AppMetaData
 		public RuleCall getAppDataAppMetaDataParserRuleCall_2_0() { return cAppDataAppMetaDataParserRuleCall_2_0; }
 		
-		////servicesData += ServiceMetaData*  
+		//servicesData+=ServiceMetaData*
+		public Assignment getServicesDataAssignment_3() { return cServicesDataAssignment_3; }
+		
+		//ServiceMetaData
+		public RuleCall getServicesDataServiceMetaDataParserRuleCall_3_0() { return cServicesDataServiceMetaDataParserRuleCall_3_0; }
+		
 		//"ConceptToCodeMappings"
-		public Keyword getConceptToCodeMappingsKeyword_3() { return cConceptToCodeMappingsKeyword_3; }
+		public Keyword getConceptToCodeMappingsKeyword_4() { return cConceptToCodeMappingsKeyword_4; }
 		
 		//LBRACE
-		public RuleCall getLBRACEParserRuleCall_4() { return cLBRACEParserRuleCall_4; }
+		public RuleCall getLBRACEParserRuleCall_5() { return cLBRACEParserRuleCall_5; }
 		
 		//mappingPairs+=MappingPair*
-		public Assignment getMappingPairsAssignment_5() { return cMappingPairsAssignment_5; }
+		public Assignment getMappingPairsAssignment_6() { return cMappingPairsAssignment_6; }
 		
 		//MappingPair
-		public RuleCall getMappingPairsMappingPairParserRuleCall_5_0() { return cMappingPairsMappingPairParserRuleCall_5_0; }
+		public RuleCall getMappingPairsMappingPairParserRuleCall_6_0() { return cMappingPairsMappingPairParserRuleCall_6_0; }
 		
 		//RBRACE
-		public RuleCall getRBRACEParserRuleCall_6() { return cRBRACEParserRuleCall_6; }
+		public RuleCall getRBRACEParserRuleCall_7() { return cRBRACEParserRuleCall_7; }
+	}
+	public class MetadataElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.Metadata");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cAppMetaDataParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cServiceMetaDataParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEnvironmentMetaDataParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//Metadata:
+		//	AppMetaData | ServiceMetaData | EnvironmentMetaData;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//AppMetaData | ServiceMetaData | EnvironmentMetaData
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//AppMetaData
+		public RuleCall getAppMetaDataParserRuleCall_0() { return cAppMetaDataParserRuleCall_0; }
+		
+		//ServiceMetaData
+		public RuleCall getServiceMetaDataParserRuleCall_1() { return cServiceMetaDataParserRuleCall_1; }
+		
+		//EnvironmentMetaData
+		public RuleCall getEnvironmentMetaDataParserRuleCall_2() { return cEnvironmentMetaDataParserRuleCall_2; }
 	}
 	public class AppMetaDataElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.AppMetaData");
@@ -147,13 +177,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		///**
 		// * Currently AppSpecification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
 		// */ AppSpecification:
-		//	specID=ID
+		//	specID=ID //or description
 		//	'on' trigger+=OrElement*
 		//	'if' condition+=OrElement*
 		//	'do' action+=Action ("and" action+=Action)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//specID=ID 'on' trigger+=OrElement* 'if' condition+=OrElement* 'do' action+=Action ("and" action+=Action)*
+		//specID=ID //or description
+		//'on' trigger+=OrElement* 'if' condition+=OrElement* 'do' action+=Action ("and" action+=Action)*
 		public Group getGroup() { return cGroup; }
 		
 		//specID=ID
@@ -162,6 +193,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSpecIDIDTerminalRuleCall_0_0() { return cSpecIDIDTerminalRuleCall_0_0; }
 		
+		////or description
 		//'on'
 		public Keyword getOnKeyword_1() { return cOnKeyword_1; }
 		
@@ -229,6 +261,31 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Resource
 		public RuleCall getResourcesResourceParserRuleCall_2_0() { return cResourcesResourceParserRuleCall_2_0; }
+	}
+	public class ServiceMetaDataElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.ServiceMetaData");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cServiceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cServiceIDAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cServiceIDIDTerminalRuleCall_1_0 = (RuleCall)cServiceIDAssignment_1.eContents().get(0);
+		
+		//ServiceMetaData:
+		//	"service" serviceID=ID
+		//	//TO-DO TBD
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"service" serviceID=ID
+		public Group getGroup() { return cGroup; }
+		
+		//"service"
+		public Keyword getServiceKeyword_0() { return cServiceKeyword_0; }
+		
+		//serviceID=ID
+		public Assignment getServiceIDAssignment_1() { return cServiceIDAssignment_1; }
+		
+		//ID
+		public RuleCall getServiceIDIDTerminalRuleCall_1_0() { return cServiceIDIDTerminalRuleCall_1_0; }
 	}
 	public class ResourceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.Resource");
@@ -1012,9 +1069,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final RunTimeModelElements pRunTimeModel;
+	private final MetadataElements pMetadata;
 	private final AppMetaDataElements pAppMetaData;
 	private final AppSpecificationElements pAppSpecification;
 	private final EnvironmentMetaDataElements pEnvironmentMetaData;
+	private final ServiceMetaDataElements pServiceMetaData;
 	private final ResourceElements pResource;
 	private final StateElements pState;
 	private final ActionElements pAction;
@@ -1045,9 +1104,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pRunTimeModel = new RunTimeModelElements();
+		this.pMetadata = new MetadataElements();
 		this.pAppMetaData = new AppMetaDataElements();
 		this.pAppSpecification = new AppSpecificationElements();
 		this.pEnvironmentMetaData = new EnvironmentMetaDataElements();
+		this.pServiceMetaData = new ServiceMetaDataElements();
 		this.pResource = new ResourceElements();
 		this.pState = new StateElements();
 		this.pAction = new ActionElements();
@@ -1099,7 +1160,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//RunTimeModel:
 	//	{RunTimeModel} envData+=EnvironmentMetaData*
 	//	appData+=AppMetaData*
-	//	//servicesData += ServiceMetaData*  
+	//	servicesData+=ServiceMetaData*
 	//	"ConceptToCodeMappings"
 	//	LBRACE
 	//	mappingPairs+=MappingPair*
@@ -1110,6 +1171,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getRunTimeModelRule() {
 		return getRunTimeModelAccess().getRule();
+	}
+	
+	//Metadata:
+	//	AppMetaData | ServiceMetaData | EnvironmentMetaData;
+	public MetadataElements getMetadataAccess() {
+		return pMetadata;
+	}
+	
+	public ParserRule getMetadataRule() {
+		return getMetadataAccess().getRule();
 	}
 	
 	//AppMetaData:
@@ -1128,7 +1199,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	///**
 	// * Currently AppSpecification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
 	// */ AppSpecification:
-	//	specID=ID
+	//	specID=ID //or description
 	//	'on' trigger+=OrElement*
 	//	'if' condition+=OrElement*
 	//	'do' action+=Action ("and" action+=Action)*;
@@ -1150,6 +1221,18 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEnvironmentMetaDataRule() {
 		return getEnvironmentMetaDataAccess().getRule();
+	}
+	
+	//ServiceMetaData:
+	//	"service" serviceID=ID
+	//	//TO-DO TBD
+	//;
+	public ServiceMetaDataElements getServiceMetaDataAccess() {
+		return pServiceMetaData;
+	}
+	
+	public ParserRule getServiceMetaDataRule() {
+		return getServiceMetaDataAccess().getRule();
 	}
 	
 	//Resource:

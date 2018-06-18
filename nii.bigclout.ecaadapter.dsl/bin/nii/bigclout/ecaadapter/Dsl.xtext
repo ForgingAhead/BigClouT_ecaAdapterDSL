@@ -8,11 +8,15 @@ RunTimeModel:
 	{RunTimeModel}	
 	envData += EnvironmentMetaData*
 	appData += AppMetaData*  
-	//servicesData += ServiceMetaData*  
+	servicesData += ServiceMetaData*  
 	"ConceptToCodeMappings" 
 	LBRACE
 	mappingPairs += MappingPair*	
 	RBRACE
+;
+
+Metadata:
+	AppMetaData | ServiceMetaData | EnvironmentMetaData
 ;
 	
 AppMetaData:
@@ -26,11 +30,13 @@ AppMetaData:
  * Currently AppSpecification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
  */
 AppSpecification:
-	specID=ID 
+	specID=ID //or description
 	'on' trigger += OrElement*
 	'if' condition += OrElement*
 	'do' action += Action ("and" action+=Action)*
 ;
+
+
 
 EnvironmentMetaData:
 	{EnvironmentMetaData}
@@ -38,6 +44,11 @@ EnvironmentMetaData:
 	
 	resources+=Resource*
 	
+;
+
+ServiceMetaData:
+	"service" serviceID=ID
+	//TO-DO TBD
 ;
 
 Resource:

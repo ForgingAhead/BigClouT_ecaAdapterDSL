@@ -121,12 +121,31 @@ ruleRunTimeModel returns [EObject current=null]
 				}
 			)
 		)*
-		otherlv_3='ConceptToCodeMappings'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRunTimeModelAccess().getServicesDataServiceMetaDataParserRuleCall_3_0());
+				}
+				lv_servicesData_3_0=ruleServiceMetaData
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRunTimeModelRule());
+					}
+					add(
+						$current,
+						"servicesData",
+						lv_servicesData_3_0,
+						"nii.bigclout.ecaadapter.Dsl.ServiceMetaData");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_4='ConceptToCodeMappings'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getRunTimeModelAccess().getConceptToCodeMappingsKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getRunTimeModelAccess().getConceptToCodeMappingsKeyword_4());
 		}
 		{
-			newCompositeNode(grammarAccess.getRunTimeModelAccess().getLBRACEParserRuleCall_4());
+			newCompositeNode(grammarAccess.getRunTimeModelAccess().getLBRACEParserRuleCall_5());
 		}
 		ruleLBRACE
 		{
@@ -135,9 +154,9 @@ ruleRunTimeModel returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRunTimeModelAccess().getMappingPairsMappingPairParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getRunTimeModelAccess().getMappingPairsMappingPairParserRuleCall_6_0());
 				}
-				lv_mappingPairs_5_0=ruleMappingPair
+				lv_mappingPairs_6_0=ruleMappingPair
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRunTimeModelRule());
@@ -145,14 +164,14 @@ ruleRunTimeModel returns [EObject current=null]
 					add(
 						$current,
 						"mappingPairs",
-						lv_mappingPairs_5_0,
+						lv_mappingPairs_6_0,
 						"nii.bigclout.ecaadapter.Dsl.MappingPair");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
 		{
-			newCompositeNode(grammarAccess.getRunTimeModelAccess().getRBRACEParserRuleCall_6());
+			newCompositeNode(grammarAccess.getRunTimeModelAccess().getRBRACEParserRuleCall_7());
 		}
 		ruleRBRACE
 		{
@@ -412,6 +431,47 @@ ruleEnvironmentMetaData returns [EObject current=null]
 				}
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleServiceMetaData
+entryRuleServiceMetaData returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getServiceMetaDataRule()); }
+	iv_ruleServiceMetaData=ruleServiceMetaData
+	{ $current=$iv_ruleServiceMetaData.current; }
+	EOF;
+
+// Rule ServiceMetaData
+ruleServiceMetaData returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='service'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getServiceMetaDataAccess().getServiceKeyword_0());
+		}
+		(
+			(
+				lv_serviceID_1_0=RULE_ID
+				{
+					newLeafNode(lv_serviceID_1_0, grammarAccess.getServiceMetaDataAccess().getServiceIDIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getServiceMetaDataRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"serviceID",
+						lv_serviceID_1_0,
+						"nii.bigclout.ecaadapter.Dsl.ID");
+				}
+			)
+		)
 	)
 ;
 

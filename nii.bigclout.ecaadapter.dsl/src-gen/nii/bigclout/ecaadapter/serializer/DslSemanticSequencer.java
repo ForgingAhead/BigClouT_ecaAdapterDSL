@@ -26,6 +26,7 @@ import nii.bigclout.ecaadapter.dsl.OrElement;
 import nii.bigclout.ecaadapter.dsl.PlusElement;
 import nii.bigclout.ecaadapter.dsl.Resource;
 import nii.bigclout.ecaadapter.dsl.RunTimeModel;
+import nii.bigclout.ecaadapter.dsl.ServiceMetaData;
 import nii.bigclout.ecaadapter.dsl.SmallerElement;
 import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
 import nii.bigclout.ecaadapter.dsl.String_Object;
@@ -117,6 +118,9 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DslPackage.RUN_TIME_MODEL:
 				sequence_RunTimeModel(context, (RunTimeModel) semanticObject); 
 				return; 
+			case DslPackage.SERVICE_META_DATA:
+				sequence_ServiceMetaData(context, (ServiceMetaData) semanticObject); 
+				return; 
 			case DslPackage.SMALLER_ELEMENT:
 				sequence_CompareElement(context, (SmallerElement) semanticObject); 
 				return; 
@@ -194,6 +198,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Metadata returns AppMetaData
 	 *     AppMetaData returns AppMetaData
 	 *
 	 * Constraint:
@@ -458,6 +463,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Metadata returns EnvironmentMetaData
 	 *     EnvironmentMetaData returns EnvironmentMetaData
 	 *
 	 * Constraint:
@@ -749,10 +755,29 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RunTimeModel returns RunTimeModel
 	 *
 	 * Constraint:
-	 *     (envData+=EnvironmentMetaData* appData+=AppMetaData* mappingPairs+=MappingPair*)
+	 *     (envData+=EnvironmentMetaData* appData+=AppMetaData* servicesData+=ServiceMetaData* mappingPairs+=MappingPair*)
 	 */
 	protected void sequence_RunTimeModel(ISerializationContext context, RunTimeModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Metadata returns ServiceMetaData
+	 *     ServiceMetaData returns ServiceMetaData
+	 *
+	 * Constraint:
+	 *     serviceID=ID
+	 */
+	protected void sequence_ServiceMetaData(ISerializationContext context, ServiceMetaData semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SERVICE_META_DATA__SERVICE_ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SERVICE_META_DATA__SERVICE_ID));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getServiceMetaDataAccess().getServiceIDIDTerminalRuleCall_1_0(), semanticObject.getServiceID());
+		feeder.finish();
 	}
 	
 	

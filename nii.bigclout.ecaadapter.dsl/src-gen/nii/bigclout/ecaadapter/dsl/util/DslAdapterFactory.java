@@ -81,6 +81,11 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createRunTimeModelAdapter();
       }
       @Override
+      public Adapter caseMetadata(Metadata object)
+      {
+        return createMetadataAdapter();
+      }
+      @Override
       public Adapter caseAppMetaData(AppMetaData object)
       {
         return createAppMetaDataAdapter();
@@ -94,6 +99,11 @@ public class DslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseEnvironmentMetaData(EnvironmentMetaData object)
       {
         return createEnvironmentMetaDataAdapter();
+      }
+      @Override
+      public Adapter caseServiceMetaData(ServiceMetaData object)
+      {
+        return createServiceMetaDataAdapter();
       }
       @Override
       public Adapter caseResource(Resource object)
@@ -238,6 +248,21 @@ public class DslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Metadata <em>Metadata</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.Metadata
+   * @generated
+   */
+  public Adapter createMetadataAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.AppMetaData <em>App Meta Data</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -278,6 +303,21 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEnvironmentMetaDataAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.ServiceMetaData <em>Service Meta Data</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.ServiceMetaData
+   * @generated
+   */
+  public Adapter createServiceMetaDataAdapter()
   {
     return null;
   }

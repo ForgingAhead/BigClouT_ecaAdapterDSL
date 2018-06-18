@@ -80,10 +80,18 @@ public class DslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DslPackage.METADATA:
+      {
+        Metadata metadata = (Metadata)theEObject;
+        T result = caseMetadata(metadata);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DslPackage.APP_META_DATA:
       {
         AppMetaData appMetaData = (AppMetaData)theEObject;
         T result = caseAppMetaData(appMetaData);
+        if (result == null) result = caseMetadata(appMetaData);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -98,6 +106,15 @@ public class DslSwitch<T> extends Switch<T>
       {
         EnvironmentMetaData environmentMetaData = (EnvironmentMetaData)theEObject;
         T result = caseEnvironmentMetaData(environmentMetaData);
+        if (result == null) result = caseMetadata(environmentMetaData);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.SERVICE_META_DATA:
+      {
+        ServiceMetaData serviceMetaData = (ServiceMetaData)theEObject;
+        T result = caseServiceMetaData(serviceMetaData);
+        if (result == null) result = caseMetadata(serviceMetaData);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -286,6 +303,22 @@ public class DslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Metadata</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Metadata</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMetadata(Metadata object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>App Meta Data</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -329,6 +362,22 @@ public class DslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEnvironmentMetaData(EnvironmentMetaData object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Service Meta Data</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Service Meta Data</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseServiceMetaData(ServiceMetaData object)
   {
     return null;
   }

@@ -33,6 +33,15 @@ public interface DslFactory extends EFactory
   RunTimeModel createRunTimeModel();
 
   /**
+   * Returns a new object of class '<em>Metadata</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Metadata</em>'.
+   * @generated
+   */
+  Metadata createMetadata();
+
+  /**
    * Returns a new object of class '<em>App Meta Data</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -58,6 +67,15 @@ public interface DslFactory extends EFactory
    * @generated
    */
   EnvironmentMetaData createEnvironmentMetaData();
+
+  /**
+   * Returns a new object of class '<em>Service Meta Data</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Service Meta Data</em>'.
+   * @generated
+   */
+  ServiceMetaData createServiceMetaData();
 
   /**
    * Returns a new object of class '<em>Resource</em>'.

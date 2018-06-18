@@ -18,6 +18,7 @@ import nii.bigclout.ecaadapter.dsl.EqualElement;
 import nii.bigclout.ecaadapter.dsl.LargerElement;
 import nii.bigclout.ecaadapter.dsl.LargerEqualElement;
 import nii.bigclout.ecaadapter.dsl.MappingPair;
+import nii.bigclout.ecaadapter.dsl.Metadata;
 import nii.bigclout.ecaadapter.dsl.MinusElement;
 import nii.bigclout.ecaadapter.dsl.ModuloElement;
 import nii.bigclout.ecaadapter.dsl.MultiplicationElement;
@@ -27,6 +28,7 @@ import nii.bigclout.ecaadapter.dsl.OrElement;
 import nii.bigclout.ecaadapter.dsl.PlusElement;
 import nii.bigclout.ecaadapter.dsl.Resource;
 import nii.bigclout.ecaadapter.dsl.RunTimeModel;
+import nii.bigclout.ecaadapter.dsl.ServiceMetaData;
 import nii.bigclout.ecaadapter.dsl.SmallerElement;
 import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
 import nii.bigclout.ecaadapter.dsl.String_Object;
@@ -58,6 +60,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass metadataEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass appMetaDataEClass = null;
 
   /**
@@ -73,6 +82,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass environmentMetaDataEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass serviceMetaDataEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -319,9 +335,29 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRunTimeModel_MappingPairs()
+  public EReference getRunTimeModel_ServicesData()
   {
     return (EReference)runTimeModelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRunTimeModel_MappingPairs()
+  {
+    return (EReference)runTimeModelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMetadata()
+  {
+    return metadataEClass;
   }
 
   /**
@@ -422,6 +458,26 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
   public EReference getEnvironmentMetaData_Resources()
   {
     return (EReference)environmentMetaDataEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getServiceMetaData()
+  {
+    return serviceMetaDataEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getServiceMetaData_ServiceID()
+  {
+    return (EAttribute)serviceMetaDataEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1037,7 +1093,10 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     runTimeModelEClass = createEClass(RUN_TIME_MODEL);
     createEReference(runTimeModelEClass, RUN_TIME_MODEL__ENV_DATA);
     createEReference(runTimeModelEClass, RUN_TIME_MODEL__APP_DATA);
+    createEReference(runTimeModelEClass, RUN_TIME_MODEL__SERVICES_DATA);
     createEReference(runTimeModelEClass, RUN_TIME_MODEL__MAPPING_PAIRS);
+
+    metadataEClass = createEClass(METADATA);
 
     appMetaDataEClass = createEClass(APP_META_DATA);
     createEAttribute(appMetaDataEClass, APP_META_DATA__APP_ID);
@@ -1051,6 +1110,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     environmentMetaDataEClass = createEClass(ENVIRONMENT_META_DATA);
     createEReference(environmentMetaDataEClass, ENVIRONMENT_META_DATA__RESOURCES);
+
+    serviceMetaDataEClass = createEClass(SERVICE_META_DATA);
+    createEAttribute(serviceMetaDataEClass, SERVICE_META_DATA__SERVICE_ID);
 
     resourceEClass = createEClass(RESOURCE);
     createEAttribute(resourceEClass, RESOURCE__NAME);
@@ -1161,6 +1223,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    appMetaDataEClass.getESuperTypes().add(this.getMetadata());
+    environmentMetaDataEClass.getESuperTypes().add(this.getMetadata());
+    serviceMetaDataEClass.getESuperTypes().add(this.getMetadata());
     orElementEClass.getESuperTypes().add(this.getElement());
     andElementEClass.getESuperTypes().add(this.getElement());
     diffElementEClass.getESuperTypes().add(this.getElement());
@@ -1183,7 +1248,10 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEClass(runTimeModelEClass, RunTimeModel.class, "RunTimeModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRunTimeModel_EnvData(), this.getEnvironmentMetaData(), null, "envData", null, 0, -1, RunTimeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRunTimeModel_AppData(), this.getAppMetaData(), null, "appData", null, 0, -1, RunTimeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRunTimeModel_ServicesData(), this.getServiceMetaData(), null, "servicesData", null, 0, -1, RunTimeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRunTimeModel_MappingPairs(), this.getMappingPair(), null, "mappingPairs", null, 0, -1, RunTimeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(metadataEClass, Metadata.class, "Metadata", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(appMetaDataEClass, AppMetaData.class, "AppMetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAppMetaData_AppID(), ecorePackage.getEString(), "appID", null, 0, 1, AppMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1197,6 +1265,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     initEClass(environmentMetaDataEClass, EnvironmentMetaData.class, "EnvironmentMetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnvironmentMetaData_Resources(), this.getResource(), null, "resources", null, 0, -1, EnvironmentMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(serviceMetaDataEClass, ServiceMetaData.class, "ServiceMetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getServiceMetaData_ServiceID(), ecorePackage.getEString(), "serviceID", null, 0, 1, ServiceMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

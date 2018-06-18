@@ -9,8 +9,10 @@
     <genClasses ecoreClass="Dsl.ecore#//RunTimeModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//RunTimeModel/envData"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//RunTimeModel/appData"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//RunTimeModel/servicesData"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//RunTimeModel/mappingPairs"/>
     </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Metadata"/>
     <genClasses ecoreClass="Dsl.ecore#//AppMetaData">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//AppMetaData/appID"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//AppMetaData/specifications"/>
@@ -23,6 +25,9 @@
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//EnvironmentMetaData">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//EnvironmentMetaData/resources"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//ServiceMetaData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//ServiceMetaData/serviceID"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Resource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Resource/name"/>
