@@ -51,13 +51,13 @@ public interface DslFactory extends EFactory
   AppMetaData createAppMetaData();
 
   /**
-   * Returns a new object of class '<em>App Specification</em>'.
+   * Returns a new object of class '<em>Specification</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>App Specification</em>'.
+   * @return a new object of class '<em>Specification</em>'.
    * @generated
    */
-  AppSpecification createAppSpecification();
+  Specification createSpecification();
 
   /**
    * Returns a new object of class '<em>Environment Meta Data</em>'.

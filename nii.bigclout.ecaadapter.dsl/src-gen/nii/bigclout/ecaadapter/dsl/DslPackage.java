@@ -169,14 +169,14 @@ public interface DslPackage extends EPackage
   int APP_META_DATA_FEATURE_COUNT = METADATA_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.AppSpecificationImpl <em>App Specification</em>}' class.
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl <em>Specification</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see nii.bigclout.ecaadapter.dsl.impl.AppSpecificationImpl
-   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getAppSpecification()
+   * @see nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSpecification()
    * @generated
    */
-  int APP_SPECIFICATION = 3;
+  int SPECIFICATION = 3;
 
   /**
    * The feature id for the '<em><b>Spec ID</b></em>' attribute.
@@ -185,7 +185,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APP_SPECIFICATION__SPEC_ID = 0;
+  int SPECIFICATION__SPEC_ID = 0;
 
   /**
    * The feature id for the '<em><b>Trigger</b></em>' containment reference list.
@@ -194,7 +194,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APP_SPECIFICATION__TRIGGER = 1;
+  int SPECIFICATION__TRIGGER = 1;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference list.
@@ -203,7 +203,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APP_SPECIFICATION__CONDITION = 2;
+  int SPECIFICATION__CONDITION = 2;
 
   /**
    * The feature id for the '<em><b>Action</b></em>' containment reference list.
@@ -212,16 +212,16 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APP_SPECIFICATION__ACTION = 3;
+  int SPECIFICATION__ACTION = 3;
 
   /**
-   * The number of structural features of the '<em>App Specification</em>' class.
+   * The number of structural features of the '<em>Specification</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APP_SPECIFICATION_FEATURE_COUNT = 4;
+  int SPECIFICATION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.EnvironmentMetaDataImpl <em>Environment Meta Data</em>}' class.
@@ -1109,58 +1109,58 @@ public interface DslPackage extends EPackage
   EReference getAppMetaData_Specifications();
 
   /**
-   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.AppSpecification <em>App Specification</em>}'.
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.Specification <em>Specification</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>App Specification</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.AppSpecification
+   * @return the meta object for class '<em>Specification</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Specification
    * @generated
    */
-  EClass getAppSpecification();
+  EClass getSpecification();
 
   /**
-   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getSpecID <em>Spec ID</em>}'.
+   * Returns the meta object for the attribute '{@link nii.bigclout.ecaadapter.dsl.Specification#getSpecID <em>Spec ID</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Spec ID</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.AppSpecification#getSpecID()
-   * @see #getAppSpecification()
+   * @see nii.bigclout.ecaadapter.dsl.Specification#getSpecID()
+   * @see #getSpecification()
    * @generated
    */
-  EAttribute getAppSpecification_SpecID();
+  EAttribute getSpecification_SpecID();
 
   /**
-   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getTrigger <em>Trigger</em>}'.
+   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.Specification#getTrigger <em>Trigger</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Trigger</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.AppSpecification#getTrigger()
-   * @see #getAppSpecification()
+   * @see nii.bigclout.ecaadapter.dsl.Specification#getTrigger()
+   * @see #getSpecification()
    * @generated
    */
-  EReference getAppSpecification_Trigger();
+  EReference getSpecification_Trigger();
 
   /**
-   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getCondition <em>Condition</em>}'.
+   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.Specification#getCondition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Condition</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.AppSpecification#getCondition()
-   * @see #getAppSpecification()
+   * @see nii.bigclout.ecaadapter.dsl.Specification#getCondition()
+   * @see #getSpecification()
    * @generated
    */
-  EReference getAppSpecification_Condition();
+  EReference getSpecification_Condition();
 
   /**
-   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getAction <em>Action</em>}'.
+   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.Specification#getAction <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Action</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.AppSpecification#getAction()
-   * @see #getAppSpecification()
+   * @see nii.bigclout.ecaadapter.dsl.Specification#getAction()
+   * @see #getSpecification()
    * @generated
    */
-  EReference getAppSpecification_Action();
+  EReference getSpecification_Action();
 
   /**
    * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.EnvironmentMetaData <em>Environment Meta Data</em>}'.
@@ -1923,14 +1923,14 @@ public interface DslPackage extends EPackage
     EReference APP_META_DATA__SPECIFICATIONS = eINSTANCE.getAppMetaData_Specifications();
 
     /**
-     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.AppSpecificationImpl <em>App Specification</em>}' class.
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl <em>Specification</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see nii.bigclout.ecaadapter.dsl.impl.AppSpecificationImpl
-     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getAppSpecification()
+     * @see nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSpecification()
      * @generated
      */
-    EClass APP_SPECIFICATION = eINSTANCE.getAppSpecification();
+    EClass SPECIFICATION = eINSTANCE.getSpecification();
 
     /**
      * The meta object literal for the '<em><b>Spec ID</b></em>' attribute feature.
@@ -1938,7 +1938,7 @@ public interface DslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute APP_SPECIFICATION__SPEC_ID = eINSTANCE.getAppSpecification_SpecID();
+    EAttribute SPECIFICATION__SPEC_ID = eINSTANCE.getSpecification_SpecID();
 
     /**
      * The meta object literal for the '<em><b>Trigger</b></em>' containment reference list feature.
@@ -1946,7 +1946,7 @@ public interface DslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference APP_SPECIFICATION__TRIGGER = eINSTANCE.getAppSpecification_Trigger();
+    EReference SPECIFICATION__TRIGGER = eINSTANCE.getSpecification_Trigger();
 
     /**
      * The meta object literal for the '<em><b>Condition</b></em>' containment reference list feature.
@@ -1954,7 +1954,7 @@ public interface DslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference APP_SPECIFICATION__CONDITION = eINSTANCE.getAppSpecification_Condition();
+    EReference SPECIFICATION__CONDITION = eINSTANCE.getSpecification_Condition();
 
     /**
      * The meta object literal for the '<em><b>Action</b></em>' containment reference list feature.
@@ -1962,7 +1962,7 @@ public interface DslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference APP_SPECIFICATION__ACTION = eINSTANCE.getAppSpecification_Action();
+    EReference SPECIFICATION__ACTION = eINSTANCE.getSpecification_Action();
 
     /**
      * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.EnvironmentMetaDataImpl <em>Environment Meta Data</em>}' class.

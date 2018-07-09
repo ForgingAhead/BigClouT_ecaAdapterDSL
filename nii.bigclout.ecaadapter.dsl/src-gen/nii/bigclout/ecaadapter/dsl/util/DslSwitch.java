@@ -95,10 +95,10 @@ public class DslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DslPackage.APP_SPECIFICATION:
+      case DslPackage.SPECIFICATION:
       {
-        AppSpecification appSpecification = (AppSpecification)theEObject;
-        T result = caseAppSpecification(appSpecification);
+        Specification specification = (Specification)theEObject;
+        T result = caseSpecification(specification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -335,17 +335,17 @@ public class DslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>App Specification</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Specification</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>App Specification</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Specification</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAppSpecification(AppSpecification object)
+  public T caseSpecification(Specification object)
   {
     return null;
   }

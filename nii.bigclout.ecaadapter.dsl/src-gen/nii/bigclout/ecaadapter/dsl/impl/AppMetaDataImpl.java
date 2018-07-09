@@ -6,8 +6,8 @@ package nii.bigclout.ecaadapter.dsl.impl;
 import java.util.Collection;
 
 import nii.bigclout.ecaadapter.dsl.AppMetaData;
-import nii.bigclout.ecaadapter.dsl.AppSpecification;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
+import nii.bigclout.ecaadapter.dsl.Specification;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -66,7 +66,7 @@ public class AppMetaDataImpl extends MetadataImpl implements AppMetaData
    * @generated
    * @ordered
    */
-  protected EList<AppSpecification> specifications;
+  protected EList<Specification> specifications;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,11 +117,11 @@ public class AppMetaDataImpl extends MetadataImpl implements AppMetaData
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<AppSpecification> getSpecifications()
+  public EList<Specification> getSpecifications()
   {
     if (specifications == null)
     {
-      specifications = new EObjectContainmentEList<AppSpecification>(AppSpecification.class, this, DslPackage.APP_META_DATA__SPECIFICATIONS);
+      specifications = new EObjectContainmentEList<Specification>(Specification.class, this, DslPackage.APP_META_DATA__SPECIFICATIONS);
     }
     return specifications;
   }
@@ -176,7 +176,7 @@ public class AppMetaDataImpl extends MetadataImpl implements AppMetaData
         return;
       case DslPackage.APP_META_DATA__SPECIFICATIONS:
         getSpecifications().clear();
-        getSpecifications().addAll((Collection<? extends AppSpecification>)newValue);
+        getSpecifications().addAll((Collection<? extends Specification>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

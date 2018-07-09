@@ -41,8 +41,8 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNUMBERAccess().getAlternatives(), "rule__NUMBER__Alternatives");
 					put(grammarAccess.getRunTimeModelAccess().getGroup(), "rule__RunTimeModel__Group__0");
 					put(grammarAccess.getAppMetaDataAccess().getGroup(), "rule__AppMetaData__Group__0");
-					put(grammarAccess.getAppSpecificationAccess().getGroup(), "rule__AppSpecification__Group__0");
-					put(grammarAccess.getAppSpecificationAccess().getGroup_7(), "rule__AppSpecification__Group_7__0");
+					put(grammarAccess.getSpecificationAccess().getGroup(), "rule__Specification__Group__0");
+					put(grammarAccess.getSpecificationAccess().getGroup_7(), "rule__Specification__Group_7__0");
 					put(grammarAccess.getEnvironmentMetaDataAccess().getGroup(), "rule__EnvironmentMetaData__Group__0");
 					put(grammarAccess.getServiceMetaDataAccess().getGroup(), "rule__ServiceMetaData__Group__0");
 					put(grammarAccess.getResourceAccess().getGroup(), "rule__Resource__Group__0");
@@ -85,11 +85,11 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRunTimeModelAccess().getMappingPairsAssignment_6(), "rule__RunTimeModel__MappingPairsAssignment_6");
 					put(grammarAccess.getAppMetaDataAccess().getAppIDAssignment_1(), "rule__AppMetaData__AppIDAssignment_1");
 					put(grammarAccess.getAppMetaDataAccess().getSpecificationsAssignment_3(), "rule__AppMetaData__SpecificationsAssignment_3");
-					put(grammarAccess.getAppSpecificationAccess().getSpecIDAssignment_0(), "rule__AppSpecification__SpecIDAssignment_0");
-					put(grammarAccess.getAppSpecificationAccess().getTriggerAssignment_2(), "rule__AppSpecification__TriggerAssignment_2");
-					put(grammarAccess.getAppSpecificationAccess().getConditionAssignment_4(), "rule__AppSpecification__ConditionAssignment_4");
-					put(grammarAccess.getAppSpecificationAccess().getActionAssignment_6(), "rule__AppSpecification__ActionAssignment_6");
-					put(grammarAccess.getAppSpecificationAccess().getActionAssignment_7_1(), "rule__AppSpecification__ActionAssignment_7_1");
+					put(grammarAccess.getSpecificationAccess().getSpecIDAssignment_0(), "rule__Specification__SpecIDAssignment_0");
+					put(grammarAccess.getSpecificationAccess().getTriggerAssignment_2(), "rule__Specification__TriggerAssignment_2");
+					put(grammarAccess.getSpecificationAccess().getConditionAssignment_4(), "rule__Specification__ConditionAssignment_4");
+					put(grammarAccess.getSpecificationAccess().getActionAssignment_6(), "rule__Specification__ActionAssignment_6");
+					put(grammarAccess.getSpecificationAccess().getActionAssignment_7_1(), "rule__Specification__ActionAssignment_7_1");
 					put(grammarAccess.getEnvironmentMetaDataAccess().getResourcesAssignment_2(), "rule__EnvironmentMetaData__ResourcesAssignment_2");
 					put(grammarAccess.getServiceMetaDataAccess().getServiceIDAssignment_1(), "rule__ServiceMetaData__ServiceIDAssignment_1");
 					put(grammarAccess.getResourceAccess().getNameAssignment_1(), "rule__Resource__NameAssignment_1");

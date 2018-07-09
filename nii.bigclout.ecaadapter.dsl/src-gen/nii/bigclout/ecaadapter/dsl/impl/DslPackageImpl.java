@@ -6,7 +6,6 @@ package nii.bigclout.ecaadapter.dsl.impl;
 import nii.bigclout.ecaadapter.dsl.Action;
 import nii.bigclout.ecaadapter.dsl.AndElement;
 import nii.bigclout.ecaadapter.dsl.AppMetaData;
-import nii.bigclout.ecaadapter.dsl.AppSpecification;
 import nii.bigclout.ecaadapter.dsl.Boolean_Object;
 import nii.bigclout.ecaadapter.dsl.DiffElement;
 import nii.bigclout.ecaadapter.dsl.DivisionElement;
@@ -31,6 +30,7 @@ import nii.bigclout.ecaadapter.dsl.RunTimeModel;
 import nii.bigclout.ecaadapter.dsl.ServiceMetaData;
 import nii.bigclout.ecaadapter.dsl.SmallerElement;
 import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
+import nii.bigclout.ecaadapter.dsl.Specification;
 import nii.bigclout.ecaadapter.dsl.String_Object;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -74,7 +74,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass appSpecificationEClass = null;
+  private EClass specificationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -395,9 +395,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAppSpecification()
+  public EClass getSpecification()
   {
-    return appSpecificationEClass;
+    return specificationEClass;
   }
 
   /**
@@ -405,9 +405,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAppSpecification_SpecID()
+  public EAttribute getSpecification_SpecID()
   {
-    return (EAttribute)appSpecificationEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)specificationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -415,9 +415,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAppSpecification_Trigger()
+  public EReference getSpecification_Trigger()
   {
-    return (EReference)appSpecificationEClass.getEStructuralFeatures().get(1);
+    return (EReference)specificationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -425,9 +425,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAppSpecification_Condition()
+  public EReference getSpecification_Condition()
   {
-    return (EReference)appSpecificationEClass.getEStructuralFeatures().get(2);
+    return (EReference)specificationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -435,9 +435,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAppSpecification_Action()
+  public EReference getSpecification_Action()
   {
-    return (EReference)appSpecificationEClass.getEStructuralFeatures().get(3);
+    return (EReference)specificationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1102,11 +1102,11 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEAttribute(appMetaDataEClass, APP_META_DATA__APP_ID);
     createEReference(appMetaDataEClass, APP_META_DATA__SPECIFICATIONS);
 
-    appSpecificationEClass = createEClass(APP_SPECIFICATION);
-    createEAttribute(appSpecificationEClass, APP_SPECIFICATION__SPEC_ID);
-    createEReference(appSpecificationEClass, APP_SPECIFICATION__TRIGGER);
-    createEReference(appSpecificationEClass, APP_SPECIFICATION__CONDITION);
-    createEReference(appSpecificationEClass, APP_SPECIFICATION__ACTION);
+    specificationEClass = createEClass(SPECIFICATION);
+    createEAttribute(specificationEClass, SPECIFICATION__SPEC_ID);
+    createEReference(specificationEClass, SPECIFICATION__TRIGGER);
+    createEReference(specificationEClass, SPECIFICATION__CONDITION);
+    createEReference(specificationEClass, SPECIFICATION__ACTION);
 
     environmentMetaDataEClass = createEClass(ENVIRONMENT_META_DATA);
     createEReference(environmentMetaDataEClass, ENVIRONMENT_META_DATA__RESOURCES);
@@ -1255,13 +1255,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     initEClass(appMetaDataEClass, AppMetaData.class, "AppMetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAppMetaData_AppID(), ecorePackage.getEString(), "appID", null, 0, 1, AppMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAppMetaData_Specifications(), this.getAppSpecification(), null, "specifications", null, 0, -1, AppMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAppMetaData_Specifications(), this.getSpecification(), null, "specifications", null, 0, -1, AppMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(appSpecificationEClass, AppSpecification.class, "AppSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAppSpecification_SpecID(), ecorePackage.getEString(), "specID", null, 0, 1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAppSpecification_Trigger(), this.getElement(), null, "trigger", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAppSpecification_Condition(), this.getElement(), null, "condition", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAppSpecification_Action(), this.getAction(), null, "action", null, 0, -1, AppSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(specificationEClass, Specification.class, "Specification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSpecification_SpecID(), ecorePackage.getEString(), "specID", null, 0, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecification_Trigger(), this.getElement(), null, "trigger", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecification_Condition(), this.getElement(), null, "condition", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecification_Action(), this.getAction(), null, "action", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(environmentMetaDataEClass, EnvironmentMetaData.class, "EnvironmentMetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnvironmentMetaData_Resources(), this.getResource(), null, "resources", null, 0, -1, EnvironmentMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

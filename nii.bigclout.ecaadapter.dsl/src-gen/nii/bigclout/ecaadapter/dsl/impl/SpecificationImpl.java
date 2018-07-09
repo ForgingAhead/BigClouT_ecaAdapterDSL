@@ -6,9 +6,9 @@ package nii.bigclout.ecaadapter.dsl.impl;
 import java.util.Collection;
 
 import nii.bigclout.ecaadapter.dsl.Action;
-import nii.bigclout.ecaadapter.dsl.AppSpecification;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.Element;
+import nii.bigclout.ecaadapter.dsl.Specification;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,21 +26,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>App Specification</b></em>'.
+ * An implementation of the model object '<em><b>Specification</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.AppSpecificationImpl#getSpecID <em>Spec ID</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.AppSpecificationImpl#getTrigger <em>Trigger</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.AppSpecificationImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.AppSpecificationImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl#getSpecID <em>Spec ID</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl#getTrigger <em>Trigger</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AppSpecificationImpl extends MinimalEObjectImpl.Container implements AppSpecification
+public class SpecificationImpl extends MinimalEObjectImpl.Container implements Specification
 {
   /**
    * The default value of the '{@link #getSpecID() <em>Spec ID</em>}' attribute.
@@ -97,7 +97,7 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AppSpecificationImpl()
+  protected SpecificationImpl()
   {
     super();
   }
@@ -110,7 +110,7 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return DslPackage.Literals.APP_SPECIFICATION;
+    return DslPackage.Literals.SPECIFICATION;
   }
 
   /**
@@ -133,7 +133,7 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
     String oldSpecID = specID;
     specID = newSpecID;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.APP_SPECIFICATION__SPEC_ID, oldSpecID, specID));
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.SPECIFICATION__SPEC_ID, oldSpecID, specID));
   }
 
   /**
@@ -145,7 +145,7 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
   {
     if (trigger == null)
     {
-      trigger = new EObjectContainmentEList<Element>(Element.class, this, DslPackage.APP_SPECIFICATION__TRIGGER);
+      trigger = new EObjectContainmentEList<Element>(Element.class, this, DslPackage.SPECIFICATION__TRIGGER);
     }
     return trigger;
   }
@@ -159,7 +159,7 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
   {
     if (condition == null)
     {
-      condition = new EObjectContainmentEList<Element>(Element.class, this, DslPackage.APP_SPECIFICATION__CONDITION);
+      condition = new EObjectContainmentEList<Element>(Element.class, this, DslPackage.SPECIFICATION__CONDITION);
     }
     return condition;
   }
@@ -173,7 +173,7 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
   {
     if (action == null)
     {
-      action = new EObjectContainmentEList<Action>(Action.class, this, DslPackage.APP_SPECIFICATION__ACTION);
+      action = new EObjectContainmentEList<Action>(Action.class, this, DslPackage.SPECIFICATION__ACTION);
     }
     return action;
   }
@@ -188,11 +188,11 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case DslPackage.APP_SPECIFICATION__TRIGGER:
+      case DslPackage.SPECIFICATION__TRIGGER:
         return ((InternalEList<?>)getTrigger()).basicRemove(otherEnd, msgs);
-      case DslPackage.APP_SPECIFICATION__CONDITION:
+      case DslPackage.SPECIFICATION__CONDITION:
         return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
-      case DslPackage.APP_SPECIFICATION__ACTION:
+      case DslPackage.SPECIFICATION__ACTION:
         return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -208,13 +208,13 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case DslPackage.APP_SPECIFICATION__SPEC_ID:
+      case DslPackage.SPECIFICATION__SPEC_ID:
         return getSpecID();
-      case DslPackage.APP_SPECIFICATION__TRIGGER:
+      case DslPackage.SPECIFICATION__TRIGGER:
         return getTrigger();
-      case DslPackage.APP_SPECIFICATION__CONDITION:
+      case DslPackage.SPECIFICATION__CONDITION:
         return getCondition();
-      case DslPackage.APP_SPECIFICATION__ACTION:
+      case DslPackage.SPECIFICATION__ACTION:
         return getAction();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -231,18 +231,18 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case DslPackage.APP_SPECIFICATION__SPEC_ID:
+      case DslPackage.SPECIFICATION__SPEC_ID:
         setSpecID((String)newValue);
         return;
-      case DslPackage.APP_SPECIFICATION__TRIGGER:
+      case DslPackage.SPECIFICATION__TRIGGER:
         getTrigger().clear();
         getTrigger().addAll((Collection<? extends Element>)newValue);
         return;
-      case DslPackage.APP_SPECIFICATION__CONDITION:
+      case DslPackage.SPECIFICATION__CONDITION:
         getCondition().clear();
         getCondition().addAll((Collection<? extends Element>)newValue);
         return;
-      case DslPackage.APP_SPECIFICATION__ACTION:
+      case DslPackage.SPECIFICATION__ACTION:
         getAction().clear();
         getAction().addAll((Collection<? extends Action>)newValue);
         return;
@@ -260,16 +260,16 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case DslPackage.APP_SPECIFICATION__SPEC_ID:
+      case DslPackage.SPECIFICATION__SPEC_ID:
         setSpecID(SPEC_ID_EDEFAULT);
         return;
-      case DslPackage.APP_SPECIFICATION__TRIGGER:
+      case DslPackage.SPECIFICATION__TRIGGER:
         getTrigger().clear();
         return;
-      case DslPackage.APP_SPECIFICATION__CONDITION:
+      case DslPackage.SPECIFICATION__CONDITION:
         getCondition().clear();
         return;
-      case DslPackage.APP_SPECIFICATION__ACTION:
+      case DslPackage.SPECIFICATION__ACTION:
         getAction().clear();
         return;
     }
@@ -286,13 +286,13 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case DslPackage.APP_SPECIFICATION__SPEC_ID:
+      case DslPackage.SPECIFICATION__SPEC_ID:
         return SPEC_ID_EDEFAULT == null ? specID != null : !SPEC_ID_EDEFAULT.equals(specID);
-      case DslPackage.APP_SPECIFICATION__TRIGGER:
+      case DslPackage.SPECIFICATION__TRIGGER:
         return trigger != null && !trigger.isEmpty();
-      case DslPackage.APP_SPECIFICATION__CONDITION:
+      case DslPackage.SPECIFICATION__CONDITION:
         return condition != null && !condition.isEmpty();
-      case DslPackage.APP_SPECIFICATION__ACTION:
+      case DslPackage.SPECIFICATION__ACTION:
         return action != null && !action.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -315,4 +315,4 @@ public class AppSpecificationImpl extends MinimalEObjectImpl.Container implement
     return result.toString();
   }
 
-} //AppSpecificationImpl
+} //SpecificationImpl

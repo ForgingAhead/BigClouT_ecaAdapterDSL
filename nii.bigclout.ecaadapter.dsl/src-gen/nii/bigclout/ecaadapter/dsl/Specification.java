@@ -9,24 +9,24 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>App Specification</b></em>'.
+ * A representation of the model object '<em><b>Specification</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getSpecID <em>Spec ID</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getTrigger <em>Trigger</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getCondition <em>Condition</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getAction <em>Action</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.Specification#getSpecID <em>Spec ID</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.Specification#getTrigger <em>Trigger</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.Specification#getCondition <em>Condition</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.Specification#getAction <em>Action</em>}</li>
  * </ul>
  *
- * @see nii.bigclout.ecaadapter.dsl.DslPackage#getAppSpecification()
+ * @see nii.bigclout.ecaadapter.dsl.DslPackage#getSpecification()
  * @model
  * @generated
  */
-public interface AppSpecification extends EObject
+public interface Specification extends EObject
 {
   /**
    * Returns the value of the '<em><b>Spec ID</b></em>' attribute.
@@ -38,14 +38,14 @@ public interface AppSpecification extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Spec ID</em>' attribute.
    * @see #setSpecID(String)
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getAppSpecification_SpecID()
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getSpecification_SpecID()
    * @model
    * @generated
    */
   String getSpecID();
 
   /**
-   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.AppSpecification#getSpecID <em>Spec ID</em>}' attribute.
+   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Specification#getSpecID <em>Spec ID</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Spec ID</em>' attribute.
@@ -64,7 +64,7 @@ public interface AppSpecification extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Trigger</em>' containment reference list.
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getAppSpecification_Trigger()
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getSpecification_Trigger()
    * @model containment="true"
    * @generated
    */
@@ -80,7 +80,7 @@ public interface AppSpecification extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Condition</em>' containment reference list.
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getAppSpecification_Condition()
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getSpecification_Condition()
    * @model containment="true"
    * @generated
    */
@@ -96,10 +96,10 @@ public interface AppSpecification extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Action</em>' containment reference list.
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getAppSpecification_Action()
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getSpecification_Action()
    * @model containment="true"
    * @generated
    */
   EList<Action> getAction();
 
-} // AppSpecification
+} // Specification

@@ -121,17 +121,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAppIDIDTerminalRuleCall_1_0 = (RuleCall)cAppIDAssignment_1.eContents().get(0);
 		private final RuleCall cLBRACEParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cSpecificationsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cSpecificationsAppSpecificationParserRuleCall_3_0 = (RuleCall)cSpecificationsAssignment_3.eContents().get(0);
+		private final RuleCall cSpecificationsSpecificationParserRuleCall_3_0 = (RuleCall)cSpecificationsAssignment_3.eContents().get(0);
 		private final RuleCall cRBRACEParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//AppMetaData:
 		//	"AppMeta" appID=ID
 		//	LBRACE
-		//	specifications+=AppSpecification*
+		//	specifications+=Specification*
 		//	RBRACE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"AppMeta" appID=ID LBRACE specifications+=AppSpecification* RBRACE
+		//"AppMeta" appID=ID LBRACE specifications+=Specification* RBRACE
 		public Group getGroup() { return cGroup; }
 		
 		//"AppMeta"
@@ -146,17 +146,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//LBRACE
 		public RuleCall getLBRACEParserRuleCall_2() { return cLBRACEParserRuleCall_2; }
 		
-		//specifications+=AppSpecification*
+		//specifications+=Specification*
 		public Assignment getSpecificationsAssignment_3() { return cSpecificationsAssignment_3; }
 		
-		//AppSpecification
-		public RuleCall getSpecificationsAppSpecificationParserRuleCall_3_0() { return cSpecificationsAppSpecificationParserRuleCall_3_0; }
+		//Specification
+		public RuleCall getSpecificationsSpecificationParserRuleCall_3_0() { return cSpecificationsSpecificationParserRuleCall_3_0; }
 		
 		//RBRACE
 		public RuleCall getRBRACEParserRuleCall_4() { return cRBRACEParserRuleCall_4; }
 	}
-	public class AppSpecificationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.AppSpecification");
+	public class SpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.Specification");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSpecIDAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cSpecIDIDTerminalRuleCall_0_0 = (RuleCall)cSpecIDAssignment_0.eContents().get(0);
@@ -175,19 +175,19 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cActionActionParserRuleCall_7_1_0 = (RuleCall)cActionAssignment_7_1.eContents().get(0);
 		
 		///**
-		// * Currently AppSpecification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
-		// */ AppSpecification:
-		//	specID=ID //or description
+		// * Currently Specification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
+		// */ Specification:
+		//	specID=ID? //or description
 		//	'on' trigger+=OrElement*
 		//	'if' condition+=OrElement*
 		//	'do' action+=Action ("and" action+=Action)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//specID=ID //or description
+		//specID=ID? //or description
 		//'on' trigger+=OrElement* 'if' condition+=OrElement* 'do' action+=Action ("and" action+=Action)*
 		public Group getGroup() { return cGroup; }
 		
-		//specID=ID
+		//specID=ID?
 		public Assignment getSpecIDAssignment_0() { return cSpecIDAssignment_0; }
 		
 		//ID
@@ -1071,7 +1071,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final RunTimeModelElements pRunTimeModel;
 	private final MetadataElements pMetadata;
 	private final AppMetaDataElements pAppMetaData;
-	private final AppSpecificationElements pAppSpecification;
+	private final SpecificationElements pSpecification;
 	private final EnvironmentMetaDataElements pEnvironmentMetaData;
 	private final ServiceMetaDataElements pServiceMetaData;
 	private final ResourceElements pResource;
@@ -1106,7 +1106,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pRunTimeModel = new RunTimeModelElements();
 		this.pMetadata = new MetadataElements();
 		this.pAppMetaData = new AppMetaDataElements();
-		this.pAppSpecification = new AppSpecificationElements();
+		this.pSpecification = new SpecificationElements();
 		this.pEnvironmentMetaData = new EnvironmentMetaDataElements();
 		this.pServiceMetaData = new ServiceMetaDataElements();
 		this.pResource = new ResourceElements();
@@ -1186,7 +1186,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//AppMetaData:
 	//	"AppMeta" appID=ID
 	//	LBRACE
-	//	specifications+=AppSpecification*
+	//	specifications+=Specification*
 	//	RBRACE;
 	public AppMetaDataElements getAppMetaDataAccess() {
 		return pAppMetaData;
@@ -1197,18 +1197,18 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	///**
-	// * Currently AppSpecification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
-	// */ AppSpecification:
-	//	specID=ID //or description
+	// * Currently Specification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
+	// */ Specification:
+	//	specID=ID? //or description
 	//	'on' trigger+=OrElement*
 	//	'if' condition+=OrElement*
 	//	'do' action+=Action ("and" action+=Action)*;
-	public AppSpecificationElements getAppSpecificationAccess() {
-		return pAppSpecification;
+	public SpecificationElements getSpecificationAccess() {
+		return pSpecification;
 	}
 	
-	public ParserRule getAppSpecificationRule() {
-		return getAppSpecificationAccess().getRule();
+	public ParserRule getSpecificationRule() {
+		return getSpecificationAccess().getRule();
 	}
 	
 	//EnvironmentMetaData:

@@ -5,7 +5,7 @@
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.13">
   <genPackages prefix="Dsl" basePackage="nii.bigclout.ecaadapter" disposableProviderFactory="true"
-      fileExtensions="dsl" ecorePackage="Dsl.ecore#/">
+      fileExtensions="spec" ecorePackage="Dsl.ecore#/">
     <genClasses ecoreClass="Dsl.ecore#//RunTimeModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//RunTimeModel/envData"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//RunTimeModel/appData"/>
@@ -17,11 +17,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//AppMetaData/appID"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//AppMetaData/specifications"/>
     </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//AppSpecification">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//AppSpecification/specID"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//AppSpecification/trigger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//AppSpecification/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//AppSpecification/action"/>
+    <genClasses ecoreClass="Dsl.ecore#//Specification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Specification/specID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Specification/trigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Specification/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Specification/action"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//EnvironmentMetaData">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//EnvironmentMetaData/resources"/>

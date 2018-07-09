@@ -228,9 +228,9 @@ ruleAppMetaData returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAppMetaDataAccess().getSpecificationsAppSpecificationParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getAppMetaDataAccess().getSpecificationsSpecificationParserRuleCall_3_0());
 				}
-				lv_specifications_3_0=ruleAppSpecification
+				lv_specifications_3_0=ruleSpecification
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAppMetaDataRule());
@@ -239,7 +239,7 @@ ruleAppMetaData returns [EObject current=null]
 						$current,
 						"specifications",
 						lv_specifications_3_0,
-						"nii.bigclout.ecaadapter.Dsl.AppSpecification");
+						"nii.bigclout.ecaadapter.Dsl.Specification");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -254,15 +254,15 @@ ruleAppMetaData returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleAppSpecification
-entryRuleAppSpecification returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAppSpecificationRule()); }
-	iv_ruleAppSpecification=ruleAppSpecification
-	{ $current=$iv_ruleAppSpecification.current; }
+// Entry rule entryRuleSpecification
+entryRuleSpecification returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSpecificationRule()); }
+	iv_ruleSpecification=ruleSpecification
+	{ $current=$iv_ruleSpecification.current; }
 	EOF;
 
-// Rule AppSpecification
-ruleAppSpecification returns [EObject current=null]
+// Rule Specification
+ruleSpecification returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -274,11 +274,11 @@ ruleAppSpecification returns [EObject current=null]
 			(
 				lv_specID_0_0=RULE_ID
 				{
-					newLeafNode(lv_specID_0_0, grammarAccess.getAppSpecificationAccess().getSpecIDIDTerminalRuleCall_0_0());
+					newLeafNode(lv_specID_0_0, grammarAccess.getSpecificationAccess().getSpecIDIDTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAppSpecificationRule());
+						$current = createModelElement(grammarAccess.getSpecificationRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -287,20 +287,20 @@ ruleAppSpecification returns [EObject current=null]
 						"nii.bigclout.ecaadapter.Dsl.ID");
 				}
 			)
-		)
+		)?
 		otherlv_1='on'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getAppSpecificationAccess().getOnKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getSpecificationAccess().getOnKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAppSpecificationAccess().getTriggerOrElementParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getSpecificationAccess().getTriggerOrElementParserRuleCall_2_0());
 				}
 				lv_trigger_2_0=ruleOrElement
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAppSpecificationRule());
+						$current = createModelElementForParent(grammarAccess.getSpecificationRule());
 					}
 					add(
 						$current,
@@ -313,17 +313,17 @@ ruleAppSpecification returns [EObject current=null]
 		)*
 		otherlv_3='if'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getAppSpecificationAccess().getIfKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getSpecificationAccess().getIfKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAppSpecificationAccess().getConditionOrElementParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getSpecificationAccess().getConditionOrElementParserRuleCall_4_0());
 				}
 				lv_condition_4_0=ruleOrElement
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAppSpecificationRule());
+						$current = createModelElementForParent(grammarAccess.getSpecificationRule());
 					}
 					add(
 						$current,
@@ -336,17 +336,17 @@ ruleAppSpecification returns [EObject current=null]
 		)*
 		otherlv_5='do'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getAppSpecificationAccess().getDoKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getSpecificationAccess().getDoKeyword_5());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAppSpecificationAccess().getActionActionParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getSpecificationAccess().getActionActionParserRuleCall_6_0());
 				}
 				lv_action_6_0=ruleAction
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAppSpecificationRule());
+						$current = createModelElementForParent(grammarAccess.getSpecificationRule());
 					}
 					add(
 						$current,
@@ -360,17 +360,17 @@ ruleAppSpecification returns [EObject current=null]
 		(
 			otherlv_7='and'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getAppSpecificationAccess().getAndKeyword_7_0());
+				newLeafNode(otherlv_7, grammarAccess.getSpecificationAccess().getAndKeyword_7_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAppSpecificationAccess().getActionActionParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getSpecificationAccess().getActionActionParserRuleCall_7_1_0());
 					}
 					lv_action_8_0=ruleAction
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAppSpecificationRule());
+							$current = createModelElementForParent(grammarAccess.getSpecificationRule());
 						}
 						add(
 							$current,

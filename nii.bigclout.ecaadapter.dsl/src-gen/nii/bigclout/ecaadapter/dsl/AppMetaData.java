@@ -52,7 +52,7 @@ public interface AppMetaData extends Metadata
 
   /**
    * Returns the value of the '<em><b>Specifications</b></em>' containment reference list.
-   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.AppSpecification}.
+   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.Specification}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Specifications</em>' containment reference list isn't clear,
@@ -64,6 +64,6 @@ public interface AppMetaData extends Metadata
    * @model containment="true"
    * @generated
    */
-  EList<AppSpecification> getSpecifications();
+  EList<Specification> getSpecifications();
 
 } // AppMetaData

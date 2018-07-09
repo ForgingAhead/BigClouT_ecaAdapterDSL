@@ -31,7 +31,7 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "nii.bigclout.ecaadapter.Dsl"
-			fileExtensions = "dsl"
+			fileExtensions = "spec"
 
 			serializer = {
 				generateStub = false

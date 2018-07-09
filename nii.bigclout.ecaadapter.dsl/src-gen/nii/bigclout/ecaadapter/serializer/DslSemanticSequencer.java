@@ -7,7 +7,6 @@ import com.google.inject.Inject;
 import java.util.Set;
 import nii.bigclout.ecaadapter.dsl.AndElement;
 import nii.bigclout.ecaadapter.dsl.AppMetaData;
-import nii.bigclout.ecaadapter.dsl.AppSpecification;
 import nii.bigclout.ecaadapter.dsl.Boolean_Object;
 import nii.bigclout.ecaadapter.dsl.DiffElement;
 import nii.bigclout.ecaadapter.dsl.DivisionElement;
@@ -29,6 +28,7 @@ import nii.bigclout.ecaadapter.dsl.RunTimeModel;
 import nii.bigclout.ecaadapter.dsl.ServiceMetaData;
 import nii.bigclout.ecaadapter.dsl.SmallerElement;
 import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
+import nii.bigclout.ecaadapter.dsl.Specification;
 import nii.bigclout.ecaadapter.dsl.String_Object;
 import nii.bigclout.ecaadapter.services.DslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
@@ -63,9 +63,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DslPackage.APP_META_DATA:
 				sequence_AppMetaData(context, (AppMetaData) semanticObject); 
-				return; 
-			case DslPackage.APP_SPECIFICATION:
-				sequence_AppSpecification(context, (AppSpecification) semanticObject); 
 				return; 
 			case DslPackage.BOOLEAN_OBJECT:
 				sequence_UnaryElement(context, (Boolean_Object) semanticObject); 
@@ -126,6 +123,9 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DslPackage.SMALLER_EQUAL_ELEMENT:
 				sequence_CompareElement(context, (SmallerEqualElement) semanticObject); 
+				return; 
+			case DslPackage.SPECIFICATION:
+				sequence_Specification(context, (Specification) semanticObject); 
 				return; 
 			case DslPackage.STRING_OBJECT:
 				sequence_UnaryElement(context, (String_Object) semanticObject); 
@@ -202,21 +202,9 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AppMetaData returns AppMetaData
 	 *
 	 * Constraint:
-	 *     (appID=ID specifications+=AppSpecification*)
+	 *     (appID=ID specifications+=Specification*)
 	 */
 	protected void sequence_AppMetaData(ISerializationContext context, AppMetaData semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AppSpecification returns AppSpecification
-	 *
-	 * Constraint:
-	 *     (specID=ID trigger+=OrElement* condition+=OrElement* action+=Action action+=Action*)
-	 */
-	protected void sequence_AppSpecification(ISerializationContext context, AppSpecification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -778,6 +766,18 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getServiceMetaDataAccess().getServiceIDIDTerminalRuleCall_1_0(), semanticObject.getServiceID());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Specification returns Specification
+	 *
+	 * Constraint:
+	 *     (specID=ID? trigger+=OrElement* condition+=OrElement* action+=Action action+=Action*)
+	 */
+	protected void sequence_Specification(ISerializationContext context, Specification semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

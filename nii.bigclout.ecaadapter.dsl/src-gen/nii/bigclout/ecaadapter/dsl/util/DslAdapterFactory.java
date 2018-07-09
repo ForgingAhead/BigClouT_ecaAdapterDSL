@@ -91,9 +91,9 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createAppMetaDataAdapter();
       }
       @Override
-      public Adapter caseAppSpecification(AppSpecification object)
+      public Adapter caseSpecification(Specification object)
       {
-        return createAppSpecificationAdapter();
+        return createSpecificationAdapter();
       }
       @Override
       public Adapter caseEnvironmentMetaData(EnvironmentMetaData object)
@@ -278,16 +278,16 @@ public class DslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.AppSpecification <em>App Specification</em>}'.
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Specification <em>Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see nii.bigclout.ecaadapter.dsl.AppSpecification
+   * @see nii.bigclout.ecaadapter.dsl.Specification
    * @generated
    */
-  public Adapter createAppSpecificationAdapter()
+  public Adapter createSpecificationAdapter()
   {
     return null;
   }

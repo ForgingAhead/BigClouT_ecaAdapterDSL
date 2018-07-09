@@ -68,7 +68,7 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.RUN_TIME_MODEL: return createRunTimeModel();
       case DslPackage.METADATA: return createMetadata();
       case DslPackage.APP_META_DATA: return createAppMetaData();
-      case DslPackage.APP_SPECIFICATION: return createAppSpecification();
+      case DslPackage.SPECIFICATION: return createSpecification();
       case DslPackage.ENVIRONMENT_META_DATA: return createEnvironmentMetaData();
       case DslPackage.SERVICE_META_DATA: return createServiceMetaData();
       case DslPackage.RESOURCE: return createResource();
@@ -135,10 +135,10 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AppSpecification createAppSpecification()
+  public Specification createSpecification()
   {
-    AppSpecificationImpl appSpecification = new AppSpecificationImpl();
-    return appSpecification;
+    SpecificationImpl specification = new SpecificationImpl();
+    return specification;
   }
 
   /**
