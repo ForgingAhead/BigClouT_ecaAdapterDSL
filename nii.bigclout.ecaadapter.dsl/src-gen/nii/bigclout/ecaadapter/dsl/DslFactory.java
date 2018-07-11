@@ -105,6 +105,15 @@ public interface DslFactory extends EFactory
   MappingPair createMappingPair();
 
   /**
+   * Returns a new object of class '<em>Pair</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pair</em>'.
+   * @generated
+   */
+  Pair createPair();
+
+  /**
    * Returns a new object of class '<em>Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -74,6 +74,7 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.RESOURCE: return createResource();
       case DslPackage.ACTION: return createAction();
       case DslPackage.MAPPING_PAIR: return createMappingPair();
+      case DslPackage.PAIR: return createPair();
       case DslPackage.ELEMENT: return createElement();
       case DslPackage.OR_ELEMENT: return createOrElement();
       case DslPackage.AND_ELEMENT: return createAndElement();
@@ -194,6 +195,17 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     MappingPairImpl mappingPair = new MappingPairImpl();
     return mappingPair;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Pair createPair()
+  {
+    PairImpl pair = new PairImpl();
+    return pair;
   }
 
   /**

@@ -22,6 +22,7 @@ import nii.bigclout.ecaadapter.dsl.MultiplicationElement;
 import nii.bigclout.ecaadapter.dsl.NegateElement;
 import nii.bigclout.ecaadapter.dsl.Number_Object;
 import nii.bigclout.ecaadapter.dsl.OrElement;
+import nii.bigclout.ecaadapter.dsl.Pair;
 import nii.bigclout.ecaadapter.dsl.PlusElement;
 import nii.bigclout.ecaadapter.dsl.Resource;
 import nii.bigclout.ecaadapter.dsl.RunTimeModel;
@@ -105,6 +106,9 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DslPackage.OR_ELEMENT:
 				sequence_OrElement(context, (OrElement) semanticObject); 
+				return; 
+			case DslPackage.PAIR:
+				sequence_Pair(context, (Pair) semanticObject); 
 				return; 
 			case DslPackage.PLUS_ELEMENT:
 				sequence_PlusMinusElement(context, (PlusElement) semanticObject); 
@@ -467,22 +471,10 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MappingPair returns MappingPair
 	 *
 	 * Constraint:
-	 *     (resource=[Resource|ID] state=UnaryElement actionCode=EXTENDED_STRING)
+	 *     mappings+=Pair*
 	 */
 	protected void sequence_MappingPair(ISerializationContext context, MappingPair semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.MAPPING_PAIR__RESOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.MAPPING_PAIR__RESOURCE));
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.MAPPING_PAIR__STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.MAPPING_PAIR__STATE));
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.MAPPING_PAIR__ACTION_CODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.MAPPING_PAIR__ACTION_CODE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMappingPairAccess().getResourceResourceIDTerminalRuleCall_1_0_1(), semanticObject.eGet(DslPackage.Literals.MAPPING_PAIR__RESOURCE, false));
-		feeder.accept(grammarAccess.getMappingPairAccess().getStateUnaryElementParserRuleCall_3_0(), semanticObject.getState());
-		feeder.accept(grammarAccess.getMappingPairAccess().getActionCodeEXTENDED_STRINGParserRuleCall_5_0(), semanticObject.getActionCode());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -642,6 +634,30 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getOrElementAccess().getOrElementLeftAction_1_1(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getOrElementAccess().getRightAndElementParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Pair returns Pair
+	 *
+	 * Constraint:
+	 *     (resource=[Resource|ID] state=UnaryElement code=EXTENDED_STRING)
+	 */
+	protected void sequence_Pair(ISerializationContext context, Pair semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.PAIR__RESOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.PAIR__RESOURCE));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.PAIR__STATE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.PAIR__STATE));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.PAIR__CODE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.PAIR__CODE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPairAccess().getResourceResourceIDTerminalRuleCall_1_0_1(), semanticObject.eGet(DslPackage.Literals.PAIR__RESOURCE, false));
+		feeder.accept(grammarAccess.getPairAccess().getStateUnaryElementParserRuleCall_3_0(), semanticObject.getState());
+		feeder.accept(grammarAccess.getPairAccess().getCodeEXTENDED_STRINGParserRuleCall_5_0(), semanticObject.getCode());
 		feeder.finish();
 	}
 	

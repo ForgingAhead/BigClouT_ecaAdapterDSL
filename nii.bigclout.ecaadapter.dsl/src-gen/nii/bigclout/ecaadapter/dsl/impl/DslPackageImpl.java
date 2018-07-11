@@ -24,6 +24,7 @@ import nii.bigclout.ecaadapter.dsl.MultiplicationElement;
 import nii.bigclout.ecaadapter.dsl.NegateElement;
 import nii.bigclout.ecaadapter.dsl.Number_Object;
 import nii.bigclout.ecaadapter.dsl.OrElement;
+import nii.bigclout.ecaadapter.dsl.Pair;
 import nii.bigclout.ecaadapter.dsl.PlusElement;
 import nii.bigclout.ecaadapter.dsl.Resource;
 import nii.bigclout.ecaadapter.dsl.RunTimeModel;
@@ -110,6 +111,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass mappingPairEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pairEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -555,7 +563,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMappingPair_Resource()
+  public EReference getMappingPair_Mappings()
   {
     return (EReference)mappingPairEClass.getEStructuralFeatures().get(0);
   }
@@ -565,9 +573,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMappingPair_State()
+  public EClass getPair()
   {
-    return (EReference)mappingPairEClass.getEStructuralFeatures().get(1);
+    return pairEClass;
   }
 
   /**
@@ -575,9 +583,29 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMappingPair_ActionCode()
+  public EReference getPair_Resource()
   {
-    return (EAttribute)mappingPairEClass.getEStructuralFeatures().get(2);
+    return (EReference)pairEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPair_State()
+  {
+    return (EReference)pairEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPair_Code()
+  {
+    return (EAttribute)pairEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1123,9 +1151,12 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEAttribute(actionEClass, ACTION__STATE);
 
     mappingPairEClass = createEClass(MAPPING_PAIR);
-    createEReference(mappingPairEClass, MAPPING_PAIR__RESOURCE);
-    createEReference(mappingPairEClass, MAPPING_PAIR__STATE);
-    createEAttribute(mappingPairEClass, MAPPING_PAIR__ACTION_CODE);
+    createEReference(mappingPairEClass, MAPPING_PAIR__MAPPINGS);
+
+    pairEClass = createEClass(PAIR);
+    createEReference(pairEClass, PAIR__RESOURCE);
+    createEReference(pairEClass, PAIR__STATE);
+    createEAttribute(pairEClass, PAIR__CODE);
 
     elementEClass = createEClass(ELEMENT);
 
@@ -1278,9 +1309,12 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEAttribute(getAction_State(), ecorePackage.getEString(), "state", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mappingPairEClass, MappingPair.class, "MappingPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMappingPair_Resource(), this.getResource(), null, "resource", null, 0, 1, MappingPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMappingPair_State(), this.getElement(), null, "state", null, 0, 1, MappingPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMappingPair_ActionCode(), ecorePackage.getEString(), "actionCode", null, 0, 1, MappingPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMappingPair_Mappings(), this.getPair(), null, "mappings", null, 0, -1, MappingPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pairEClass, Pair.class, "Pair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPair_Resource(), this.getResource(), null, "resource", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPair_State(), this.getElement(), null, "state", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPair_Code(), ecorePackage.getEString(), "code", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

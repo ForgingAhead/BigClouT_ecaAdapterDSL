@@ -3,19 +3,23 @@
  */
 package nii.bigclout.ecaadapter.dsl.impl;
 
-import nii.bigclout.ecaadapter.dsl.DslPackage;
-import nii.bigclout.ecaadapter.dsl.Element;
-import nii.bigclout.ecaadapter.dsl.MappingPair;
-import nii.bigclout.ecaadapter.dsl.Resource;
+import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
+import nii.bigclout.ecaadapter.dsl.DslPackage;
+import nii.bigclout.ecaadapter.dsl.MappingPair;
+import nii.bigclout.ecaadapter.dsl.Pair;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,9 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.MappingPairImpl#getResource <em>Resource</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.MappingPairImpl#getState <em>State</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.MappingPairImpl#getActionCode <em>Action Code</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.MappingPairImpl#getMappings <em>Mappings</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,44 +37,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class MappingPairImpl extends MinimalEObjectImpl.Container implements MappingPair
 {
   /**
-   * The cached value of the '{@link #getResource() <em>Resource</em>}' reference.
+   * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getResource()
+   * @see #getMappings()
    * @generated
    * @ordered
    */
-  protected Resource resource;
-
-  /**
-   * The cached value of the '{@link #getState() <em>State</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getState()
-   * @generated
-   * @ordered
-   */
-  protected Element state;
-
-  /**
-   * The default value of the '{@link #getActionCode() <em>Action Code</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getActionCode()
-   * @generated
-   * @ordered
-   */
-  protected static final String ACTION_CODE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getActionCode() <em>Action Code</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getActionCode()
-   * @generated
-   * @ordered
-   */
-  protected String actionCode = ACTION_CODE_EDEFAULT;
+  protected EList<Pair> mappings;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,113 +72,13 @@ public class MappingPairImpl extends MinimalEObjectImpl.Container implements Map
    * <!-- end-user-doc -->
    * @generated
    */
-  public Resource getResource()
+  public EList<Pair> getMappings()
   {
-    if (resource != null && resource.eIsProxy())
+    if (mappings == null)
     {
-      InternalEObject oldResource = (InternalEObject)resource;
-      resource = (Resource)eResolveProxy(oldResource);
-      if (resource != oldResource)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DslPackage.MAPPING_PAIR__RESOURCE, oldResource, resource));
-      }
+      mappings = new EObjectContainmentEList<Pair>(Pair.class, this, DslPackage.MAPPING_PAIR__MAPPINGS);
     }
-    return resource;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Resource basicGetResource()
-  {
-    return resource;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setResource(Resource newResource)
-  {
-    Resource oldResource = resource;
-    resource = newResource;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.MAPPING_PAIR__RESOURCE, oldResource, resource));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Element getState()
-  {
-    return state;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetState(Element newState, NotificationChain msgs)
-  {
-    Element oldState = state;
-    state = newState;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.MAPPING_PAIR__STATE, oldState, newState);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setState(Element newState)
-  {
-    if (newState != state)
-    {
-      NotificationChain msgs = null;
-      if (state != null)
-        msgs = ((InternalEObject)state).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.MAPPING_PAIR__STATE, null, msgs);
-      if (newState != null)
-        msgs = ((InternalEObject)newState).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.MAPPING_PAIR__STATE, null, msgs);
-      msgs = basicSetState(newState, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.MAPPING_PAIR__STATE, newState, newState));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getActionCode()
-  {
-    return actionCode;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setActionCode(String newActionCode)
-  {
-    String oldActionCode = actionCode;
-    actionCode = newActionCode;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.MAPPING_PAIR__ACTION_CODE, oldActionCode, actionCode));
+    return mappings;
   }
 
   /**
@@ -219,8 +91,8 @@ public class MappingPairImpl extends MinimalEObjectImpl.Container implements Map
   {
     switch (featureID)
     {
-      case DslPackage.MAPPING_PAIR__STATE:
-        return basicSetState(null, msgs);
+      case DslPackage.MAPPING_PAIR__MAPPINGS:
+        return ((InternalEList<?>)getMappings()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -235,13 +107,8 @@ public class MappingPairImpl extends MinimalEObjectImpl.Container implements Map
   {
     switch (featureID)
     {
-      case DslPackage.MAPPING_PAIR__RESOURCE:
-        if (resolve) return getResource();
-        return basicGetResource();
-      case DslPackage.MAPPING_PAIR__STATE:
-        return getState();
-      case DslPackage.MAPPING_PAIR__ACTION_CODE:
-        return getActionCode();
+      case DslPackage.MAPPING_PAIR__MAPPINGS:
+        return getMappings();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -251,19 +118,15 @@ public class MappingPairImpl extends MinimalEObjectImpl.Container implements Map
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case DslPackage.MAPPING_PAIR__RESOURCE:
-        setResource((Resource)newValue);
-        return;
-      case DslPackage.MAPPING_PAIR__STATE:
-        setState((Element)newValue);
-        return;
-      case DslPackage.MAPPING_PAIR__ACTION_CODE:
-        setActionCode((String)newValue);
+      case DslPackage.MAPPING_PAIR__MAPPINGS:
+        getMappings().clear();
+        getMappings().addAll((Collection<? extends Pair>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -279,14 +142,8 @@ public class MappingPairImpl extends MinimalEObjectImpl.Container implements Map
   {
     switch (featureID)
     {
-      case DslPackage.MAPPING_PAIR__RESOURCE:
-        setResource((Resource)null);
-        return;
-      case DslPackage.MAPPING_PAIR__STATE:
-        setState((Element)null);
-        return;
-      case DslPackage.MAPPING_PAIR__ACTION_CODE:
-        setActionCode(ACTION_CODE_EDEFAULT);
+      case DslPackage.MAPPING_PAIR__MAPPINGS:
+        getMappings().clear();
         return;
     }
     super.eUnset(featureID);
@@ -302,31 +159,10 @@ public class MappingPairImpl extends MinimalEObjectImpl.Container implements Map
   {
     switch (featureID)
     {
-      case DslPackage.MAPPING_PAIR__RESOURCE:
-        return resource != null;
-      case DslPackage.MAPPING_PAIR__STATE:
-        return state != null;
-      case DslPackage.MAPPING_PAIR__ACTION_CODE:
-        return ACTION_CODE_EDEFAULT == null ? actionCode != null : !ACTION_CODE_EDEFAULT.equals(actionCode);
+      case DslPackage.MAPPING_PAIR__MAPPINGS:
+        return mappings != null && !mappings.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (actionCode: ");
-    result.append(actionCode);
-    result.append(')');
-    return result.toString();
   }
 
 } //MappingPairImpl

@@ -3,6 +3,8 @@
  */
 package nii.bigclout.ecaadapter.dsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,9 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.MappingPair#getResource <em>Resource</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.MappingPair#getState <em>State</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.MappingPair#getActionCode <em>Action Code</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.MappingPair#getMappings <em>Mappings</em>}</li>
  * </ul>
  *
  * @see nii.bigclout.ecaadapter.dsl.DslPackage#getMappingPair()
@@ -26,81 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface MappingPair extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Resource</b></em>' reference.
+   * Returns the value of the '<em><b>Mappings</b></em>' containment reference list.
+   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.Pair}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Resource</em>' reference isn't clear,
+   * If the meaning of the '<em>Mappings</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Resource</em>' reference.
-   * @see #setResource(Resource)
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getMappingPair_Resource()
-   * @model
-   * @generated
-   */
-  Resource getResource();
-
-  /**
-   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.MappingPair#getResource <em>Resource</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Resource</em>' reference.
-   * @see #getResource()
-   * @generated
-   */
-  void setResource(Resource value);
-
-  /**
-   * Returns the value of the '<em><b>State</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>State</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>State</em>' containment reference.
-   * @see #setState(Element)
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getMappingPair_State()
+   * @return the value of the '<em>Mappings</em>' containment reference list.
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getMappingPair_Mappings()
    * @model containment="true"
    * @generated
    */
-  Element getState();
-
-  /**
-   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.MappingPair#getState <em>State</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>State</em>' containment reference.
-   * @see #getState()
-   * @generated
-   */
-  void setState(Element value);
-
-  /**
-   * Returns the value of the '<em><b>Action Code</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Action Code</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Action Code</em>' attribute.
-   * @see #setActionCode(String)
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getMappingPair_ActionCode()
-   * @model
-   * @generated
-   */
-  String getActionCode();
-
-  /**
-   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.MappingPair#getActionCode <em>Action Code</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Action Code</em>' attribute.
-   * @see #getActionCode()
-   * @generated
-   */
-  void setActionCode(String value);
+  EList<Pair> getMappings();
 
 } // MappingPair

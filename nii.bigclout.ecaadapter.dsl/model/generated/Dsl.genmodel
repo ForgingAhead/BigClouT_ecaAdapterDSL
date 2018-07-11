@@ -38,9 +38,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Action/state"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//MappingPair">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//MappingPair/resource"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//MappingPair/state"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//MappingPair/actionCode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//MappingPair/mappings"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Pair">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Pair/resource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Pair/state"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Pair/code"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Element"/>
     <genClasses ecoreClass="Dsl.ecore#//OrElement">

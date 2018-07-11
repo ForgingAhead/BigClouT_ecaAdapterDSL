@@ -49,6 +49,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getResourceAccess().getGroup_5(), "rule__Resource__Group_5__0");
 					put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
 					put(grammarAccess.getMappingPairAccess().getGroup(), "rule__MappingPair__Group__0");
+					put(grammarAccess.getPairAccess().getGroup(), "rule__Pair__Group__0");
 					put(grammarAccess.getOrElementAccess().getGroup(), "rule__OrElement__Group__0");
 					put(grammarAccess.getOrElementAccess().getGroup_1(), "rule__OrElement__Group_1__0");
 					put(grammarAccess.getAndElementAccess().getGroup(), "rule__AndElement__Group__0");
@@ -82,7 +83,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRunTimeModelAccess().getEnvDataAssignment_1(), "rule__RunTimeModel__EnvDataAssignment_1");
 					put(grammarAccess.getRunTimeModelAccess().getAppDataAssignment_2(), "rule__RunTimeModel__AppDataAssignment_2");
 					put(grammarAccess.getRunTimeModelAccess().getServicesDataAssignment_3(), "rule__RunTimeModel__ServicesDataAssignment_3");
-					put(grammarAccess.getRunTimeModelAccess().getMappingPairsAssignment_6(), "rule__RunTimeModel__MappingPairsAssignment_6");
+					put(grammarAccess.getRunTimeModelAccess().getMappingPairsAssignment_4(), "rule__RunTimeModel__MappingPairsAssignment_4");
 					put(grammarAccess.getAppMetaDataAccess().getAppIDAssignment_1(), "rule__AppMetaData__AppIDAssignment_1");
 					put(grammarAccess.getAppMetaDataAccess().getSpecificationsAssignment_3(), "rule__AppMetaData__SpecificationsAssignment_3");
 					put(grammarAccess.getSpecificationAccess().getSpecIDAssignment_0(), "rule__Specification__SpecIDAssignment_0");
@@ -90,16 +91,17 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSpecificationAccess().getConditionAssignment_4(), "rule__Specification__ConditionAssignment_4");
 					put(grammarAccess.getSpecificationAccess().getActionAssignment_6(), "rule__Specification__ActionAssignment_6");
 					put(grammarAccess.getSpecificationAccess().getActionAssignment_7_1(), "rule__Specification__ActionAssignment_7_1");
-					put(grammarAccess.getEnvironmentMetaDataAccess().getResourcesAssignment_2(), "rule__EnvironmentMetaData__ResourcesAssignment_2");
+					put(grammarAccess.getEnvironmentMetaDataAccess().getResourcesAssignment_3(), "rule__EnvironmentMetaData__ResourcesAssignment_3");
 					put(grammarAccess.getServiceMetaDataAccess().getServiceIDAssignment_1(), "rule__ServiceMetaData__ServiceIDAssignment_1");
 					put(grammarAccess.getResourceAccess().getNameAssignment_1(), "rule__Resource__NameAssignment_1");
 					put(grammarAccess.getResourceAccess().getStatesAssignment_4(), "rule__Resource__StatesAssignment_4");
 					put(grammarAccess.getResourceAccess().getStatesAssignment_5_1(), "rule__Resource__StatesAssignment_5_1");
 					put(grammarAccess.getActionAccess().getResourceAssignment_0(), "rule__Action__ResourceAssignment_0");
 					put(grammarAccess.getActionAccess().getStateAssignment_2(), "rule__Action__StateAssignment_2");
-					put(grammarAccess.getMappingPairAccess().getResourceAssignment_1(), "rule__MappingPair__ResourceAssignment_1");
-					put(grammarAccess.getMappingPairAccess().getStateAssignment_3(), "rule__MappingPair__StateAssignment_3");
-					put(grammarAccess.getMappingPairAccess().getActionCodeAssignment_5(), "rule__MappingPair__ActionCodeAssignment_5");
+					put(grammarAccess.getMappingPairAccess().getMappingsAssignment_3(), "rule__MappingPair__MappingsAssignment_3");
+					put(grammarAccess.getPairAccess().getResourceAssignment_1(), "rule__Pair__ResourceAssignment_1");
+					put(grammarAccess.getPairAccess().getStateAssignment_3(), "rule__Pair__StateAssignment_3");
+					put(grammarAccess.getPairAccess().getCodeAssignment_5(), "rule__Pair__CodeAssignment_5");
 					put(grammarAccess.getOrElementAccess().getRightAssignment_1_2(), "rule__OrElement__RightAssignment_1_2");
 					put(grammarAccess.getAndElementAccess().getRightAssignment_1_2(), "rule__AndElement__RightAssignment_1_2");
 					put(grammarAccess.getDiffEqualElementAccess().getRightAssignment_1_0_2(), "rule__DiffEqualElement__RightAssignment_1_0_2");

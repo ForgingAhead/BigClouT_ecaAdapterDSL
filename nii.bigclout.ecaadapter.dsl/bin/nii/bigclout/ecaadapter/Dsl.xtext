@@ -9,10 +9,7 @@ RunTimeModel:
 	envData += EnvironmentMetaData*
 	appData += AppMetaData*  
 	servicesData += ServiceMetaData*  
-	"ConceptToCodeMappings" 
-	LBRACE
 	mappingPairs += MappingPair*	
-	RBRACE
 ;
 
 Metadata:
@@ -20,7 +17,7 @@ Metadata:
 ;
 	
 AppMetaData:
-	"AppMeta" appID=ID 
+	"app" appID=ID 
 	LBRACE
 	specifications += Specification*
 	RBRACE
@@ -39,10 +36,10 @@ Specification:
 
 EnvironmentMetaData:
 	{EnvironmentMetaData}
-	"EnvironmentMetaData"
-	
+	"environment"
+	LBRACE
 	resources+=Resource*
-	
+	RBRACE	
 ;
 
 ServiceMetaData:
@@ -52,7 +49,6 @@ ServiceMetaData:
 
 Resource:
 	"resource" name=ID
-	//"code" code=EXTENDED_STRING
 	"can" "be" states+= State ("," states+=State)*
 ;
 
@@ -63,22 +59,20 @@ State:
 Action:
 	resource=[Resource] ":=" state=State	
 ;
-/**
+
 MappingPair:
-	"(" concept = UnaryElement //UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
+	{MappingPair}
+	"mapping" LBRACE
+	mappings += Pair*
+	RBRACE
+;
+
+Pair:
+	"(" resource = [Resource] //UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
+	"," state = UnaryElement	//it could be empty, then it would be a mapping between resource and the code...
 	"," code = EXTENDED_STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
 	")"
 ;
- */
-
-MappingPair:
-	"(" resource = [Resource] //UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
-	"," state = UnaryElement
-	"," actionCode = EXTENDED_STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
-	")"
-;
-
-
 
 OrElement returns Element:
 	AndElement ("or" {OrElement.left=current} right=AndElement)*
@@ -136,8 +130,6 @@ RBRACE: "}";
 	{ServiceMetaData}
 	serviceID = ID
 ;
-
-
 
 EnvironmentAttribute:
 	envAttributeID=ID

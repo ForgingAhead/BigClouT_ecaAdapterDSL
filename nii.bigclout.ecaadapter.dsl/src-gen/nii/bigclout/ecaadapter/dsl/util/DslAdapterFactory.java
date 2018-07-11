@@ -121,6 +121,11 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createMappingPairAdapter();
       }
       @Override
+      public Adapter casePair(Pair object)
+      {
+        return createPairAdapter();
+      }
+      @Override
       public Adapter caseElement(Element object)
       {
         return createElementAdapter();
@@ -363,6 +368,21 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMappingPairAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Pair <em>Pair</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.Pair
+   * @generated
+   */
+  public Adapter createPairAdapter()
   {
     return null;
   }
