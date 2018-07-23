@@ -1498,42 +1498,69 @@ ruleUnaryElement returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_6='('
-			{
-				newLeafNode(otherlv_6, grammarAccess.getUnaryElementAccess().getLeftParenthesisKeyword_3_0());
-			}
-			{
-				newCompositeNode(grammarAccess.getUnaryElementAccess().getOrElementParserRuleCall_3_1());
-			}
-			this_OrElement_7=ruleOrElement
-			{
-				$current = $this_OrElement_7.current;
-				afterParserOrEnumRuleCall();
-			}
-			otherlv_8=')'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getUnaryElementAccess().getRightParenthesisKeyword_3_2());
-			}
-		)
-		    |
-		(
-			otherlv_9='not'
-			{
-				newLeafNode(otherlv_9, grammarAccess.getUnaryElementAccess().getNotKeyword_4_0());
-			}
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getUnaryElementAccess().getNegateElementAction_4_1(),
+						grammarAccess.getUnaryElementAccess().getResource_ObjectAction_3_0(),
 						$current);
 				}
 			)
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getUnaryElementAccess().getExpUnaryElementParserRuleCall_4_2_0());
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getUnaryElementRule());
+						}
 					}
-					lv_exp_11_0=ruleUnaryElement
+					otherlv_7=RULE_ID
+					{
+						newLeafNode(otherlv_7, grammarAccess.getUnaryElementAccess().getValueResourceCrossReference_3_1_0());
+					}
+				)
+			)
+			otherlv_8='.state'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getUnaryElementAccess().getStateKeyword_3_2());
+			}
+		)
+		    |
+		(
+			otherlv_9='('
+			{
+				newLeafNode(otherlv_9, grammarAccess.getUnaryElementAccess().getLeftParenthesisKeyword_4_0());
+			}
+			{
+				newCompositeNode(grammarAccess.getUnaryElementAccess().getOrElementParserRuleCall_4_1());
+			}
+			this_OrElement_10=ruleOrElement
+			{
+				$current = $this_OrElement_10.current;
+				afterParserOrEnumRuleCall();
+			}
+			otherlv_11=')'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getUnaryElementAccess().getRightParenthesisKeyword_4_2());
+			}
+		)
+		    |
+		(
+			otherlv_12='not'
+			{
+				newLeafNode(otherlv_12, grammarAccess.getUnaryElementAccess().getNotKeyword_5_0());
+			}
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getUnaryElementAccess().getNegateElementAction_5_1(),
+						$current);
+				}
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getUnaryElementAccess().getExpUnaryElementParserRuleCall_5_2_0());
+					}
+					lv_exp_14_0=ruleUnaryElement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getUnaryElementRule());
@@ -1541,7 +1568,7 @@ ruleUnaryElement returns [EObject current=null]
 						set(
 							$current,
 							"exp",
-							lv_exp_11_0,
+							lv_exp_14_0,
 							"nii.bigclout.ecaadapter.Dsl.UnaryElement");
 						afterParserOrEnumRuleCall();
 					}

@@ -890,24 +890,31 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cValueBOOLEANTerminalRuleCall_2_1_0 = (RuleCall)cValueAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final RuleCall cOrElementParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Action cResource_ObjectAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cValueResourceCrossReference_3_1_0 = (CrossReference)cValueAssignment_3_1.eContents().get(0);
+		private final RuleCall cValueResourceIDTerminalRuleCall_3_1_0_1 = (RuleCall)cValueResourceCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cStateKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cNotKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Action cNegateElementAction_4_1 = (Action)cGroup_4.eContents().get(1);
-		private final Assignment cExpAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cExpUnaryElementParserRuleCall_4_2_0 = (RuleCall)cExpAssignment_4_2.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final RuleCall cOrElementParserRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Keyword cNotKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Action cNegateElementAction_5_1 = (Action)cGroup_5.eContents().get(1);
+		private final Assignment cExpAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cExpUnaryElementParserRuleCall_5_2_0 = (RuleCall)cExpAssignment_5_2.eContents().get(0);
 		
 		////TO-DO  more thinking here about the UnaryElement...
 		//UnaryElement Element:
 		//	{Number_Object} value=NUMBER | {String_Object} value=EXTENDED_STRING | {Boolean_Object} value=BOOLEAN |
+		//	{Resource_Object} value=[Resource] ".state" |
 		//	"(" OrElement ")" |
 		//	"not" {NegateElement} exp=UnaryElement;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Number_Object} value=NUMBER | {String_Object} value=EXTENDED_STRING | {Boolean_Object} value=BOOLEAN | "(" OrElement
-		//")" | "not" {NegateElement} exp=UnaryElement
+		//{Number_Object} value=NUMBER | {String_Object} value=EXTENDED_STRING | {Boolean_Object} value=BOOLEAN |
+		//{Resource_Object} value=[Resource] ".state" | "(" OrElement ")" | "not" {NegateElement} exp=UnaryElement
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{Number_Object} value=NUMBER
@@ -946,32 +953,50 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//BOOLEAN
 		public RuleCall getValueBOOLEANTerminalRuleCall_2_1_0() { return cValueBOOLEANTerminalRuleCall_2_1_0; }
 		
-		//"(" OrElement ")"
+		//{Resource_Object} value=[Resource] ".state"
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//"("
-		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
+		//{Resource_Object}
+		public Action getResource_ObjectAction_3_0() { return cResource_ObjectAction_3_0; }
 		
-		//OrElement
-		public RuleCall getOrElementParserRuleCall_3_1() { return cOrElementParserRuleCall_3_1; }
+		//value=[Resource]
+		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
 		
-		//")"
-		public Keyword getRightParenthesisKeyword_3_2() { return cRightParenthesisKeyword_3_2; }
+		//[Resource]
+		public CrossReference getValueResourceCrossReference_3_1_0() { return cValueResourceCrossReference_3_1_0; }
 		
-		//"not" {NegateElement} exp=UnaryElement
+		//ID
+		public RuleCall getValueResourceIDTerminalRuleCall_3_1_0_1() { return cValueResourceIDTerminalRuleCall_3_1_0_1; }
+		
+		//".state"
+		public Keyword getStateKeyword_3_2() { return cStateKeyword_3_2; }
+		
+		//"(" OrElement ")"
 		public Group getGroup_4() { return cGroup_4; }
 		
+		//"("
+		public Keyword getLeftParenthesisKeyword_4_0() { return cLeftParenthesisKeyword_4_0; }
+		
+		//OrElement
+		public RuleCall getOrElementParserRuleCall_4_1() { return cOrElementParserRuleCall_4_1; }
+		
+		//")"
+		public Keyword getRightParenthesisKeyword_4_2() { return cRightParenthesisKeyword_4_2; }
+		
+		//"not" {NegateElement} exp=UnaryElement
+		public Group getGroup_5() { return cGroup_5; }
+		
 		//"not"
-		public Keyword getNotKeyword_4_0() { return cNotKeyword_4_0; }
+		public Keyword getNotKeyword_5_0() { return cNotKeyword_5_0; }
 		
 		//{NegateElement}
-		public Action getNegateElementAction_4_1() { return cNegateElementAction_4_1; }
+		public Action getNegateElementAction_5_1() { return cNegateElementAction_5_1; }
 		
 		//exp=UnaryElement
-		public Assignment getExpAssignment_4_2() { return cExpAssignment_4_2; }
+		public Assignment getExpAssignment_5_2() { return cExpAssignment_5_2; }
 		
 		//UnaryElement
-		public RuleCall getExpUnaryElementParserRuleCall_4_2_0() { return cExpUnaryElementParserRuleCall_4_2_0; }
+		public RuleCall getExpUnaryElementParserRuleCall_5_2_0() { return cExpUnaryElementParserRuleCall_5_2_0; }
 	}
 	public class LBRACEElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.LBRACE");
@@ -1387,6 +1412,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	////TO-DO  more thinking here about the UnaryElement...
 	//UnaryElement Element:
 	//	{Number_Object} value=NUMBER | {String_Object} value=EXTENDED_STRING | {Boolean_Object} value=BOOLEAN |
+	//	{Resource_Object} value=[Resource] ".state" |
 	//	"(" OrElement ")" |
 	//	"not" {NegateElement} exp=UnaryElement;
 	public UnaryElementElements getUnaryElementAccess() {

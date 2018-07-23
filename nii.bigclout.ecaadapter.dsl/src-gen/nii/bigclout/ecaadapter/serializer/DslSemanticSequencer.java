@@ -25,6 +25,7 @@ import nii.bigclout.ecaadapter.dsl.OrElement;
 import nii.bigclout.ecaadapter.dsl.Pair;
 import nii.bigclout.ecaadapter.dsl.PlusElement;
 import nii.bigclout.ecaadapter.dsl.Resource;
+import nii.bigclout.ecaadapter.dsl.Resource_Object;
 import nii.bigclout.ecaadapter.dsl.RunTimeModel;
 import nii.bigclout.ecaadapter.dsl.ServiceMetaData;
 import nii.bigclout.ecaadapter.dsl.SmallerElement;
@@ -115,6 +116,9 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DslPackage.RESOURCE:
 				sequence_Resource(context, (Resource) semanticObject); 
+				return; 
+			case DslPackage.RESOURCE_OBJECT:
+				sequence_UnaryElement(context, (Resource_Object) semanticObject); 
 				return; 
 			case DslPackage.RUN_TIME_MODEL:
 				sequence_RunTimeModel(context, (RunTimeModel) semanticObject); 
@@ -866,7 +870,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.NEGATE_ELEMENT__EXP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUnaryElementAccess().getExpUnaryElementParserRuleCall_4_2_0(), semanticObject.getExp());
+		feeder.accept(grammarAccess.getUnaryElementAccess().getExpUnaryElementParserRuleCall_5_2_0(), semanticObject.getExp());
 		feeder.finish();
 	}
 	
@@ -904,6 +908,43 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getUnaryElementAccess().getValueNUMBERParserRuleCall_0_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OrElement returns Resource_Object
+	 *     OrElement.OrElement_1_1 returns Resource_Object
+	 *     AndElement returns Resource_Object
+	 *     AndElement.AndElement_1_1 returns Resource_Object
+	 *     DiffEqualElement returns Resource_Object
+	 *     DiffEqualElement.DiffElement_1_0_1 returns Resource_Object
+	 *     DiffEqualElement.EqualElement_1_1_1 returns Resource_Object
+	 *     CompareElement returns Resource_Object
+	 *     CompareElement.LargerElement_1_0_1 returns Resource_Object
+	 *     CompareElement.LargerEqualElement_1_1_1 returns Resource_Object
+	 *     CompareElement.SmallerElement_1_2_1 returns Resource_Object
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns Resource_Object
+	 *     PlusMinusElement returns Resource_Object
+	 *     PlusMinusElement.PlusElement_1_0_1 returns Resource_Object
+	 *     PlusMinusElement.MinusElement_1_1_1 returns Resource_Object
+	 *     MultiplicationDivisionElement returns Resource_Object
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns Resource_Object
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns Resource_Object
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns Resource_Object
+	 *     UnaryElement returns Resource_Object
+	 *
+	 * Constraint:
+	 *     value=[Resource|ID]
+	 */
+	protected void sequence_UnaryElement(ISerializationContext context, Resource_Object semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.RESOURCE_OBJECT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.RESOURCE_OBJECT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getUnaryElementAccess().getValueResourceIDTerminalRuleCall_3_1_0_1(), semanticObject.eGet(DslPackage.Literals.RESOURCE_OBJECT__VALUE, false));
 		feeder.finish();
 	}
 	

@@ -27,6 +27,7 @@ import nii.bigclout.ecaadapter.dsl.OrElement;
 import nii.bigclout.ecaadapter.dsl.Pair;
 import nii.bigclout.ecaadapter.dsl.PlusElement;
 import nii.bigclout.ecaadapter.dsl.Resource;
+import nii.bigclout.ecaadapter.dsl.Resource_Object;
 import nii.bigclout.ecaadapter.dsl.RunTimeModel;
 import nii.bigclout.ecaadapter.dsl.ServiceMetaData;
 import nii.bigclout.ecaadapter.dsl.SmallerElement;
@@ -237,6 +238,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass boolean_ObjectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass resource_ObjectEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1073,6 +1081,26 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getResource_Object()
+  {
+    return resource_ObjectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getResource_Object_Value()
+  {
+    return (EReference)resource_ObjectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getNegateElement()
   {
     return negateElementEClass;
@@ -1221,6 +1249,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     boolean_ObjectEClass = createEClass(BOOLEAN_OBJECT);
     createEAttribute(boolean_ObjectEClass, BOOLEAN_OBJECT__VALUE);
 
+    resource_ObjectEClass = createEClass(RESOURCE_OBJECT);
+    createEReference(resource_ObjectEClass, RESOURCE_OBJECT__VALUE);
+
     negateElementEClass = createEClass(NEGATE_ELEMENT);
     createEReference(negateElementEClass, NEGATE_ELEMENT__EXP);
   }
@@ -1273,6 +1304,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     number_ObjectEClass.getESuperTypes().add(this.getElement());
     string_ObjectEClass.getESuperTypes().add(this.getElement());
     boolean_ObjectEClass.getESuperTypes().add(this.getElement());
+    resource_ObjectEClass.getESuperTypes().add(this.getElement());
     negateElementEClass.getESuperTypes().add(this.getElement());
 
     // Initialize classes and features; add operations and parameters
@@ -1378,6 +1410,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     initEClass(boolean_ObjectEClass, Boolean_Object.class, "Boolean_Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBoolean_Object_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, Boolean_Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(resource_ObjectEClass, Resource_Object.class, "Resource_Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getResource_Object_Value(), this.getResource(), null, "value", null, 0, 1, Resource_Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(negateElementEClass, NegateElement.class, "NegateElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNegateElement_Exp(), this.getElement(), null, "exp", null, 0, 1, NegateElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

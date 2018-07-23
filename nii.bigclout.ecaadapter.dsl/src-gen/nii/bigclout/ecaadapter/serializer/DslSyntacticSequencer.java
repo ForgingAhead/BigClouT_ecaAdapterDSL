@@ -20,14 +20,14 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_UnaryElement_LeftParenthesisKeyword_3_0_a;
-	protected AbstractElementAlias match_UnaryElement_LeftParenthesisKeyword_3_0_p;
+	protected AbstractElementAlias match_UnaryElement_LeftParenthesisKeyword_4_0_a;
+	protected AbstractElementAlias match_UnaryElement_LeftParenthesisKeyword_4_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DslGrammarAccess) access;
-		match_UnaryElement_LeftParenthesisKeyword_3_0_a = new TokenAlias(true, true, grammarAccess.getUnaryElementAccess().getLeftParenthesisKeyword_3_0());
-		match_UnaryElement_LeftParenthesisKeyword_3_0_p = new TokenAlias(true, false, grammarAccess.getUnaryElementAccess().getLeftParenthesisKeyword_3_0());
+		match_UnaryElement_LeftParenthesisKeyword_4_0_a = new TokenAlias(true, true, grammarAccess.getUnaryElementAccess().getLeftParenthesisKeyword_4_0());
+		match_UnaryElement_LeftParenthesisKeyword_4_0_p = new TokenAlias(true, false, grammarAccess.getUnaryElementAccess().getLeftParenthesisKeyword_4_0());
 	}
 	
 	@Override
@@ -63,10 +63,10 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_UnaryElement_LeftParenthesisKeyword_3_0_a.equals(syntax))
-				emit_UnaryElement_LeftParenthesisKeyword_3_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_UnaryElement_LeftParenthesisKeyword_3_0_p.equals(syntax))
-				emit_UnaryElement_LeftParenthesisKeyword_3_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_UnaryElement_LeftParenthesisKeyword_4_0_a.equals(syntax))
+				emit_UnaryElement_LeftParenthesisKeyword_4_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_UnaryElement_LeftParenthesisKeyword_4_0_p.equals(syntax))
+				emit_UnaryElement_LeftParenthesisKeyword_4_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -80,6 +80,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) value=BOOLEAN
 	 *     (rule start) (ambiguity) value=EXTENDED_STRING
 	 *     (rule start) (ambiguity) value=NUMBER
+	 *     (rule start) (ambiguity) value=[Resource|ID]
 	 *     (rule start) (ambiguity) {AndElement.left=}
 	 *     (rule start) (ambiguity) {DiffElement.left=}
 	 *     (rule start) (ambiguity) {DivisionElement.left=}
@@ -94,7 +95,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {SmallerElement.left=}
 	 *     (rule start) (ambiguity) {SmallerEqualElement.left=}
 	 */
-	protected void emit_UnaryElement_LeftParenthesisKeyword_3_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UnaryElement_LeftParenthesisKeyword_4_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -117,7 +118,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {SmallerElement.left=}
 	 *     (rule start) (ambiguity) {SmallerEqualElement.left=}
 	 */
-	protected void emit_UnaryElement_LeftParenthesisKeyword_3_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UnaryElement_LeftParenthesisKeyword_4_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -92,6 +92,7 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.NUMBER_OBJECT: return createNumber_Object();
       case DslPackage.STRING_OBJECT: return createString_Object();
       case DslPackage.BOOLEAN_OBJECT: return createBoolean_Object();
+      case DslPackage.RESOURCE_OBJECT: return createResource_Object();
       case DslPackage.NEGATE_ELEMENT: return createNegateElement();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -393,6 +394,17 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     Boolean_ObjectImpl boolean_Object = new Boolean_ObjectImpl();
     return boolean_Object;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Resource_Object createResource_Object()
+  {
+    Resource_ObjectImpl resource_Object = new Resource_ObjectImpl();
+    return resource_Object;
   }
 
   /**

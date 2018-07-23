@@ -1012,6 +1012,34 @@ public interface DslPackage extends EPackage
   int BOOLEAN_OBJECT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.Resource_ObjectImpl <em>Resource Object</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.Resource_ObjectImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getResource_Object()
+   * @generated
+   */
+  int RESOURCE_OBJECT = 27;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_OBJECT__VALUE = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Resource Object</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_OBJECT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.NegateElementImpl <em>Negate Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1019,7 +1047,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getNegateElement()
    * @generated
    */
-  int NEGATE_ELEMENT = 27;
+  int NEGATE_ELEMENT = 28;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -1850,6 +1878,27 @@ public interface DslPackage extends EPackage
   EAttribute getBoolean_Object_Value();
 
   /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.Resource_Object <em>Resource Object</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Resource Object</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Resource_Object
+   * @generated
+   */
+  EClass getResource_Object();
+
+  /**
+   * Returns the meta object for the reference '{@link nii.bigclout.ecaadapter.dsl.Resource_Object#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Value</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Resource_Object#getValue()
+   * @see #getResource_Object()
+   * @generated
+   */
+  EReference getResource_Object_Value();
+
+  /**
    * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.NegateElement <em>Negate Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2554,6 +2603,24 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EAttribute BOOLEAN_OBJECT__VALUE = eINSTANCE.getBoolean_Object_Value();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.Resource_ObjectImpl <em>Resource Object</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.Resource_ObjectImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getResource_Object()
+     * @generated
+     */
+    EClass RESOURCE_OBJECT = eINSTANCE.getResource_Object();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RESOURCE_OBJECT__VALUE = eINSTANCE.getResource_Object_Value();
 
     /**
      * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.NegateElementImpl <em>Negate Element</em>}' class.

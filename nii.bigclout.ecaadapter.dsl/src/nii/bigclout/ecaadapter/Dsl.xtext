@@ -118,6 +118,7 @@ UnaryElement returns Element:
 	{Number_Object} value=NUMBER |
 	{String_Object} value=EXTENDED_STRING |
 	{Boolean_Object} value=BOOLEAN |
+	{Resource_Object} value=[Resource] ".state"	|
 	"(" OrElement ")" |
 	"not" {NegateElement} exp=UnaryElement
 ;

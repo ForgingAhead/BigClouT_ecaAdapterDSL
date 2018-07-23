@@ -267,6 +267,15 @@ public interface DslFactory extends EFactory
   Boolean_Object createBoolean_Object();
 
   /**
+   * Returns a new object of class '<em>Resource Object</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Resource Object</em>'.
+   * @generated
+   */
+  Resource_Object createResource_Object();
+
+  /**
    * Returns a new object of class '<em>Negate Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

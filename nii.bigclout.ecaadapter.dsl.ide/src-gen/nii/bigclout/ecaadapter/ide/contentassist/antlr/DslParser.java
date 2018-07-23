@@ -74,6 +74,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnaryElementAccess().getGroup_2(), "rule__UnaryElement__Group_2__0");
 					put(grammarAccess.getUnaryElementAccess().getGroup_3(), "rule__UnaryElement__Group_3__0");
 					put(grammarAccess.getUnaryElementAccess().getGroup_4(), "rule__UnaryElement__Group_4__0");
+					put(grammarAccess.getUnaryElementAccess().getGroup_5(), "rule__UnaryElement__Group_5__0");
 					put(grammarAccess.getNUMBERAccess().getGroup_1(), "rule__NUMBER__Group_1__0");
 					put(grammarAccess.getEXTENDED_IDAccess().getGroup(), "rule__EXTENDED_ID__Group__0");
 					put(grammarAccess.getEXTENDED_IDAccess().getGroup_1(), "rule__EXTENDED_ID__Group_1__0");
@@ -118,7 +119,8 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnaryElementAccess().getValueAssignment_0_1(), "rule__UnaryElement__ValueAssignment_0_1");
 					put(grammarAccess.getUnaryElementAccess().getValueAssignment_1_1(), "rule__UnaryElement__ValueAssignment_1_1");
 					put(grammarAccess.getUnaryElementAccess().getValueAssignment_2_1(), "rule__UnaryElement__ValueAssignment_2_1");
-					put(grammarAccess.getUnaryElementAccess().getExpAssignment_4_2(), "rule__UnaryElement__ExpAssignment_4_2");
+					put(grammarAccess.getUnaryElementAccess().getValueAssignment_3_1(), "rule__UnaryElement__ValueAssignment_3_1");
+					put(grammarAccess.getUnaryElementAccess().getExpAssignment_5_2(), "rule__UnaryElement__ExpAssignment_5_2");
 				}
 			};
 		}
