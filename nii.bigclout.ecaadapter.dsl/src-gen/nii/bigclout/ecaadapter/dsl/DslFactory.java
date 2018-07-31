@@ -42,6 +42,24 @@ public interface DslFactory extends EFactory
   Metadata createMetadata();
 
   /**
+   * Returns a new object of class '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State</em>'.
+   * @generated
+   */
+  State createState();
+
+  /**
+   * Returns a new object of class '<em>Resource</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Resource</em>'.
+   * @generated
+   */
+  Resource createResource();
+
+  /**
    * Returns a new object of class '<em>App Meta Data</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,15 +96,6 @@ public interface DslFactory extends EFactory
   ServiceMetaData createServiceMetaData();
 
   /**
-   * Returns a new object of class '<em>Resource</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Resource</em>'.
-   * @generated
-   */
-  Resource createResource();
-
-  /**
    * Returns a new object of class '<em>Action</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,24 +103,6 @@ public interface DslFactory extends EFactory
    * @generated
    */
   Action createAction();
-
-  /**
-   * Returns a new object of class '<em>Mapping Pair</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mapping Pair</em>'.
-   * @generated
-   */
-  MappingPair createMappingPair();
-
-  /**
-   * Returns a new object of class '<em>Pair</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Pair</em>'.
-   * @generated
-   */
-  Pair createPair();
 
   /**
    * Returns a new object of class '<em>Element</em>'.
@@ -249,15 +240,6 @@ public interface DslFactory extends EFactory
   Number_Object createNumber_Object();
 
   /**
-   * Returns a new object of class '<em>String Object</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Object</em>'.
-   * @generated
-   */
-  String_Object createString_Object();
-
-  /**
    * Returns a new object of class '<em>Boolean Object</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -274,6 +256,15 @@ public interface DslFactory extends EFactory
    * @generated
    */
   Resource_Object createResource_Object();
+
+  /**
+   * Returns a new object of class '<em>State Object</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State Object</em>'.
+   * @generated
+   */
+  State_Object createState_Object();
 
   /**
    * Returns a new object of class '<em>Negate Element</em>'.

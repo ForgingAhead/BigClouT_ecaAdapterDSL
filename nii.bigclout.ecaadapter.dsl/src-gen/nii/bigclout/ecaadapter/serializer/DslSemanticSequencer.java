@@ -15,14 +15,12 @@ import nii.bigclout.ecaadapter.dsl.EnvironmentMetaData;
 import nii.bigclout.ecaadapter.dsl.EqualElement;
 import nii.bigclout.ecaadapter.dsl.LargerElement;
 import nii.bigclout.ecaadapter.dsl.LargerEqualElement;
-import nii.bigclout.ecaadapter.dsl.MappingPair;
 import nii.bigclout.ecaadapter.dsl.MinusElement;
 import nii.bigclout.ecaadapter.dsl.ModuloElement;
 import nii.bigclout.ecaadapter.dsl.MultiplicationElement;
 import nii.bigclout.ecaadapter.dsl.NegateElement;
 import nii.bigclout.ecaadapter.dsl.Number_Object;
 import nii.bigclout.ecaadapter.dsl.OrElement;
-import nii.bigclout.ecaadapter.dsl.Pair;
 import nii.bigclout.ecaadapter.dsl.PlusElement;
 import nii.bigclout.ecaadapter.dsl.Resource;
 import nii.bigclout.ecaadapter.dsl.Resource_Object;
@@ -31,7 +29,8 @@ import nii.bigclout.ecaadapter.dsl.ServiceMetaData;
 import nii.bigclout.ecaadapter.dsl.SmallerElement;
 import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
 import nii.bigclout.ecaadapter.dsl.Specification;
-import nii.bigclout.ecaadapter.dsl.String_Object;
+import nii.bigclout.ecaadapter.dsl.State;
+import nii.bigclout.ecaadapter.dsl.State_Object;
 import nii.bigclout.ecaadapter.services.DslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -87,9 +86,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DslPackage.LARGER_EQUAL_ELEMENT:
 				sequence_CompareElement(context, (LargerEqualElement) semanticObject); 
 				return; 
-			case DslPackage.MAPPING_PAIR:
-				sequence_MappingPair(context, (MappingPair) semanticObject); 
-				return; 
 			case DslPackage.MINUS_ELEMENT:
 				sequence_PlusMinusElement(context, (MinusElement) semanticObject); 
 				return; 
@@ -107,9 +103,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DslPackage.OR_ELEMENT:
 				sequence_OrElement(context, (OrElement) semanticObject); 
-				return; 
-			case DslPackage.PAIR:
-				sequence_Pair(context, (Pair) semanticObject); 
 				return; 
 			case DslPackage.PLUS_ELEMENT:
 				sequence_PlusMinusElement(context, (PlusElement) semanticObject); 
@@ -135,8 +128,11 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DslPackage.SPECIFICATION:
 				sequence_Specification(context, (Specification) semanticObject); 
 				return; 
-			case DslPackage.STRING_OBJECT:
-				sequence_UnaryElement(context, (String_Object) semanticObject); 
+			case DslPackage.STATE:
+				sequence_State(context, (State) semanticObject); 
+				return; 
+			case DslPackage.STATE_OBJECT:
+				sequence_UnaryElement(context, (State_Object) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -472,18 +468,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     MappingPair returns MappingPair
-	 *
-	 * Constraint:
-	 *     mappings+=Pair*
-	 */
-	protected void sequence_MappingPair(ISerializationContext context, MappingPair semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     OrElement returns DivisionElement
 	 *     OrElement.OrElement_1_1 returns DivisionElement
 	 *     AndElement returns DivisionElement
@@ -644,30 +628,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Pair returns Pair
-	 *
-	 * Constraint:
-	 *     (resource=[Resource|ID] state=UnaryElement code=EXTENDED_STRING)
-	 */
-	protected void sequence_Pair(ISerializationContext context, Pair semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.PAIR__RESOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.PAIR__RESOURCE));
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.PAIR__STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.PAIR__STATE));
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.PAIR__CODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.PAIR__CODE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPairAccess().getResourceResourceIDTerminalRuleCall_1_0_1(), semanticObject.eGet(DslPackage.Literals.PAIR__RESOURCE, false));
-		feeder.accept(grammarAccess.getPairAccess().getStateUnaryElementParserRuleCall_3_0(), semanticObject.getState());
-		feeder.accept(grammarAccess.getPairAccess().getCodeEXTENDED_STRINGParserRuleCall_5_0(), semanticObject.getCode());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     OrElement returns MinusElement
 	 *     OrElement.OrElement_1_1 returns MinusElement
 	 *     AndElement returns MinusElement
@@ -763,7 +723,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RunTimeModel returns RunTimeModel
 	 *
 	 * Constraint:
-	 *     (envData+=EnvironmentMetaData* appData+=AppMetaData* servicesData+=ServiceMetaData* mappingPairs+=MappingPair*)
+	 *     (envData+=EnvironmentMetaData* appData+=AppMetaData* servicesData+=ServiceMetaData*)
 	 */
 	protected void sequence_RunTimeModel(ISerializationContext context, RunTimeModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -803,6 +763,24 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     State returns State
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_State(ISerializationContext context, State semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.STATE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.STATE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     OrElement returns Boolean_Object
 	 *     OrElement.OrElement_1_1 returns Boolean_Object
 	 *     AndElement returns Boolean_Object
@@ -833,7 +811,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.BOOLEAN_OBJECT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUnaryElementAccess().getValueBOOLEANTerminalRuleCall_2_1_0(), semanticObject.isValue());
+		feeder.accept(grammarAccess.getUnaryElementAccess().getValueBOOLEANTerminalRuleCall_1_1_0(), semanticObject.isValue());
 		feeder.finish();
 	}
 	
@@ -944,44 +922,44 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.RESOURCE_OBJECT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUnaryElementAccess().getValueResourceIDTerminalRuleCall_3_1_0_1(), semanticObject.eGet(DslPackage.Literals.RESOURCE_OBJECT__VALUE, false));
+		feeder.accept(grammarAccess.getUnaryElementAccess().getValueResourceIDTerminalRuleCall_2_1_0_1(), semanticObject.eGet(DslPackage.Literals.RESOURCE_OBJECT__VALUE, false));
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     OrElement returns String_Object
-	 *     OrElement.OrElement_1_1 returns String_Object
-	 *     AndElement returns String_Object
-	 *     AndElement.AndElement_1_1 returns String_Object
-	 *     DiffEqualElement returns String_Object
-	 *     DiffEqualElement.DiffElement_1_0_1 returns String_Object
-	 *     DiffEqualElement.EqualElement_1_1_1 returns String_Object
-	 *     CompareElement returns String_Object
-	 *     CompareElement.LargerElement_1_0_1 returns String_Object
-	 *     CompareElement.LargerEqualElement_1_1_1 returns String_Object
-	 *     CompareElement.SmallerElement_1_2_1 returns String_Object
-	 *     CompareElement.SmallerEqualElement_1_3_1 returns String_Object
-	 *     PlusMinusElement returns String_Object
-	 *     PlusMinusElement.PlusElement_1_0_1 returns String_Object
-	 *     PlusMinusElement.MinusElement_1_1_1 returns String_Object
-	 *     MultiplicationDivisionElement returns String_Object
-	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns String_Object
-	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns String_Object
-	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns String_Object
-	 *     UnaryElement returns String_Object
+	 *     OrElement returns State_Object
+	 *     OrElement.OrElement_1_1 returns State_Object
+	 *     AndElement returns State_Object
+	 *     AndElement.AndElement_1_1 returns State_Object
+	 *     DiffEqualElement returns State_Object
+	 *     DiffEqualElement.DiffElement_1_0_1 returns State_Object
+	 *     DiffEqualElement.EqualElement_1_1_1 returns State_Object
+	 *     CompareElement returns State_Object
+	 *     CompareElement.LargerElement_1_0_1 returns State_Object
+	 *     CompareElement.LargerEqualElement_1_1_1 returns State_Object
+	 *     CompareElement.SmallerElement_1_2_1 returns State_Object
+	 *     CompareElement.SmallerEqualElement_1_3_1 returns State_Object
+	 *     PlusMinusElement returns State_Object
+	 *     PlusMinusElement.PlusElement_1_0_1 returns State_Object
+	 *     PlusMinusElement.MinusElement_1_1_1 returns State_Object
+	 *     MultiplicationDivisionElement returns State_Object
+	 *     MultiplicationDivisionElement.MultiplicationElement_1_0_1 returns State_Object
+	 *     MultiplicationDivisionElement.DivisionElement_1_1_1 returns State_Object
+	 *     MultiplicationDivisionElement.ModuloElement_1_2_1 returns State_Object
+	 *     UnaryElement returns State_Object
 	 *
 	 * Constraint:
-	 *     value=EXTENDED_STRING
+	 *     value=State
 	 */
-	protected void sequence_UnaryElement(ISerializationContext context, String_Object semanticObject) {
+	protected void sequence_UnaryElement(ISerializationContext context, State_Object semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.STRING_OBJECT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.STRING_OBJECT__VALUE));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.STATE_OBJECT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.STATE_OBJECT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUnaryElementAccess().getValueEXTENDED_STRINGParserRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getUnaryElementAccess().getValueStateParserRuleCall_3_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

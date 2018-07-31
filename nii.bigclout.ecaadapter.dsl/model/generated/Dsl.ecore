@@ -8,10 +8,16 @@
         eType="#//AppMetaData" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="servicesData" upperBound="-1"
         eType="#//ServiceMetaData" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mappingPairs" upperBound="-1"
-        eType="#//MappingPair" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Metadata"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="#//State" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AppMetaData" eSuperTypes="#//Metadata">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="appID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specifications" upperBound="-1"
@@ -33,24 +39,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="ServiceMetaData" eSuperTypes="#//Metadata">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Resource">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="states" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MappingPair">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
-        eType="#//Pair" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pair">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//Element"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//State"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element"/>
   <eClassifiers xsi:type="ecore:EClass" name="OrElement" eSuperTypes="#//Element">
@@ -134,14 +126,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="Number_Object" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="String_Object" eSuperTypes="#//Element">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Boolean_Object" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource_Object" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State_Object" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//State"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NegateElement" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Element"

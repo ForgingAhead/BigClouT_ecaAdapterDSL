@@ -16,7 +16,6 @@ import nii.bigclout.ecaadapter.dsl.EnvironmentMetaData;
 import nii.bigclout.ecaadapter.dsl.EqualElement;
 import nii.bigclout.ecaadapter.dsl.LargerElement;
 import nii.bigclout.ecaadapter.dsl.LargerEqualElement;
-import nii.bigclout.ecaadapter.dsl.MappingPair;
 import nii.bigclout.ecaadapter.dsl.Metadata;
 import nii.bigclout.ecaadapter.dsl.MinusElement;
 import nii.bigclout.ecaadapter.dsl.ModuloElement;
@@ -24,7 +23,6 @@ import nii.bigclout.ecaadapter.dsl.MultiplicationElement;
 import nii.bigclout.ecaadapter.dsl.NegateElement;
 import nii.bigclout.ecaadapter.dsl.Number_Object;
 import nii.bigclout.ecaadapter.dsl.OrElement;
-import nii.bigclout.ecaadapter.dsl.Pair;
 import nii.bigclout.ecaadapter.dsl.PlusElement;
 import nii.bigclout.ecaadapter.dsl.Resource;
 import nii.bigclout.ecaadapter.dsl.Resource_Object;
@@ -33,7 +31,8 @@ import nii.bigclout.ecaadapter.dsl.ServiceMetaData;
 import nii.bigclout.ecaadapter.dsl.SmallerElement;
 import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
 import nii.bigclout.ecaadapter.dsl.Specification;
-import nii.bigclout.ecaadapter.dsl.String_Object;
+import nii.bigclout.ecaadapter.dsl.State;
+import nii.bigclout.ecaadapter.dsl.State_Object;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -69,6 +68,20 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass stateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass resourceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass appMetaDataEClass = null;
 
   /**
@@ -97,28 +110,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass resourceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass actionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass mappingPairEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass pairEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -230,13 +222,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass string_ObjectEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass boolean_ObjectEClass = null;
 
   /**
@@ -245,6 +230,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass resource_ObjectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass state_ObjectEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -361,9 +353,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRunTimeModel_MappingPairs()
+  public EClass getMetadata()
   {
-    return (EReference)runTimeModelEClass.getEStructuralFeatures().get(3);
+    return metadataEClass;
   }
 
   /**
@@ -371,9 +363,49 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMetadata()
+  public EClass getState()
   {
-    return metadataEClass;
+    return stateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getState_Name()
+  {
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getResource()
+  {
+    return resourceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getResource_Name()
+  {
+    return (EAttribute)resourceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getResource_States()
+  {
+    return (EReference)resourceEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -501,36 +533,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getResource()
-  {
-    return resourceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getResource_Name()
-  {
-    return (EAttribute)resourceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getResource_States()
-  {
-    return (EAttribute)resourceEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getAction()
   {
     return actionEClass;
@@ -551,69 +553,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAction_State()
+  public EReference getAction_State()
   {
-    return (EAttribute)actionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getMappingPair()
-  {
-    return mappingPairEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMappingPair_Mappings()
-  {
-    return (EReference)mappingPairEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getPair()
-  {
-    return pairEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPair_Resource()
-  {
-    return (EReference)pairEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPair_State()
-  {
-    return (EReference)pairEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPair_Code()
-  {
-    return (EAttribute)pairEClass.getEStructuralFeatures().get(2);
+    return (EReference)actionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1041,26 +983,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getString_Object()
-  {
-    return string_ObjectEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getString_Object_Value()
-  {
-    return (EAttribute)string_ObjectEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getBoolean_Object()
   {
     return boolean_ObjectEClass;
@@ -1094,6 +1016,26 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
   public EReference getResource_Object_Value()
   {
     return (EReference)resource_ObjectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getState_Object()
+  {
+    return state_ObjectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getState_Object_Value()
+  {
+    return (EReference)state_ObjectEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1150,9 +1092,15 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEReference(runTimeModelEClass, RUN_TIME_MODEL__ENV_DATA);
     createEReference(runTimeModelEClass, RUN_TIME_MODEL__APP_DATA);
     createEReference(runTimeModelEClass, RUN_TIME_MODEL__SERVICES_DATA);
-    createEReference(runTimeModelEClass, RUN_TIME_MODEL__MAPPING_PAIRS);
 
     metadataEClass = createEClass(METADATA);
+
+    stateEClass = createEClass(STATE);
+    createEAttribute(stateEClass, STATE__NAME);
+
+    resourceEClass = createEClass(RESOURCE);
+    createEAttribute(resourceEClass, RESOURCE__NAME);
+    createEReference(resourceEClass, RESOURCE__STATES);
 
     appMetaDataEClass = createEClass(APP_META_DATA);
     createEAttribute(appMetaDataEClass, APP_META_DATA__APP_ID);
@@ -1170,21 +1118,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     serviceMetaDataEClass = createEClass(SERVICE_META_DATA);
     createEAttribute(serviceMetaDataEClass, SERVICE_META_DATA__SERVICE_ID);
 
-    resourceEClass = createEClass(RESOURCE);
-    createEAttribute(resourceEClass, RESOURCE__NAME);
-    createEAttribute(resourceEClass, RESOURCE__STATES);
-
     actionEClass = createEClass(ACTION);
     createEReference(actionEClass, ACTION__RESOURCE);
-    createEAttribute(actionEClass, ACTION__STATE);
-
-    mappingPairEClass = createEClass(MAPPING_PAIR);
-    createEReference(mappingPairEClass, MAPPING_PAIR__MAPPINGS);
-
-    pairEClass = createEClass(PAIR);
-    createEReference(pairEClass, PAIR__RESOURCE);
-    createEReference(pairEClass, PAIR__STATE);
-    createEAttribute(pairEClass, PAIR__CODE);
+    createEReference(actionEClass, ACTION__STATE);
 
     elementEClass = createEClass(ELEMENT);
 
@@ -1243,14 +1179,14 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     number_ObjectEClass = createEClass(NUMBER_OBJECT);
     createEAttribute(number_ObjectEClass, NUMBER_OBJECT__VALUE);
 
-    string_ObjectEClass = createEClass(STRING_OBJECT);
-    createEAttribute(string_ObjectEClass, STRING_OBJECT__VALUE);
-
     boolean_ObjectEClass = createEClass(BOOLEAN_OBJECT);
     createEAttribute(boolean_ObjectEClass, BOOLEAN_OBJECT__VALUE);
 
     resource_ObjectEClass = createEClass(RESOURCE_OBJECT);
     createEReference(resource_ObjectEClass, RESOURCE_OBJECT__VALUE);
+
+    state_ObjectEClass = createEClass(STATE_OBJECT);
+    createEReference(state_ObjectEClass, STATE_OBJECT__VALUE);
 
     negateElementEClass = createEClass(NEGATE_ELEMENT);
     createEReference(negateElementEClass, NEGATE_ELEMENT__EXP);
@@ -1302,9 +1238,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     divisionElementEClass.getESuperTypes().add(this.getElement());
     moduloElementEClass.getESuperTypes().add(this.getElement());
     number_ObjectEClass.getESuperTypes().add(this.getElement());
-    string_ObjectEClass.getESuperTypes().add(this.getElement());
     boolean_ObjectEClass.getESuperTypes().add(this.getElement());
     resource_ObjectEClass.getESuperTypes().add(this.getElement());
+    state_ObjectEClass.getESuperTypes().add(this.getElement());
     negateElementEClass.getESuperTypes().add(this.getElement());
 
     // Initialize classes and features; add operations and parameters
@@ -1312,9 +1248,15 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEReference(getRunTimeModel_EnvData(), this.getEnvironmentMetaData(), null, "envData", null, 0, -1, RunTimeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRunTimeModel_AppData(), this.getAppMetaData(), null, "appData", null, 0, -1, RunTimeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRunTimeModel_ServicesData(), this.getServiceMetaData(), null, "servicesData", null, 0, -1, RunTimeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRunTimeModel_MappingPairs(), this.getMappingPair(), null, "mappingPairs", null, 0, -1, RunTimeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(metadataEClass, Metadata.class, "Metadata", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getResource_States(), this.getState(), null, "states", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(appMetaDataEClass, AppMetaData.class, "AppMetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAppMetaData_AppID(), ecorePackage.getEString(), "appID", null, 0, 1, AppMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1332,21 +1274,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEClass(serviceMetaDataEClass, ServiceMetaData.class, "ServiceMetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getServiceMetaData_ServiceID(), ecorePackage.getEString(), "serviceID", null, 0, 1, ServiceMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getResource_States(), ecorePackage.getEString(), "states", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAction_Resource(), this.getResource(), null, "resource", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAction_State(), ecorePackage.getEString(), "state", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(mappingPairEClass, MappingPair.class, "MappingPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMappingPair_Mappings(), this.getPair(), null, "mappings", null, 0, -1, MappingPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(pairEClass, Pair.class, "Pair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPair_Resource(), this.getResource(), null, "resource", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPair_State(), this.getElement(), null, "state", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPair_Code(), ecorePackage.getEString(), "code", null, 0, 1, Pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAction_State(), this.getState(), null, "state", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1405,14 +1335,14 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEClass(number_ObjectEClass, Number_Object.class, "Number_Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNumber_Object_Value(), ecorePackage.getEBigDecimal(), "value", null, 0, 1, Number_Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(string_ObjectEClass, String_Object.class, "String_Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getString_Object_Value(), ecorePackage.getEString(), "value", null, 0, 1, String_Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(boolean_ObjectEClass, Boolean_Object.class, "Boolean_Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBoolean_Object_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, Boolean_Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(resource_ObjectEClass, Resource_Object.class, "Resource_Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getResource_Object_Value(), this.getResource(), null, "value", null, 0, 1, Resource_Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(state_ObjectEClass, State_Object.class, "State_Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getState_Object_Value(), this.getState(), null, "value", null, 0, 1, State_Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(negateElementEClass, NegateElement.class, "NegateElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNegateElement_Exp(), this.getElement(), null, "exp", null, 0, 1, NegateElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

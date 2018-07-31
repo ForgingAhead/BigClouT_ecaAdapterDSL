@@ -86,6 +86,16 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createMetadataAdapter();
       }
       @Override
+      public Adapter caseState(State object)
+      {
+        return createStateAdapter();
+      }
+      @Override
+      public Adapter caseResource(Resource object)
+      {
+        return createResourceAdapter();
+      }
+      @Override
       public Adapter caseAppMetaData(AppMetaData object)
       {
         return createAppMetaDataAdapter();
@@ -106,24 +116,9 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createServiceMetaDataAdapter();
       }
       @Override
-      public Adapter caseResource(Resource object)
-      {
-        return createResourceAdapter();
-      }
-      @Override
       public Adapter caseAction(Action object)
       {
         return createActionAdapter();
-      }
-      @Override
-      public Adapter caseMappingPair(MappingPair object)
-      {
-        return createMappingPairAdapter();
-      }
-      @Override
-      public Adapter casePair(Pair object)
-      {
-        return createPairAdapter();
       }
       @Override
       public Adapter caseElement(Element object)
@@ -201,11 +196,6 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createNumber_ObjectAdapter();
       }
       @Override
-      public Adapter caseString_Object(String_Object object)
-      {
-        return createString_ObjectAdapter();
-      }
-      @Override
       public Adapter caseBoolean_Object(Boolean_Object object)
       {
         return createBoolean_ObjectAdapter();
@@ -214,6 +204,11 @@ public class DslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseResource_Object(Resource_Object object)
       {
         return createResource_ObjectAdapter();
+      }
+      @Override
+      public Adapter caseState_Object(State_Object object)
+      {
+        return createState_ObjectAdapter();
       }
       @Override
       public Adapter caseNegateElement(NegateElement object)
@@ -268,6 +263,36 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMetadataAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.State <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.State
+   * @generated
+   */
+  public Adapter createStateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Resource <em>Resource</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.Resource
+   * @generated
+   */
+  public Adapter createResourceAdapter()
   {
     return null;
   }
@@ -333,21 +358,6 @@ public class DslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Resource <em>Resource</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see nii.bigclout.ecaadapter.dsl.Resource
-   * @generated
-   */
-  public Adapter createResourceAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Action <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -358,36 +368,6 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createActionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.MappingPair <em>Mapping Pair</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see nii.bigclout.ecaadapter.dsl.MappingPair
-   * @generated
-   */
-  public Adapter createMappingPairAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Pair <em>Pair</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see nii.bigclout.ecaadapter.dsl.Pair
-   * @generated
-   */
-  public Adapter createPairAdapter()
   {
     return null;
   }
@@ -618,21 +598,6 @@ public class DslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.String_Object <em>String Object</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see nii.bigclout.ecaadapter.dsl.String_Object
-   * @generated
-   */
-  public Adapter createString_ObjectAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.Boolean_Object <em>Boolean Object</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -658,6 +623,21 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createResource_ObjectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.State_Object <em>State Object</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.State_Object
+   * @generated
+   */
+  public Adapter createState_ObjectAdapter()
   {
     return null;
   }

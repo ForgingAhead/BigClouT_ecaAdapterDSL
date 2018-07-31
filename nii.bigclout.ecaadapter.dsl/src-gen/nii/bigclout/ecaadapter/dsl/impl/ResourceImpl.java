@@ -7,17 +7,21 @@ import java.util.Collection;
 
 import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.Resource;
+import nii.bigclout.ecaadapter.dsl.State;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,14 +60,14 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getStates() <em>States</em>}' attribute list.
+   * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getStates()
    * @generated
    * @ordered
    */
-  protected EList<String> states;
+  protected EList<State> states;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,13 +118,29 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getStates()
+  public EList<State> getStates()
   {
     if (states == null)
     {
-      states = new EDataTypeEList<String>(String.class, this, DslPackage.RESOURCE__STATES);
+      states = new EObjectContainmentEList<State>(State.class, this, DslPackage.RESOURCE__STATES);
     }
     return states;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DslPackage.RESOURCE__STATES:
+        return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -157,7 +177,7 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
         return;
       case DslPackage.RESOURCE__STATES:
         getStates().clear();
-        getStates().addAll((Collection<? extends String>)newValue);
+        getStates().addAll((Collection<? extends State>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -214,8 +234,6 @@ public class ResourceImpl extends MinimalEObjectImpl.Container implements Resour
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", states: ");
-    result.append(states);
     result.append(')');
     return result.toString();
   }

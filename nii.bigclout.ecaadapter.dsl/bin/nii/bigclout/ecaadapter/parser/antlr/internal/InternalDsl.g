@@ -140,23 +140,132 @@ ruleRunTimeModel returns [EObject current=null]
 				}
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleState
+entryRuleState returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getStateRule()); }
+	iv_ruleState=ruleState
+	{ $current=$iv_ruleState.current; }
+	EOF;
+
+// Rule State
+ruleState returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_name_0_0=RULE_ID
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getStateAccess().getNameIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getStateRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"nii.bigclout.ecaadapter.Dsl.ID");
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleResource
+entryRuleResource returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getResourceRule()); }
+	iv_ruleResource=ruleResource
+	{ $current=$iv_ruleResource.current; }
+	EOF;
+
+// Rule Resource
+ruleResource returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='resource'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getResourceAccess().getResourceKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getResourceAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getResourceRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"nii.bigclout.ecaadapter.Dsl.ID");
+				}
+			)
+		)
+		otherlv_2='can'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getResourceAccess().getCanKeyword_2());
+		}
+		otherlv_3='be'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getResourceAccess().getBeKeyword_3());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRunTimeModelAccess().getMappingPairsMappingPairParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getResourceAccess().getStatesStateParserRuleCall_4_0());
 				}
-				lv_mappingPairs_4_0=ruleMappingPair
+				lv_states_4_0=ruleState
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRunTimeModelRule());
+						$current = createModelElementForParent(grammarAccess.getResourceRule());
 					}
 					add(
 						$current,
-						"mappingPairs",
-						lv_mappingPairs_4_0,
-						"nii.bigclout.ecaadapter.Dsl.MappingPair");
+						"states",
+						lv_states_4_0,
+						"nii.bigclout.ecaadapter.Dsl.State");
 					afterParserOrEnumRuleCall();
 				}
+			)
+		)
+		(
+			otherlv_5=','
+			{
+				newLeafNode(otherlv_5, grammarAccess.getResourceAccess().getCommaKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getResourceAccess().getStatesStateParserRuleCall_5_1_0());
+					}
+					lv_states_6_0=ruleState
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getResourceRule());
+						}
+						add(
+							$current,
+							"states",
+							lv_states_6_0,
+							"nii.bigclout.ecaadapter.Dsl.State");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)*
 	)
@@ -471,133 +580,6 @@ ruleServiceMetaData returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleResource
-entryRuleResource returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getResourceRule()); }
-	iv_ruleResource=ruleResource
-	{ $current=$iv_ruleResource.current; }
-	EOF;
-
-// Rule Resource
-ruleResource returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='resource'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getResourceAccess().getResourceKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getResourceAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getResourceRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"nii.bigclout.ecaadapter.Dsl.ID");
-				}
-			)
-		)
-		otherlv_2='can'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getResourceAccess().getCanKeyword_2());
-		}
-		otherlv_3='be'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getResourceAccess().getBeKeyword_3());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getResourceAccess().getStatesStateParserRuleCall_4_0());
-				}
-				lv_states_4_0=ruleState
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getResourceRule());
-					}
-					add(
-						$current,
-						"states",
-						lv_states_4_0,
-						"nii.bigclout.ecaadapter.Dsl.State");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_5=','
-			{
-				newLeafNode(otherlv_5, grammarAccess.getResourceAccess().getCommaKeyword_5_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getResourceAccess().getStatesStateParserRuleCall_5_1_0());
-					}
-					lv_states_6_0=ruleState
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getResourceRule());
-						}
-						add(
-							$current,
-							"states",
-							lv_states_6_0,
-							"nii.bigclout.ecaadapter.Dsl.State");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleState
-entryRuleState returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getStateRule()); }
-	iv_ruleState=ruleState
-	{ $current=$iv_ruleState.current.getText(); }
-	EOF;
-
-// Rule State
-ruleState returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_ID_0=RULE_ID
-		{
-			$current.merge(this_ID_0);
-		}
-		{
-			newLeafNode(this_ID_0, grammarAccess.getStateAccess().getIDTerminalRuleCall_0());
-		}
-		    |
-		this_INT_1=RULE_INT
-		{
-			$current.merge(this_INT_1);
-		}
-		{
-			newLeafNode(this_INT_1, grammarAccess.getStateAccess().getINTTerminalRuleCall_1());
-		}
-	)
-;
-
 // Entry rule entryRuleAction
 entryRuleAction returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getActionRule()); }
@@ -650,155 +632,6 @@ ruleAction returns [EObject current=null]
 				}
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleMappingPair
-entryRuleMappingPair returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getMappingPairRule()); }
-	iv_ruleMappingPair=ruleMappingPair
-	{ $current=$iv_ruleMappingPair.current; }
-	EOF;
-
-// Rule MappingPair
-ruleMappingPair returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getMappingPairAccess().getMappingPairAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='mapping'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getMappingPairAccess().getMappingKeyword_1());
-		}
-		{
-			newCompositeNode(grammarAccess.getMappingPairAccess().getLBRACEParserRuleCall_2());
-		}
-		ruleLBRACE
-		{
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getMappingPairAccess().getMappingsPairParserRuleCall_3_0());
-				}
-				lv_mappings_3_0=rulePair
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMappingPairRule());
-					}
-					add(
-						$current,
-						"mappings",
-						lv_mappings_3_0,
-						"nii.bigclout.ecaadapter.Dsl.Pair");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		{
-			newCompositeNode(grammarAccess.getMappingPairAccess().getRBRACEParserRuleCall_4());
-		}
-		ruleRBRACE
-		{
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRulePair
-entryRulePair returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getPairRule()); }
-	iv_rulePair=rulePair
-	{ $current=$iv_rulePair.current; }
-	EOF;
-
-// Rule Pair
-rulePair returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='('
-		{
-			newLeafNode(otherlv_0, grammarAccess.getPairAccess().getLeftParenthesisKeyword_0());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getPairRule());
-					}
-				}
-				otherlv_1=RULE_ID
-				{
-					newLeafNode(otherlv_1, grammarAccess.getPairAccess().getResourceResourceCrossReference_1_0());
-				}
-			)
-		)
-		otherlv_2=','
-		{
-			newLeafNode(otherlv_2, grammarAccess.getPairAccess().getCommaKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getPairAccess().getStateUnaryElementParserRuleCall_3_0());
-				}
-				lv_state_3_0=ruleUnaryElement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPairRule());
-					}
-					set(
-						$current,
-						"state",
-						lv_state_3_0,
-						"nii.bigclout.ecaadapter.Dsl.UnaryElement");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4=','
-		{
-			newLeafNode(otherlv_4, grammarAccess.getPairAccess().getCommaKeyword_4());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getPairAccess().getCodeEXTENDED_STRINGParserRuleCall_5_0());
-				}
-				lv_code_5_0=ruleEXTENDED_STRING
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPairRule());
-					}
-					set(
-						$current,
-						"code",
-						lv_code_5_0,
-						"nii.bigclout.ecaadapter.Dsl.EXTENDED_STRING");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_6=')'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getPairAccess().getRightParenthesisKeyword_6());
-		}
 	)
 ;
 
@@ -1444,44 +1277,15 @@ ruleUnaryElement returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getUnaryElementAccess().getString_ObjectAction_1_0(),
+						grammarAccess.getUnaryElementAccess().getBoolean_ObjectAction_1_0(),
 						$current);
 				}
 			)
 			(
 				(
+					lv_value_3_0=RULE_BOOLEAN
 					{
-						newCompositeNode(grammarAccess.getUnaryElementAccess().getValueEXTENDED_STRINGParserRuleCall_1_1_0());
-					}
-					lv_value_3_0=ruleEXTENDED_STRING
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getUnaryElementRule());
-						}
-						set(
-							$current,
-							"value",
-							lv_value_3_0,
-							"nii.bigclout.ecaadapter.Dsl.EXTENDED_STRING");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getUnaryElementAccess().getBoolean_ObjectAction_2_0(),
-						$current);
-				}
-			)
-			(
-				(
-					lv_value_5_0=RULE_BOOLEAN
-					{
-						newLeafNode(lv_value_5_0, grammarAccess.getUnaryElementAccess().getValueBOOLEANTerminalRuleCall_2_1_0());
+						newLeafNode(lv_value_3_0, grammarAccess.getUnaryElementAccess().getValueBOOLEANTerminalRuleCall_1_1_0());
 					}
 					{
 						if ($current==null) {
@@ -1490,7 +1294,7 @@ ruleUnaryElement returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"value",
-							lv_value_5_0,
+							lv_value_3_0,
 							"nii.bigclout.ecaadapter.Dsl.BOOLEAN");
 					}
 				)
@@ -1501,7 +1305,7 @@ ruleUnaryElement returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getUnaryElementAccess().getResource_ObjectAction_3_0(),
+						grammarAccess.getUnaryElementAccess().getResource_ObjectAction_2_0(),
 						$current);
 				}
 			)
@@ -1512,16 +1316,45 @@ ruleUnaryElement returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getUnaryElementRule());
 						}
 					}
-					otherlv_7=RULE_ID
+					otherlv_5=RULE_ID
 					{
-						newLeafNode(otherlv_7, grammarAccess.getUnaryElementAccess().getValueResourceCrossReference_3_1_0());
+						newLeafNode(otherlv_5, grammarAccess.getUnaryElementAccess().getValueResourceCrossReference_2_1_0());
 					}
 				)
 			)
-			otherlv_8='.state'
+			otherlv_6='.state'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getUnaryElementAccess().getStateKeyword_3_2());
+				newLeafNode(otherlv_6, grammarAccess.getUnaryElementAccess().getStateKeyword_2_2());
 			}
+		)
+		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getUnaryElementAccess().getState_ObjectAction_3_0(),
+						$current);
+				}
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getUnaryElementAccess().getValueStateParserRuleCall_3_1_0());
+					}
+					lv_value_8_0=ruleState
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getUnaryElementRule());
+						}
+						set(
+							$current,
+							"value",
+							lv_value_8_0,
+							"nii.bigclout.ecaadapter.Dsl.State");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)
 		    |
 		(
@@ -1667,58 +1500,6 @@ ruleNUMBER returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 				newLeafNode(this_INT_3, grammarAccess.getNUMBERAccess().getINTTerminalRuleCall_1_2());
 			}
 		)
-	)
-;
-
-// Entry rule entryRuleEXTENDED_STRING
-entryRuleEXTENDED_STRING returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getEXTENDED_STRINGRule()); }
-	iv_ruleEXTENDED_STRING=ruleEXTENDED_STRING
-	{ $current=$iv_ruleEXTENDED_STRING.current.getText(); }
-	EOF;
-
-// Rule EXTENDED_STRING
-ruleEXTENDED_STRING returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_ID_0=RULE_ID
-		{
-			$current.merge(this_ID_0);
-		}
-		{
-			newLeafNode(this_ID_0, grammarAccess.getEXTENDED_STRINGAccess().getIDTerminalRuleCall_0());
-		}
-		(
-			kw='.'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getEXTENDED_STRINGAccess().getFullStopKeyword_1_0());
-			}
-			this_ID_2=RULE_ID
-			{
-				$current.merge(this_ID_2);
-			}
-			{
-				newLeafNode(this_ID_2, grammarAccess.getEXTENDED_STRINGAccess().getIDTerminalRuleCall_1_1());
-			}
-		)*
-		(
-			kw='('
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getEXTENDED_STRINGAccess().getLeftParenthesisKeyword_2_0());
-			}
-			kw=')'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getEXTENDED_STRINGAccess().getRightParenthesisKeyword_2_1());
-			}
-		)?
 	)
 ;
 

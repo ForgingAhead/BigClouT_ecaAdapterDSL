@@ -6,8 +6,10 @@ package nii.bigclout.ecaadapter.dsl.impl;
 import nii.bigclout.ecaadapter.dsl.Action;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.Resource;
+import nii.bigclout.ecaadapter.dsl.State;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -42,24 +44,14 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
   protected Resource resource;
 
   /**
-   * The default value of the '{@link #getState() <em>State</em>}' attribute.
+   * The cached value of the '{@link #getState() <em>State</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getState()
    * @generated
    * @ordered
    */
-  protected static final String STATE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getState() <em>State</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getState()
-   * @generated
-   * @ordered
-   */
-  protected String state = STATE_EDEFAULT;
+  protected State state;
 
   /**
    * <!-- begin-user-doc -->
@@ -130,7 +122,7 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getState()
+  public State getState()
   {
     return state;
   }
@@ -140,12 +132,53 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setState(String newState)
+  public NotificationChain basicSetState(State newState, NotificationChain msgs)
   {
-    String oldState = state;
+    State oldState = state;
     state = newState;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ACTION__STATE, oldState, state));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.ACTION__STATE, oldState, newState);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setState(State newState)
+  {
+    if (newState != state)
+    {
+      NotificationChain msgs = null;
+      if (state != null)
+        msgs = ((InternalEObject)state).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.ACTION__STATE, null, msgs);
+      if (newState != null)
+        msgs = ((InternalEObject)newState).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.ACTION__STATE, null, msgs);
+      msgs = basicSetState(newState, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ACTION__STATE, newState, newState));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DslPackage.ACTION__STATE:
+        return basicSetState(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -181,7 +214,7 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
         setResource((Resource)newValue);
         return;
       case DslPackage.ACTION__STATE:
-        setState((String)newValue);
+        setState((State)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -201,7 +234,7 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
         setResource((Resource)null);
         return;
       case DslPackage.ACTION__STATE:
-        setState(STATE_EDEFAULT);
+        setState((State)null);
         return;
     }
     super.eUnset(featureID);
@@ -220,26 +253,9 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
       case DslPackage.ACTION__RESOURCE:
         return resource != null;
       case DslPackage.ACTION__STATE:
-        return STATE_EDEFAULT == null ? state != null : !STATE_EDEFAULT.equals(state);
+        return state != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (state: ");
-    result.append(state);
-    result.append(')');
-    return result.toString();
   }
 
 } //ActionImpl

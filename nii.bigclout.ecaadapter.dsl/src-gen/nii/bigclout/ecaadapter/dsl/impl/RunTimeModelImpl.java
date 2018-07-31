@@ -8,7 +8,6 @@ import java.util.Collection;
 import nii.bigclout.ecaadapter.dsl.AppMetaData;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.EnvironmentMetaData;
-import nii.bigclout.ecaadapter.dsl.MappingPair;
 import nii.bigclout.ecaadapter.dsl.RunTimeModel;
 import nii.bigclout.ecaadapter.dsl.ServiceMetaData;
 
@@ -35,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.RunTimeModelImpl#getEnvData <em>Env Data</em>}</li>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.RunTimeModelImpl#getAppData <em>App Data</em>}</li>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.RunTimeModelImpl#getServicesData <em>Services Data</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.RunTimeModelImpl#getMappingPairs <em>Mapping Pairs</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,16 +69,6 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
    * @ordered
    */
   protected EList<ServiceMetaData> servicesData;
-
-  /**
-   * The cached value of the '{@link #getMappingPairs() <em>Mapping Pairs</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMappingPairs()
-   * @generated
-   * @ordered
-   */
-  protected EList<MappingPair> mappingPairs;
 
   /**
    * <!-- begin-user-doc -->
@@ -150,20 +138,6 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<MappingPair> getMappingPairs()
-  {
-    if (mappingPairs == null)
-    {
-      mappingPairs = new EObjectContainmentEList<MappingPair>(MappingPair.class, this, DslPackage.RUN_TIME_MODEL__MAPPING_PAIRS);
-    }
-    return mappingPairs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -175,8 +149,6 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
         return ((InternalEList<?>)getAppData()).basicRemove(otherEnd, msgs);
       case DslPackage.RUN_TIME_MODEL__SERVICES_DATA:
         return ((InternalEList<?>)getServicesData()).basicRemove(otherEnd, msgs);
-      case DslPackage.RUN_TIME_MODEL__MAPPING_PAIRS:
-        return ((InternalEList<?>)getMappingPairs()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,8 +169,6 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
         return getAppData();
       case DslPackage.RUN_TIME_MODEL__SERVICES_DATA:
         return getServicesData();
-      case DslPackage.RUN_TIME_MODEL__MAPPING_PAIRS:
-        return getMappingPairs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -226,10 +196,6 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
         getServicesData().clear();
         getServicesData().addAll((Collection<? extends ServiceMetaData>)newValue);
         return;
-      case DslPackage.RUN_TIME_MODEL__MAPPING_PAIRS:
-        getMappingPairs().clear();
-        getMappingPairs().addAll((Collection<? extends MappingPair>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -253,9 +219,6 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
       case DslPackage.RUN_TIME_MODEL__SERVICES_DATA:
         getServicesData().clear();
         return;
-      case DslPackage.RUN_TIME_MODEL__MAPPING_PAIRS:
-        getMappingPairs().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -276,8 +239,6 @@ public class RunTimeModelImpl extends MinimalEObjectImpl.Container implements Ru
         return appData != null && !appData.isEmpty();
       case DslPackage.RUN_TIME_MODEL__SERVICES_DATA:
         return servicesData != null && !servicesData.isEmpty();
-      case DslPackage.RUN_TIME_MODEL__MAPPING_PAIRS:
-        return mappingPairs != null && !mappingPairs.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -51,29 +51,29 @@ public interface Action extends EObject
   void setResource(Resource value);
 
   /**
-   * Returns the value of the '<em><b>State</b></em>' attribute.
+   * Returns the value of the '<em><b>State</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>State</em>' attribute isn't clear,
+   * If the meaning of the '<em>State</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>State</em>' attribute.
-   * @see #setState(String)
+   * @return the value of the '<em>State</em>' containment reference.
+   * @see #setState(State)
    * @see nii.bigclout.ecaadapter.dsl.DslPackage#getAction_State()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getState();
+  State getState();
 
   /**
-   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Action#getState <em>State</em>}' attribute.
+   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Action#getState <em>State</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>State</em>' attribute.
+   * @param value the new value of the '<em>State</em>' containment reference.
    * @see #getState()
    * @generated
    */
-  void setState(String value);
+  void setState(State value);
 
 } // Action

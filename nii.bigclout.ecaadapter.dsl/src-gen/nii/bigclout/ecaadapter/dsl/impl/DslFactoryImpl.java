@@ -67,14 +67,13 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
     {
       case DslPackage.RUN_TIME_MODEL: return createRunTimeModel();
       case DslPackage.METADATA: return createMetadata();
+      case DslPackage.STATE: return createState();
+      case DslPackage.RESOURCE: return createResource();
       case DslPackage.APP_META_DATA: return createAppMetaData();
       case DslPackage.SPECIFICATION: return createSpecification();
       case DslPackage.ENVIRONMENT_META_DATA: return createEnvironmentMetaData();
       case DslPackage.SERVICE_META_DATA: return createServiceMetaData();
-      case DslPackage.RESOURCE: return createResource();
       case DslPackage.ACTION: return createAction();
-      case DslPackage.MAPPING_PAIR: return createMappingPair();
-      case DslPackage.PAIR: return createPair();
       case DslPackage.ELEMENT: return createElement();
       case DslPackage.OR_ELEMENT: return createOrElement();
       case DslPackage.AND_ELEMENT: return createAndElement();
@@ -90,9 +89,9 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.DIVISION_ELEMENT: return createDivisionElement();
       case DslPackage.MODULO_ELEMENT: return createModuloElement();
       case DslPackage.NUMBER_OBJECT: return createNumber_Object();
-      case DslPackage.STRING_OBJECT: return createString_Object();
       case DslPackage.BOOLEAN_OBJECT: return createBoolean_Object();
       case DslPackage.RESOURCE_OBJECT: return createResource_Object();
+      case DslPackage.STATE_OBJECT: return createState_Object();
       case DslPackage.NEGATE_ELEMENT: return createNegateElement();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -119,6 +118,28 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     MetadataImpl metadata = new MetadataImpl();
     return metadata;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public State createState()
+  {
+    StateImpl state = new StateImpl();
+    return state;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Resource createResource()
+  {
+    ResourceImpl resource = new ResourceImpl();
+    return resource;
   }
 
   /**
@@ -170,43 +191,10 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Resource createResource()
-  {
-    ResourceImpl resource = new ResourceImpl();
-    return resource;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Action createAction()
   {
     ActionImpl action = new ActionImpl();
     return action;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MappingPair createMappingPair()
-  {
-    MappingPairImpl mappingPair = new MappingPairImpl();
-    return mappingPair;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Pair createPair()
-  {
-    PairImpl pair = new PairImpl();
-    return pair;
   }
 
   /**
@@ -379,17 +367,6 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String_Object createString_Object()
-  {
-    String_ObjectImpl string_Object = new String_ObjectImpl();
-    return string_Object;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Boolean_Object createBoolean_Object()
   {
     Boolean_ObjectImpl boolean_Object = new Boolean_ObjectImpl();
@@ -405,6 +382,17 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     Resource_ObjectImpl resource_Object = new Resource_ObjectImpl();
     return resource_Object;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public State_Object createState_Object()
+  {
+    State_ObjectImpl state_Object = new State_ObjectImpl();
+    return state_Object;
   }
 
   /**

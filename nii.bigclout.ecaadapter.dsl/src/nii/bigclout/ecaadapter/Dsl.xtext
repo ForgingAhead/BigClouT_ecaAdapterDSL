@@ -8,14 +8,20 @@ RunTimeModel:
 	{RunTimeModel}	
 	envData += EnvironmentMetaData*
 	appData += AppMetaData*  
-	servicesData += ServiceMetaData*  
-	mappingPairs += MappingPair*	
+	servicesData += ServiceMetaData*  	
 ;
 
 Metadata:
 	AppMetaData | ServiceMetaData | EnvironmentMetaData
 ;
-	
+
+State: name = ID
+;
+
+Resource:
+	"resource" name=ID
+	"can" "be" states+= State ("," states+=State)*
+;	
 AppMetaData:
 	"app" appID=ID 
 	LBRACE
@@ -47,31 +53,9 @@ ServiceMetaData:
 	//TO-DO TBD
 ;
 
-Resource:
-	"resource" name=ID
-	"can" "be" states+= State ("," states+=State)*
-;
-
-State:
-	ID | INT
-;
 
 Action:
 	resource=[Resource] ":=" state=State	
-;
-
-MappingPair:
-	{MappingPair}
-	"mapping" LBRACE
-	mappings += Pair*
-	RBRACE
-;
-
-Pair:
-	"(" resource = [Resource] //UnaryElement???or just EXTENDED_STRING???? the design, e.g. Window, or Open
-	"," state = UnaryElement	//it could be empty, then it would be a mapping between resource and the code...
-	"," code = EXTENDED_STRING  //the implementation, e.g. sensor1.service2; or [localGateway/window1/switch/state].get()==true
-	")"
 ;
 
 OrElement returns Element:
@@ -114,11 +98,12 @@ MultiplicationDivisionElement returns Element:
 ;
 
 //TO-DO  more thinking here about the UnaryElement...
+//	{String_Object} value=EXTENDED_STRING |
 UnaryElement returns Element:
 	{Number_Object} value=NUMBER |
-	{String_Object} value=EXTENDED_STRING |
 	{Boolean_Object} value=BOOLEAN |
 	{Resource_Object} value=[Resource] ".state"	|
+	{State_Object}	value=State	|
 	"(" OrElement ")" |
 	"not" {NegateElement} exp=UnaryElement
 ;

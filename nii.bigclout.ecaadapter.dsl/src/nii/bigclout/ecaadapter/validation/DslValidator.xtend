@@ -24,5 +24,7 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 */
+
+// write a validation to the state. make sure that the specified states are the ones that the resource can be....
 	
 }

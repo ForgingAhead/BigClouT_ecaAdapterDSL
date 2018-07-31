@@ -87,6 +87,20 @@ public class DslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DslPackage.STATE:
+      {
+        State state = (State)theEObject;
+        T result = caseState(state);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.RESOURCE:
+      {
+        Resource resource = (Resource)theEObject;
+        T result = caseResource(resource);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DslPackage.APP_META_DATA:
       {
         AppMetaData appMetaData = (AppMetaData)theEObject;
@@ -118,31 +132,10 @@ public class DslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DslPackage.RESOURCE:
-      {
-        Resource resource = (Resource)theEObject;
-        T result = caseResource(resource);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DslPackage.ACTION:
       {
         Action action = (Action)theEObject;
         T result = caseAction(action);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DslPackage.MAPPING_PAIR:
-      {
-        MappingPair mappingPair = (MappingPair)theEObject;
-        T result = caseMappingPair(mappingPair);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DslPackage.PAIR:
-      {
-        Pair pair = (Pair)theEObject;
-        T result = casePair(pair);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -265,14 +258,6 @@ public class DslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DslPackage.STRING_OBJECT:
-      {
-        String_Object string_Object = (String_Object)theEObject;
-        T result = caseString_Object(string_Object);
-        if (result == null) result = caseElement(string_Object);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DslPackage.BOOLEAN_OBJECT:
       {
         Boolean_Object boolean_Object = (Boolean_Object)theEObject;
@@ -286,6 +271,14 @@ public class DslSwitch<T> extends Switch<T>
         Resource_Object resource_Object = (Resource_Object)theEObject;
         T result = caseResource_Object(resource_Object);
         if (result == null) result = caseElement(resource_Object);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.STATE_OBJECT:
+      {
+        State_Object state_Object = (State_Object)theEObject;
+        T result = caseState_Object(state_Object);
+        if (result == null) result = caseElement(state_Object);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -329,6 +322,38 @@ public class DslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMetadata(Metadata object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseState(State object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Resource</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseResource(Resource object)
   {
     return null;
   }
@@ -398,22 +423,6 @@ public class DslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Resource</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseResource(Resource object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -425,38 +434,6 @@ public class DslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAction(Action object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Mapping Pair</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mapping Pair</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMappingPair(MappingPair object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Pair</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Pair</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePair(Pair object)
   {
     return null;
   }
@@ -702,22 +679,6 @@ public class DslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>String Object</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>String Object</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseString_Object(String_Object object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Boolean Object</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -745,6 +706,22 @@ public class DslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseResource_Object(Resource_Object object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State Object</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State Object</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseState_Object(State_Object object)
   {
     return null;
   }
