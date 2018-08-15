@@ -253,22 +253,31 @@ public interface DslPackage extends EPackage
   int SPECIFICATION__TRIGGER = 1;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
+   * The feature id for the '<em><b>Ifdo</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SPECIFICATION__CONDITION = 2;
+  int SPECIFICATION__IFDO = 2;
 
   /**
-   * The feature id for the '<em><b>Action</b></em>' containment reference list.
+   * The feature id for the '<em><b>Else If Do</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SPECIFICATION__ACTION = 3;
+  int SPECIFICATION__ELSE_IF_DO = 3;
+
+  /**
+   * The feature id for the '<em><b>Else Do</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPECIFICATION__ELSE_DO = 4;
 
   /**
    * The number of structural features of the '<em>Specification</em>' class.
@@ -277,7 +286,109 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SPECIFICATION_FEATURE_COUNT = 4;
+  int SPECIFICATION_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.IfDoSpecImpl <em>If Do Spec</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.IfDoSpecImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getIfDoSpec()
+   * @generated
+   */
+  int IF_DO_SPEC = 6;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_DO_SPEC__CONDITION = 0;
+
+  /**
+   * The feature id for the '<em><b>Action</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_DO_SPEC__ACTION = 1;
+
+  /**
+   * The number of structural features of the '<em>If Do Spec</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_DO_SPEC_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.ElseIfDoSpecImpl <em>Else If Do Spec</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.ElseIfDoSpecImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getElseIfDoSpec()
+   * @generated
+   */
+  int ELSE_IF_DO_SPEC = 7;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_IF_DO_SPEC__CONDITION = 0;
+
+  /**
+   * The feature id for the '<em><b>Action</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_IF_DO_SPEC__ACTION = 1;
+
+  /**
+   * The number of structural features of the '<em>Else If Do Spec</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_IF_DO_SPEC_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.ElseDoSpecImpl <em>Else Do Spec</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nii.bigclout.ecaadapter.dsl.impl.ElseDoSpecImpl
+   * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getElseDoSpec()
+   * @generated
+   */
+  int ELSE_DO_SPEC = 8;
+
+  /**
+   * The feature id for the '<em><b>Action</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_DO_SPEC__ACTION = 0;
+
+  /**
+   * The number of structural features of the '<em>Else Do Spec</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_DO_SPEC_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link nii.bigclout.ecaadapter.dsl.impl.EnvironmentMetaDataImpl <em>Environment Meta Data</em>}' class.
@@ -287,7 +398,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getEnvironmentMetaData()
    * @generated
    */
-  int ENVIRONMENT_META_DATA = 6;
+  int ENVIRONMENT_META_DATA = 9;
 
   /**
    * The feature id for the '<em><b>Resources</b></em>' containment reference list.
@@ -315,7 +426,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getServiceMetaData()
    * @generated
    */
-  int SERVICE_META_DATA = 7;
+  int SERVICE_META_DATA = 10;
 
   /**
    * The feature id for the '<em><b>Service ID</b></em>' attribute.
@@ -343,7 +454,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getAction()
    * @generated
    */
-  int ACTION = 8;
+  int ACTION = 11;
 
   /**
    * The feature id for the '<em><b>Resource</b></em>' reference.
@@ -380,7 +491,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getElement()
    * @generated
    */
-  int ELEMENT = 9;
+  int ELEMENT = 12;
 
   /**
    * The number of structural features of the '<em>Element</em>' class.
@@ -399,7 +510,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getOrElement()
    * @generated
    */
-  int OR_ELEMENT = 10;
+  int OR_ELEMENT = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -436,7 +547,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getAndElement()
    * @generated
    */
-  int AND_ELEMENT = 11;
+  int AND_ELEMENT = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -473,7 +584,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getDiffElement()
    * @generated
    */
-  int DIFF_ELEMENT = 12;
+  int DIFF_ELEMENT = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -510,7 +621,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getEqualElement()
    * @generated
    */
-  int EQUAL_ELEMENT = 13;
+  int EQUAL_ELEMENT = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -547,7 +658,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getLargerElement()
    * @generated
    */
-  int LARGER_ELEMENT = 14;
+  int LARGER_ELEMENT = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -584,7 +695,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getLargerEqualElement()
    * @generated
    */
-  int LARGER_EQUAL_ELEMENT = 15;
+  int LARGER_EQUAL_ELEMENT = 18;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -621,7 +732,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSmallerElement()
    * @generated
    */
-  int SMALLER_ELEMENT = 16;
+  int SMALLER_ELEMENT = 19;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -658,7 +769,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getSmallerEqualElement()
    * @generated
    */
-  int SMALLER_EQUAL_ELEMENT = 17;
+  int SMALLER_EQUAL_ELEMENT = 20;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -695,7 +806,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getPlusElement()
    * @generated
    */
-  int PLUS_ELEMENT = 18;
+  int PLUS_ELEMENT = 21;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -732,7 +843,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMinusElement()
    * @generated
    */
-  int MINUS_ELEMENT = 19;
+  int MINUS_ELEMENT = 22;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -769,7 +880,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getMultiplicationElement()
    * @generated
    */
-  int MULTIPLICATION_ELEMENT = 20;
+  int MULTIPLICATION_ELEMENT = 23;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -806,7 +917,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getDivisionElement()
    * @generated
    */
-  int DIVISION_ELEMENT = 21;
+  int DIVISION_ELEMENT = 24;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -843,7 +954,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getModuloElement()
    * @generated
    */
-  int MODULO_ELEMENT = 22;
+  int MODULO_ELEMENT = 25;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -880,7 +991,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getNumber_Object()
    * @generated
    */
-  int NUMBER_OBJECT = 23;
+  int NUMBER_OBJECT = 26;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -908,7 +1019,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getBoolean_Object()
    * @generated
    */
-  int BOOLEAN_OBJECT = 24;
+  int BOOLEAN_OBJECT = 27;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -936,7 +1047,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getResource_Object()
    * @generated
    */
-  int RESOURCE_OBJECT = 25;
+  int RESOURCE_OBJECT = 28;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' reference.
@@ -964,7 +1075,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getState_Object()
    * @generated
    */
-  int STATE_OBJECT = 26;
+  int STATE_OBJECT = 29;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -992,7 +1103,7 @@ public interface DslPackage extends EPackage
    * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getNegateElement()
    * @generated
    */
-  int NEGATE_ELEMENT = 27;
+  int NEGATE_ELEMENT = 30;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -1184,26 +1295,122 @@ public interface DslPackage extends EPackage
   EReference getSpecification_Trigger();
 
   /**
-   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.Specification#getCondition <em>Condition</em>}'.
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.Specification#getIfdo <em>Ifdo</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Condition</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Specification#getCondition()
+   * @return the meta object for the containment reference '<em>Ifdo</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Specification#getIfdo()
    * @see #getSpecification()
    * @generated
    */
-  EReference getSpecification_Condition();
+  EReference getSpecification_Ifdo();
 
   /**
-   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.Specification#getAction <em>Action</em>}'.
+   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.Specification#getElseIfDo <em>Else If Do</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Else If Do</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Specification#getElseIfDo()
+   * @see #getSpecification()
+   * @generated
+   */
+  EReference getSpecification_ElseIfDo();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.Specification#getElseDo <em>Else Do</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else Do</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.Specification#getElseDo()
+   * @see #getSpecification()
+   * @generated
+   */
+  EReference getSpecification_ElseDo();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.IfDoSpec <em>If Do Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Do Spec</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.IfDoSpec
+   * @generated
+   */
+  EClass getIfDoSpec();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.IfDoSpec#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.IfDoSpec#getCondition()
+   * @see #getIfDoSpec()
+   * @generated
+   */
+  EReference getIfDoSpec_Condition();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.IfDoSpec#getAction <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Action</em>'.
-   * @see nii.bigclout.ecaadapter.dsl.Specification#getAction()
-   * @see #getSpecification()
+   * @see nii.bigclout.ecaadapter.dsl.IfDoSpec#getAction()
+   * @see #getIfDoSpec()
    * @generated
    */
-  EReference getSpecification_Action();
+  EReference getIfDoSpec_Action();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.ElseIfDoSpec <em>Else If Do Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Else If Do Spec</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.ElseIfDoSpec
+   * @generated
+   */
+  EClass getElseIfDoSpec();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nii.bigclout.ecaadapter.dsl.ElseIfDoSpec#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.ElseIfDoSpec#getCondition()
+   * @see #getElseIfDoSpec()
+   * @generated
+   */
+  EReference getElseIfDoSpec_Condition();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.ElseIfDoSpec#getAction <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Action</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.ElseIfDoSpec#getAction()
+   * @see #getElseIfDoSpec()
+   * @generated
+   */
+  EReference getElseIfDoSpec_Action();
+
+  /**
+   * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.ElseDoSpec <em>Else Do Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Else Do Spec</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.ElseDoSpec
+   * @generated
+   */
+  EClass getElseDoSpec();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link nii.bigclout.ecaadapter.dsl.ElseDoSpec#getAction <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Action</em>'.
+   * @see nii.bigclout.ecaadapter.dsl.ElseDoSpec#getAction()
+   * @see #getElseDoSpec()
+   * @generated
+   */
+  EReference getElseDoSpec_Action();
 
   /**
    * Returns the meta object for class '{@link nii.bigclout.ecaadapter.dsl.EnvironmentMetaData <em>Environment Meta Data</em>}'.
@@ -1974,12 +2181,46 @@ public interface DslPackage extends EPackage
     EReference SPECIFICATION__TRIGGER = eINSTANCE.getSpecification_Trigger();
 
     /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Ifdo</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SPECIFICATION__CONDITION = eINSTANCE.getSpecification_Condition();
+    EReference SPECIFICATION__IFDO = eINSTANCE.getSpecification_Ifdo();
+
+    /**
+     * The meta object literal for the '<em><b>Else If Do</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SPECIFICATION__ELSE_IF_DO = eINSTANCE.getSpecification_ElseIfDo();
+
+    /**
+     * The meta object literal for the '<em><b>Else Do</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SPECIFICATION__ELSE_DO = eINSTANCE.getSpecification_ElseDo();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.IfDoSpecImpl <em>If Do Spec</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.IfDoSpecImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getIfDoSpec()
+     * @generated
+     */
+    EClass IF_DO_SPEC = eINSTANCE.getIfDoSpec();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_DO_SPEC__CONDITION = eINSTANCE.getIfDoSpec_Condition();
 
     /**
      * The meta object literal for the '<em><b>Action</b></em>' containment reference list feature.
@@ -1987,7 +2228,51 @@ public interface DslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SPECIFICATION__ACTION = eINSTANCE.getSpecification_Action();
+    EReference IF_DO_SPEC__ACTION = eINSTANCE.getIfDoSpec_Action();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.ElseIfDoSpecImpl <em>Else If Do Spec</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.ElseIfDoSpecImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getElseIfDoSpec()
+     * @generated
+     */
+    EClass ELSE_IF_DO_SPEC = eINSTANCE.getElseIfDoSpec();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELSE_IF_DO_SPEC__CONDITION = eINSTANCE.getElseIfDoSpec_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Action</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELSE_IF_DO_SPEC__ACTION = eINSTANCE.getElseIfDoSpec_Action();
+
+    /**
+     * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.ElseDoSpecImpl <em>Else Do Spec</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nii.bigclout.ecaadapter.dsl.impl.ElseDoSpecImpl
+     * @see nii.bigclout.ecaadapter.dsl.impl.DslPackageImpl#getElseDoSpec()
+     * @generated
+     */
+    EClass ELSE_DO_SPEC = eINSTANCE.getElseDoSpec();
+
+    /**
+     * The meta object literal for the '<em><b>Action</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELSE_DO_SPEC__ACTION = eINSTANCE.getElseDoSpec_Action();
 
     /**
      * The meta object literal for the '{@link nii.bigclout.ecaadapter.dsl.impl.EnvironmentMetaDataImpl <em>Environment Meta Data</em>}' class.

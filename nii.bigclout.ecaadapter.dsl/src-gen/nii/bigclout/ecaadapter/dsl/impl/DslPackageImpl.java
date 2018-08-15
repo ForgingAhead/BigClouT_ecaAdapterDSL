@@ -12,8 +12,11 @@ import nii.bigclout.ecaadapter.dsl.DivisionElement;
 import nii.bigclout.ecaadapter.dsl.DslFactory;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.Element;
+import nii.bigclout.ecaadapter.dsl.ElseDoSpec;
+import nii.bigclout.ecaadapter.dsl.ElseIfDoSpec;
 import nii.bigclout.ecaadapter.dsl.EnvironmentMetaData;
 import nii.bigclout.ecaadapter.dsl.EqualElement;
+import nii.bigclout.ecaadapter.dsl.IfDoSpec;
 import nii.bigclout.ecaadapter.dsl.LargerElement;
 import nii.bigclout.ecaadapter.dsl.LargerEqualElement;
 import nii.bigclout.ecaadapter.dsl.Metadata;
@@ -90,6 +93,27 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass specificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ifDoSpecEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass elseIfDoSpecEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass elseDoSpecEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -473,7 +497,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSpecification_Condition()
+  public EReference getSpecification_Ifdo()
   {
     return (EReference)specificationEClass.getEStructuralFeatures().get(2);
   }
@@ -483,9 +507,99 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSpecification_Action()
+  public EReference getSpecification_ElseIfDo()
   {
     return (EReference)specificationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSpecification_ElseDo()
+  {
+    return (EReference)specificationEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIfDoSpec()
+  {
+    return ifDoSpecEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIfDoSpec_Condition()
+  {
+    return (EReference)ifDoSpecEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIfDoSpec_Action()
+  {
+    return (EReference)ifDoSpecEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getElseIfDoSpec()
+  {
+    return elseIfDoSpecEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getElseIfDoSpec_Condition()
+  {
+    return (EReference)elseIfDoSpecEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getElseIfDoSpec_Action()
+  {
+    return (EReference)elseIfDoSpecEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getElseDoSpec()
+  {
+    return elseDoSpecEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getElseDoSpec_Action()
+  {
+    return (EReference)elseDoSpecEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1109,8 +1223,20 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     specificationEClass = createEClass(SPECIFICATION);
     createEAttribute(specificationEClass, SPECIFICATION__SPEC_ID);
     createEReference(specificationEClass, SPECIFICATION__TRIGGER);
-    createEReference(specificationEClass, SPECIFICATION__CONDITION);
-    createEReference(specificationEClass, SPECIFICATION__ACTION);
+    createEReference(specificationEClass, SPECIFICATION__IFDO);
+    createEReference(specificationEClass, SPECIFICATION__ELSE_IF_DO);
+    createEReference(specificationEClass, SPECIFICATION__ELSE_DO);
+
+    ifDoSpecEClass = createEClass(IF_DO_SPEC);
+    createEReference(ifDoSpecEClass, IF_DO_SPEC__CONDITION);
+    createEReference(ifDoSpecEClass, IF_DO_SPEC__ACTION);
+
+    elseIfDoSpecEClass = createEClass(ELSE_IF_DO_SPEC);
+    createEReference(elseIfDoSpecEClass, ELSE_IF_DO_SPEC__CONDITION);
+    createEReference(elseIfDoSpecEClass, ELSE_IF_DO_SPEC__ACTION);
+
+    elseDoSpecEClass = createEClass(ELSE_DO_SPEC);
+    createEReference(elseDoSpecEClass, ELSE_DO_SPEC__ACTION);
 
     environmentMetaDataEClass = createEClass(ENVIRONMENT_META_DATA);
     createEReference(environmentMetaDataEClass, ENVIRONMENT_META_DATA__RESOURCES);
@@ -1265,8 +1391,20 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEClass(specificationEClass, Specification.class, "Specification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSpecification_SpecID(), ecorePackage.getEString(), "specID", null, 0, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecification_Trigger(), this.getElement(), null, "trigger", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSpecification_Condition(), this.getElement(), null, "condition", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSpecification_Action(), this.getAction(), null, "action", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecification_Ifdo(), this.getIfDoSpec(), null, "ifdo", null, 0, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecification_ElseIfDo(), this.getElseIfDoSpec(), null, "elseIfDo", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecification_ElseDo(), this.getElseDoSpec(), null, "elseDo", null, 0, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ifDoSpecEClass, IfDoSpec.class, "IfDoSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIfDoSpec_Condition(), this.getElement(), null, "condition", null, 0, 1, IfDoSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfDoSpec_Action(), this.getAction(), null, "action", null, 0, -1, IfDoSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(elseIfDoSpecEClass, ElseIfDoSpec.class, "ElseIfDoSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElseIfDoSpec_Condition(), this.getElement(), null, "condition", null, 0, 1, ElseIfDoSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getElseIfDoSpec_Action(), this.getAction(), null, "action", null, 0, -1, ElseIfDoSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(elseDoSpecEClass, ElseDoSpec.class, "ElseDoSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElseDoSpec_Action(), this.getAction(), null, "action", null, 0, -1, ElseDoSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(environmentMetaDataEClass, EnvironmentMetaData.class, "EnvironmentMetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnvironmentMetaData_Resources(), this.getResource(), null, "resources", null, 0, -1, EnvironmentMetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

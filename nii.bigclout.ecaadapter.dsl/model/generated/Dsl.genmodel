@@ -26,8 +26,20 @@
     <genClasses ecoreClass="Dsl.ecore#//Specification">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Specification/specID"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Specification/trigger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Specification/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Specification/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Specification/ifdo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Specification/elseIfDo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Specification/elseDo"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//IfDoSpec">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//IfDoSpec/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//IfDoSpec/action"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//ElseIfDoSpec">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//ElseIfDoSpec/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//ElseIfDoSpec/action"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//ElseDoSpec">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//ElseDoSpec/action"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//EnvironmentMetaData">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//EnvironmentMetaData/resources"/>

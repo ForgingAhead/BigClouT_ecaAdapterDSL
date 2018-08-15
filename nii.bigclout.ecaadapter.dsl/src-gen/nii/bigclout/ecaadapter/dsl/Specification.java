@@ -18,8 +18,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.Specification#getSpecID <em>Spec ID</em>}</li>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.Specification#getTrigger <em>Trigger</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.Specification#getCondition <em>Condition</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.Specification#getAction <em>Action</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.Specification#getIfdo <em>Ifdo</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.Specification#getElseIfDo <em>Else If Do</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.Specification#getElseDo <em>Else Do</em>}</li>
  * </ul>
  *
  * @see nii.bigclout.ecaadapter.dsl.DslPackage#getSpecification()
@@ -71,35 +72,71 @@ public interface Specification extends EObject
   EList<Element> getTrigger();
 
   /**
-   * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
-   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.Element}.
+   * Returns the value of the '<em><b>Ifdo</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Condition</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Ifdo</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Condition</em>' containment reference list.
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getSpecification_Condition()
+   * @return the value of the '<em>Ifdo</em>' containment reference.
+   * @see #setIfdo(IfDoSpec)
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getSpecification_Ifdo()
    * @model containment="true"
    * @generated
    */
-  EList<Element> getCondition();
+  IfDoSpec getIfdo();
 
   /**
-   * Returns the value of the '<em><b>Action</b></em>' containment reference list.
-   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.Action}.
+   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Specification#getIfdo <em>Ifdo</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ifdo</em>' containment reference.
+   * @see #getIfdo()
+   * @generated
+   */
+  void setIfdo(IfDoSpec value);
+
+  /**
+   * Returns the value of the '<em><b>Else If Do</b></em>' containment reference list.
+   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.ElseIfDoSpec}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Action</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Else If Do</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Action</em>' containment reference list.
-   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getSpecification_Action()
+   * @return the value of the '<em>Else If Do</em>' containment reference list.
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getSpecification_ElseIfDo()
    * @model containment="true"
    * @generated
    */
-  EList<Action> getAction();
+  EList<ElseIfDoSpec> getElseIfDo();
+
+  /**
+   * Returns the value of the '<em><b>Else Do</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Else Do</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Else Do</em>' containment reference.
+   * @see #setElseDo(ElseDoSpec)
+   * @see nii.bigclout.ecaadapter.dsl.DslPackage#getSpecification_ElseDo()
+   * @model containment="true"
+   * @generated
+   */
+  ElseDoSpec getElseDo();
+
+  /**
+   * Sets the value of the '{@link nii.bigclout.ecaadapter.dsl.Specification#getElseDo <em>Else Do</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Else Do</em>' containment reference.
+   * @see #getElseDo()
+   * @generated
+   */
+  void setElseDo(ElseDoSpec value);
 
 } // Specification

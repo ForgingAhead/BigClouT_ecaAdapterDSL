@@ -106,6 +106,21 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createSpecificationAdapter();
       }
       @Override
+      public Adapter caseIfDoSpec(IfDoSpec object)
+      {
+        return createIfDoSpecAdapter();
+      }
+      @Override
+      public Adapter caseElseIfDoSpec(ElseIfDoSpec object)
+      {
+        return createElseIfDoSpecAdapter();
+      }
+      @Override
+      public Adapter caseElseDoSpec(ElseDoSpec object)
+      {
+        return createElseDoSpecAdapter();
+      }
+      @Override
       public Adapter caseEnvironmentMetaData(EnvironmentMetaData object)
       {
         return createEnvironmentMetaDataAdapter();
@@ -323,6 +338,51 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.IfDoSpec <em>If Do Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.IfDoSpec
+   * @generated
+   */
+  public Adapter createIfDoSpecAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.ElseIfDoSpec <em>Else If Do Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.ElseIfDoSpec
+   * @generated
+   */
+  public Adapter createElseIfDoSpecAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nii.bigclout.ecaadapter.dsl.ElseDoSpec <em>Else Do Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nii.bigclout.ecaadapter.dsl.ElseDoSpec
+   * @generated
+   */
+  public Adapter createElseDoSpecAdapter()
   {
     return null;
   }

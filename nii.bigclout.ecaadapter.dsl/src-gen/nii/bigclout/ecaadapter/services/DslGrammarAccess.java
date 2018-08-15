@@ -36,24 +36,24 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cServicesDataServiceMetaDataParserRuleCall_3_0 = (RuleCall)cServicesDataAssignment_3.eContents().get(0);
 		
 		//RunTimeModel:
-		//	{RunTimeModel} envData+=EnvironmentMetaData*
-		//	appData+=AppMetaData*
+		//	{RunTimeModel} envData+=EnvironmentMetaData
+		//	appData+=AppMetaData
 		//	servicesData+=ServiceMetaData*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{RunTimeModel} envData+=EnvironmentMetaData* appData+=AppMetaData* servicesData+=ServiceMetaData*
+		//{RunTimeModel} envData+=EnvironmentMetaData appData+=AppMetaData servicesData+=ServiceMetaData*
 		public Group getGroup() { return cGroup; }
 		
 		//{RunTimeModel}
 		public Action getRunTimeModelAction_0() { return cRunTimeModelAction_0; }
 		
-		//envData+=EnvironmentMetaData*
+		//envData+=EnvironmentMetaData
 		public Assignment getEnvDataAssignment_1() { return cEnvDataAssignment_1; }
 		
 		//EnvironmentMetaData
 		public RuleCall getEnvDataEnvironmentMetaDataParserRuleCall_1_0() { return cEnvDataEnvironmentMetaDataParserRuleCall_1_0; }
 		
-		//appData+=AppMetaData*
+		//appData+=AppMetaData
 		public Assignment getAppDataAssignment_2() { return cAppDataAssignment_2; }
 		
 		//AppMetaData
@@ -209,28 +209,25 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cOnKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTriggerAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTriggerOrElementParserRuleCall_2_0 = (RuleCall)cTriggerAssignment_2.eContents().get(0);
-		private final Keyword cIfKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cConditionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cConditionOrElementParserRuleCall_4_0 = (RuleCall)cConditionAssignment_4.eContents().get(0);
-		private final Keyword cDoKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cActionAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cActionActionParserRuleCall_6_0 = (RuleCall)cActionAssignment_6.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cAndKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cActionAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cActionActionParserRuleCall_7_1_0 = (RuleCall)cActionAssignment_7_1.eContents().get(0);
+		private final Assignment cIfdoAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cIfdoIfDoSpecParserRuleCall_3_0 = (RuleCall)cIfdoAssignment_3.eContents().get(0);
+		private final Assignment cElseIfDoAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cElseIfDoElseIfDoSpecParserRuleCall_4_0 = (RuleCall)cElseIfDoAssignment_4.eContents().get(0);
+		private final Assignment cElseDoAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cElseDoElseDoSpecParserRuleCall_5_0 = (RuleCall)cElseDoAssignment_5.eContents().get(0);
 		
 		///**
 		// * Currently Specification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
 		// */ Specification:
 		//	specID=ID? //or description
 		//	'on' trigger+=OrElement*
-		//	'if' condition+=OrElement*
-		//	'do' action+=Action ("and" action+=Action)*;
+		//	ifdo=IfDoSpec
+		//	elseIfDo+=ElseIfDoSpec*
+		//	elseDo=ElseDoSpec?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//specID=ID? //or description
-		//'on' trigger+=OrElement* 'if' condition+=OrElement* 'do' action+=Action ("and" action+=Action)*
+		//'on' trigger+=OrElement* ifdo=IfDoSpec elseIfDo+=ElseIfDoSpec* elseDo=ElseDoSpec?
 		public Group getGroup() { return cGroup; }
 		
 		//specID=ID?
@@ -249,35 +246,172 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//OrElement
 		public RuleCall getTriggerOrElementParserRuleCall_2_0() { return cTriggerOrElementParserRuleCall_2_0; }
 		
-		//'if'
-		public Keyword getIfKeyword_3() { return cIfKeyword_3; }
+		//ifdo=IfDoSpec
+		public Assignment getIfdoAssignment_3() { return cIfdoAssignment_3; }
 		
-		//condition+=OrElement*
-		public Assignment getConditionAssignment_4() { return cConditionAssignment_4; }
+		//IfDoSpec
+		public RuleCall getIfdoIfDoSpecParserRuleCall_3_0() { return cIfdoIfDoSpecParserRuleCall_3_0; }
+		
+		//elseIfDo+=ElseIfDoSpec*
+		public Assignment getElseIfDoAssignment_4() { return cElseIfDoAssignment_4; }
+		
+		//ElseIfDoSpec
+		public RuleCall getElseIfDoElseIfDoSpecParserRuleCall_4_0() { return cElseIfDoElseIfDoSpecParserRuleCall_4_0; }
+		
+		//elseDo=ElseDoSpec?
+		public Assignment getElseDoAssignment_5() { return cElseDoAssignment_5; }
+		
+		//ElseDoSpec
+		public RuleCall getElseDoElseDoSpecParserRuleCall_5_0() { return cElseDoElseDoSpecParserRuleCall_5_0; }
+	}
+	public class IfDoSpecElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.IfDoSpec");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cIfKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cConditionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConditionOrElementParserRuleCall_1_0 = (RuleCall)cConditionAssignment_1.eContents().get(0);
+		private final Keyword cDoKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cActionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cActionActionParserRuleCall_3_0 = (RuleCall)cActionAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cAndKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cActionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cActionActionParserRuleCall_4_1_0 = (RuleCall)cActionAssignment_4_1.eContents().get(0);
+		
+		//IfDoSpec:
+		//	'if' condition=OrElement 'do' action+=Action ("and" action+=Action)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'if' condition=OrElement 'do' action+=Action ("and" action+=Action)*
+		public Group getGroup() { return cGroup; }
+		
+		//'if'
+		public Keyword getIfKeyword_0() { return cIfKeyword_0; }
+		
+		//condition=OrElement
+		public Assignment getConditionAssignment_1() { return cConditionAssignment_1; }
 		
 		//OrElement
-		public RuleCall getConditionOrElementParserRuleCall_4_0() { return cConditionOrElementParserRuleCall_4_0; }
+		public RuleCall getConditionOrElementParserRuleCall_1_0() { return cConditionOrElementParserRuleCall_1_0; }
 		
 		//'do'
-		public Keyword getDoKeyword_5() { return cDoKeyword_5; }
+		public Keyword getDoKeyword_2() { return cDoKeyword_2; }
 		
 		//action+=Action
-		public Assignment getActionAssignment_6() { return cActionAssignment_6; }
+		public Assignment getActionAssignment_3() { return cActionAssignment_3; }
 		
 		//Action
-		public RuleCall getActionActionParserRuleCall_6_0() { return cActionActionParserRuleCall_6_0; }
+		public RuleCall getActionActionParserRuleCall_3_0() { return cActionActionParserRuleCall_3_0; }
 		
 		//("and" action+=Action)*
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//"and"
-		public Keyword getAndKeyword_7_0() { return cAndKeyword_7_0; }
+		public Keyword getAndKeyword_4_0() { return cAndKeyword_4_0; }
 		
 		//action+=Action
-		public Assignment getActionAssignment_7_1() { return cActionAssignment_7_1; }
+		public Assignment getActionAssignment_4_1() { return cActionAssignment_4_1; }
 		
 		//Action
-		public RuleCall getActionActionParserRuleCall_7_1_0() { return cActionActionParserRuleCall_7_1_0; }
+		public RuleCall getActionActionParserRuleCall_4_1_0() { return cActionActionParserRuleCall_4_1_0; }
+	}
+	public class ElseIfDoSpecElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.ElseIfDoSpec");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cElseKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cIfKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cConditionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cConditionOrElementParserRuleCall_2_0 = (RuleCall)cConditionAssignment_2.eContents().get(0);
+		private final Keyword cDoKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cActionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cActionActionParserRuleCall_4_0 = (RuleCall)cActionAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cAndKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cActionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cActionActionParserRuleCall_5_1_0 = (RuleCall)cActionAssignment_5_1.eContents().get(0);
+		
+		//ElseIfDoSpec:
+		//	'else' 'if' condition=OrElement 'do' action+=Action ("and" action+=Action)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'else' 'if' condition=OrElement 'do' action+=Action ("and" action+=Action)*
+		public Group getGroup() { return cGroup; }
+		
+		//'else'
+		public Keyword getElseKeyword_0() { return cElseKeyword_0; }
+		
+		//'if'
+		public Keyword getIfKeyword_1() { return cIfKeyword_1; }
+		
+		//condition=OrElement
+		public Assignment getConditionAssignment_2() { return cConditionAssignment_2; }
+		
+		//OrElement
+		public RuleCall getConditionOrElementParserRuleCall_2_0() { return cConditionOrElementParserRuleCall_2_0; }
+		
+		//'do'
+		public Keyword getDoKeyword_3() { return cDoKeyword_3; }
+		
+		//action+=Action
+		public Assignment getActionAssignment_4() { return cActionAssignment_4; }
+		
+		//Action
+		public RuleCall getActionActionParserRuleCall_4_0() { return cActionActionParserRuleCall_4_0; }
+		
+		//("and" action+=Action)*
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//"and"
+		public Keyword getAndKeyword_5_0() { return cAndKeyword_5_0; }
+		
+		//action+=Action
+		public Assignment getActionAssignment_5_1() { return cActionAssignment_5_1; }
+		
+		//Action
+		public RuleCall getActionActionParserRuleCall_5_1_0() { return cActionActionParserRuleCall_5_1_0; }
+	}
+	public class ElseDoSpecElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.ElseDoSpec");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cElseKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cDoKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cActionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cActionActionParserRuleCall_2_0 = (RuleCall)cActionAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cAndKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cActionAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cActionActionParserRuleCall_3_1_0 = (RuleCall)cActionAssignment_3_1.eContents().get(0);
+		
+		//ElseDoSpec:
+		//	'else' 'do' action+=Action ("and" action+=Action)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'else' 'do' action+=Action ("and" action+=Action)*
+		public Group getGroup() { return cGroup; }
+		
+		//'else'
+		public Keyword getElseKeyword_0() { return cElseKeyword_0; }
+		
+		//'do'
+		public Keyword getDoKeyword_1() { return cDoKeyword_1; }
+		
+		//action+=Action
+		public Assignment getActionAssignment_2() { return cActionAssignment_2; }
+		
+		//Action
+		public RuleCall getActionActionParserRuleCall_2_0() { return cActionActionParserRuleCall_2_0; }
+		
+		//("and" action+=Action)*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//"and"
+		public Keyword getAndKeyword_3_0() { return cAndKeyword_3_0; }
+		
+		//action+=Action
+		public Assignment getActionAssignment_3_1() { return cActionAssignment_3_1; }
+		
+		//Action
+		public RuleCall getActionActionParserRuleCall_3_1_0() { return cActionActionParserRuleCall_3_1_0; }
 	}
 	public class EnvironmentMetaDataElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.EnvironmentMetaData");
@@ -293,11 +427,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//	{EnvironmentMetaData}
 		//	"environment"
 		//	LBRACE
-		//	resources+=Resource*
+		//	resources+=Resource+
+		//	// maybe some specification that apply globally....
 		//	RBRACE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{EnvironmentMetaData} "environment" LBRACE resources+=Resource* RBRACE
+		//{EnvironmentMetaData} "environment" LBRACE resources+=Resource+ // maybe some specification that apply globally....
+		//RBRACE
 		public Group getGroup() { return cGroup; }
 		
 		//{EnvironmentMetaData}
@@ -309,12 +445,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//LBRACE
 		public RuleCall getLBRACEParserRuleCall_2() { return cLBRACEParserRuleCall_2; }
 		
-		//resources+=Resource*
+		//resources+=Resource+
 		public Assignment getResourcesAssignment_3() { return cResourcesAssignment_3; }
 		
 		//Resource
 		public RuleCall getResourcesResourceParserRuleCall_3_0() { return cResourcesResourceParserRuleCall_3_0; }
 		
+		//// maybe some specification that apply globally....
 		//RBRACE
 		public RuleCall getRBRACEParserRuleCall_4() { return cRBRACEParserRuleCall_4; }
 	}
@@ -1010,6 +1147,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ResourceElements pResource;
 	private final AppMetaDataElements pAppMetaData;
 	private final SpecificationElements pSpecification;
+	private final IfDoSpecElements pIfDoSpec;
+	private final ElseIfDoSpecElements pElseIfDoSpec;
+	private final ElseDoSpecElements pElseDoSpec;
 	private final EnvironmentMetaDataElements pEnvironmentMetaData;
 	private final ServiceMetaDataElements pServiceMetaData;
 	private final ActionElements pAction;
@@ -1044,6 +1184,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pResource = new ResourceElements();
 		this.pAppMetaData = new AppMetaDataElements();
 		this.pSpecification = new SpecificationElements();
+		this.pIfDoSpec = new IfDoSpecElements();
+		this.pElseIfDoSpec = new ElseIfDoSpecElements();
+		this.pElseDoSpec = new ElseDoSpecElements();
 		this.pEnvironmentMetaData = new EnvironmentMetaDataElements();
 		this.pServiceMetaData = new ServiceMetaDataElements();
 		this.pAction = new ActionElements();
@@ -1092,8 +1235,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//RunTimeModel:
-	//	{RunTimeModel} envData+=EnvironmentMetaData*
-	//	appData+=AppMetaData*
+	//	{RunTimeModel} envData+=EnvironmentMetaData
+	//	appData+=AppMetaData
 	//	servicesData+=ServiceMetaData*;
 	public RunTimeModelElements getRunTimeModelAccess() {
 		return pRunTimeModel;
@@ -1152,8 +1295,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	// */ Specification:
 	//	specID=ID? //or description
 	//	'on' trigger+=OrElement*
-	//	'if' condition+=OrElement*
-	//	'do' action+=Action ("and" action+=Action)*;
+	//	ifdo=IfDoSpec
+	//	elseIfDo+=ElseIfDoSpec*
+	//	elseDo=ElseDoSpec?;
 	public SpecificationElements getSpecificationAccess() {
 		return pSpecification;
 	}
@@ -1162,11 +1306,42 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getSpecificationAccess().getRule();
 	}
 	
+	//IfDoSpec:
+	//	'if' condition=OrElement 'do' action+=Action ("and" action+=Action)*;
+	public IfDoSpecElements getIfDoSpecAccess() {
+		return pIfDoSpec;
+	}
+	
+	public ParserRule getIfDoSpecRule() {
+		return getIfDoSpecAccess().getRule();
+	}
+	
+	//ElseIfDoSpec:
+	//	'else' 'if' condition=OrElement 'do' action+=Action ("and" action+=Action)*;
+	public ElseIfDoSpecElements getElseIfDoSpecAccess() {
+		return pElseIfDoSpec;
+	}
+	
+	public ParserRule getElseIfDoSpecRule() {
+		return getElseIfDoSpecAccess().getRule();
+	}
+	
+	//ElseDoSpec:
+	//	'else' 'do' action+=Action ("and" action+=Action)*;
+	public ElseDoSpecElements getElseDoSpecAccess() {
+		return pElseDoSpec;
+	}
+	
+	public ParserRule getElseDoSpecRule() {
+		return getElseDoSpecAccess().getRule();
+	}
+	
 	//EnvironmentMetaData:
 	//	{EnvironmentMetaData}
 	//	"environment"
 	//	LBRACE
-	//	resources+=Resource*
+	//	resources+=Resource+
+	//	// maybe some specification that apply globally....
 	//	RBRACE;
 	public EnvironmentMetaDataElements getEnvironmentMetaDataAccess() {
 		return pEnvironmentMetaData;

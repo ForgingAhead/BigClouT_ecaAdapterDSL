@@ -78,6 +78,33 @@ public interface DslFactory extends EFactory
   Specification createSpecification();
 
   /**
+   * Returns a new object of class '<em>If Do Spec</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Do Spec</em>'.
+   * @generated
+   */
+  IfDoSpec createIfDoSpec();
+
+  /**
+   * Returns a new object of class '<em>Else If Do Spec</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Else If Do Spec</em>'.
+   * @generated
+   */
+  ElseIfDoSpec createElseIfDoSpec();
+
+  /**
+   * Returns a new object of class '<em>Else Do Spec</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Else Do Spec</em>'.
+   * @generated
+   */
+  ElseDoSpec createElseDoSpec();
+
+  /**
    * Returns a new object of class '<em>Environment Meta Data</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

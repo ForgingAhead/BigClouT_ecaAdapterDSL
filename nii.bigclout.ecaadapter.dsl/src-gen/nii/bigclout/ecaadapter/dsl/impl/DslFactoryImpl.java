@@ -71,6 +71,9 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.RESOURCE: return createResource();
       case DslPackage.APP_META_DATA: return createAppMetaData();
       case DslPackage.SPECIFICATION: return createSpecification();
+      case DslPackage.IF_DO_SPEC: return createIfDoSpec();
+      case DslPackage.ELSE_IF_DO_SPEC: return createElseIfDoSpec();
+      case DslPackage.ELSE_DO_SPEC: return createElseDoSpec();
       case DslPackage.ENVIRONMENT_META_DATA: return createEnvironmentMetaData();
       case DslPackage.SERVICE_META_DATA: return createServiceMetaData();
       case DslPackage.ACTION: return createAction();
@@ -162,6 +165,39 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     SpecificationImpl specification = new SpecificationImpl();
     return specification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfDoSpec createIfDoSpec()
+  {
+    IfDoSpecImpl ifDoSpec = new IfDoSpecImpl();
+    return ifDoSpec;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ElseIfDoSpec createElseIfDoSpec()
+  {
+    ElseIfDoSpecImpl elseIfDoSpec = new ElseIfDoSpecImpl();
+    return elseIfDoSpec;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ElseDoSpec createElseDoSpec()
+  {
+    ElseDoSpecImpl elseDoSpec = new ElseDoSpecImpl();
+    return elseDoSpec;
   }
 
   /**

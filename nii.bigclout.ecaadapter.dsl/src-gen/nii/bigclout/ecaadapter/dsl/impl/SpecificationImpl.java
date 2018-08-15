@@ -5,9 +5,11 @@ package nii.bigclout.ecaadapter.dsl.impl;
 
 import java.util.Collection;
 
-import nii.bigclout.ecaadapter.dsl.Action;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
 import nii.bigclout.ecaadapter.dsl.Element;
+import nii.bigclout.ecaadapter.dsl.ElseDoSpec;
+import nii.bigclout.ecaadapter.dsl.ElseIfDoSpec;
+import nii.bigclout.ecaadapter.dsl.IfDoSpec;
 import nii.bigclout.ecaadapter.dsl.Specification;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -34,8 +36,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl#getSpecID <em>Spec ID</em>}</li>
  *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl#getTrigger <em>Trigger</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl#getIfdo <em>Ifdo</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl#getElseIfDo <em>Else If Do</em>}</li>
+ *   <li>{@link nii.bigclout.ecaadapter.dsl.impl.SpecificationImpl#getElseDo <em>Else Do</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,24 +76,34 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
   protected EList<Element> trigger;
 
   /**
-   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
+   * The cached value of the '{@link #getIfdo() <em>Ifdo</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCondition()
+   * @see #getIfdo()
    * @generated
    * @ordered
    */
-  protected EList<Element> condition;
+  protected IfDoSpec ifdo;
 
   /**
-   * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
+   * The cached value of the '{@link #getElseIfDo() <em>Else If Do</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAction()
+   * @see #getElseIfDo()
    * @generated
    * @ordered
    */
-  protected EList<Action> action;
+  protected EList<ElseIfDoSpec> elseIfDo;
+
+  /**
+   * The cached value of the '{@link #getElseDo() <em>Else Do</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getElseDo()
+   * @generated
+   * @ordered
+   */
+  protected ElseDoSpec elseDo;
 
   /**
    * <!-- begin-user-doc -->
@@ -155,13 +168,9 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Element> getCondition()
+  public IfDoSpec getIfdo()
   {
-    if (condition == null)
-    {
-      condition = new EObjectContainmentEList<Element>(Element.class, this, DslPackage.SPECIFICATION__CONDITION);
-    }
-    return condition;
+    return ifdo;
   }
 
   /**
@@ -169,13 +178,99 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Action> getAction()
+  public NotificationChain basicSetIfdo(IfDoSpec newIfdo, NotificationChain msgs)
   {
-    if (action == null)
+    IfDoSpec oldIfdo = ifdo;
+    ifdo = newIfdo;
+    if (eNotificationRequired())
     {
-      action = new EObjectContainmentEList<Action>(Action.class, this, DslPackage.SPECIFICATION__ACTION);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.SPECIFICATION__IFDO, oldIfdo, newIfdo);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return action;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIfdo(IfDoSpec newIfdo)
+  {
+    if (newIfdo != ifdo)
+    {
+      NotificationChain msgs = null;
+      if (ifdo != null)
+        msgs = ((InternalEObject)ifdo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.SPECIFICATION__IFDO, null, msgs);
+      if (newIfdo != null)
+        msgs = ((InternalEObject)newIfdo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.SPECIFICATION__IFDO, null, msgs);
+      msgs = basicSetIfdo(newIfdo, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.SPECIFICATION__IFDO, newIfdo, newIfdo));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ElseIfDoSpec> getElseIfDo()
+  {
+    if (elseIfDo == null)
+    {
+      elseIfDo = new EObjectContainmentEList<ElseIfDoSpec>(ElseIfDoSpec.class, this, DslPackage.SPECIFICATION__ELSE_IF_DO);
+    }
+    return elseIfDo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ElseDoSpec getElseDo()
+  {
+    return elseDo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetElseDo(ElseDoSpec newElseDo, NotificationChain msgs)
+  {
+    ElseDoSpec oldElseDo = elseDo;
+    elseDo = newElseDo;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.SPECIFICATION__ELSE_DO, oldElseDo, newElseDo);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setElseDo(ElseDoSpec newElseDo)
+  {
+    if (newElseDo != elseDo)
+    {
+      NotificationChain msgs = null;
+      if (elseDo != null)
+        msgs = ((InternalEObject)elseDo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.SPECIFICATION__ELSE_DO, null, msgs);
+      if (newElseDo != null)
+        msgs = ((InternalEObject)newElseDo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.SPECIFICATION__ELSE_DO, null, msgs);
+      msgs = basicSetElseDo(newElseDo, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.SPECIFICATION__ELSE_DO, newElseDo, newElseDo));
   }
 
   /**
@@ -190,10 +285,12 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
     {
       case DslPackage.SPECIFICATION__TRIGGER:
         return ((InternalEList<?>)getTrigger()).basicRemove(otherEnd, msgs);
-      case DslPackage.SPECIFICATION__CONDITION:
-        return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
-      case DslPackage.SPECIFICATION__ACTION:
-        return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
+      case DslPackage.SPECIFICATION__IFDO:
+        return basicSetIfdo(null, msgs);
+      case DslPackage.SPECIFICATION__ELSE_IF_DO:
+        return ((InternalEList<?>)getElseIfDo()).basicRemove(otherEnd, msgs);
+      case DslPackage.SPECIFICATION__ELSE_DO:
+        return basicSetElseDo(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -212,10 +309,12 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
         return getSpecID();
       case DslPackage.SPECIFICATION__TRIGGER:
         return getTrigger();
-      case DslPackage.SPECIFICATION__CONDITION:
-        return getCondition();
-      case DslPackage.SPECIFICATION__ACTION:
-        return getAction();
+      case DslPackage.SPECIFICATION__IFDO:
+        return getIfdo();
+      case DslPackage.SPECIFICATION__ELSE_IF_DO:
+        return getElseIfDo();
+      case DslPackage.SPECIFICATION__ELSE_DO:
+        return getElseDo();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -238,13 +337,15 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
         getTrigger().clear();
         getTrigger().addAll((Collection<? extends Element>)newValue);
         return;
-      case DslPackage.SPECIFICATION__CONDITION:
-        getCondition().clear();
-        getCondition().addAll((Collection<? extends Element>)newValue);
+      case DslPackage.SPECIFICATION__IFDO:
+        setIfdo((IfDoSpec)newValue);
         return;
-      case DslPackage.SPECIFICATION__ACTION:
-        getAction().clear();
-        getAction().addAll((Collection<? extends Action>)newValue);
+      case DslPackage.SPECIFICATION__ELSE_IF_DO:
+        getElseIfDo().clear();
+        getElseIfDo().addAll((Collection<? extends ElseIfDoSpec>)newValue);
+        return;
+      case DslPackage.SPECIFICATION__ELSE_DO:
+        setElseDo((ElseDoSpec)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -266,11 +367,14 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
       case DslPackage.SPECIFICATION__TRIGGER:
         getTrigger().clear();
         return;
-      case DslPackage.SPECIFICATION__CONDITION:
-        getCondition().clear();
+      case DslPackage.SPECIFICATION__IFDO:
+        setIfdo((IfDoSpec)null);
         return;
-      case DslPackage.SPECIFICATION__ACTION:
-        getAction().clear();
+      case DslPackage.SPECIFICATION__ELSE_IF_DO:
+        getElseIfDo().clear();
+        return;
+      case DslPackage.SPECIFICATION__ELSE_DO:
+        setElseDo((ElseDoSpec)null);
         return;
     }
     super.eUnset(featureID);
@@ -290,10 +394,12 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
         return SPEC_ID_EDEFAULT == null ? specID != null : !SPEC_ID_EDEFAULT.equals(specID);
       case DslPackage.SPECIFICATION__TRIGGER:
         return trigger != null && !trigger.isEmpty();
-      case DslPackage.SPECIFICATION__CONDITION:
-        return condition != null && !condition.isEmpty();
-      case DslPackage.SPECIFICATION__ACTION:
-        return action != null && !action.isEmpty();
+      case DslPackage.SPECIFICATION__IFDO:
+        return ifdo != null;
+      case DslPackage.SPECIFICATION__ELSE_IF_DO:
+        return elseIfDo != null && !elseIfDo.isEmpty();
+      case DslPackage.SPECIFICATION__ELSE_DO:
+        return elseDo != null;
     }
     return super.eIsSet(featureID);
   }

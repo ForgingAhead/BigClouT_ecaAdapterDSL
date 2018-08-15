@@ -11,8 +11,11 @@ import nii.bigclout.ecaadapter.dsl.Boolean_Object;
 import nii.bigclout.ecaadapter.dsl.DiffElement;
 import nii.bigclout.ecaadapter.dsl.DivisionElement;
 import nii.bigclout.ecaadapter.dsl.DslPackage;
+import nii.bigclout.ecaadapter.dsl.ElseDoSpec;
+import nii.bigclout.ecaadapter.dsl.ElseIfDoSpec;
 import nii.bigclout.ecaadapter.dsl.EnvironmentMetaData;
 import nii.bigclout.ecaadapter.dsl.EqualElement;
+import nii.bigclout.ecaadapter.dsl.IfDoSpec;
 import nii.bigclout.ecaadapter.dsl.LargerElement;
 import nii.bigclout.ecaadapter.dsl.LargerEqualElement;
 import nii.bigclout.ecaadapter.dsl.MinusElement;
@@ -74,11 +77,20 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DslPackage.DIVISION_ELEMENT:
 				sequence_MultiplicationDivisionElement(context, (DivisionElement) semanticObject); 
 				return; 
+			case DslPackage.ELSE_DO_SPEC:
+				sequence_ElseDoSpec(context, (ElseDoSpec) semanticObject); 
+				return; 
+			case DslPackage.ELSE_IF_DO_SPEC:
+				sequence_ElseIfDoSpec(context, (ElseIfDoSpec) semanticObject); 
+				return; 
 			case DslPackage.ENVIRONMENT_META_DATA:
 				sequence_EnvironmentMetaData(context, (EnvironmentMetaData) semanticObject); 
 				return; 
 			case DslPackage.EQUAL_ELEMENT:
 				sequence_DiffEqualElement(context, (EqualElement) semanticObject); 
+				return; 
+			case DslPackage.IF_DO_SPEC:
+				sequence_IfDoSpec(context, (IfDoSpec) semanticObject); 
 				return; 
 			case DslPackage.LARGER_ELEMENT:
 				sequence_CompareElement(context, (LargerElement) semanticObject); 
@@ -455,13 +467,49 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     ElseDoSpec returns ElseDoSpec
+	 *
+	 * Constraint:
+	 *     (action+=Action action+=Action*)
+	 */
+	protected void sequence_ElseDoSpec(ISerializationContext context, ElseDoSpec semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ElseIfDoSpec returns ElseIfDoSpec
+	 *
+	 * Constraint:
+	 *     (condition=OrElement action+=Action action+=Action*)
+	 */
+	protected void sequence_ElseIfDoSpec(ISerializationContext context, ElseIfDoSpec semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Metadata returns EnvironmentMetaData
 	 *     EnvironmentMetaData returns EnvironmentMetaData
 	 *
 	 * Constraint:
-	 *     resources+=Resource*
+	 *     resources+=Resource+
 	 */
 	protected void sequence_EnvironmentMetaData(ISerializationContext context, EnvironmentMetaData semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     IfDoSpec returns IfDoSpec
+	 *
+	 * Constraint:
+	 *     (condition=OrElement action+=Action action+=Action*)
+	 */
+	protected void sequence_IfDoSpec(ISerializationContext context, IfDoSpec semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -723,7 +771,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RunTimeModel returns RunTimeModel
 	 *
 	 * Constraint:
-	 *     (envData+=EnvironmentMetaData* appData+=AppMetaData* servicesData+=ServiceMetaData*)
+	 *     (envData+=EnvironmentMetaData appData+=AppMetaData servicesData+=ServiceMetaData*)
 	 */
 	protected void sequence_RunTimeModel(ISerializationContext context, RunTimeModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -754,7 +802,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Specification returns Specification
 	 *
 	 * Constraint:
-	 *     (specID=ID? trigger+=OrElement* condition+=OrElement* action+=Action action+=Action*)
+	 *     (specID=ID? trigger+=OrElement* ifdo=IfDoSpec elseIfDo+=ElseIfDoSpec* elseDo=ElseDoSpec?)
 	 */
 	protected void sequence_Specification(ISerializationContext context, Specification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

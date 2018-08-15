@@ -101,7 +101,7 @@ ruleRunTimeModel returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)
 		(
 			(
 				{
@@ -120,7 +120,7 @@ ruleRunTimeModel returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)
 		(
 			(
 				{
@@ -402,71 +402,312 @@ ruleSpecification returns [EObject current=null]
 				}
 			)
 		)*
-		otherlv_3='if'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getSpecificationAccess().getIfKeyword_3());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSpecificationAccess().getConditionOrElementParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getSpecificationAccess().getIfdoIfDoSpecParserRuleCall_3_0());
 				}
-				lv_condition_4_0=ruleOrElement
+				lv_ifdo_3_0=ruleIfDoSpec
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSpecificationRule());
+					}
+					set(
+						$current,
+						"ifdo",
+						lv_ifdo_3_0,
+						"nii.bigclout.ecaadapter.Dsl.IfDoSpec");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSpecificationAccess().getElseIfDoElseIfDoSpecParserRuleCall_4_0());
+				}
+				lv_elseIfDo_4_0=ruleElseIfDoSpec
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSpecificationRule());
 					}
 					add(
 						$current,
-						"condition",
-						lv_condition_4_0,
-						"nii.bigclout.ecaadapter.Dsl.OrElement");
+						"elseIfDo",
+						lv_elseIfDo_4_0,
+						"nii.bigclout.ecaadapter.Dsl.ElseIfDoSpec");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_5='do'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getSpecificationAccess().getDoKeyword_5());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSpecificationAccess().getActionActionParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getSpecificationAccess().getElseDoElseDoSpecParserRuleCall_5_0());
 				}
-				lv_action_6_0=ruleAction
+				lv_elseDo_5_0=ruleElseDoSpec
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSpecificationRule());
 					}
+					set(
+						$current,
+						"elseDo",
+						lv_elseDo_5_0,
+						"nii.bigclout.ecaadapter.Dsl.ElseDoSpec");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleIfDoSpec
+entryRuleIfDoSpec returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getIfDoSpecRule()); }
+	iv_ruleIfDoSpec=ruleIfDoSpec
+	{ $current=$iv_ruleIfDoSpec.current; }
+	EOF;
+
+// Rule IfDoSpec
+ruleIfDoSpec returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='if'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getIfDoSpecAccess().getIfKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getIfDoSpecAccess().getConditionOrElementParserRuleCall_1_0());
+				}
+				lv_condition_1_0=ruleOrElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getIfDoSpecRule());
+					}
+					set(
+						$current,
+						"condition",
+						lv_condition_1_0,
+						"nii.bigclout.ecaadapter.Dsl.OrElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='do'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getIfDoSpecAccess().getDoKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getIfDoSpecAccess().getActionActionParserRuleCall_3_0());
+				}
+				lv_action_3_0=ruleAction
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getIfDoSpecRule());
+					}
 					add(
 						$current,
 						"action",
-						lv_action_6_0,
+						lv_action_3_0,
 						"nii.bigclout.ecaadapter.Dsl.Action");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_7='and'
+			otherlv_4='and'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getSpecificationAccess().getAndKeyword_7_0());
+				newLeafNode(otherlv_4, grammarAccess.getIfDoSpecAccess().getAndKeyword_4_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSpecificationAccess().getActionActionParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getIfDoSpecAccess().getActionActionParserRuleCall_4_1_0());
 					}
-					lv_action_8_0=ruleAction
+					lv_action_5_0=ruleAction
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSpecificationRule());
+							$current = createModelElementForParent(grammarAccess.getIfDoSpecRule());
 						}
 						add(
 							$current,
 							"action",
-							lv_action_8_0,
+							lv_action_5_0,
+							"nii.bigclout.ecaadapter.Dsl.Action");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleElseIfDoSpec
+entryRuleElseIfDoSpec returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getElseIfDoSpecRule()); }
+	iv_ruleElseIfDoSpec=ruleElseIfDoSpec
+	{ $current=$iv_ruleElseIfDoSpec.current; }
+	EOF;
+
+// Rule ElseIfDoSpec
+ruleElseIfDoSpec returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='else'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getElseIfDoSpecAccess().getElseKeyword_0());
+		}
+		otherlv_1='if'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getElseIfDoSpecAccess().getIfKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getElseIfDoSpecAccess().getConditionOrElementParserRuleCall_2_0());
+				}
+				lv_condition_2_0=ruleOrElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getElseIfDoSpecRule());
+					}
+					set(
+						$current,
+						"condition",
+						lv_condition_2_0,
+						"nii.bigclout.ecaadapter.Dsl.OrElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='do'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getElseIfDoSpecAccess().getDoKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getElseIfDoSpecAccess().getActionActionParserRuleCall_4_0());
+				}
+				lv_action_4_0=ruleAction
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getElseIfDoSpecRule());
+					}
+					add(
+						$current,
+						"action",
+						lv_action_4_0,
+						"nii.bigclout.ecaadapter.Dsl.Action");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_5='and'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getElseIfDoSpecAccess().getAndKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getElseIfDoSpecAccess().getActionActionParserRuleCall_5_1_0());
+					}
+					lv_action_6_0=ruleAction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getElseIfDoSpecRule());
+						}
+						add(
+							$current,
+							"action",
+							lv_action_6_0,
+							"nii.bigclout.ecaadapter.Dsl.Action");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleElseDoSpec
+entryRuleElseDoSpec returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getElseDoSpecRule()); }
+	iv_ruleElseDoSpec=ruleElseDoSpec
+	{ $current=$iv_ruleElseDoSpec.current; }
+	EOF;
+
+// Rule ElseDoSpec
+ruleElseDoSpec returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='else'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getElseDoSpecAccess().getElseKeyword_0());
+		}
+		otherlv_1='do'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getElseDoSpecAccess().getDoKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getElseDoSpecAccess().getActionActionParserRuleCall_2_0());
+				}
+				lv_action_2_0=ruleAction
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getElseDoSpecRule());
+					}
+					add(
+						$current,
+						"action",
+						lv_action_2_0,
+						"nii.bigclout.ecaadapter.Dsl.Action");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_3='and'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getElseDoSpecAccess().getAndKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getElseDoSpecAccess().getActionActionParserRuleCall_3_1_0());
+					}
+					lv_action_4_0=ruleAction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getElseDoSpecRule());
+						}
+						add(
+							$current,
+							"action",
+							lv_action_4_0,
 							"nii.bigclout.ecaadapter.Dsl.Action");
 						afterParserOrEnumRuleCall();
 					}
@@ -528,7 +769,7 @@ ruleEnvironmentMetaData returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)+
 		{
 			newCompositeNode(grammarAccess.getEnvironmentMetaDataAccess().getRBRACEParserRuleCall_4());
 		}
