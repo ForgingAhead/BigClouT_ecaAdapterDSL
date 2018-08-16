@@ -29,9 +29,6 @@ AppMetaData:
 	RBRACE
 ;
 
-/**
- * Currently Specification only accommodates on-if-do, it does not take care of "else if...do...else...do..."
- */
 Specification:
 	specID=ID ? //or description
 	'on' trigger += OrElement*
