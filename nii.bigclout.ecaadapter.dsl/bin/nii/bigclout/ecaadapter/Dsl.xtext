@@ -31,6 +31,7 @@ AppMetaData:
 
 Specification:
 	specID=ID ? //or description
+	('priority' priority=INT)?
 	'on' trigger += OrElement*
 	ifdo = IfDoSpec
 	(elseIfDo += ElseIfDoSpec)*
