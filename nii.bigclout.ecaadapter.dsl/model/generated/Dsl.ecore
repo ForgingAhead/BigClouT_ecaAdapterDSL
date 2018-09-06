@@ -27,13 +27,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="specID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" upperBound="-1"
-        eType="#//Element" containment="true"/>
+        eType="#//Trigger" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ifdo" eType="#//IfDoSpec"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elseIfDo" upperBound="-1"
         eType="#//ElseIfDoSpec" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elseDo" eType="#//ElseDoSpec"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//State"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfDoSpec">
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Element"

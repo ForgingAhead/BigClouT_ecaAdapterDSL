@@ -84,7 +84,7 @@ public interface Specification extends EObject
 
   /**
    * Returns the value of the '<em><b>Trigger</b></em>' containment reference list.
-   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.Element}.
+   * The list contents are of type {@link nii.bigclout.ecaadapter.dsl.Trigger}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Trigger</em>' containment reference list isn't clear,
@@ -96,7 +96,7 @@ public interface Specification extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Element> getTrigger();
+  EList<Trigger> getTrigger();
 
   /**
    * Returns the value of the '<em><b>Ifdo</b></em>' containment reference.

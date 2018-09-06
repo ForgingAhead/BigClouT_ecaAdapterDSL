@@ -32,10 +32,15 @@ AppMetaData:
 Specification:
 	specID=ID ? //or description
 	('priority' priority=INT)?
-	'on' trigger += OrElement*
+	'on' trigger += Trigger ("," trigger += Trigger)*
 	ifdo = IfDoSpec
 	(elseIfDo += ElseIfDoSpec)*
 	elseDo = ElseDoSpec?
+;
+
+Trigger:
+	resource=[Resource] "is"
+	state = [State]
 ;
 
 IfDoSpec:

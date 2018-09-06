@@ -6,11 +6,11 @@ package nii.bigclout.ecaadapter.dsl.impl;
 import java.util.Collection;
 
 import nii.bigclout.ecaadapter.dsl.DslPackage;
-import nii.bigclout.ecaadapter.dsl.Element;
 import nii.bigclout.ecaadapter.dsl.ElseDoSpec;
 import nii.bigclout.ecaadapter.dsl.ElseIfDoSpec;
 import nii.bigclout.ecaadapter.dsl.IfDoSpec;
 import nii.bigclout.ecaadapter.dsl.Specification;
+import nii.bigclout.ecaadapter.dsl.Trigger;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -94,7 +94,7 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
    * @generated
    * @ordered
    */
-  protected EList<Element> trigger;
+  protected EList<Trigger> trigger;
 
   /**
    * The cached value of the '{@link #getIfdo() <em>Ifdo</em>}' containment reference.
@@ -198,11 +198,11 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Element> getTrigger()
+  public EList<Trigger> getTrigger()
   {
     if (trigger == null)
     {
-      trigger = new EObjectContainmentEList<Element>(Element.class, this, DslPackage.SPECIFICATION__TRIGGER);
+      trigger = new EObjectContainmentEList<Trigger>(Trigger.class, this, DslPackage.SPECIFICATION__TRIGGER);
     }
     return trigger;
   }
@@ -384,7 +384,7 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
         return;
       case DslPackage.SPECIFICATION__TRIGGER:
         getTrigger().clear();
-        getTrigger().addAll((Collection<? extends Element>)newValue);
+        getTrigger().addAll((Collection<? extends Trigger>)newValue);
         return;
       case DslPackage.SPECIFICATION__IFDO:
         setIfdo((IfDoSpec)newValue);

@@ -71,6 +71,7 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.RESOURCE: return createResource();
       case DslPackage.APP_META_DATA: return createAppMetaData();
       case DslPackage.SPECIFICATION: return createSpecification();
+      case DslPackage.TRIGGER: return createTrigger();
       case DslPackage.IF_DO_SPEC: return createIfDoSpec();
       case DslPackage.ELSE_IF_DO_SPEC: return createElseIfDoSpec();
       case DslPackage.ELSE_DO_SPEC: return createElseDoSpec();
@@ -165,6 +166,17 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     SpecificationImpl specification = new SpecificationImpl();
     return specification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Trigger createTrigger()
+  {
+    TriggerImpl trigger = new TriggerImpl();
+    return trigger;
   }
 
   /**

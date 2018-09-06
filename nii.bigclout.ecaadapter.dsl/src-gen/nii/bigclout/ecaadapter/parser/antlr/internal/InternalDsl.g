@@ -410,9 +410,9 @@ ruleSpecification returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSpecificationAccess().getTriggerOrElementParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getSpecificationAccess().getTriggerTriggerParserRuleCall_3_0());
 				}
-				lv_trigger_4_0=ruleOrElement
+				lv_trigger_4_0=ruleTrigger
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSpecificationRule());
@@ -421,17 +421,42 @@ ruleSpecification returns [EObject current=null]
 						$current,
 						"trigger",
 						lv_trigger_4_0,
-						"nii.bigclout.ecaadapter.Dsl.OrElement");
+						"nii.bigclout.ecaadapter.Dsl.Trigger");
 					afterParserOrEnumRuleCall();
 				}
+			)
+		)
+		(
+			otherlv_5=','
+			{
+				newLeafNode(otherlv_5, grammarAccess.getSpecificationAccess().getCommaKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSpecificationAccess().getTriggerTriggerParserRuleCall_4_1_0());
+					}
+					lv_trigger_6_0=ruleTrigger
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSpecificationRule());
+						}
+						add(
+							$current,
+							"trigger",
+							lv_trigger_6_0,
+							"nii.bigclout.ecaadapter.Dsl.Trigger");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)*
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSpecificationAccess().getIfdoIfDoSpecParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getSpecificationAccess().getIfdoIfDoSpecParserRuleCall_5_0());
 				}
-				lv_ifdo_5_0=ruleIfDoSpec
+				lv_ifdo_7_0=ruleIfDoSpec
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSpecificationRule());
@@ -439,7 +464,7 @@ ruleSpecification returns [EObject current=null]
 					set(
 						$current,
 						"ifdo",
-						lv_ifdo_5_0,
+						lv_ifdo_7_0,
 						"nii.bigclout.ecaadapter.Dsl.IfDoSpec");
 					afterParserOrEnumRuleCall();
 				}
@@ -448,9 +473,9 @@ ruleSpecification returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSpecificationAccess().getElseIfDoElseIfDoSpecParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getSpecificationAccess().getElseIfDoElseIfDoSpecParserRuleCall_6_0());
 				}
-				lv_elseIfDo_6_0=ruleElseIfDoSpec
+				lv_elseIfDo_8_0=ruleElseIfDoSpec
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSpecificationRule());
@@ -458,7 +483,7 @@ ruleSpecification returns [EObject current=null]
 					add(
 						$current,
 						"elseIfDo",
-						lv_elseIfDo_6_0,
+						lv_elseIfDo_8_0,
 						"nii.bigclout.ecaadapter.Dsl.ElseIfDoSpec");
 					afterParserOrEnumRuleCall();
 				}
@@ -467,9 +492,9 @@ ruleSpecification returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSpecificationAccess().getElseDoElseDoSpecParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getSpecificationAccess().getElseDoElseDoSpecParserRuleCall_7_0());
 				}
-				lv_elseDo_7_0=ruleElseDoSpec
+				lv_elseDo_9_0=ruleElseDoSpec
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSpecificationRule());
@@ -477,12 +502,61 @@ ruleSpecification returns [EObject current=null]
 					set(
 						$current,
 						"elseDo",
-						lv_elseDo_7_0,
+						lv_elseDo_9_0,
 						"nii.bigclout.ecaadapter.Dsl.ElseDoSpec");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
+	)
+;
+
+// Entry rule entryRuleTrigger
+entryRuleTrigger returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTriggerRule()); }
+	iv_ruleTrigger=ruleTrigger
+	{ $current=$iv_ruleTrigger.current; }
+	EOF;
+
+// Rule Trigger
+ruleTrigger returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTriggerRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getTriggerAccess().getResourceResourceCrossReference_0_0());
+				}
+			)
+		)
+		otherlv_1='is'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getTriggerAccess().getIsKeyword_1());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTriggerRule());
+					}
+				}
+				otherlv_2=RULE_ID
+				{
+					newLeafNode(otherlv_2, grammarAccess.getTriggerAccess().getStateStateCrossReference_2_0());
+				}
+			)
+		)
 	)
 ;
 

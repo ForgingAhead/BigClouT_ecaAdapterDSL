@@ -34,6 +34,7 @@ import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
 import nii.bigclout.ecaadapter.dsl.Specification;
 import nii.bigclout.ecaadapter.dsl.State;
 import nii.bigclout.ecaadapter.dsl.State_Object;
+import nii.bigclout.ecaadapter.dsl.Trigger;
 import nii.bigclout.ecaadapter.services.DslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -145,6 +146,9 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DslPackage.STATE_OBJECT:
 				sequence_UnaryElement(context, (State_Object) semanticObject); 
+				return; 
+			case DslPackage.TRIGGER:
+				sequence_Trigger(context, (Trigger) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -805,7 +809,8 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         specID=ID? 
 	 *         priority=INT? 
-	 *         trigger+=OrElement* 
+	 *         trigger+=Trigger 
+	 *         trigger+=Trigger* 
 	 *         ifdo=IfDoSpec 
 	 *         elseIfDo+=ElseIfDoSpec* 
 	 *         elseDo=ElseDoSpec?
@@ -830,6 +835,27 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Trigger returns Trigger
+	 *
+	 * Constraint:
+	 *     (resource=[Resource|ID] state=[State|ID])
+	 */
+	protected void sequence_Trigger(ISerializationContext context, Trigger semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.TRIGGER__RESOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.TRIGGER__RESOURCE));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.TRIGGER__STATE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.TRIGGER__STATE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTriggerAccess().getResourceResourceIDTerminalRuleCall_0_0_1(), semanticObject.eGet(DslPackage.Literals.TRIGGER__RESOURCE, false));
+		feeder.accept(grammarAccess.getTriggerAccess().getStateStateIDTerminalRuleCall_2_0_1(), semanticObject.eGet(DslPackage.Literals.TRIGGER__STATE, false));
 		feeder.finish();
 	}
 	

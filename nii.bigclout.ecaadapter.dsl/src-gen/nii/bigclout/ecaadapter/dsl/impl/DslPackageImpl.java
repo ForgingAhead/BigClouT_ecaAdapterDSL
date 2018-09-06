@@ -36,6 +36,7 @@ import nii.bigclout.ecaadapter.dsl.SmallerEqualElement;
 import nii.bigclout.ecaadapter.dsl.Specification;
 import nii.bigclout.ecaadapter.dsl.State;
 import nii.bigclout.ecaadapter.dsl.State_Object;
+import nii.bigclout.ecaadapter.dsl.Trigger;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -93,6 +94,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass specificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass triggerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -530,6 +538,36 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
   public EReference getSpecification_ElseDo()
   {
     return (EReference)specificationEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTrigger()
+  {
+    return triggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTrigger_Resource()
+  {
+    return (EReference)triggerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTrigger_State()
+  {
+    return (EReference)triggerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1238,6 +1276,10 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEReference(specificationEClass, SPECIFICATION__ELSE_IF_DO);
     createEReference(specificationEClass, SPECIFICATION__ELSE_DO);
 
+    triggerEClass = createEClass(TRIGGER);
+    createEReference(triggerEClass, TRIGGER__RESOURCE);
+    createEReference(triggerEClass, TRIGGER__STATE);
+
     ifDoSpecEClass = createEClass(IF_DO_SPEC);
     createEReference(ifDoSpecEClass, IF_DO_SPEC__CONDITION);
     createEReference(ifDoSpecEClass, IF_DO_SPEC__ACTION);
@@ -1402,10 +1444,14 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEClass(specificationEClass, Specification.class, "Specification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSpecification_SpecID(), ecorePackage.getEString(), "specID", null, 0, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSpecification_Priority(), ecorePackage.getEInt(), "priority", null, 0, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSpecification_Trigger(), this.getElement(), null, "trigger", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecification_Trigger(), this.getTrigger(), null, "trigger", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecification_Ifdo(), this.getIfDoSpec(), null, "ifdo", null, 0, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecification_ElseIfDo(), this.getElseIfDoSpec(), null, "elseIfDo", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecification_ElseDo(), this.getElseDoSpec(), null, "elseDo", null, 0, 1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTrigger_Resource(), this.getResource(), null, "resource", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTrigger_State(), this.getState(), null, "state", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifDoSpecEClass, IfDoSpec.class, "IfDoSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getIfDoSpec_Condition(), this.getElement(), null, "condition", null, 0, 1, IfDoSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

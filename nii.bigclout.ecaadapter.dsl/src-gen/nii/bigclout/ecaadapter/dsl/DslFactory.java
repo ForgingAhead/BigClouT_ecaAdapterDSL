@@ -78,6 +78,15 @@ public interface DslFactory extends EFactory
   Specification createSpecification();
 
   /**
+   * Returns a new object of class '<em>Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Trigger</em>'.
+   * @generated
+   */
+  Trigger createTrigger();
+
+  /**
    * Returns a new object of class '<em>If Do Spec</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

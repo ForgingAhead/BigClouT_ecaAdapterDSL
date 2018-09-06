@@ -212,23 +212,28 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPriorityINTTerminalRuleCall_1_1_0 = (RuleCall)cPriorityAssignment_1_1.eContents().get(0);
 		private final Keyword cOnKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cTriggerAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTriggerOrElementParserRuleCall_3_0 = (RuleCall)cTriggerAssignment_3.eContents().get(0);
-		private final Assignment cIfdoAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cIfdoIfDoSpecParserRuleCall_4_0 = (RuleCall)cIfdoAssignment_4.eContents().get(0);
-		private final Assignment cElseIfDoAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cElseIfDoElseIfDoSpecParserRuleCall_5_0 = (RuleCall)cElseIfDoAssignment_5.eContents().get(0);
-		private final Assignment cElseDoAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cElseDoElseDoSpecParserRuleCall_6_0 = (RuleCall)cElseDoAssignment_6.eContents().get(0);
+		private final RuleCall cTriggerTriggerParserRuleCall_3_0 = (RuleCall)cTriggerAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cTriggerAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cTriggerTriggerParserRuleCall_4_1_0 = (RuleCall)cTriggerAssignment_4_1.eContents().get(0);
+		private final Assignment cIfdoAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cIfdoIfDoSpecParserRuleCall_5_0 = (RuleCall)cIfdoAssignment_5.eContents().get(0);
+		private final Assignment cElseIfDoAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cElseIfDoElseIfDoSpecParserRuleCall_6_0 = (RuleCall)cElseIfDoAssignment_6.eContents().get(0);
+		private final Assignment cElseDoAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cElseDoElseDoSpecParserRuleCall_7_0 = (RuleCall)cElseDoAssignment_7.eContents().get(0);
 		
 		//Specification:
 		//	specID=ID? ('priority' priority=INT)?
-		//	'on' trigger+=OrElement*
+		//	'on' trigger+=Trigger ("," trigger+=Trigger)*
 		//	ifdo=IfDoSpec
 		//	elseIfDo+=ElseIfDoSpec*
 		//	elseDo=ElseDoSpec?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//specID=ID? ('priority' priority=INT)? 'on' trigger+=OrElement* ifdo=IfDoSpec elseIfDo+=ElseIfDoSpec* elseDo=ElseDoSpec?
+		//specID=ID? ('priority' priority=INT)? 'on' trigger+=Trigger ("," trigger+=Trigger)* ifdo=IfDoSpec
+		//elseIfDo+=ElseIfDoSpec* elseDo=ElseDoSpec?
 		public Group getGroup() { return cGroup; }
 		
 		//specID=ID?
@@ -252,29 +257,81 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'on'
 		public Keyword getOnKeyword_2() { return cOnKeyword_2; }
 		
-		//trigger+=OrElement*
+		//trigger+=Trigger
 		public Assignment getTriggerAssignment_3() { return cTriggerAssignment_3; }
 		
-		//OrElement
-		public RuleCall getTriggerOrElementParserRuleCall_3_0() { return cTriggerOrElementParserRuleCall_3_0; }
+		//Trigger
+		public RuleCall getTriggerTriggerParserRuleCall_3_0() { return cTriggerTriggerParserRuleCall_3_0; }
+		
+		//("," trigger+=Trigger)*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//","
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+		
+		//trigger+=Trigger
+		public Assignment getTriggerAssignment_4_1() { return cTriggerAssignment_4_1; }
+		
+		//Trigger
+		public RuleCall getTriggerTriggerParserRuleCall_4_1_0() { return cTriggerTriggerParserRuleCall_4_1_0; }
 		
 		//ifdo=IfDoSpec
-		public Assignment getIfdoAssignment_4() { return cIfdoAssignment_4; }
+		public Assignment getIfdoAssignment_5() { return cIfdoAssignment_5; }
 		
 		//IfDoSpec
-		public RuleCall getIfdoIfDoSpecParserRuleCall_4_0() { return cIfdoIfDoSpecParserRuleCall_4_0; }
+		public RuleCall getIfdoIfDoSpecParserRuleCall_5_0() { return cIfdoIfDoSpecParserRuleCall_5_0; }
 		
 		//elseIfDo+=ElseIfDoSpec*
-		public Assignment getElseIfDoAssignment_5() { return cElseIfDoAssignment_5; }
+		public Assignment getElseIfDoAssignment_6() { return cElseIfDoAssignment_6; }
 		
 		//ElseIfDoSpec
-		public RuleCall getElseIfDoElseIfDoSpecParserRuleCall_5_0() { return cElseIfDoElseIfDoSpecParserRuleCall_5_0; }
+		public RuleCall getElseIfDoElseIfDoSpecParserRuleCall_6_0() { return cElseIfDoElseIfDoSpecParserRuleCall_6_0; }
 		
 		//elseDo=ElseDoSpec?
-		public Assignment getElseDoAssignment_6() { return cElseDoAssignment_6; }
+		public Assignment getElseDoAssignment_7() { return cElseDoAssignment_7; }
 		
 		//ElseDoSpec
-		public RuleCall getElseDoElseDoSpecParserRuleCall_6_0() { return cElseDoElseDoSpecParserRuleCall_6_0; }
+		public RuleCall getElseDoElseDoSpecParserRuleCall_7_0() { return cElseDoElseDoSpecParserRuleCall_7_0; }
+	}
+	public class TriggerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.Trigger");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cResourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cResourceResourceCrossReference_0_0 = (CrossReference)cResourceAssignment_0.eContents().get(0);
+		private final RuleCall cResourceResourceIDTerminalRuleCall_0_0_1 = (RuleCall)cResourceResourceCrossReference_0_0.eContents().get(1);
+		private final Keyword cIsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cStateAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cStateStateCrossReference_2_0 = (CrossReference)cStateAssignment_2.eContents().get(0);
+		private final RuleCall cStateStateIDTerminalRuleCall_2_0_1 = (RuleCall)cStateStateCrossReference_2_0.eContents().get(1);
+		
+		//Trigger:
+		//	resource=[Resource] "is"
+		//	state=[State];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//resource=[Resource] "is" state=[State]
+		public Group getGroup() { return cGroup; }
+		
+		//resource=[Resource]
+		public Assignment getResourceAssignment_0() { return cResourceAssignment_0; }
+		
+		//[Resource]
+		public CrossReference getResourceResourceCrossReference_0_0() { return cResourceResourceCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getResourceResourceIDTerminalRuleCall_0_0_1() { return cResourceResourceIDTerminalRuleCall_0_0_1; }
+		
+		//"is"
+		public Keyword getIsKeyword_1() { return cIsKeyword_1; }
+		
+		//state=[State]
+		public Assignment getStateAssignment_2() { return cStateAssignment_2; }
+		
+		//[State]
+		public CrossReference getStateStateCrossReference_2_0() { return cStateStateCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getStateStateIDTerminalRuleCall_2_0_1() { return cStateStateIDTerminalRuleCall_2_0_1; }
 	}
 	public class IfDoSpecElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nii.bigclout.ecaadapter.Dsl.IfDoSpec");
@@ -1159,6 +1216,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ResourceElements pResource;
 	private final AppMetaDataElements pAppMetaData;
 	private final SpecificationElements pSpecification;
+	private final TriggerElements pTrigger;
 	private final IfDoSpecElements pIfDoSpec;
 	private final ElseIfDoSpecElements pElseIfDoSpec;
 	private final ElseDoSpecElements pElseDoSpec;
@@ -1196,6 +1254,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pResource = new ResourceElements();
 		this.pAppMetaData = new AppMetaDataElements();
 		this.pSpecification = new SpecificationElements();
+		this.pTrigger = new TriggerElements();
 		this.pIfDoSpec = new IfDoSpecElements();
 		this.pElseIfDoSpec = new ElseIfDoSpecElements();
 		this.pElseDoSpec = new ElseDoSpecElements();
@@ -1304,7 +1363,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Specification:
 	//	specID=ID? ('priority' priority=INT)?
-	//	'on' trigger+=OrElement*
+	//	'on' trigger+=Trigger ("," trigger+=Trigger)*
 	//	ifdo=IfDoSpec
 	//	elseIfDo+=ElseIfDoSpec*
 	//	elseDo=ElseDoSpec?;
@@ -1314,6 +1373,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSpecificationRule() {
 		return getSpecificationAccess().getRule();
+	}
+	
+	//Trigger:
+	//	resource=[Resource] "is"
+	//	state=[State];
+	public TriggerElements getTriggerAccess() {
+		return pTrigger;
+	}
+	
+	public ParserRule getTriggerRule() {
+		return getTriggerAccess().getRule();
 	}
 	
 	//IfDoSpec:

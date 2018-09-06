@@ -44,6 +44,8 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAppMetaDataAccess().getGroup(), "rule__AppMetaData__Group__0");
 					put(grammarAccess.getSpecificationAccess().getGroup(), "rule__Specification__Group__0");
 					put(grammarAccess.getSpecificationAccess().getGroup_1(), "rule__Specification__Group_1__0");
+					put(grammarAccess.getSpecificationAccess().getGroup_4(), "rule__Specification__Group_4__0");
+					put(grammarAccess.getTriggerAccess().getGroup(), "rule__Trigger__Group__0");
 					put(grammarAccess.getIfDoSpecAccess().getGroup(), "rule__IfDoSpec__Group__0");
 					put(grammarAccess.getIfDoSpecAccess().getGroup_4(), "rule__IfDoSpec__Group_4__0");
 					put(grammarAccess.getElseIfDoSpecAccess().getGroup(), "rule__ElseIfDoSpec__Group__0");
@@ -96,9 +98,12 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSpecificationAccess().getSpecIDAssignment_0(), "rule__Specification__SpecIDAssignment_0");
 					put(grammarAccess.getSpecificationAccess().getPriorityAssignment_1_1(), "rule__Specification__PriorityAssignment_1_1");
 					put(grammarAccess.getSpecificationAccess().getTriggerAssignment_3(), "rule__Specification__TriggerAssignment_3");
-					put(grammarAccess.getSpecificationAccess().getIfdoAssignment_4(), "rule__Specification__IfdoAssignment_4");
-					put(grammarAccess.getSpecificationAccess().getElseIfDoAssignment_5(), "rule__Specification__ElseIfDoAssignment_5");
-					put(grammarAccess.getSpecificationAccess().getElseDoAssignment_6(), "rule__Specification__ElseDoAssignment_6");
+					put(grammarAccess.getSpecificationAccess().getTriggerAssignment_4_1(), "rule__Specification__TriggerAssignment_4_1");
+					put(grammarAccess.getSpecificationAccess().getIfdoAssignment_5(), "rule__Specification__IfdoAssignment_5");
+					put(grammarAccess.getSpecificationAccess().getElseIfDoAssignment_6(), "rule__Specification__ElseIfDoAssignment_6");
+					put(grammarAccess.getSpecificationAccess().getElseDoAssignment_7(), "rule__Specification__ElseDoAssignment_7");
+					put(grammarAccess.getTriggerAccess().getResourceAssignment_0(), "rule__Trigger__ResourceAssignment_0");
+					put(grammarAccess.getTriggerAccess().getStateAssignment_2(), "rule__Trigger__StateAssignment_2");
 					put(grammarAccess.getIfDoSpecAccess().getConditionAssignment_1(), "rule__IfDoSpec__ConditionAssignment_1");
 					put(grammarAccess.getIfDoSpecAccess().getActionAssignment_3(), "rule__IfDoSpec__ActionAssignment_3");
 					put(grammarAccess.getIfDoSpecAccess().getActionAssignment_4_1(), "rule__IfDoSpec__ActionAssignment_4_1");
